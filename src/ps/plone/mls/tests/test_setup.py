@@ -8,13 +8,13 @@ except ImportError:
     import unittest
 
 # local imports
-from ps.plone.mls.testing import PS_PLONE_MLS_INTEGRATION_TESTING
+from ps.plone.mls.testing import INTEGRATION_TESTING
 
 
 class TestSetup(unittest.TestCase):
     """Validate setup process for ps.plone.mls."""
 
-    layer = PS_PLONE_MLS_INTEGRATION_TESTING
+    layer = INTEGRATION_TESTING
 
     def setUp(self):
         """Additional test setup."""

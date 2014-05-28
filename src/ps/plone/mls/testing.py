@@ -2,15 +2,18 @@
 """Test Layer for ps.plone.mls."""
 
 # zope imports
+from plone.app.robotframework.testing import AUTOLOGIN_LIBRARY_FIXTURE
 from plone.app.testing import (
+    FunctionalTesting,
     IntegrationTesting,
     PloneSandboxLayer,
     PLONE_FIXTURE,
 )
+from plone.testing import z2
 from zope.configuration import xmlconfig
 
 
-class PSPloneMLS(PloneSandboxLayer):
+class Fixture(PloneSandboxLayer):
     """Custom Test Layer for ps.plone.mls."""
     defaultBases = (PLONE_FIXTURE, )
 
@@ -29,8 +32,17 @@ class PSPloneMLS(PloneSandboxLayer):
         self.applyProfile(portal, 'ps.plone.mls:default')
 
 
-PS_PLONE_MLS_FIXTURE = PSPloneMLS()
-PS_PLONE_MLS_INTEGRATION_TESTING = IntegrationTesting(
-    bases=(PS_PLONE_MLS_FIXTURE, ),
-    name='PSPloneMLS:Integration',
+FIXTURE = Fixture()
+INTEGRATION_TESTING = IntegrationTesting(
+    bases=(FIXTURE, ),
+    name='ps.plone.mls:Integration',
 )
+
+FUNCTIONAL_TESTING = FunctionalTesting(
+    bases=(FIXTURE, z2.ZSERVER_FIXTURE),
+    name='ps.plone.mls:Functional',
+)
+
+ROBOT_TESTING = FunctionalTesting(
+    bases=(FIXTURE, AUTOLOGIN_LIBRARY_FIXTURE, z2.ZSERVER_FIXTURE),
+    name='ps.plone.mls:Robot')

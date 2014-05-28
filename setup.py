@@ -48,6 +48,7 @@ setup(
     zip_safe=False,
     extras_require=dict(
         test=[
+            'plone.app.robotframework',
             'plone.app.testing',
         ],
     ),
