@@ -26,6 +26,11 @@ class TestSetup(unittest.TestCase):
         qi = self.portal.portal_quickinstaller
         self.assertTrue(qi.isProductInstalled('ps.plone.mls'))
 
+    def test_plone_app_dexterity_installed(self):
+        """Validate that plone.app.dexterity is installed."""
+        qi = self.portal.portal_quickinstaller
+        self.assertTrue(qi.isProductInstalled('plone.app.dexterity'))
+
     def test_plone_mls_listing_installed(self):
         """Validate that plone.mls.listing is installed."""
         qi = self.portal.portal_quickinstaller
