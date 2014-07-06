@@ -2,6 +2,7 @@
     xmlns="http://namespaces.zope.org/zope"
     xmlns:five="http://namespaces.zope.org/five"
     xmlns:i18n="http://namespaces.zope.org/i18n"
+    xmlns:zcml="http://namespaces.zope.org/zcml"
     i18n_domain="ps.plone.mls">
 
   <five:registerPackage package="." initialize=".initialize" />
@@ -10,5 +11,20 @@
   <!-- ============================= -->
   <includeDependencies package="." />
   <include file="profiles.zcml" />
+
+
+  <class class="Products.Archetypes.BaseObject.BaseObject" zcml:condition="installed Products.Archetypes">
+    <implements interface="plone.mls.listing.browser.listing_collection.IPossibleListingCollection" />
+    <implements interface="plone.mls.listing.browser.listing_search.IPossibleListingSearch" />
+    <implements interface="plone.mls.listing.browser.recent_listings.IPossibleRecentListings" />
+    <implements interface="plone.mls.listing.interfaces.IPossibleLocalAgencyInfo" />
+  </class>
+
+  <class class="plone.dexterity.content.Item" zcml:condition="installed plone.mls.listing">
+    <implements interface="plone.mls.listing.browser.listing_collection.IPossibleListingCollection" />
+    <implements interface="plone.mls.listing.browser.listing_search.IPossibleListingSearch" />
+    <implements interface="plone.mls.listing.browser.recent_listings.IPossibleRecentListings" />
+    <implements interface="plone.mls.listing.interfaces.IPossibleLocalAgencyInfo" />
+  </class>
 
 </configure>
