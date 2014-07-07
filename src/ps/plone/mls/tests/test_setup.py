@@ -23,7 +23,6 @@ class TestSetup(unittest.TestCase):
 
     def setUp(self):
         """Additional test setup."""
-        self.app = self.layer['app']
         self.portal = self.layer['portal']
 
     def test_product_is_installed(self):
@@ -53,7 +52,6 @@ class UninstallTestCase(unittest.TestCase):
 
     def setUp(self):
         """Additional test setup."""
-        self.app = self.layer['app']
         self.portal = self.layer['portal']
 
         qi = self.portal.portal_quickinstaller
