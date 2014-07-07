@@ -13,6 +13,7 @@ long_description = ('\n'.join([
 install_requires = [
     'setuptools',
     # -*- Extra requirements: -*-
+    'plone.api',
     'plone.app.dexterity',
     'plone.mls.listing >= 0.9.11',
 ]
