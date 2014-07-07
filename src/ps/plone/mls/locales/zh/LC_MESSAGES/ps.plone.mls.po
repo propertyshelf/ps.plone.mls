@@ -1,0 +1,39 @@
+# 
+# Translators:
+# Thomas Massmann <thomas.massmann@it-spir.it>, 2014
+msgid ""
+msgstr ""
+"Project-Id-Version: MLS Plone Components\n"
+"POT-Creation-Date: 2014-07-07 12:47+0000\n"
+"PO-Revision-Date: 2014-07-07 13:08+0000\n"
+"Last-Translator: Thomas Massmann <thomas.massmann@it-spir.it>\n"
+"Language-Team: Chinese (http://www.transifex.com/projects/p/MLS_Plone/language/zh/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Domain: ps.plone.mls\n"
+"Language: zh\n"
+"Language-Code: en\n"
+"Language-Name: English\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"Preferred-Encodings: utf-8 latin1\n"
+
+#: ps/plone/mls/profiles/default/types/ps.plone.mls.featured.xml
+msgid "A static collection of featured MLS Listings"
+msgstr "收集所有推薦房地產物件"
+
+#: ps/plone/mls/content/featured.py:21
+msgid "Add one Listing ID for each entry to show up."
+msgstr "新增房地產物件編號"
+
+#: ps/plone/mls/profiles/default/types/ps.plone.mls.featured.xml
+msgid "Featured Listings"
+msgstr "推薦房地產物件"
+
+#: ps/plone/mls/content/featured.py:25
+msgid "ID"
+msgstr "房地產物件編號"
+
+#: ps/plone/mls/content/featured.py:22
+msgid "MLS Listing IDs"
+msgstr "房地產物件編號"
