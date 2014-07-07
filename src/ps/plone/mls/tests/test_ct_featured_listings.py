@@ -7,6 +7,7 @@ import unittest2 as unittest
 # zope imports
 from Products.CMFCore.utils import getToolByName
 from plone import api
+from plone.app.content.interfaces import INameFromTitle
 from plone.app.dexterity.behaviors.exclfromnav import IExcludeFromNavigation
 from plone.dexterity.interfaces import IDexterityFTI
 from zope.component import createObject, queryUtility
@@ -30,7 +31,7 @@ class FeaturedListingsIntegrationTestCase(unittest.TestCase):
         with api.env.adopt_roles(['Manager']):
             self.folder = api.content.create(self.portal, 'Folder', 'folder')
 
-        self.ct = api.content.create(self.folder, CT, 'fl1')
+        self.ct = api.content.create(self.folder, CT, 'ct1')
 
     def test_ct_available(self):
         """Validate that the content type is available."""
@@ -61,4 +62,10 @@ class FeaturedListingsIntegrationTestCase(unittest.TestCase):
 
     def test_behaviors(self):
         """Validate that the required behaviors are available."""
+        self.assertTrue(INameFromTitle.providedBy(self.ct))
         self.assertTrue(IExcludeFromNavigation.providedBy(self.ct))
+
+    def test_selectable_as_folder_default_view(self):
+        """Validate that we can set our content type as a default view."""
+        self.folder.setDefaultPage('ct1')
+        self.assertEqual(self.folder.getDefaultPage(), 'ct1')
