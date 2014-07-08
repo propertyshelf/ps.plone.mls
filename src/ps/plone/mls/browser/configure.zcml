@@ -5,8 +5,16 @@
 
   <!-- Traversing Adapter. -->
   <!-- =================== -->
+
+  <!-- Basic Listing Traverser. -->
   <adapter
       factory=".traversal.ListingTraverser"
+      permission="zope2.View"
+      />
+
+  <!-- Featured Listings specific Traverser. -->
+  <adapter
+      factory=".traversal.FeaturedListingsTraverser"
       permission="zope2.View"
       />
 
