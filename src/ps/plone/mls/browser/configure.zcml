@@ -18,4 +18,16 @@
       permission="zope2.View"
       />
 
+
+  <!-- Breadcrumb Navigation. -->
+  <!-- ====================== -->
+  <browser:page
+      allowed_attributes="breadcrumbs"
+      class=".navigation.ListingDetailsNavigationBreadcrumbs"
+      for="ps.plone.mls.interfaces.IListingTraversable"
+      layer=".interfaces.IPloneMLSLayer"
+      name="breadcrumbs_view"
+      permission="zope.Public"
+      />
+
 </configure>
