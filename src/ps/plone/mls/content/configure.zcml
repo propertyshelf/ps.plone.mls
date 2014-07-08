@@ -7,7 +7,7 @@
     <implements interface="ps.plone.mls.browser.listings.featured.IPossibleFeaturedListings" />
   </class>
 
-  <class class="plone.dexterity.content.Item">
+  <class class="Products.Archetypes.BaseObject.BaseObject" zcml:condition="installed Products.Archetypes">
     <implements interface="ps.plone.mls.browser.listings.featured.IPossibleFeaturedListings" />
   </class>
 
