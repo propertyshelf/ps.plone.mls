@@ -26,7 +26,7 @@
     <implements interface="plone.mls.listing.interfaces.IPossibleLocalAgencyInfo" />
   </class>
 
-  <class class="plone.dexterity.content.Item" zcml:condition="installed plone.mls.listing">
+  <class class="plone.dexterity.content.DexterityContent" zcml:condition="installed plone.dexterity">
     <implements interface="plone.mls.listing.browser.listing_collection.IPossibleListingCollection" />
     <implements interface="plone.mls.listing.browser.listing_search.IPossibleListingSearch" />
     <implements interface="plone.mls.listing.browser.recent_listings.IPossibleRecentListings" />
