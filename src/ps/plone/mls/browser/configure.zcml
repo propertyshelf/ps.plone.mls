@@ -8,6 +8,15 @@
   <include package=".listings" />
 
 
+  <!-- Browser Resources. -->
+  <!-- ================== -->
+  <browser:resourceDirectory
+      directory="static"
+      layer=".interfaces.IPloneMLSLayer"
+      name="ps.plone.mls"
+      />
+
+
   <!-- Traversing Adapter. -->
   <!-- =================== -->
 
