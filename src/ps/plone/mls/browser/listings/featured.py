@@ -5,12 +5,20 @@
 from plone.app.layout.viewlets.common import ViewletBase
 from plone.autoform import directives
 from plone.directives import form
+from plone.memoize.view import memoize
+from plone.mls.core.utils import (
+    MLSConnectionError,
+    MLSDataError,
+    get_language,
+    get_listing,
+)
 from plone.mls.listing.browser.interfaces import IListingDetails
 from plone.supermodel import model
 from z3c.form import button
 from z3c.form.browser.multi import multiFieldWidgetFactory
 from zope import schema
 from zope.annotation.interfaces import IAnnotations
+from zope.component import queryMultiAdapter
 from zope.interface import Interface, alsoProvides, noLongerProvides
 from zope.traversing.browser.absoluteurl import absoluteURL
 
@@ -43,6 +51,41 @@ class FeaturedListingsViewlet(ViewletBase):
         """Get view configuration data from annotations."""
         annotations = IAnnotations(self.context)
         return annotations.get(CONFIGURATION_KEY, {})
+
+    def update(self):
+        """Prepare view related data."""
+        super(FeaturedListingsViewlet, self).update()
+        self.context_state = queryMultiAdapter(
+            (self.context, self.request), name='plone_context_state',
+        )
+
+    @property
+    @memoize
+    def listings(self):
+        listings = []
+        lang = get_language(self.context)
+        for listing in self.config.get('listing_ids', []):
+            try:
+                raw = get_listing(listing, summary=True, lang=lang)
+            except (MLSDataError, MLSConnectionError), e:
+                if e.code == '503':
+                    break
+                else:
+                    self.error_listings.append(listing)
+                    continue
+            if raw is not None:
+                listing = raw.get('listing', None)
+                if listing is not None:
+                    listings.append(listing)
+        return listings
+
+    @memoize
+    def view_url(self):
+        """Generate view url."""
+        if not self.context_state.is_view_template():
+            return self.context_state.current_base_url()
+        else:
+            return absoluteURL(self.context, self.request) + '/'
 
 
 class IFeaturedListingsConfiguration(model.Schema):
