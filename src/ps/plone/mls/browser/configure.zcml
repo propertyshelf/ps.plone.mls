@@ -1,0 +1,13 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    i18n_domain="ps.plone.mls">
+
+  <!-- Traversing Adapter. -->
+  <!-- =================== -->
+  <adapter
+      factory=".traversal.ListingTraverser"
+      permission="zope2.View"
+      />
+
+</configure>

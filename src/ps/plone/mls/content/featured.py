@@ -12,7 +12,7 @@ from zope import schema
 from zope.interface import implementer
 
 # local import
-from ps.plone.mls import _
+from ps.plone.mls import _, interfaces
 
 
 class IFeaturedListings(model.Schema):
@@ -35,6 +35,9 @@ class IFeaturedListings(model.Schema):
     )
 
 
-@implementer(IFeaturedListings)
+@implementer(
+    IFeaturedListings,
+    interfaces.IListingTraversable,
+)
 class FeaturedListings(Item):
     """A list of featured MLS Listings."""
