@@ -1,0 +1,30 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    i18n_domain="ps.plone.mls">
+
+  <browser:page
+      class=".featured.FeaturedListingsConfiguration"
+      for=".featured.IFeaturedListings"
+      layer="ps.plone.mls.browser.interfaces.IPloneMLSLayer"
+      name="featured-listings-config"
+      permission="cmf.ModifyPortalContent"
+      />
+
+  <browser:page
+      class=".featured.FeaturedListingsStatus"
+      for="*"
+      layer="ps.plone.mls.browser.interfaces.IPloneMLSLayer"
+      name="featured-listings-status"
+      permission="cmf.ModifyPortalContent"
+      />
+
+  <browser:page
+      class=".featured.FeaturedListingsToggle"
+      for="*"
+      layer="ps.plone.mls.browser.interfaces.IPloneMLSLayer"
+      name="featured-listings-toggle"
+      permission="cmf.ModifyPortalContent"
+      />
+
+</configure>
