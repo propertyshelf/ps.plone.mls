@@ -3,6 +3,16 @@
     xmlns:browser="http://namespaces.zope.org/browser"
     i18n_domain="ps.plone.mls">
 
+  <browser:viewlet
+      class=".featured.FeaturedListingsViewlet"
+      for=".featured.IFeaturedListings"
+      layer="ps.plone.mls.browser.interfaces.IPloneMLSLayer"
+      manager="plone.app.layout.viewlets.interfaces.IBelowContentBody"
+      name="ps.plone.mls.listings.featured"
+      permission="zope2.View"
+      template="templates/featured_listings_viewlet.pt"
+      />
+
   <browser:page
       class=".featured.FeaturedListingsConfiguration"
       for=".featured.IFeaturedListings"
