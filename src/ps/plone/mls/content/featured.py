@@ -5,9 +5,11 @@ from Products.ATContentTypes import ATCTMessageFactory as ATMF
 from plone.app.textfield import RichText
 from plone.app.textfield.widget import RichTextFieldWidget
 from plone.autoform import directives
+from plone.dexterity.content import Item
 from plone.supermodel import model
 from z3c.form.browser.multi import multiFieldWidgetFactory
 from zope import schema
+from zope.interface import implementer
 
 # local import
 from ps.plone.mls import _
@@ -31,3 +33,8 @@ class IFeaturedListings(model.Schema):
         required=False,
         title=ATMF(u'label_body_text', default=u'Body Text'),
     )
+
+
+@implementer(IFeaturedListings)
+class FeaturedListings(Item):
+    """A list of featured MLS Listings."""

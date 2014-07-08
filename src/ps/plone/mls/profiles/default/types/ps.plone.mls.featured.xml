@@ -9,7 +9,7 @@
   <property name="title" i18n:translate="">Featured Listings</property>
   <property name="description" i18n:translate="">A static collection of featured MLS Listings</property>
   <property name="icon_expr">string:${portal_url}/topic_icon.png</property>
-  <property name="factory">featured</property>
+  <property name="factory">ps.plone.mls.content.featured</property>
   <property name="add_view_expr">string:${folder_url}/++add++ps.plone.mls.featured</property>
   <property name="link_target"></property>
   <property name="immediate_view">view</property>
@@ -27,7 +27,7 @@
 
   <!-- Class used for content items. -->
   <!-- ============================= -->
-  <property name="klass">plone.dexterity.content.Item</property>
+  <property name="klass">ps.plone.mls.content.featured.FeaturedListings</property>
 
   <!-- Add permission. -->
   <!-- =============== -->
