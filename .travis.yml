@@ -16,3 +16,5 @@ branches:
 script: bin/code-analysis && bin/test
 notifications:
   irc: irc.freenode.org#propertyshelf
+  hipchat:
+    secure: "DNFt17qIiF4pD0XskghAx1qRiSbLu9vdr+KnxeJLgzVBX1mnIJScxO6pEZ0ZK+2ivjXNpmqHd/wkyWs38zBV9MNoih8t6IRmAnJ/4/+E+rbQ3zye8mcBsrvDwhtUKYDpJOHVfuQJjwco0ro+LnW200q/x3LJ7vmw+oPBka8HNSk="
