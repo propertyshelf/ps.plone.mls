@@ -2,6 +2,9 @@
 """Featured Listings Viewlet."""
 
 # zope imports
+from collective.z3cform.widgets.enhancedtextlines import (
+    EnhancedTextLinesFieldWidget,
+)
 from plone.app.layout.viewlets.common import ViewletBase
 from plone.autoform import directives
 from plone.directives import form
@@ -15,7 +18,6 @@ from plone.mls.core.utils import (
 from plone.mls.listing.browser.interfaces import IListingDetails
 from plone.supermodel import model
 from z3c.form import button
-from z3c.form.browser.multi import multiFieldWidgetFactory
 from zope import schema
 from zope.annotation.interfaces import IAnnotations
 from zope.component import queryMultiAdapter
@@ -91,7 +93,7 @@ class FeaturedListingsViewlet(ViewletBase):
 class IFeaturedListingsConfiguration(model.Schema):
     """Featured Listings Configuration Form Schema."""
 
-    directives.widget(listing_ids=multiFieldWidgetFactory)
+    directives.widget(listing_ids=EnhancedTextLinesFieldWidget)
     listing_ids = schema.List(
         description=_(u'Add one Listing ID for each entry to show up.'),
         title=_(u'MLS Listing IDs'),
