@@ -57,6 +57,7 @@ class FeaturedListingsViewlet(ViewletBase):
     def update(self):
         """Prepare view related data."""
         super(FeaturedListingsViewlet, self).update()
+        self.failed_listings = []
         self.context_state = queryMultiAdapter(
             (self.context, self.request), name='plone_context_state',
         )
@@ -73,7 +74,7 @@ class FeaturedListingsViewlet(ViewletBase):
                 if e.code == '503':
                     break
                 else:
-                    self.error_listings.append(listing)
+                    self.failed_listings.append(listing)
                     continue
             if raw is not None:
                 listing = raw.get('listing', None)
