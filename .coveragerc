@@ -4,5 +4,7 @@ omit =
     /usr/*
     bin/test
     buildout-cache/eggs/*
+    checkouts/*
+    docs/*
     eggs/*
     parts/*
