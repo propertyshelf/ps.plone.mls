@@ -35,6 +35,11 @@ class TestSetup(unittest.TestCase):
         layers = [l.getName() for l in registered_layers()]
         self.assertIn('IPloneMLSLayer', layers)
 
+    def test_collective_z3cform_widgets_installed(self):
+        """Validate that collective.z3cform.widgets is installed."""
+        qi = self.portal.portal_quickinstaller
+        self.assertTrue(qi.isProductInstalled('collective.z3cform.widgets'))
+
     def test_plone_app_dexterity_installed(self):
         """Validate that plone.app.dexterity is installed."""
         qi = self.portal.portal_quickinstaller
