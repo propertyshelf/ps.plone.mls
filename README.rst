@@ -3,6 +3,8 @@ ps.plone.mls
 
 `Propertyshelf`_ MLS Plone Embedding.
 
+Read the full documentation at `<http://psplonemls.readthedocs.org/en/latest>`_.
+
 
 Mostly Harmless
 ---------------
