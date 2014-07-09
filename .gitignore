@@ -9,8 +9,7 @@ checkouts/
 coverage/
 develop-eggs/
 dist/
-docs/html/
-docs/doctrees/
+docs/build/
 downloads/
 eggs/
 parts/
