@@ -23,7 +23,6 @@
   <property name="schema">ps.plone.mls.content.featured.IFeaturedListings</property>
   <property name="model_source"></property>
   <property name="model_file"></property>
-  <property name="schema_policy">dexterity</property>
 
   <!-- Class used for content items. -->
   <!-- ============================= -->
