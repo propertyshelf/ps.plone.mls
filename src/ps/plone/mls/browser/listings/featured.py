@@ -5,6 +5,7 @@
 from collective.z3cform.widgets.enhancedtextlines import (
     EnhancedTextLinesFieldWidget,
 )
+from plone import api
 from plone.app.layout.viewlets.common import ViewletBase
 from plone.autoform import directives
 from plone.directives import form
@@ -188,5 +189,7 @@ class FeaturedListingsToggle(object):
             )
             msg_type = 'error'
 
-        self.context.plone_utils.addPortalMessage(msg, msg_type)
+        api.portal.show_message(
+            message=msg, request=self.request, type=msg_type,
+        )
         self.request.response.redirect(self.context.absolute_url())
