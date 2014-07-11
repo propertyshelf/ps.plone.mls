@@ -10,7 +10,7 @@
       manager="plone.app.layout.viewlets.interfaces.IBelowContentBody"
       name="ps.plone.mls.listings.featured"
       permission="zope2.View"
-      template="templates/featured_listings_viewlet.pt"
+      template="templates/listing_results.pt"
       />
 
   <browser:page
