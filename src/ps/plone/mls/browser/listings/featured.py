@@ -9,12 +9,8 @@ from plone.app.layout.viewlets.common import ViewletBase
 from plone.autoform import directives
 from plone.directives import form
 from plone.memoize.view import memoize
-from plone.mls.core.utils import (
-    MLSConnectionError,
-    MLSDataError,
-    get_language,
-    get_listing,
-)
+from plone.mls.core.navigation import ListingBatch
+from plone.mls.listing.api import prepare_search_params, search
 from plone.mls.listing.browser.interfaces import IListingDetails
 from plone.supermodel import model
 from z3c.form import button
@@ -57,30 +53,34 @@ class FeaturedListingsViewlet(ViewletBase):
     def update(self):
         """Prepare view related data."""
         super(FeaturedListingsViewlet, self).update()
-        self.failed_listings = []
         self.context_state = queryMultiAdapter(
             (self.context, self.request), name='plone_context_state',
         )
+        self.limit = self.config.get('limit', 25)
+        self._get_listings()
+
+    def _get_listings(self):
+        """Query the recent listings from the MLS."""
+        params = {
+            'limit': 0,
+            'offset': 0,
+            'lang': self.portal_state.language(),
+        }
+        params.update(self.config)
+        params = prepare_search_params(params)
+        results, batching = search(params, context=self.context)
+        # sort the results based on the listings_ids
+        results = [(item['id']['value'], item) for item in results]
+        results = dict(results)
+        listing_ids = self.config.get('listing_ids', [])
+        self._listings = [results.get(id) for id in listing_ids]
+        self._batching = batching
 
     @property
     @memoize
     def listings(self):
-        listings = []
-        lang = get_language(self.context)
-        for listing in self.config.get('listing_ids', []):
-            try:
-                raw = get_listing(listing, summary=True, lang=lang)
-            except (MLSDataError, MLSConnectionError), e:
-                if e.code == '503':
-                    break
-                else:
-                    self.failed_listings.append(listing)
-                    continue
-            if raw is not None:
-                listing = raw.get('listing', None)
-                if listing is not None:
-                    listings.append(listing)
-        return listings
+        """Return listing results."""
+        return self._listings
 
     @memoize
     def view_url(self):
@@ -89,6 +89,14 @@ class FeaturedListingsViewlet(ViewletBase):
             return self.context_state.current_base_url()
         else:
             return absoluteURL(self.context, self.request) + '/'
+
+    @property
+    def batching(self):
+        return ListingBatch(
+            self.listings, self.limit, self.request.get('b_start', 0),
+            orphan=1,
+            batch_data=self._batching,
+        )
 
 
 class IFeaturedListingsConfiguration(model.Schema):
