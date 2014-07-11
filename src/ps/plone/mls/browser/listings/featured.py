@@ -53,6 +53,7 @@ class FeaturedListingsViewlet(ViewletBase):
 
     def update(self):
         """Prepare view related data."""
+        self._listings = None
         super(FeaturedListingsViewlet, self).update()
         self.context_state = queryMultiAdapter(
             (self.context, self.request), name='plone_context_state',
@@ -62,6 +63,9 @@ class FeaturedListingsViewlet(ViewletBase):
 
     def _get_listings(self):
         """Query the recent listings from the MLS."""
+        listing_ids = self.config.get('listing_ids', [])
+        if len(listing_ids) == 0:
+            return
         params = {
             'limit': 0,
             'offset': 0,
@@ -69,13 +73,14 @@ class FeaturedListingsViewlet(ViewletBase):
         }
         params.update(self.config)
         params = prepare_search_params(params)
-        results, batching = search(params, context=self.context)
+        results = search(params, batching=False, context=self.context)
+        if results is None or len(results) == 0:
+            return
+
         # sort the results based on the listings_ids
         results = [(item['id']['value'], item) for item in results]
         results = dict(results)
-        listing_ids = self.config.get('listing_ids', [])
         self._listings = [results.get(id) for id in listing_ids]
-        self._batching = batching
 
     @property
     @memoize
@@ -96,7 +101,7 @@ class FeaturedListingsViewlet(ViewletBase):
         return ListingBatch(
             self.listings, self.limit, self.request.get('b_start', 0),
             orphan=1,
-            batch_data=self._batching,
+            batch_data=None,
         )
 
 
