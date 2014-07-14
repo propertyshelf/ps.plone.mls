@@ -37,4 +37,13 @@
       permission="cmf.ModifyPortalContent"
       />
 
+  <browser:page
+      class=".featured.FeaturedListings"
+      for="ps.plone.mls.content.featured.IFeaturedListings"
+      layer="ps.plone.mls.browser.interfaces.IPloneMLSLayer"
+      name="view"
+      permission="zope2.View"
+      template="templates/featured.pt"
+      />
+
 </configure>

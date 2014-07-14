@@ -19,6 +19,7 @@ from zope import schema
 from zope.annotation.interfaces import IAnnotations
 from zope.component import queryMultiAdapter
 from zope.interface import Interface, alsoProvides, noLongerProvides
+from zope.publisher.browser import BrowserView
 from zope.traversing.browser.absoluteurl import absoluteURL
 
 # local imports
@@ -77,10 +78,12 @@ class FeaturedListingsViewlet(ViewletBase):
         if results is None or len(results) == 0:
             return
 
-        # sort the results based on the listings_ids
+        # sort the results based on the listing_ids
         results = [(item['id']['value'], item) for item in results]
         results = dict(results)
-        self._listings = [results.get(id) for id in listing_ids]
+        self._listings = [
+            results.get(id) for id in listing_ids if id in results
+        ]
 
     @property
     @memoize
@@ -198,3 +201,42 @@ class FeaturedListingsToggle(object):
             message=msg, request=self.request, type=msg_type,
         )
         self.request.response.redirect(self.context.absolute_url())
+
+
+class FeaturedListings(BrowserView):
+    """Featured Listings view"""
+
+    def __init__(self, context, request):
+        super(FeaturedListings, self).__init__(context, request)
+        self.portal_state = queryMultiAdapter(
+            (self.context, self.request), name='plone_portal_state',
+        )
+
+    def _get_listings(self):
+        """Query the recent listings from the MLS."""
+        listing_ids = self.context.listing_ids
+        if len(listing_ids) == 0:
+            return
+        params = {
+            'limit': 0,
+            'offset': 0,
+            'lang': self.portal_state.language(),
+        }
+        params.update({
+            'listing_ids': listing_ids,
+        })
+        params = prepare_search_params(params)
+        results = search(params, batching=False, context=self.context)
+        if results is None or len(results) == 0:
+            return
+
+        # sort the results based on the listing_ids
+        results = [(item['id']['value'], item) for item in results]
+        results = dict(results)
+        return [results.get(id) for id in listing_ids if id in results]
+
+    @property
+    @memoize
+    def listings(self):
+        """Return listing results."""
+        return self._get_listings()
