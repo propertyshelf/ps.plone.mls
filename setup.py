@@ -14,6 +14,7 @@ install_requires = [
     'setuptools',
     # -*- Extra requirements: -*-
     'collective.z3cform.widgets',
+    'mls.apiclient',
     'plone.api',
     'plone.app.dexterity',
     'plone.mls.listing >= 0.9.11',
@@ -51,6 +52,7 @@ setup(
     zip_safe=False,
     extras_require=dict(
         test=[
+            'httpretty',
             'plone.app.robotframework',
             'plone.app.testing',
         ],
