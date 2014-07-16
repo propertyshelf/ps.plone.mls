@@ -18,3 +18,28 @@ Show how to activate the add-on
     ...  setup_select_add_on.png
     ...  css=label[for="ps.plone.mls"]
     ...  ${note1}
+
+
+Show how to activate the listing collection
+    Create content  type=Folder
+    ...  id=${FOLDER_ID}
+    ...  title=A folder
+    ...  description=This is the folder
+    Go to  ${PLONE_URL}/${FOLDER_ID}
+
+    Page should contain element  css=#plone-contentmenu-actions dt a
+    Click link  css=#plone-contentmenu-actions dt a
+    Wait until element is visible
+    ...  css=#plone-contentmenu-actions dd.actionMenuContent
+
+    ${note1}  Add pointy note  css=#plone-contentmenu-actions-listing-collection-activate
+    ...  Click to activate the Listing Collection
+    ...  position=left
+    Mouse over  css=#plone-contentmenu-actions-listing-collection-activate
+    Update element style  portal-footer  display  none
+
+    Capture and crop page screenshot
+    ...  activate_listing_collection.png
+    ...  contentActionMenus
+    ...  css=#portal-column-content
+    ...  ${note1}
