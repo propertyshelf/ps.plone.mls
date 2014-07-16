@@ -1,6 +1,15 @@
 Embedding Listings
 ==================
 
+There are currently 3 different types of listing embeddings available:
+
+- The *Listing Collection*
+- The *Recent Listings*
+- The *Featured Listings*
+
+The following sections will show you how you can enable and configure those embeddings.
+
+
 Activate a Listing Collection
 -----------------------------
 
