@@ -11,8 +11,6 @@ coverage/
 develop-eggs/
 dist/
 docs/build/
-docs/Makefile
-docs/make.bat
 downloads/
 eggs/
 parts/
