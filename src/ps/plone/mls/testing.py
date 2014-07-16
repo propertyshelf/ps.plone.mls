@@ -2,14 +2,14 @@
 """Test Layer for ps.plone.mls."""
 
 # zope imports
-from plone.app.robotframework.testing import AUTOLOGIN_LIBRARY_FIXTURE
+from plone.app.robotframework.testing import REMOTE_LIBRARY_BUNDLE_FIXTURE
 from plone.app.testing import (
     FunctionalTesting,
     IntegrationTesting,
     PloneSandboxLayer,
     PLONE_FIXTURE,
 )
-from plone.testing import z2
+from plone.testing import Layer, z2
 from zope.configuration import xmlconfig
 
 
@@ -43,6 +43,8 @@ FUNCTIONAL_TESTING = FunctionalTesting(
     name='ps.plone.mls:Functional',
 )
 
-ROBOT_TESTING = FunctionalTesting(
-    bases=(FIXTURE, AUTOLOGIN_LIBRARY_FIXTURE, z2.ZSERVER_FIXTURE),
-    name='ps.plone.mls:Robot')
+ACCEPTANCE_TESTING = FunctionalTesting(
+    bases=(FIXTURE, REMOTE_LIBRARY_BUNDLE_FIXTURE, z2.ZSERVER_FIXTURE),
+    name='ps.plone.mls:Acceptance')
+
+ROBOT_TESTING = Layer(name='ps.plone.mls:Robot')
