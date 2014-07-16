@@ -55,6 +55,7 @@ setup(
             'httpretty',
             'plone.app.robotframework',
             'plone.app.testing',
+            'robotframework-selenium2screenshots',
         ],
     ),
     install_requires=install_requires,
