@@ -30,6 +30,7 @@ class Fixture(PloneSandboxLayer):
     def setUpPloneSite(self, portal):
         """Set up a Plone site for testing."""
         self.applyProfile(portal, 'ps.plone.mls:default')
+        self.applyProfile(portal, 'ps.plone.mls:testfixture')
 
 
 FIXTURE = Fixture()
