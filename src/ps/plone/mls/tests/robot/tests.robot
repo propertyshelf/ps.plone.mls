@@ -21,6 +21,7 @@ Show how to activate the add-on
 
 
 Show how to activate the listing collection
+    Enable autologin as  Site Administrator
     Create content  type=Folder
     ...  id=${FOLDER_ID}
     ...  title=A folder

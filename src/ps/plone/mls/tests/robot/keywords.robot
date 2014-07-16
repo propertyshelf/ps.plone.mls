@@ -13,9 +13,6 @@ Setup
     Setup Plone site  ps.plone.mls.testing.ACCEPTANCE_TESTING
     Import library  Remote  ${PLONE_URL}/RobotRemote
 
-    Enable autologin as  Site Administrator
-    Set autologin username  test-user-1
-
 Teardown
     Teardown Plone Site
 
