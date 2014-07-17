@@ -11,14 +11,18 @@ Suite Teardown  Teardown
 Show how to activate the add-on
     Enable autologin as  Manager
     Go to  ${PLONE_URL}/prefs_install_products_form
-    ${note1}  Add pointy note  css=label[for="ps.plone.mls"]
-    ...  Select the item to install the add-on
-    ...  position=left
+    Page should contain element  id=ps.plone.mls
+    Assign id to element
+    ...  xpath=//*[@id='ps.plone.mls']/parent::*
+    ...  addons-ps-plone-mls
+    Assign id to element
+    ...  xpath=//*[@id='ps.plone.mls']/ancestor::form
+    ...  addons-enabled
+
+    Highlight  addons-ps-plone-mls
     Capture and crop page screenshot
     ...  setup_select_add_on.png
-    ...  css=label[for="ps.plone.mls"]
-    ...  ${note1}
-    Remove elements  ${note1}
+    ...  id=addons-enabled
 
 
 Show how to configure the base MLS settings
