@@ -25,6 +25,8 @@
     <implements interface="plone.mls.listing.browser.listing_search.IPossibleListingSearch" />
     <implements interface="plone.mls.listing.browser.recent_listings.IPossibleRecentListings" />
     <implements interface="plone.mls.listing.interfaces.IPossibleLocalAgencyInfo" />
+
+    <implements interface="ps.plone.mls.interfaces.IPossibleDevelopmentCollection" />
   </class>
 
   <class class="plone.dexterity.content.DexterityContent" zcml:condition="installed plone.dexterity">
@@ -32,6 +34,8 @@
     <implements interface="plone.mls.listing.browser.listing_search.IPossibleListingSearch" />
     <implements interface="plone.mls.listing.browser.recent_listings.IPossibleRecentListings" />
     <implements interface="plone.mls.listing.interfaces.IPossibleLocalAgencyInfo" />
+
+    <implements interface="ps.plone.mls.interfaces.IPossibleDevelopmentCollection" />
   </class>
 
 </configure>
