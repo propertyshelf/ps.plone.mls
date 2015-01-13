@@ -20,4 +20,17 @@
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
 
+
+  <!-- GenericSetup Upgrade Steps. -->
+  <!-- =========================== -->
+  <genericsetup:upgradeStep
+      title="Upgrade ps.plone.mls"
+      description="Adds developer MLS functionality."
+      source="1000"
+      destination="1001"
+      handler=".migration.migrate_to_1001"
+      sortkey="1"
+      profile="ps.plone.mls:default"
+      />
+
 </configure>
