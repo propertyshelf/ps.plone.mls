@@ -7,7 +7,7 @@ from plone.directives import form
 from plone.memoize.view import memoize
 from z3c.form import field, button
 # from z3c.form.browser import checkbox
-# from zope import schema
+from zope import schema
 from zope.annotation.interfaces import IAnnotations
 from zope.component import queryMultiAdapter
 from zope.interface import Interface, alsoProvides, noLongerProvides
@@ -185,11 +185,11 @@ class IDevelopmentCollectionConfiguration(Interface):
     #     ),
     # )
 
-    # limit = schema.Int(
-    #     default=25,
-    #     required=False,
-    #     title=_(u'Items per Page'),
-    # )
+    limit = schema.Int(
+        default=5,
+        required=False,
+        title=_(u'Items per Page'),
+    )
 
 
 class DevelopmentCollectionConfiguration(form.Form):
