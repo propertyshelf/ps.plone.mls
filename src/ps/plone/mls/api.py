@@ -4,13 +4,15 @@
 # zope imports
 from mls.apiclient import api, resources
 from plone.mls.core.api import get_settings
+import Globals
 
 
-def get_api(context=None, lang=None, debug=None):
+def get_api(context=None, lang=None):
     """Get the API Client based on the local configuration."""
     settings = get_settings(context=context)
     base_url = settings.get('mls_site', None)
     api_key = settings.get('mls_key', None)
+    debug = Globals.DevelopmentMode
     mls = api.API(base_url, api_key=api_key, lang=lang, debug=debug)
     return mls
 

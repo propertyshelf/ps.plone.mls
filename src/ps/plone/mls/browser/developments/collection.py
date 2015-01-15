@@ -67,7 +67,7 @@ class DevelopmentCollectionViewlet(ViewletBase):
 
     def _get_items(self):
         lang = self.portal_state.language()
-        mlsapi = api.get_api(context=self.context, lang=lang, debug=True)
+        mlsapi = api.get_api(context=self.context, lang=lang)
         params = {
             'summary': '1',
             'limit': self.limit,
