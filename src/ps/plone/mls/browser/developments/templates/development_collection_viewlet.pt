@@ -23,7 +23,24 @@
         <h2 class="tileHeadline"><a href="" class="summary url"
             tal:attributes="href string:${page_url}${item/id/value}"><span
             tal:replace="item/title/value | nothing">[Item Title]</span></a></h2>
+
+        <figure tal:define="image item/logo | nothing">
+          <a href="" tal:attributes="href string:${page_url}${item/id/value};
+                                     title item/title/value"><img src="" alt=""
+                     tal:condition="image"
+                     tal:attributes="src image/value" /><img
+                     tal:condition="not:image" alt="" title=""
+                     src="++resource++plone.mls.listing.images/no-image.png" /></a>
+          <figcaption>
+            <small><span tal:replace="item/title/value">[Caption]</span></small>
+          </figcaption>
+        </figure>
+
+        <div class="visualClear"></div>
       </div>
+
+      <div metal:use-macro="context/batch_macros/macros/navigation" />
+
     </tal:items>
   </section>
 
