@@ -5,6 +5,7 @@
 from plone.app.layout.viewlets.common import ViewletBase
 from plone.directives import form
 from plone.memoize.view import memoize
+from plone.mls.core.navigation import ListingBatch
 from z3c.form import field, button
 # from z3c.form.browser import checkbox
 from zope import schema
@@ -20,7 +21,7 @@ from zope.traversing.browser.absoluteurl import absoluteURL
 #     # IBaseListingItems,
 #     # IListingDetails,
 # )
-from ps.plone.mls import _
+from ps.plone.mls import _, api
 from ps.plone.mls.interfaces import (
     IDevelopmentCollection,
     IDevelopmentDetails,
@@ -34,8 +35,9 @@ CONFIGURATION_KEY = 'ps.plone.mls.developmentcollection'
 class DevelopmentCollectionViewlet(ViewletBase):
     """Dynamic collection of MLS developments."""
 
-    # _listings = None
-    # _batching = None
+    _items = None
+    _batching = None
+    _fields = None
 
     @property
     def available(self):
@@ -55,27 +57,33 @@ class DevelopmentCollectionViewlet(ViewletBase):
             (self.context, self.request), name='plone_context_state',
         )
 
-        self.limit = self.config.get('limit', 25)
-        # self._get_listings()
+        self.limit = self.config.get('limit', 5)
+        self._get_items()
 
-    # def _get_listings(self):
-    #     """Query the recent listings from the MLS."""
-    #     params = {
-    #         'limit': self.limit,
-    #         'offset': self.request.get('b_start', 0),
-    #         'lang': self.portal_state.language(),
-    #     }
-    #     params.update(self.config)
-    #     params = prepare_search_params(params)
-    #     results, batching = search(params, context=self.context)
-    #     self._listings = results
-    #     self._batching = batching
+    @property
+    @memoize
+    def items(self):
+        return self._items
 
-    # @property
-    # @memoize
-    # def listings(self):
-    #     """Return listing results."""
-    #     return self._listings
+    def _get_items(self):
+        lang = self.portal_state.language()
+        mlsapi = api.get_api(context=self.context, lang=lang, debug=True)
+        params = {
+            'summary': '1',
+            'limit': self.limit,
+            'offset': self.request.get('b_start', 0),
+        }
+        try:
+            result = api.Development.search(mlsapi, params=params)
+        except:
+            pass
+        else:
+            self._items = result.get_items()
+            headers = result.get_headers()
+            self._batching = {
+                'results': headers.get('CountTotal'),
+            }
+            self._fields = result.get_field_titles(mlsapi)
 
     @memoize
     def view_url(self):
@@ -85,15 +93,15 @@ class DevelopmentCollectionViewlet(ViewletBase):
         else:
             return absoluteURL(self.context, self.request) + '/'
 
-    # @property
-    # def batching(self):
-    #     return ListingBatch(
-    #         self.listings,
-    #         self.limit,
-    #         self.request.get('b_start', 0),
-    #         orphan=1,
-    #         batch_data=self._batching,
-    #     )
+    @property
+    def batching(self):
+        return ListingBatch(
+            self.items,
+            self.limit,
+            self.request.get('b_start', 0),
+            orphan=1,
+            batch_data=self._batching,
+        )
 
 
 class IDevelopmentCollectionConfiguration(Interface):
