@@ -30,6 +30,19 @@ from ps.plone.mls.interfaces import (
 
 
 CONFIGURATION_KEY = 'ps.plone.mls.developmentcollection'
+FIELDS = [
+    'id',
+    'title',
+    'logo',
+    'location',
+    'lot_size',
+    'location_type',
+    'geographic_type',
+    'number_of_listings',
+    'number_of_phases',
+    'number_of_groups',
+    'number_of_pictures',
+]
 
 
 class DevelopmentCollectionViewlet(ViewletBase):
@@ -37,7 +50,6 @@ class DevelopmentCollectionViewlet(ViewletBase):
 
     _items = None
     _batching = None
-    _fields = None
 
     @property
     def available(self):
@@ -69,7 +81,8 @@ class DevelopmentCollectionViewlet(ViewletBase):
         lang = self.portal_state.language()
         mlsapi = api.get_api(context=self.context, lang=lang)
         params = {
-            'summary': '1',
+            # 'summary': '1',
+            'fields': u','.join(FIELDS),
             'limit': self.limit,
             'offset': self.request.get('b_start', 0),
         }
@@ -83,7 +96,6 @@ class DevelopmentCollectionViewlet(ViewletBase):
             self._batching = {
                 'results': headers.get('CountTotal'),
             }
-            self._fields = result.get_field_titles(mlsapi)
 
     @memoize
     def view_url(self):
