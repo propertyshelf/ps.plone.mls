@@ -22,10 +22,13 @@ def get_api(context=None, lang=None):
 class Field(object):
     """Wraps the api data into a field structure."""
 
-    def __init__(self, name, value, resource):
+    def __init__(self, name, value, resource, title=None):
         self.name = name
         self.value = value
-        self.title = name
+        self.title = title
+
+        if self.title is not None:
+            return
 
         # Try to get the correct label for the field.
         titles = resource.field_titles().get('response')
