@@ -4,6 +4,8 @@
 # zope imports
 from mls.apiclient import api, resources
 from plone.mls.core.api import get_settings
+from zope.annotation.interfaces import IAnnotations
+from zope.globalrequest import getRequest
 import Globals
 
 
@@ -40,11 +42,28 @@ class CacheMixin(object):
     """Extend API resources to handle some caching."""
     _field_titles = None
 
+    def _get_field_titles(self):
+        """"""
+        return self.__class__.get_field_titles(self._api)
+
     def field_titles(self):
         """"""
-        if self._field_titles is None:
-            self._field_titles = self.__class__.get_field_titles(self._api)
-        return self._field_titles
+        if self._field_titles is not None:
+            return self._field_titles
+
+        request = getRequest()
+        key = 'cache-{0}-{1}-{2}'.format(
+            self.__class__.__name__,
+            self._api.base_url,
+            self._api.lang,
+        )
+        cache = IAnnotations(request)
+        data = cache.get(key, None)
+        if not data:
+            data = self._get_field_titles()
+            cache[key] = data
+        self._field_titles = data
+        return data
 
     def __getattr__(self, name):
         """Returns a data attribute or raises AttributeError.
