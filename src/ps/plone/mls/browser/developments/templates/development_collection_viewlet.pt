@@ -24,6 +24,8 @@
             tal:attributes="href string:${page_url}${item/id/value}"><span
             tal:replace="item/title/value | nothing">[Item Title]</span></a></h2>
 
+        <p tal:content="item/description/value | nothing"></p>
+
         <figure tal:define="image item/logo | nothing">
           <a href="" tal:attributes="href string:${page_url}${item/id/value};
                                      title item/title/value"><img src="" alt=""
@@ -36,6 +38,55 @@
           </figcaption>
         </figure>
 
+        <section>
+          <dl>
+            <tal:field tal:define="field item/location | nothing" tal:condition="field">
+              <dt class="row"><span tal:replace="field/title">Label</span>:</dt>
+              <dd class="full"><span tal:replace="structure field/value">Value</span></dd>
+            </tal:field>
+
+            <tal:field tal:define="field item/lot_size | nothing" tal:condition="field">
+              <dt class="row"><span tal:replace="field/title">Label</span>:</dt>
+              <dd class="full"><span tal:replace="structure field/value">Value</span></dd>
+            </tal:field>
+
+            <tal:field tal:define="field item/location_type | nothing" tal:condition="field">
+              <dt class="row"><span tal:replace="field/title">Label</span>:</dt>
+              <dd class="full"><span tal:replace="structure field/value">Value</span></dd>
+            </tal:field>
+
+            <tal:field tal:define="field item/geographic_type | nothing" tal:condition="field">
+              <dt class="row"><span tal:replace="field/title">Label</span>:</dt>
+              <dd class="full"><span tal:replace="structure field/value">Value</span></dd>
+            </tal:field>
+
+            <tal:field tal:define="field item/agency_name | nothing" tal:condition="field">
+              <dt class="row"><span tal:replace="field/title">Label</span>:</dt>
+              <dd class="full"><span tal:replace="structure field/value">Value</span></dd>
+            </tal:field>
+
+            <tal:field tal:define="field item/number_of_listings | nothing" tal:condition="field">
+              <dt class="row"><span tal:replace="field/title">Label</span>:</dt>
+              <dd><span tal:replace="structure field/value">Value</span></dd>
+            </tal:field>
+
+            <tal:field tal:define="field item/number_of_phases | nothing" tal:condition="field">
+              <dt><span tal:replace="field/title">Label</span>:</dt>
+              <dd><span tal:replace="structure field/value">Value</span></dd>
+            </tal:field>
+
+            <tal:field tal:define="field item/number_of_groups | nothing" tal:condition="field">
+              <dt class="row"><span tal:replace="field/title">Label</span>:</dt>
+              <dd><span tal:replace="structure field/value">Value</span></dd>
+            </tal:field>
+
+            <tal:field tal:define="field item/number_of_pictures | nothing" tal:condition="field">
+              <dt><span tal:replace="field/title">Label</span>:</dt>
+              <dd><span tal:replace="structure field/value">Value</span></dd>
+            </tal:field>
+          </dl>
+        </section>
+
         <div class="visualClear"></div>
       </div>
 
@@ -43,14 +94,4 @@
 
     </tal:items>
   </section>
-
-  <h2>Items:</h2>
-  <div style="border: 1px solid #333; margin: 1em;" tal:repeat="item items">
-    <h3 tal:content="item/title"></h3>
-    <tal:pictures tal:define="pictures item/pictures | nothing" tal:condition="pictures">
-      <tal:leadimage tal:define="lead python:pictures[0]">
-        <img src="" tal:attributes="src python:lead.get(scale='preview')" />
-      </tal:leadimage>
-    </tal:pictures>
-  </div>
 </html>
