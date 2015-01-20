@@ -29,9 +29,18 @@ class Field(object):
 
         # Try to get the correct label for the field.
         titles = resource.field_titles().get('response')
-        for category in ['fields', 'group_fields']:
+
+        try:
+            self.title = titles['fields'][name]
+        except (KeyError, TypeError):
+            pass
+        else:
+            return
+
+        group_fields = titles.get('group_fields', [])
+        for group in group_fields:
             try:
-                self.title = titles[category][name]
+                self.title = group_fields[group][name]
             except (KeyError, TypeError):
                 continue
             else:
