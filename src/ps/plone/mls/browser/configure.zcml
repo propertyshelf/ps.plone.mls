@@ -21,6 +21,12 @@
   <!-- Traversing Adapter. -->
   <!-- =================== -->
 
+  <!-- Basic Development Traverser. -->
+  <adapter
+      factory=".traversal.DevelopmentTraverser"
+      permission="zope2.View"
+      />
+
   <!-- Basic Listing Traverser. -->
   <adapter
       factory=".traversal.ListingTraverser"
@@ -36,6 +42,15 @@
 
   <!-- Breadcrumb Navigation. -->
   <!-- ====================== -->
+  <browser:page
+      allowed_attributes="breadcrumbs"
+      class=".navigation.DevelopmentDetailsNavigationBreadcrumbs"
+      for="ps.plone.mls.interfaces.IDevelopmentTraversable"
+      layer=".interfaces.IPloneMLSLayer"
+      name="breadcrumbs_view"
+      permission="zope.Public"
+      />
+
   <browser:page
       allowed_attributes="breadcrumbs"
       class=".navigation.ListingDetailsNavigationBreadcrumbs"
