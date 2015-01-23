@@ -39,4 +39,27 @@
       permission="cmf.ModifyPortalContent"
       />
 
+
+  <!-- Development Details. -->
+  <!-- ==================== -->
+  <!--
+  <browser:page
+      class=".details.DevelopmentDetails"
+      for="ps.plone.mls.content.development.IDevelopment"
+      layer="ps.plone.mls.browser.interfaces.IPloneMLSLayer"
+      name="view"
+      permission="zope2.View"
+      template="templates/development_details_view.pt"
+      />
+    -->
+
+  <browser:page
+      class=".details.DevelopmentDetails"
+      for="*"
+      layer="ps.plone.mls.browser.interfaces.IPloneMLSLayer"
+      name="development-detail"
+      permission="zope2.View"
+      template="templates/development_details_view.pt"
+      />
+
 </configure>

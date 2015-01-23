@@ -1,0 +1,34 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="ps.plone.mls"
+      tal:omit-tag="">
+  <body>
+    <metal:main fill-slot="main">
+      <div class="listing detail"
+           metal:define-macro="main"
+           tal:define="item view/item | nothing">
+        <div tal:replace="structure provider:plone.abovecontenttitle" />
+        <h1 class="documentFirstHeading">
+          <span tal:replace="item/title/value | nothing">[Title]</span>
+        </h1>
+        <p tal:condition="item/location | nothing" tal:content="item/location/value | nothing">[Location]</p>
+
+        <div tal:replace="structure provider:plone.belowcontenttitle" />
+
+        <div tal:replace="structure provider:plone.abovecontentbody" />
+
+        <tal:item tal:condition="item">
+          <div class="visualClear">
+            <p class="documentDescription" tal:content="item/description/value | nothing" />
+          </div>
+        </tal:item>
+      </div>
+    </metal:main>
+  </body>
+
+</html>
