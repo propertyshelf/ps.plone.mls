@@ -8,7 +8,11 @@ class IListingTraversable(Interface):
     """Marker interface for traversable listings."""
 
 
-class IBaseDevelopmentItems(Interface):
+class IDevelopmentTraversable(Interface):
+    """Marker interface for traversable listings."""
+
+
+class IBaseDevelopmentItems(IDevelopmentTraversable):
     """Marker interface for all development 'collection' items."""
 
 
