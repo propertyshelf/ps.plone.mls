@@ -20,6 +20,14 @@
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
 
+  <genericsetup:registerProfile
+      name="uninstall"
+      title="Propertyshelf MLS: Uninstall"
+      directory="profiles/uninstall"
+      description="Removes Propertyshelf MLS Plone Embedding."
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+
 
   <!-- GenericSetup Upgrade Steps. -->
   <!-- =========================== -->
