@@ -12,7 +12,7 @@ from plone import api
 from plone.browserlayer.utils import registered_layers
 
 # local imports
-from ps.plone.mls.config import PROJECTNAME
+from ps.plone.mls.config import PROJECT_NAME
 from ps.plone.mls.testing import INTEGRATION_TESTING
 
 
@@ -28,7 +28,7 @@ class TestSetup(unittest.TestCase):
     def test_product_is_installed(self):
         """Validate that our product is installed."""
         qi = self.portal.portal_quickinstaller
-        self.assertTrue(qi.isProductInstalled(PROJECTNAME))
+        self.assertTrue(qi.isProductInstalled(PROJECT_NAME))
 
     def test_addon_layer(self):
         """Validate that the browserlayer for our product is installed."""
@@ -61,12 +61,12 @@ class UninstallTestCase(unittest.TestCase):
 
         qi = self.portal.portal_quickinstaller
         with api.env.adopt_roles(['Manager']):
-            qi.uninstallProducts(products=[PROJECTNAME])
+            qi.uninstallProducts(products=[PROJECT_NAME])
 
     def test_product_is_uninstalled(self):
         """Validate that our product is uninstalled."""
         qi = self.portal.portal_quickinstaller
-        self.assertFalse(qi.isProductInstalled(PROJECTNAME))
+        self.assertFalse(qi.isProductInstalled(PROJECT_NAME))
 
     def test_addon_layer_removed(self):
         """Validate that the browserlayer is removed."""
