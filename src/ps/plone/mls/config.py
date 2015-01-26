@@ -1,3 +1,4 @@
 # -*- coding: utf-8 -*-
 
-PROJECTNAME = 'ps.plone.mls'
+PROFILE_ID = u'profile-ps.plone.mls'
+PROJECT_NAME = 'ps.plone.mls'

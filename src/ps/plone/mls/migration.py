@@ -6,8 +6,8 @@ from Products.CMFCore.utils import getToolByName
 from Products.CMFPlone.interfaces.siteroot import IPloneSiteRoot
 from zope.component import getUtility
 
-
-PROFILE_ID = 'profile-ps.plone.mls:default'
+# local imports
+from ps.plone.mls import config
 
 
 def migrate_to_1001(context):
@@ -17,4 +17,4 @@ def migrate_to_1001(context):
     """
     site = getUtility(IPloneSiteRoot)
     setup = getToolByName(site, 'portal_setup')
-    setup.runImportStepFromProfile(PROFILE_ID, 'actions')
+    setup.runImportStepFromProfile(config.PROFILE_ID, 'actions')
