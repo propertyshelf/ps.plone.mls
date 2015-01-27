@@ -11,6 +11,7 @@ except ImportError:
 
 
 # zope imports
+from plone import api
 from plone.testing import layered
 
 # local imports
@@ -19,6 +20,10 @@ from ps.plone.mls import testing
 
 def test_suite():
     suite = unittest.TestSuite()
+    if api.env.plone_version() < '4.2':
+        # No robot tests for Plone 4.1.x
+        return suite
+
     current_dir = os.path.abspath(os.path.dirname(__file__))
     robot_dir = os.path.join(current_dir, 'robot')
     robot_tests = [
