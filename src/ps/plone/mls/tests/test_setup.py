@@ -16,6 +16,11 @@ from ps.plone.mls.config import PROJECT_NAME
 from ps.plone.mls.testing import INTEGRATION_TESTING
 
 
+CSS = [
+    '++resource++ps.plone.mls/mls.css',
+]
+
+
 class TestSetup(unittest.TestCase):
     """Validate setup process for ps.plone.mls."""
 
@@ -34,6 +39,12 @@ class TestSetup(unittest.TestCase):
         """Validate that the browserlayer for our product is installed."""
         layers = [l.getName() for l in registered_layers()]
         self.assertIn('IPloneMLSLayer', layers)
+
+    def test_cssregistry(self):
+        """Validate the CSS file registration."""
+        resource_ids = self.portal.portal_css.getResourceIds()
+        for id in CSS:
+            self.assertIn(id, resource_ids, '{0} not installed'.format(id))
 
     def test_collective_z3cform_widgets_installed(self):
         """Validate that collective.z3cform.widgets is installed."""
@@ -72,3 +83,12 @@ class UninstallTestCase(unittest.TestCase):
         """Validate that the browserlayer is removed."""
         layers = [l.getName() for l in registered_layers()]
         self.assertNotIn('IPloneMLSLayer', layers)
+
+    def test_cssregistry(self):
+        """Validate the CSS file unregistration."""
+        resource_ids = self.portal.portal_css.getResourceIds()
+        for id in CSS:
+            self.assertNotIn(
+                id, resource_ids,
+                '{0} is still installed'.format(id),
+            )
