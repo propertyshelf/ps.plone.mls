@@ -20,6 +20,10 @@ CSS = [
     '++resource++ps.plone.mls/mls.css',
 ]
 
+JS = [
+    '++resource++ps.plone.mls/mls.js',
+]
+
 
 class TestSetup(unittest.TestCase):
     """Validate setup process for ps.plone.mls."""
@@ -44,6 +48,12 @@ class TestSetup(unittest.TestCase):
         """Validate the CSS file registration."""
         resource_ids = self.portal.portal_css.getResourceIds()
         for id in CSS:
+            self.assertIn(id, resource_ids, '{0} not installed'.format(id))
+
+    def test_jsregistry(self):
+        """Validate the JS file registration."""
+        resource_ids = self.portal.portal_javascripts.getResourceIds()
+        for id in JS:
             self.assertIn(id, resource_ids, '{0} not installed'.format(id))
 
     def test_collective_z3cform_widgets_installed(self):
@@ -88,6 +98,15 @@ class UninstallTestCase(unittest.TestCase):
         """Validate the CSS file unregistration."""
         resource_ids = self.portal.portal_css.getResourceIds()
         for id in CSS:
+            self.assertNotIn(
+                id, resource_ids,
+                '{0} is still installed'.format(id),
+            )
+
+    def test_jsregistry(self):
+        """Validate the JS file unregistration."""
+        resource_ids = self.portal.portal_javascripts.getResourceIds()
+        for id in JS:
             self.assertNotIn(
                 id, resource_ids,
                 '{0} is still installed'.format(id),
