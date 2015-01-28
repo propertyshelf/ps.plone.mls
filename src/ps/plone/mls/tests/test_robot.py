@@ -20,7 +20,8 @@ from ps.plone.mls import testing
 
 def test_suite():
     suite = unittest.TestSuite()
-    if api.env.plone_version() < '4.2':
+    no_robot = 'NO_ROBOT' in os.environ.keys()
+    if no_robot or api.env.plone_version() < '4.2':
         # No robot tests for Plone 4.1.x
         return suite
 
