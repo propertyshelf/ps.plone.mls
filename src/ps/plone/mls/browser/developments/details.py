@@ -26,13 +26,13 @@ class DevelopmentDetails(BrowserView):
         self.update()
 
     def update(self):
-        item_id = getattr(self.request, 'development_id', None)
-        if not item_id:
-            return
-
         cache = IAnnotations(self.request)
         item = cache.get('ps.plone.mls.development.traversed', None)
+
         if item is None:
+            item_id = getattr(self.request, 'development_id', None)
+            if not item_id:
+                return
 
             self.portal_state = queryMultiAdapter(
                 (self.context, self.request),
