@@ -84,9 +84,12 @@ class CacheMixin(object):
         access in Plone.
         """
         try:
-            return Field(name, self._data[name], self)
+            value = self._data[name]
         except KeyError:
             return object.__getattribute__(self, name)
+        else:
+            if value is not None:
+                return Field(name, value, self)
 
 
 class Development(CacheMixin, resources.Development):
