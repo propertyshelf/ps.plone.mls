@@ -1,3 +1,38 @@
 /*!
  * ps.plone.mls | http://propertyshelf.com
  */
+
+.mls section {
+  clear: both;
+}
+
+.detail .overview__logo {
+  background-color: #FFF;
+  border: 1px solid #CCC;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  float: left;
+  margin-bottom: 1em;
+  margin-right: 1em;
+  max-width: 10em;
+  padding: 4px;
+}
+
+  .overview__logo img {
+    max-width: 100%;
+  }
+
+
+.area__picture {
+  background-color: #FFF;
+  border: 1px solid #CCC;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  float: right;
+  margin-bottom: 1em;
+  margin-left: 1em;
+  max-width: 15em;
+  padding: 4px;
+}
+
+  .area__picture img {
+    max-width: 100%;
+  }

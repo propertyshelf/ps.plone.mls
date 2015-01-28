@@ -7,27 +7,163 @@
       metal:use-macro="context/main_template/macros/master"
       i18n:domain="ps.plone.mls"
       tal:omit-tag="">
+  <head>
+    <metal:baseslot fill-slot="base"
+        tal:define="item view/item | nothing;
+                    id item/id/value | nothing;">
+      <base tal:attributes="href string:${plone_view/renderBase}${id}" /><!--[if lt IE 7]></base><![endif]-->
+    </metal:baseslot>
+  </head>
+
   <body>
     <metal:main fill-slot="main">
-      <div class="listing detail"
+      <article class="mls detail development"
            metal:define-macro="main"
-           tal:define="item view/item | nothing">
-        <div tal:replace="structure provider:plone.abovecontenttitle" />
-        <h1 class="documentFirstHeading">
-          <span tal:replace="item/title/value | nothing">[Title]</span>
-        </h1>
-        <p tal:condition="item/location | nothing" tal:content="item/location/value | nothing">[Location]</p>
+           tal:define="item view/item | nothing;
+                       images item/pictures | nothing;
+                       title item/title/value | nothing;">
 
-        <div tal:replace="structure provider:plone.belowcontenttitle" />
+        <div id="viewlet-above-content-title" tal:content="structure provider:plone.abovecontenttitle" tal:condition="not:ajax_load" />
+        <hgroup>
+          <h1 class="documentFirstHeading">
+            <span tal:replace="title">[Title]</span>
+          </h1>
+        </hgroup>
+        <div id="viewlet-below-content-title" tal:content="structure provider:plone.belowcontenttitle" tal:condition="not:ajax_load" />
 
-        <div tal:replace="structure provider:plone.abovecontentbody" />
+        <p class="documentDescription">
+          <picture class="overview__logo"
+              tal:define="image item/logo | nothing"
+              tal:condition="image"><a href="" rel="prettyPhoto[item]"
+              tal:attributes="href image/value">
+            <img src="" title="" alt=""
+                tal:attributes="src image/value;
+                                title title;
+                                alt title;" />
+              </a>
+          </picture>
+          <span tal:replace="item/description/value | nothing" />
+        </p>
 
-        <tal:item tal:condition="item">
-          <div class="visualClear">
-            <p class="documentDescription" tal:content="item/description/value | nothing" />
-          </div>
-        </tal:item>
-      </div>
+        <div id="viewlet-above-content-body" tal:content="structure provider:plone.abovecontentbody" tal:condition="not:ajax_load" />
+
+        <div id="content-core" tal:condition="item">
+          <section class="development__overview">
+            <h2 class="hiddenStructure" i18n:translate="">Overview</h2>
+            <p class="overview__long_description"
+                tal:define="text item/long_description | nothing"
+                tal:condition="text"
+                tal:content="text/value"></p>
+          </section>
+
+          <section class="development__phases">
+            <h2 i18n:translate="">Construction Status</h2>
+          </section>
+
+          <section class="development__groups">
+            <h2 i18n:translate="">Properties Available</h2>
+          </section>
+
+          <section class="development__projectmap">
+            <h2 i18n:translate="">Project Map</h2>
+          </section>
+
+          <section class="development__gallery"
+              tal:condition="images"
+              tal:define="lead_image item/lead_image | nothing;
+                          use_fotorama view/use_fotorama | nothing;
+                          use_galleria view/use_galleria | python: True;">
+            <h2 i18n:translate="">Gallery</h2>
+            <tal:leadimage tal:condition="python: not images and lead_image">
+              <a href="" rel="prettyPhoto[listing]" class="preview"
+                 tal:condition="lead_image"
+                 tal:attributes="href lead_image/url;
+                                 title lead_image/title | nothing;"><img src=""
+                 tal:attributes="src lead_image/preview" /></a>
+            </tal:leadimage>
+
+            <tal:fotorama tal:condition="python: images and use_fotorama">
+              <div class=""
+                   data-allow-full-screen="native"
+                   data-autoplay="true"
+                   data-loop="true"
+                   data-max-width="875"
+                   data-nav="thumbs"
+                   data-ratio="3/2"
+                   data-width="100%">
+                <tal:images tal:repeat="image images">
+                  <a href="" data-caption=""
+                     tal:define="caption image/title;
+                                 description image/description | nothing;
+                                 caption python: description and ' - '.join([caption, description]) or caption"
+                     tal:attributes="href image/url;
+                                     data-caption caption"><img src="" alt=""
+                     tal:attributes="src image/thumb;
+                                     title image/title;
+                                     alt image/description;" /></a>
+                </tal:images>
+              </div>
+              <script type="text/javascript">
+                jQuery(function(jq) {
+                  jq('#listing-images > div').addClass('fotorama');
+                  jq('.fotorama').fotorama();
+                });
+              </script>
+            </tal:fotorama>
+
+            <tal:galleria tal:condition="python: images and use_galleria">
+              <a href="" rel="prettyPhoto[listing]" class="preview"
+                 tal:condition="lead_image"
+                 tal:attributes="href lead_image/url;
+                                 title lead_image/title | nothing;"><img src=""
+                 tal:attributes="src lead_image/preview" /></a>
+              <ul class="thumbnails"
+                  tal:condition="images" style="list-style: none; margin-left: 0;">
+                <li tal:repeat="image images" style="display: inline-block; padding: 0.5em;"><a href="" rel="prettyPhoto[gallery]"
+                    tal:attributes="href image/get;
+                                    title image/title | nothing;"><img src="" alt="" title=""
+                    tal:attributes="src python: image.get('tile');
+                                    alt image/title | nothing;
+                                    title image/description | nothing" /></a></li>
+              </ul>
+              <script type="text/javascript" src="++resource++plone.mls.listing.javascript/galleria-1.2.2.js"></script>
+              <script type="text/javascript" src="++resource++plone.mls.listing.javascript/classic/galleria.classic.min.js"></script>
+            </tal:galleria>
+          </section>
+
+          <section class="development__map">
+            <h2 i18n:translate="">Map & Distances</h2>
+          </section>
+
+          <section class="development__area">
+            <h2 i18n:translate="">About the Area</h2>
+            <picture class="area__picture"
+                tal:define="image item/area_picture | nothing"
+                tal:condition="image"><a href="" rel="prettyPhoto[item]"
+                tal:attributes="href image/value">
+              <img src="" title="" alt=""
+                  tal:attributes="src image/value;
+                                  title title;
+                                  alt title;" />
+                </a>
+            </picture>
+            <p class="area__description"
+                tal:define="text item/area_description | nothing"
+                tal:condition="text"
+                tal:content="text/value"></p>
+          </section>
+
+          <section class="development__representatives">
+            <h2 i18n:translate="">Meet the Developers</h2>
+          </section>
+
+          <section class="development__contact">
+            <h2 i18n:translate="">Contact Us</h2>
+          </section>
+        </div>
+
+        <div id="viewlet-below-content-body" tal:content="structure provider:plone.belowcontentbody" tal:condition="not:ajax_load" />
+      </article>
     </metal:main>
   </body>
 
