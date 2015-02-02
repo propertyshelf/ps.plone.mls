@@ -3,16 +3,21 @@
 
 # python imports
 from mls.apiclient.exceptions import ConnectionError
+import logging
 
 # zope imports
 from Products.Five import BrowserView
+from plone.mls.listing.interfaces import IMLSUISettings
+from plone.registry.interfaces import IRegistry
 from zope.annotation.interfaces import IAnnotations
-from zope.component import queryMultiAdapter
+from zope.component import getUtility, queryMultiAdapter
 from zope.interface import implementer
 
 # local imports
-from ps.plone.mls import api
+from ps.plone.mls import api, config
 from ps.plone.mls.interfaces import IDevelopmentDetails
+
+logger = logging.getLogger(config.PROJECT_NAME)
 
 MAP_JS = """
 function initializeMap() {{
@@ -63,6 +68,8 @@ class DevelopmentDetails(BrowserView):
         self.update()
 
     def update(self):
+        self.registry = getUtility(IRegistry)
+
         cache = IAnnotations(self.request)
         item = cache.get('ps.plone.mls.development.traversed', None)
 
@@ -103,3 +110,24 @@ class DevelopmentDetails(BrowserView):
             map_id=self.map_id,
             zoom=7,
         )
+
+    def use_fotorama(self):
+        if self.registry is not None:
+            try:
+                settings = self.registry.forInterface(IMLSUISettings)
+            except:
+                logger.warning('MLS UI settings not available.')
+            else:
+                return getattr(settings, 'slideshow') == u'fotorama'
+        return False
+
+    def use_galleria(self):
+        if self.registry is not None:
+            try:
+                settings = self.registry.forInterface(IMLSUISettings)
+            except:
+                logger.warning('MLS UI settings not available.')
+            else:
+                return getattr(settings, 'slideshow') == u'galleria'
+        # Fallback: 'galleria' is the default.
+        return True

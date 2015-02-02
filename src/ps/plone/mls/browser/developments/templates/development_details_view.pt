@@ -70,24 +70,23 @@
 
           <section class="development__gallery"
               tal:condition="images"
-              tal:define="lead_image item/lead_image | nothing;
+              tal:define="lead_image item/lead_image | python: images[0] or None;
                           use_fotorama view/use_fotorama | nothing;
-                          use_galleria view/use_galleria | python: True;">
+                          use_galleria view/use_galleria | nothing;">
             <h2 i18n:translate="">Gallery</h2>
             <tal:leadimage tal:condition="python: not images and lead_image">
               <a href="" rel="prettyPhoto[listing]" class="preview"
                  tal:condition="lead_image"
-                 tal:attributes="href lead_image/url;
+                 tal:attributes="href lead_image/large;
                                  title lead_image/title | nothing;"><img src=""
                  tal:attributes="src lead_image/preview" /></a>
             </tal:leadimage>
 
             <tal:fotorama tal:condition="python: images and use_fotorama">
-              <div class=""
+              <div class="fotorama"
                    data-allow-full-screen="native"
                    data-autoplay="true"
                    data-loop="true"
-                   data-max-width="875"
                    data-nav="thumbs"
                    data-ratio="3/2"
                    data-width="100%">
@@ -96,9 +95,9 @@
                      tal:define="caption image/title;
                                  description image/description | nothing;
                                  caption python: description and ' - '.join([caption, description]) or caption"
-                     tal:attributes="href image/url;
+                     tal:attributes="href python: image.get('url');
                                      data-caption caption"><img src="" alt=""
-                     tal:attributes="src image/thumb;
+                     tal:attributes="src python: image.get('tile');
                                      title image/title;
                                      alt image/description;" /></a>
                 </tal:images>
@@ -112,11 +111,6 @@
             </tal:fotorama>
 
             <tal:galleria tal:condition="python: images and use_galleria">
-              <a href="" rel="prettyPhoto[listing]" class="preview"
-                 tal:condition="lead_image"
-                 tal:attributes="href lead_image/url;
-                                 title lead_image/title | nothing;"><img src=""
-                 tal:attributes="src lead_image/preview" /></a>
               <ul class="thumbnails"
                   tal:condition="images" style="list-style: none; margin-left: 0;">
                 <li tal:repeat="image images" style="display: inline-block; padding: 0.5em;"><a href="" rel="prettyPhoto[gallery]"
