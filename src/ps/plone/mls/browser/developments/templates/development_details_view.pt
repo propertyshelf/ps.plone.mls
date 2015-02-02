@@ -131,8 +131,14 @@
             </tal:galleria>
           </section>
 
-          <section class="development__map">
-            <h2 i18n:translate="">Map & Distances</h2>
+          <section class="development__map"
+               tal:define="js view/javascript_map | nothing"
+               tal:condition="js">
+            <h2 i18n:translate="" tal:replace="nothing">Map & Distances</h2>
+            <h2 i18n:translate="">Map</h2>
+            <div class="map__canvas" id="map"
+                tal:attributes="id view/map_id"></div>
+            <script type="text/javascript" tal:content="structure js"></script>
           </section>
 
           <section class="development__area">

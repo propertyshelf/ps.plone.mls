@@ -4,6 +4,7 @@
 
 .mls section {
   clear: both;
+  margin-top: 1.5em; /* Equals default line-height of p elements. */
 }
 
 .detail .overview__logo {
@@ -36,3 +37,8 @@
   .area__picture img {
     max-width: 100%;
   }
+
+.map__canvas {
+  height: 300px;
+  width: 100%;
+}
