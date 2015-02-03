@@ -2,11 +2,19 @@
 """MLS integration api."""
 
 # zope imports
-from mls.apiclient import api, resources
+from mls.apiclient import (
+    api,
+    exceptions,
+    resources,
+)
+from plone import api as plone_api
 from plone.mls.core.api import get_settings
 from zope.annotation.interfaces import IAnnotations
 from zope.globalrequest import getRequest
 import Globals
+
+# local imports
+from ps.plone.mls import _
 
 
 def get_api(context=None, lang=None):
@@ -17,6 +25,38 @@ def get_api(context=None, lang=None):
     debug = Globals.DevelopmentMode
     mls = api.API(base_url, api_key=api_key, lang=lang, debug=debug)
     return mls
+
+
+def get_development(item_id=None, context=None, request=None, lang=None):
+    """Get a single development."""
+    mlsapi = get_api(context=context, lang=lang)
+    try:
+        item = Development.get(mlsapi, item_id)
+    except exceptions.ServerError:
+        if not plone_api.user.is_anonymous():
+            message = _(
+                u'An error occured trying to connect to the '
+                u'configured MLS. Please check your settings or try '
+                u'again later.'
+            )
+            plone_api.portal.show_message(
+                message=message,
+                request=request,
+                type='warning',
+            )
+    except exceptions.ResourceNotFound:
+        message = _(
+            u'The requested development was not found.'
+        )
+        plone_api.portal.show_message(
+            message=message,
+            request=request,
+            type='info',
+        )
+    except exceptions.ConnectionError:
+        pass
+    else:
+        return item
 
 
 class Field(object):
