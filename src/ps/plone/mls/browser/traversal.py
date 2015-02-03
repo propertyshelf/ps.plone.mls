@@ -134,12 +134,13 @@ class DevelopmentTraverser(MLSItemTraverser):
             name='plone_portal_state',
         )
         lang = portal_state.language()
-        try:
-            mlsapi = api.get_api(context=self.context, lang=lang)
-            item = api.Development.get(mlsapi, item_id)
-        except:
-            return
-        else:
+        item = api.get_development(
+            item_id=item_id,
+            context=self.context,
+            request=self.request,
+            lang=lang,
+        )
+        if item is not None:
             cache = IAnnotations(self.request)
             cache['ps.plone.mls.development.traversed'] = item
 

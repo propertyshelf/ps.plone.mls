@@ -2,7 +2,6 @@
 """MLS development detail view."""
 
 # python imports
-from mls.apiclient.exceptions import ConnectionError
 import logging
 
 # zope imports
@@ -61,13 +60,15 @@ google.maps.event.addDomListener(window, "resize", function() {{
 class DevelopmentDetails(BrowserView):
     """Detail view for MLS developments."""
 
-    item = None
+    _item = None
 
-    def __init__(self, context, request):
-        super(DevelopmentDetails, self).__init__(context, request)
-        self.update()
+    @property
+    def item(self):
+        if self._item is None:
+            self._item = self._get_item()
+        return self._item
 
-    def update(self):
+    def _get_item(self):
         self.registry = getUtility(IRegistry)
 
         cache = IAnnotations(self.request)
@@ -83,12 +84,14 @@ class DevelopmentDetails(BrowserView):
                 name='plone_portal_state',
             )
             lang = self.portal_state.language()
-            mlsapi = api.get_api(context=self.context, lang=lang)
-            try:
-                item = api.Development.get(mlsapi, item_id)
-            except ConnectionError:
-                pass
-        self.item = item
+            item = api.get_development(
+                item_id=item_id,
+                context=self.context,
+                request=self.request,
+                lang=lang,
+            )
+
+        return item
 
     @property
     def map_id(self):
