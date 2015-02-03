@@ -56,12 +56,64 @@
                 tal:content="text/value"></p>
           </section>
 
-          <section class="development__phases">
+          <section class="development__phases"
+              tal:define="phases item/phases | nothing"
+              tal:condition="phases">
             <h2 i18n:translate="">Construction Status</h2>
+
+            <table class="listing">
+              <thead
+                  tal:define="titles view/titles_for_phases | nothing"
+                  tal:condition="titles">
+                <tr>
+                  <th tal:content="titles/title | nothing">[Phase Name]</th>
+                  <th tal:content="titles/units | nothing">[Number of Units]</th>
+                  <th tal:content="titles/unit_types | nothing">[Available Unit Types]</th>
+                  <th tal:content="titles/status | nothing">[Status]</th>
+                  <th tal:content="titles/completion_date | nothing">[Completion Date]</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr tal:repeat="phase phases">
+                  <td tal:content="phase/title/value | string:-">[Title]</td>
+                  <td tal:content="phase/units/value | string:-">[Units]</td>
+                  <td tal:content="phase/unit_types/value | string:-">[Unit Types]</td>
+                  <td tal:content="phase/status/value | string:-">[Status]</td>
+                  <td tal:content="phase/completion_date/value | string:-">[Completion Date]</td>
+                </tr>
+              </tbody>
+            </table>
           </section>
 
-          <section class="development__groups">
+          <section class="development__groups"
+              tal:define="groups item/groups | nothing"
+              tal:condition="groups">
             <h2 i18n:translate="">Properties Available</h2>
+
+            <table class="listing">
+              <thead
+                  tal:define="titles view/titles_for_groups | nothing"
+                  tal:condition="titles">
+                <tr>
+                  <th tal:content="titles/title | nothing">[Group Name]</th>
+                  <th tal:content="titles/lot_size | nothing">[Lot Size]</th>
+                  <th tal:content="titles/interior_area | nothing">[Interior Area]</th>
+                  <th tal:content="titles/beds_baths | nothing">[Beds/Baths]</th>
+                  <th tal:content="titles/status | nothing">[Status]</th>
+                  <th tal:content="titles/starting_price | nothing">[Starting Price]</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr tal:repeat="group groups">
+                  <td tal:content="group/title/value | string:-">[Title]</td>
+                  <td tal:content="group/lot_size/value | string:-">[Lot Size]</td>
+                  <td tal:content="group/interior_area/value | string:-">[Interior Area]</td>
+                  <td tal:content="group/beds_baths/value | string:-">[Beds/Baths]</td>
+                  <td tal:content="group/status/value | string:-">[Status]</td>
+                  <td tal:content="group/starting_price/value | string:-">[Starting Price]</td>
+                </tr>
+              </tbody>
+            </table>
           </section>
 
           <section class="development__projectmap">

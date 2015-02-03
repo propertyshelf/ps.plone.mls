@@ -131,3 +131,15 @@ class DevelopmentDetails(BrowserView):
                 return getattr(settings, 'slideshow') == u'galleria'
         # Fallback: 'galleria' is the default.
         return True
+
+    def titles_for_phases(self):
+        """Get the titles for the Development Phase fields."""
+        fake = api.DevelopmentPhase(self.item._api, {})
+        raw = fake.field_titles()
+        return raw.get('response', {}).get('fields', {})
+
+    def titles_for_groups(self):
+        """Get the titles for the Property Group fields."""
+        fake = api.PropertyGroup(self.item._api, {})
+        raw = fake.field_titles()
+        return raw.get('response', {}).get('fields', {})
