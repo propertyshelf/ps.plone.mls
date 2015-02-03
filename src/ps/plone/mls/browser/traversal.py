@@ -80,6 +80,8 @@ class MLSItemTraverser(DefaultPublishTraverse):
             except (NotFound, AttributeError):
                 pass
 
+        name = name.split('___')[0]
+
         if not self.check_item(name):
             raise NotFound(self.context, name, request)
 

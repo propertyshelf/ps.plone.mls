@@ -20,74 +20,77 @@
       <div metal:use-macro="context/batch_macros/macros/navigation" />
       <div class="tileItem visualIEFloatFix"
            tal:repeat="item batch">
-        <h2 class="tileHeadline"><a href="" class="summary url"
-            tal:attributes="href string:${page_url}${item/id/value}"><span
-            tal:replace="item/title/value | nothing">[Item Title]</span></a></h2>
+        <tal:item tal:define="item_url string:${page_url}${item/id/value}___${item/title/value}-${item/location/value}">
 
-        <p tal:content="item/description/value | nothing"></p>
+          <h2 class="tileHeadline"><a href="" class="summary url"
+              tal:attributes="href item_url"><span
+              tal:replace="item/title/value | nothing">[Item Title]</span></a></h2>
 
-        <figure tal:define="image item/logo | nothing">
-          <a href="" tal:attributes="href string:${page_url}${item/id/value};
-                                     title item/title/value"><img src="" alt=""
-                     tal:condition="image"
-                     tal:attributes="src image/value" /><img
-                     tal:condition="not:image" alt="" title=""
-                     src="++resource++plone.mls.listing.images/no-image.png" /></a>
-          <figcaption>
-            <small><span tal:replace="item/title/value">[Caption]</span></small>
-          </figcaption>
-        </figure>
+          <p tal:content="item/description/value | nothing"></p>
 
-        <section>
-          <dl>
-            <tal:field tal:define="field item/location | nothing" tal:condition="field">
-              <dt class="row"><span tal:replace="field/title">Label</span>:</dt>
-              <dd class="full"><span tal:replace="structure field/value">Value</span></dd>
-            </tal:field>
+          <figure tal:define="image item/logo | nothing">
+            <a href="" tal:attributes="href item_url;
+                                       title item/title/value"><img src="" alt=""
+                       tal:condition="image"
+                       tal:attributes="src image/value" /><img
+                       tal:condition="not:image" alt="" title=""
+                       src="++resource++plone.mls.listing.images/no-image.png" /></a>
+            <figcaption>
+              <small><span tal:replace="item/title/value">[Caption]</span></small>
+            </figcaption>
+          </figure>
 
-            <tal:field tal:define="field item/lot_size | nothing" tal:condition="field">
-              <dt class="row"><span tal:replace="field/title">Label</span>:</dt>
-              <dd class="full"><span tal:replace="structure field/value">Value</span></dd>
-            </tal:field>
+          <section>
+            <dl>
+              <tal:field tal:define="field item/location | nothing" tal:condition="field">
+                <dt class="row"><span tal:replace="field/title">Label</span>:</dt>
+                <dd class="full"><span tal:replace="structure field/value">Value</span></dd>
+              </tal:field>
 
-            <tal:field tal:define="field item/location_type | nothing" tal:condition="field">
-              <dt class="row"><span tal:replace="field/title">Label</span>:</dt>
-              <dd class="full"><span tal:replace="structure field/value">Value</span></dd>
-            </tal:field>
+              <tal:field tal:define="field item/lot_size | nothing" tal:condition="field">
+                <dt class="row"><span tal:replace="field/title">Label</span>:</dt>
+                <dd class="full"><span tal:replace="structure field/value">Value</span></dd>
+              </tal:field>
 
-            <tal:field tal:define="field item/geographic_type | nothing" tal:condition="field">
-              <dt class="row"><span tal:replace="field/title">Label</span>:</dt>
-              <dd class="full"><span tal:replace="structure field/value">Value</span></dd>
-            </tal:field>
+              <tal:field tal:define="field item/location_type | nothing" tal:condition="field">
+                <dt class="row"><span tal:replace="field/title">Label</span>:</dt>
+                <dd class="full"><span tal:replace="structure field/value">Value</span></dd>
+              </tal:field>
 
-            <tal:field tal:define="field item/agency_name | nothing" tal:condition="field">
-              <dt class="row"><span tal:replace="field/title">Label</span>:</dt>
-              <dd class="full"><span tal:replace="structure field/value">Value</span></dd>
-            </tal:field>
+              <tal:field tal:define="field item/geographic_type | nothing" tal:condition="field">
+                <dt class="row"><span tal:replace="field/title">Label</span>:</dt>
+                <dd class="full"><span tal:replace="structure field/value">Value</span></dd>
+              </tal:field>
 
-            <tal:field tal:define="field item/number_of_listings | nothing" tal:condition="field">
-              <dt class="row"><span tal:replace="field/title">Label</span>:</dt>
-              <dd><span tal:replace="structure field/value">Value</span></dd>
-            </tal:field>
+              <tal:field tal:define="field item/agency_name | nothing" tal:condition="field">
+                <dt class="row"><span tal:replace="field/title">Label</span>:</dt>
+                <dd class="full"><span tal:replace="structure field/value">Value</span></dd>
+              </tal:field>
 
-            <tal:field tal:define="field item/number_of_phases | nothing" tal:condition="field">
-              <dt><span tal:replace="field/title">Label</span>:</dt>
-              <dd><span tal:replace="structure field/value">Value</span></dd>
-            </tal:field>
+              <tal:field tal:define="field item/number_of_listings | nothing" tal:condition="field">
+                <dt class="row"><span tal:replace="field/title">Label</span>:</dt>
+                <dd><span tal:replace="structure field/value">Value</span></dd>
+              </tal:field>
 
-            <tal:field tal:define="field item/number_of_groups | nothing" tal:condition="field">
-              <dt class="row"><span tal:replace="field/title">Label</span>:</dt>
-              <dd><span tal:replace="structure field/value">Value</span></dd>
-            </tal:field>
+              <tal:field tal:define="field item/number_of_phases | nothing" tal:condition="field">
+                <dt><span tal:replace="field/title">Label</span>:</dt>
+                <dd><span tal:replace="structure field/value">Value</span></dd>
+              </tal:field>
 
-            <tal:field tal:define="field item/number_of_pictures | nothing" tal:condition="field">
-              <dt><span tal:replace="field/title">Label</span>:</dt>
-              <dd><span tal:replace="structure field/value">Value</span></dd>
-            </tal:field>
-          </dl>
-        </section>
+              <tal:field tal:define="field item/number_of_groups | nothing" tal:condition="field">
+                <dt class="row"><span tal:replace="field/title">Label</span>:</dt>
+                <dd><span tal:replace="structure field/value">Value</span></dd>
+              </tal:field>
 
-        <div class="visualClear"></div>
+              <tal:field tal:define="field item/number_of_pictures | nothing" tal:condition="field">
+                <dt><span tal:replace="field/title">Label</span>:</dt>
+                <dd><span tal:replace="structure field/value">Value</span></dd>
+              </tal:field>
+            </dl>
+          </section>
+
+          <div class="visualClear"></div>
+        </tal:item>
       </div>
 
       <div metal:use-macro="context/batch_macros/macros/navigation" />
