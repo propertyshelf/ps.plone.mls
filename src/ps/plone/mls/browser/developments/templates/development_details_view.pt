@@ -203,7 +203,7 @@
                                  caption python: description and ' - '.join([caption, description]) or caption"
                      tal:attributes="href python: image.get('url');
                                      data-caption caption"><img src="" alt=""
-                     tal:attributes="src python: image.get('tile');
+                     tal:attributes="src python: image.get('thumb');
                                      title image/title;
                                      alt image/description;" /></a>
                 </tal:images>
@@ -222,7 +222,7 @@
                 <li tal:repeat="image images" style="display: inline-block; padding: 0.5em;"><a href="" rel="prettyPhoto[gallery]"
                     tal:attributes="href image/get;
                                     title image/title | nothing;"><img src="" alt="" title=""
-                    tal:attributes="src python: image.get('tile');
+                    tal:attributes="src python: image.get('thumb');
                                     alt image/title | nothing;
                                     title image/description | nothing" /></a></li>
               </ul>
