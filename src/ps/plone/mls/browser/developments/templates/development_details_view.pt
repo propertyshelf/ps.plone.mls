@@ -71,6 +71,7 @@
                   <th tal:content="titles/unit_types | nothing">[Available Unit Types]</th>
                   <th tal:content="titles/status | nothing">[Status]</th>
                   <th tal:content="titles/completion_date | nothing">[Completion Date]</th>
+                  <th tal:content="titles/number_of_listings | nothing">[Number of Listings]</th>
                 </tr>
               </thead>
               <tbody>
@@ -80,6 +81,7 @@
                   <td tal:content="phase/unit_types/value | string:-">[Unit Types]</td>
                   <td tal:content="phase/status/value | string:-">[Status]</td>
                   <td tal:content="phase/completion_date/value | string:-">[Completion Date]</td>
+                  <td tal:content="phase/number_of_listings/value | string:-">[Number of Listings]</td>
                 </tr>
               </tbody>
             </table>
@@ -101,6 +103,7 @@
                   <th tal:content="titles/beds_baths | nothing">[Beds/Baths]</th>
                   <th tal:content="titles/status | nothing">[Status]</th>
                   <th tal:content="titles/starting_price | nothing">[Starting Price]</th>
+                  <th tal:content="titles/number_of_listings | nothing">[Number of Listings]</th>
                 </tr>
               </thead>
               <tbody>
@@ -111,6 +114,7 @@
                   <td tal:content="group/beds_baths/value | string:-">[Beds/Baths]</td>
                   <td tal:content="group/status/value | string:-">[Status]</td>
                   <td tal:content="group/starting_price/value | string:-">[Starting Price]</td>
+                  <td tal:content="group/number_of_listings/value | string:-">[Number of Listings]</td>
                 </tr>
               </tbody>
             </table>
