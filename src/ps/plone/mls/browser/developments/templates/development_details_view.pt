@@ -49,11 +49,59 @@
 
         <div id="content-core" tal:condition="item">
           <section class="development__overview">
-            <h2 class="hiddenStructure" i18n:translate="">Overview</h2>
+            <h2 class="" i18n:translate="">Development Facts</h2>
+            <table class="vertical listing overview__table">
+              <tbody>
+                <tr tal:define="field item/location | nothing" tal:condition="field">
+                  <th tal:content="field/title">[Label]</th>
+                  <td tal:content="structure field/value">[Value]</td>
+                </tr>
+                <tr tal:define="field item/lot_size | nothing" tal:condition="field">
+                  <th tal:content="field/title">[Label]</th>
+                  <td tal:content="structure field/value">[Value]</td>
+                </tr>
+                <tr tal:define="field item/location_type | nothing" tal:condition="field">
+                  <th tal:content="field/title">[Label]</th>
+                  <td tal:content="structure field/value">[Value]</td>
+                </tr>
+                <tr tal:define="field item/geographic_type | nothing" tal:condition="field">
+                  <th tal:content="field/title">[Label]</th>
+                  <td tal:content="structure field/value">[Value]</td>
+                </tr>
+                <tr tal:define="field item/precipitation_type | nothing" tal:condition="field">
+                  <th tal:content="field/title">[Label]</th>
+                  <td tal:content="structure field/value">[Value]</td>
+                </tr>
+                <tr tal:define="field item/precipitation | nothing" tal:condition="field">
+                  <th tal:content="field/title">[Label]</th>
+                  <td tal:content="structure field/value">[Value]</td>
+                </tr>
+                <tr tal:define="field item/amenities | nothing" tal:condition="field">
+                  <th tal:content="field/title">[Label]</th>
+                  <td tal:content="structure field/value">[Value]</td>
+                </tr>
+                <tr tal:define="field item/number_of_listings | nothing" tal:condition="field">
+                  <th tal:content="field/title">[Label]</th>
+                  <td tal:content="structure field/value">[Value]</td>
+                </tr>
+                <tr tal:define="field item/number_of_phases | nothing" tal:condition="field">
+                  <th tal:content="field/title">[Label]</th>
+                  <td tal:content="structure field/value">[Value]</td>
+                </tr>
+                <tr tal:define="field item/number_of_groups | nothing" tal:condition="field">
+                  <th tal:content="field/title">[Label]</th>
+                  <td tal:content="structure field/value">[Value]</td>
+                </tr>
+              </tbody>
+            </table>
             <p class="overview__long_description"
                 tal:define="text item/long_description | nothing"
                 tal:condition="text"
                 tal:content="text/value"></p>
+              <div class="visualClear"
+                  tal:define="video item/video_embedding | nothing"
+                  tal:condition="video"
+                  tal:content="structure video/value"></div>
           </section>
 
           <section class="development__phases"
@@ -120,7 +168,9 @@
             </table>
           </section>
 
-          <section class="development__projectmap">
+          <section class="development__projectmap"
+              tal:define="projectmap item/projectmap | nothing"
+              tal:condition="projectmap">
             <h2 i18n:translate="">Project Map</h2>
           </section>
 
