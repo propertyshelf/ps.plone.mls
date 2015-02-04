@@ -191,7 +191,9 @@
             <script type="text/javascript" tal:content="structure js"></script>
           </section>
 
-          <section class="development__area">
+          <section class="development__area"
+              tal:define="text item/area_description | nothing"
+              tal:condition="text">
             <h2 i18n:translate="">About the Area</h2>
             <picture class="area__picture"
                 tal:define="image item/area_picture | nothing"
@@ -204,8 +206,6 @@
                 </a>
             </picture>
             <p class="area__description"
-                tal:define="text item/area_description | nothing"
-                tal:condition="text"
                 tal:content="text/value"></p>
           </section>
 
