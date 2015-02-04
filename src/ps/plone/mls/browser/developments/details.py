@@ -2,6 +2,7 @@
 """MLS development detail view."""
 
 # python imports
+import json
 import logging
 
 # zope imports
@@ -40,7 +41,8 @@ function initializeMap() {{
         var myLatlng = new google.maps.LatLng({lat}, {lng});
         var marker = new google.maps.Marker({{
             position: myLatlng,
-            map: map
+            map: map,
+            icon: {icon}
         }});
     }}
     return map;
@@ -106,8 +108,13 @@ class DevelopmentDetails(BrowserView):
         """Return the JS code for the map."""
         if not hasattr(self.item, 'geolocation'):
             return
+        icon = getattr(self.item, 'icon', None)
+        if icon is not None:
+            icon = icon.value
+        icon_url = json.dumps(icon)
         lat, lng = self.item.geolocation.value.split(',')
         return MAP_JS.format(
+            icon=icon_url,
             lat=lat,
             lng=lng,
             map_id=self.map_id,
