@@ -271,11 +271,18 @@
                     tal:condition="avatar"><a href="" rel="prettyPhoto[item]"
                     tal:attributes="href avatar/value"><img src="" title="" alt=""
                     tal:attributes="src avatar/value;
-                                    title name;
-                                    alt name;" /></a></picture>
-                <h3 tal:content="name">[Developer Name]</h3>
-                <p tal:content="agent/user_title/value">[Developer Title]</p>
-                <p tal:content="agent/personal_description/value | nothing">[Personal Description]</p>
+                                    title name/value;
+                                    alt name/value;" /></a></picture>
+                <h3 class="representative__name"
+                    tal:content="name/value">[Developer Name]</h3>
+                <p class="representative__user_title"
+                    tal:define="user_title agent/user_title/value | nothing"
+                    tal:condition="user_title"
+                    tal:content="user_title">[Developer Title]</p>
+                <p class="representative__personal_description"
+                    tal:define="text agent/personal_description/value | nothing"
+                    tal:condition="text"
+                    tal:content="text">[Personal Description]</p>
               </tal:agent>
             </div>
           </section>
