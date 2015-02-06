@@ -53,44 +53,44 @@
             <table class="vertical listing overview__table">
               <tbody>
                 <tr tal:define="field item/location | nothing" tal:condition="field">
-                  <th tal:content="field/title">[Label]</th>
-                  <td tal:content="structure field/value">[Value]</td>
+                  <th class="location" tal:content="field/title">[Label]</th>
+                  <td class="location" tal:content="structure field/value">[Value]</td>
                 </tr>
                 <tr tal:define="field item/lot_size | nothing" tal:condition="field">
-                  <th tal:content="field/title">[Label]</th>
-                  <td tal:content="structure field/value">[Value]</td>
+                  <th class="lot_size" tal:content="field/title">[Label]</th>
+                  <td class="lot_size" tal:content="structure field/value">[Value]</td>
                 </tr>
                 <tr tal:define="field item/location_type | nothing" tal:condition="field">
-                  <th tal:content="field/title">[Label]</th>
-                  <td tal:content="structure field/value">[Value]</td>
+                  <th class="location_type" tal:content="field/title">[Label]</th>
+                  <td class="location_type" tal:content="structure field/value">[Value]</td>
                 </tr>
                 <tr tal:define="field item/geographic_type | nothing" tal:condition="field">
-                  <th tal:content="field/title">[Label]</th>
-                  <td tal:content="structure field/value">[Value]</td>
+                  <th class="geographic_type" tal:content="field/title">[Label]</th>
+                  <td class="geographic_type" tal:content="structure field/value">[Value]</td>
                 </tr>
                 <tr tal:define="field item/precipitation_type | nothing" tal:condition="field">
-                  <th tal:content="field/title">[Label]</th>
-                  <td tal:content="structure field/value">[Value]</td>
+                  <th class="precipitation_type" tal:content="field/title">[Label]</th>
+                  <td class="precipitation_type" tal:content="structure field/value">[Value]</td>
                 </tr>
                 <tr tal:define="field item/precipitation | nothing" tal:condition="field">
-                  <th tal:content="field/title">[Label]</th>
-                  <td tal:content="structure field/value">[Value]</td>
+                  <th class="precipitation" tal:content="field/title">[Label]</th>
+                  <td class="precipitation" tal:content="structure field/value">[Value]</td>
                 </tr>
                 <tr tal:define="field item/amenities | nothing" tal:condition="field">
-                  <th tal:content="field/title">[Label]</th>
-                  <td tal:content="structure field/value">[Value]</td>
+                  <th class="amenities" tal:content="field/title">[Label]</th>
+                  <td class="amenities" tal:content="structure field/value">[Value]</td>
                 </tr>
                 <tr tal:define="field item/number_of_listings | nothing" tal:condition="field">
-                  <th tal:content="field/title">[Label]</th>
-                  <td tal:content="structure field/value">[Value]</td>
+                  <th class="number_of_listings" tal:content="field/title">[Label]</th>
+                  <td class="number_of_listings" tal:content="structure field/value">[Value]</td>
                 </tr>
                 <tr tal:define="field item/number_of_phases | nothing" tal:condition="field">
-                  <th tal:content="field/title">[Label]</th>
-                  <td tal:content="structure field/value">[Value]</td>
+                  <th class="number_of_phases" tal:content="field/title">[Label]</th>
+                  <td class="number_of_phases" tal:content="structure field/value">[Value]</td>
                 </tr>
                 <tr tal:define="field item/number_of_groups | nothing" tal:condition="field">
-                  <th tal:content="field/title">[Label]</th>
-                  <td tal:content="structure field/value">[Value]</td>
+                  <th class="number_of_groups" tal:content="field/title">[Label]</th>
+                  <td class="number_of_groups" tal:content="structure field/value">[Value]</td>
                 </tr>
               </tbody>
             </table>
@@ -109,27 +109,27 @@
               tal:condition="phases">
             <h2 i18n:translate="">Construction Status</h2>
 
-            <table class="listing">
+            <table class="listing phases__table">
               <thead
                   tal:define="titles view/titles_for_phases | nothing"
                   tal:condition="titles">
                 <tr>
-                  <th tal:content="titles/title | nothing">[Phase Name]</th>
-                  <th tal:content="titles/units | nothing">[Number of Units]</th>
-                  <th tal:content="titles/unit_types | nothing">[Available Unit Types]</th>
-                  <th tal:content="titles/status | nothing">[Status]</th>
-                  <th tal:content="titles/completion_date | nothing">[Completion Date]</th>
-                  <th tal:content="titles/number_of_listings | nothing">[Number of Listings]</th>
+                  <th class="title" tal:content="titles/title | nothing">[Phase Name]</th>
+                  <th class="units" tal:content="titles/units | nothing">[Number of Units]</th>
+                  <th class="unit_types" tal:content="titles/unit_types | nothing">[Available Unit Types]</th>
+                  <th class="status" tal:content="titles/status | nothing">[Status]</th>
+                  <th class="completion_date" tal:content="titles/completion_date | nothing">[Completion Date]</th>
+                  <th class="number_of_listings" tal:content="titles/number_of_listings | nothing">[Number of Listings]</th>
                 </tr>
               </thead>
               <tbody>
                 <tr tal:repeat="phase phases">
-                  <td tal:content="phase/title/value | string:-">[Title]</td>
-                  <td tal:content="phase/units/value | string:-">[Units]</td>
-                  <td tal:content="phase/unit_types/value | string:-">[Unit Types]</td>
-                  <td tal:content="phase/status/value | string:-">[Status]</td>
-                  <td tal:content="phase/completion_date/value | string:-">[Completion Date]</td>
-                  <td tal:content="phase/number_of_listings/value | string:-">[Number of Listings]</td>
+                  <td class="title" tal:content="phase/title/value | string:-">[Title]</td>
+                  <td class="units" tal:content="phase/units/value | string:-">[Units]</td>
+                  <td class="unit_types" tal:content="phase/unit_types/value | string:-">[Unit Types]</td>
+                  <td class="status" tal:content="phase/status/value | string:-">[Status]</td>
+                  <td class="completion_date" tal:content="phase/completion_date/value | string:-">[Completion Date]</td>
+                  <td class="number_of_listings" tal:content="phase/number_of_listings/value | string:-">[Number of Listings]</td>
                 </tr>
               </tbody>
             </table>
@@ -140,29 +140,29 @@
               tal:condition="groups">
             <h2 i18n:translate="">Properties Available</h2>
 
-            <table class="listing">
+            <table class="listing groups__table">
               <thead
                   tal:define="titles view/titles_for_groups | nothing"
                   tal:condition="titles">
                 <tr>
-                  <th tal:content="titles/title | nothing">[Group Name]</th>
-                  <th tal:content="titles/lot_size | nothing">[Lot Size]</th>
-                  <th tal:content="titles/interior_area | nothing">[Interior Area]</th>
-                  <th tal:content="titles/beds_baths | nothing">[Beds/Baths]</th>
-                  <th tal:content="titles/status | nothing">[Status]</th>
-                  <th tal:content="titles/starting_price | nothing">[Starting Price]</th>
-                  <th tal:content="titles/number_of_listings | nothing">[Number of Listings]</th>
+                  <th class="title" tal:content="titles/title | nothing">[Group Name]</th>
+                  <th class="lot_size" tal:content="titles/lot_size | nothing">[Lot Size]</th>
+                  <th class="interior_area" tal:content="titles/interior_area | nothing">[Interior Area]</th>
+                  <th class="beds_baths" tal:content="titles/beds_baths | nothing">[Beds/Baths]</th>
+                  <th class="status" tal:content="titles/status | nothing">[Status]</th>
+                  <th class="starting_price" tal:content="titles/starting_price | nothing">[Starting Price]</th>
+                  <th class="number_of_listings" tal:content="titles/number_of_listings | nothing">[Number of Listings]</th>
                 </tr>
               </thead>
               <tbody>
                 <tr tal:repeat="group groups">
-                  <td tal:content="group/title/value | string:-">[Title]</td>
-                  <td tal:content="group/lot_size/value | string:-">[Lot Size]</td>
-                  <td tal:content="group/interior_area/value | string:-">[Interior Area]</td>
-                  <td tal:content="group/beds_baths/value | string:-">[Beds/Baths]</td>
-                  <td tal:content="group/status/value | string:-">[Status]</td>
-                  <td tal:content="group/starting_price/value | string:-">[Starting Price]</td>
-                  <td tal:content="group/number_of_listings/value | string:-">[Number of Listings]</td>
+                  <td class="title" tal:content="group/title/value | string:-">[Title]</td>
+                  <td class="lot_size" tal:content="group/lot_size/value | string:-">[Lot Size]</td>
+                  <td class="interior_area" tal:content="group/interior_area/value | string:-">[Interior Area]</td>
+                  <td class="beds_baths" tal:content="group/beds_baths/value | string:-">[Beds/Baths]</td>
+                  <td class="status" tal:content="group/status/value | string:-">[Status]</td>
+                  <td class="starting_price" tal:content="group/starting_price/value | string:-">[Starting Price]</td>
+                  <td class="number_of_listings" tal:content="group/number_of_listings/value | string:-">[Number of Listings]</td>
                 </tr>
               </tbody>
             </table>
