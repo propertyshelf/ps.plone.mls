@@ -71,7 +71,7 @@ class Field(object):
             return
 
         # Try to get the correct label for the field.
-        titles = resource.field_titles().get('response')
+        titles = resource.field_titles().get('response', {})
 
         try:
             self.title = titles['fields'][name]
@@ -88,6 +88,8 @@ class Field(object):
                 continue
             else:
                 break
+        if self.title is None:
+            self.title = name
 
 
 class CacheMixin(object):
@@ -95,11 +97,11 @@ class CacheMixin(object):
     _field_titles = None
 
     def _get_field_titles(self):
-        """"""
+        """Get the translated field titles from the API endpoint."""
         return self.__class__.get_field_titles(self._api)
 
     def field_titles(self):
-        """"""
+        """Get the translated field titles for that resource."""
         if self._field_titles is not None:
             return self._field_titles
 
@@ -112,9 +114,15 @@ class CacheMixin(object):
         cache = IAnnotations(request)
         data = cache.get(key, None)
         if not data:
-            data = self._get_field_titles()
-            cache[key] = data
-        self._field_titles = data
+            try:
+                data = self._get_field_titles()
+            except exceptions.ResourceNotFound:
+                data = {}
+            else:
+                cache[key] = data
+                self._field_titles = data
+        else:
+            self._field_titles = data
         return data
 
     def __getattr__(self, name):
