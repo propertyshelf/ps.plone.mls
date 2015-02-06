@@ -248,19 +248,36 @@
             <picture class="area__picture"
                 tal:define="image item/area_picture | nothing"
                 tal:condition="image"><a href="" rel="prettyPhoto[item]"
-                tal:attributes="href image/value">
-              <img src="" title="" alt=""
-                  tal:attributes="src image/value;
-                                  title title;
-                                  alt title;" />
-                </a>
-            </picture>
+                tal:attributes="href image/value"><img src="" title="" alt=""
+                tal:attributes="src image/value;
+                                title title;
+                                alt title;" /></a></picture>
             <p class="area__description"
                 tal:content="text/value"></p>
           </section>
 
-          <section class="development__representatives">
+          <section class="development__representatives"
+              tal:define="representatives item/representatives | nothing"
+              tal:condition="representatives">
             <h2 i18n:translate="">Meet the Developers</h2>
+            <div class="visualClear representatives__item"
+                tal:repeat="agent representatives">
+
+              <tal:agent
+                  tal:define="avatar agent/avatar | nothing;
+                              name agent/name | nothing;"
+                  tal:condition="name">
+                <picture class="representative__avatar"
+                    tal:condition="avatar"><a href="" rel="prettyPhoto[item]"
+                    tal:attributes="href avatar/value"><img src="" title="" alt=""
+                    tal:attributes="src avatar/value;
+                                    title name;
+                                    alt name;" /></a></picture>
+                <h3 tal:content="name">[Developer Name]</h3>
+                <p tal:content="agent/user_title/value">[Developer Title]</p>
+                <p tal:content="agent/personal_description/value | nothing">[Personal Description]</p>
+              </tal:agent>
+            </div>
           </section>
 
           <section class="development__contact">
