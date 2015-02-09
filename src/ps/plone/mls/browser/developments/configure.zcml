@@ -55,7 +55,7 @@
 
   <browser:page
       class=".details.DevelopmentDetails"
-      for="*"
+      for="ps.plone.mls.interfaces.IDevelopmentTraversable"
       layer="ps.plone.mls.browser.interfaces.IPloneMLSLayer"
       name="development-detail"
       permission="zope2.View"
