@@ -8,6 +8,14 @@ from Products.CMFPlone.browser.navigation import (
 )
 from zope.annotation.interfaces import IAnnotations
 
+# local imports
+from ps.plone.mls import _
+
+
+TRAVERSE_TITLES = {
+    'listings': _(u'Listings'),
+}
+
 
 class DevelopmentDetailsNavigationBreadcrumbs(PhysicalNavigationBreadcrumbs):
     """Custom breadcrumb navigation for development details."""
@@ -20,9 +28,9 @@ class DevelopmentDetailsNavigationBreadcrumbs(PhysicalNavigationBreadcrumbs):
 
         name, item_url = get_view_url(self.context)
 
-        item_id = getattr(self.request, 'development_id', None)
+        development_id = getattr(self.request, 'development_id', None)
         last_item = self.request.steps[-2:-1]
-        if item_id is None or self.context.id not in last_item:
+        if development_id is None or self.context.id not in last_item:
             return base
 
         cache = IAnnotations(self.request)
@@ -35,10 +43,29 @@ class DevelopmentDetailsNavigationBreadcrumbs(PhysicalNavigationBreadcrumbs):
         except:
             return base
 
+        url = '/'.join([item_url, development_id])
+
         base += ({
-            'absolute_url': '/'.join([item_url, item_id]),
+            'absolute_url': url,
             'Title': title,
         },)
+
+        listing_id = getattr(self.request, 'listing_id', None)
+        if listing_id is not None:
+            base += ({
+                'absolute_url': '/'.join([url, listing_id]),
+                'Title': listing_id.upper(),
+            },)
+
+        subpath = getattr(self.request, 'subpath', [])
+        if subpath and len(subpath) == 1:
+            item = subpath[0]
+            title = TRAVERSE_TITLES.get(item, None)
+            if title is not None:
+                base += ({
+                    'absolute_url': '/'.join([url, item]),
+                    'Title': title,
+                },)
 
         return base
 
