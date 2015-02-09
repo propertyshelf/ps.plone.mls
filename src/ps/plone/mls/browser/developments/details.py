@@ -236,11 +236,11 @@ class DevelopmentDetails(BrowserView):
             if not item_id:
                 return
 
-            self.portal_state = queryMultiAdapter(
+            portal_state = queryMultiAdapter(
                 (self.context, self.request),
                 name='plone_portal_state',
             )
-            lang = self.portal_state.language()
+            lang = portal_state.language()
             item = api.get_development(
                 item_id=item_id,
                 context=self.context,
