@@ -69,6 +69,8 @@ class DevelopmentCollectionViewlet(ViewletBase):
             (self.context, self.request), name='plone_context_state',
         )
 
+        if not self.available:
+            return
         self.limit = self.config.get('limit', 5)
         self._get_items()
 
