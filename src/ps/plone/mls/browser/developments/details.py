@@ -217,6 +217,10 @@ class DevelopmentDetails(BrowserView):
     _item = None
     _contact_form = None
 
+    def __init__(self, context, request):
+        super(DevelopmentDetails, self).__init__(context, request)
+        self.registry = getUtility(IRegistry)
+
     @property
     def item(self):
         if self._item is None:
@@ -224,8 +228,6 @@ class DevelopmentDetails(BrowserView):
         return self._item
 
     def _get_item(self):
-        self.registry = getUtility(IRegistry)
-
         cache = IAnnotations(self.request)
         item = cache.get('ps.plone.mls.development.traversed', None)
 
