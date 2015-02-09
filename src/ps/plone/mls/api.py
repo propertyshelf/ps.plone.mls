@@ -140,6 +140,10 @@ class CacheMixin(object):
                 return Field(name, value, self)
 
 
+class Agency(CacheMixin, resources.Agent):
+    """'Agency' entity resource class with caching support."""
+
+
 class Agent(CacheMixin, resources.Agent):
     """'Agent' entity resource class with caching support."""
 
@@ -149,6 +153,7 @@ class Development(CacheMixin, resources.Development):
 
     def __init__(self, api, data):
         super(Development, self).__init__(api, data)
+        self.__class_agency__ = Agency
         self.__class_agent__ = Agent
         self.__class_group__ = PropertyGroup
         self.__class_phase__ = DevelopmentPhase
