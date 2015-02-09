@@ -1,6 +1,9 @@
 # -*- coding: utf-8 -*-
 """Custom traversers for MLS Embedding items."""
 
+# python imports
+import copy
+
 # zope imports
 from ZPublisher.BaseRequest import DefaultPublishTraverse
 from zope.annotation.interfaces import IAnnotations
@@ -115,6 +118,9 @@ class MLSItemTraverser(DefaultPublishTraverse):
 
     def post_lookup(self, name):
         """Post lookup hook."""
+        # We store the additional subpath for later reference.
+        setattr(self.request, 'subpath', copy.copy(self.request.path))
+
         # We store the item_id parameter in the request.
         setattr(self.request, self.item_id, name)
 
