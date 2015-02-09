@@ -18,7 +18,7 @@ from zope.traversing.browser.absoluteurl import absoluteURL
 # from plone.mls.core.navigation import ListingBatch
 # from plone.mls.listing.api import prepare_search_params, search
 from plone.mls.listing.browser.interfaces import (
-    # IBaseListingItems,
+    IBaseListingItems,
     IListingDetails,
 )
 from ps.plone.mls import _, api
@@ -55,6 +55,7 @@ class DevelopmentCollectionViewlet(ViewletBase):
     def available(self):
         return IDevelopmentCollection.providedBy(self.context) and \
             not IDevelopmentDetails.providedBy(self.view) and \
+            not IBaseListingItems.providedBy(self.view) and \
             not IListingDetails.providedBy(self.view)
 
     @property
