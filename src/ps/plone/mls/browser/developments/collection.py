@@ -17,10 +17,10 @@ from zope.traversing.browser.absoluteurl import absoluteURL
 # local imports
 # from plone.mls.core.navigation import ListingBatch
 # from plone.mls.listing.api import prepare_search_params, search
-# from plone.mls.listing.browser.interfaces import (
-#     # IBaseListingItems,
-#     # IListingDetails,
-# )
+from plone.mls.listing.browser.interfaces import (
+    # IBaseListingItems,
+    IListingDetails,
+)
 from ps.plone.mls import _, api
 from ps.plone.mls.interfaces import (
     IDevelopmentCollection,
@@ -54,7 +54,8 @@ class DevelopmentCollectionViewlet(ViewletBase):
     @property
     def available(self):
         return IDevelopmentCollection.providedBy(self.context) and \
-            not IDevelopmentDetails.providedBy(self.view)
+            not IDevelopmentDetails.providedBy(self.view) and \
+            not IListingDetails.providedBy(self.view)
 
     @property
     def config(self):
