@@ -62,4 +62,13 @@
       template="templates/development_details_view.pt"
       />
 
+  <browser:page
+      class=".listings.DevelopmentListings"
+      for="ps.plone.mls.interfaces.IDevelopmentTraversable"
+      layer="ps.plone.mls.browser.interfaces.IPloneMLSLayer"
+      name="listings"
+      permission="zope2.View"
+      template="templates/development_listings.pt"
+      />
+
 </configure>
