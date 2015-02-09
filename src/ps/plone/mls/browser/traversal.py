@@ -79,26 +79,23 @@ class MLSItemTraverser(DefaultPublishTraverse):
                 return traverser.publishTraverse(request, name)
             except (NotFound, AttributeError):
                 pass
-
-        name = name.split('___')[0]
+        name = self.pre_lookup(name)
 
         if not self.check_item(name):
             raise NotFound(self.context, name, request)
 
-        # We store the item_id parameter in the request.
-        setattr(self.request, self.item_id, name)
         self.post_lookup(name)
+
         if len(self.request.path) > 0:
-            detail_view = self.request.path.pop()
-            if detail_view.startswith('@@'):
-                detail_view = detail_view[2:]
+            view_name = self.get_view_name_from_request()
         else:
-            detail_view = self.detail_view_name
+            view_name = self.detail_view_name
+
         default_view = self.context.getDefaultLayout()
 
-        # Let's call the listing view.
+        # Let's call the detail view.
         view = queryMultiAdapter(
-            (self.context, request), name=detail_view,
+            (self.context, request), name=view_name,
         )
         if view is not None:
             return view
@@ -112,9 +109,23 @@ class MLSItemTraverser(DefaultPublishTraverse):
 
         raise NotFound(self.context, name, request)
 
-    def post_lookup(self, item_id):
-        """"""
-        pass
+    def pre_lookup(self, name):
+        """Pre lookup hook."""
+        return name.split('___')[0]
+
+    def post_lookup(self, name):
+        """Post lookup hook."""
+        # We store the item_id parameter in the request.
+        setattr(self.request, self.item_id, name)
+
+    def get_view_name_from_request(self):
+        view_name = None
+        path = self.request.path
+        if len(path) > 0:
+            view_name = path.pop(-1)
+            if view_name.startswith('@@'):
+                view_name = view_name[2:]
+        return view_name
 
 
 @adapter(
@@ -129,8 +140,11 @@ class DevelopmentTraverser(MLSItemTraverser):
     __used_for__ = IDevelopmentTraversable
     detail_view_name = 'development-detail'
     item_id = 'development_id'
+    has_development = False
 
     def post_lookup(self, item_id):
+        """Post lookup hook."""
+        super(DevelopmentTraverser, self).post_lookup(item_id)
         portal_state = queryMultiAdapter(
             (self.context, self.request),
             name='plone_portal_state',
@@ -145,6 +159,37 @@ class DevelopmentTraverser(MLSItemTraverser):
         if item is not None:
             cache = IAnnotations(self.request)
             cache['ps.plone.mls.development.traversed'] = item
+            self.has_development = True
+
+    def get_view_name_from_request(self):
+        view_name = None
+        allowed_view_names = [
+            'listings',
+        ]
+        path = self.request.path
+        if len(path) < 1:
+            return view_name
+
+        view_name = path.pop(-1)
+        if view_name.startswith('@@'):
+            view_name = view_name[2:]
+
+        if view_name in allowed_view_names:
+            return view_name
+
+        view_name = self.get_listing_view(view_name)
+
+        return view_name
+
+    def get_listing_view(self, listing_id):
+        """"""
+        if not self.has_development:
+            return
+        cache = IAnnotations(self.request)
+        item = cache['ps.plone.mls.development.traversed']
+        if item.has_listing(listing_id):
+            setattr(self.request, 'listing_id', listing_id)
+            return 'listing-detail'
 
 
 @adapter(
