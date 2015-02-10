@@ -15,7 +15,7 @@ from zope.interface import implementer
 from zope.traversing.browser.absoluteurl import absoluteURL
 
 # local imports
-from ps.plone.mls import logger
+from ps.plone.mls import api, logger
 from ps.plone.mls.browser.developments.collection import CONFIGURATION_KEY
 
 
@@ -75,11 +75,26 @@ class DevelopmentListings(BrowserView):
         Optional filter by development phase or property group via GET
         params from the request.
         """
-        if self.item is None:
+        item = self.item
+        if item is None:
             return
 
+        phase_id = self.request.form.get('phase')
+        group_id = self.request.form.get('group')
+
+        if phase_id:
+            try:
+                item = api.DevelopmentPhase.get(self.item._api, phase_id)
+            except exceptions.ResourceNotFound:
+                item = None
+        elif group_id:
+            try:
+                item = api.PropertyGroup.get(self.item._api, group_id)
+            except exceptions.ResourceNotFound:
+                item = None
+
         try:
-            results, batching = self.item.listings()
+            results, batching = item.listings()
         except exceptions.MLSError, e:
             logger.warn(e)
         else:
