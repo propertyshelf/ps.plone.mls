@@ -60,6 +60,13 @@
       permission="zope.Public"
       />
 
+  <browser:page
+      for="*"
+      name="ps.plone.mls.macros"
+      template="templates/macros.pt"
+      permission="zope2.View"
+      />
+
 
   <!-- Custom viewlets. -->
   <!-- ================ -->
