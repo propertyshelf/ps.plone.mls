@@ -1,28 +1,101 @@
 # -*- coding: utf-8 -*-
 """Show Listings for developments."""
 
+# python imports
+from mls.apiclient import exceptions
+
 # zope imports
 from Products.Five import BrowserView
+from plone.memoize.view import memoize
+from plone.mls.core.navigation import ListingBatch
 from plone.mls.listing.browser.interfaces import IBaseListingItems
 from zope.annotation.interfaces import IAnnotations
+from zope.component import queryMultiAdapter
 from zope.interface import implementer
+from zope.traversing.browser.absoluteurl import absoluteURL
+
+# local imports
+from ps.plone.mls import logger
+from ps.plone.mls.browser.developments.collection import CONFIGURATION_KEY
 
 
 @implementer(IBaseListingItems)
 class DevelopmentListings(BrowserView):
     """Show listings for a specific development."""
 
+    _listings = None
+    _batching = None
+    item = None
+
+    def __init__(self, context, request):
+        super(DevelopmentListings, self).__init__(context, request)
+        self.update()
+
+    def available(self):
+        return self.item is not None
+
+    def update(self):
+        """Prepare view related data."""
+        self.context_state = queryMultiAdapter(
+            (self.context, self.request),
+            name='plone_context_state',
+        )
+        self.limit = self.config.get('limit', 25)
+        self._get_item()
+        self._get_listings()
+
+    @property
+    def config(self):
+        """Get view configuration data from annotations."""
+        annotations = IAnnotations(self.context)
+        return annotations.get(CONFIGURATION_KEY, {})
+
+    @property
+    def batching(self):
+        return ListingBatch(
+            self.listings,
+            self.limit,
+            self.request.get('b_start', 0),
+            orphan=1,
+            batch_data=self._batching,
+        )
+
     @property
     def listings(self):
+        """Return listing results."""
+        return self._listings
+
+    def _get_item(self):
+        cache = IAnnotations(self.request)
+        self.item = cache.get('ps.plone.mls.development.traversed', None)
+
+    def _get_listings(self):
         """Get the listings for the development.
 
         Optional filter by development phase or property group via GET
         params from the request.
         """
-        cache = IAnnotations(self.request)
-        item = cache.get('ps.plone.mls.development.traversed', None)
-
-        if item is None:
+        if self.item is None:
             return
 
-        return item.listings()
+        try:
+            results, batching = self.item.listings()
+        except exceptions.MLSError, e:
+            logger.warn(e)
+        else:
+            self._listings = results
+            self._batching = batching
+
+    @memoize
+    def view_url(self):
+        """Generate view url."""
+        try:
+            item_id = self.item.id.value
+        except:
+            item_id = ''
+
+        return '/'.join([
+            absoluteURL(self.context, self.request),
+            item_id,
+            '',
+        ])
