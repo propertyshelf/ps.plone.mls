@@ -1,12 +1,14 @@
 # -*- coding: utf-8 -*-
 """MLS integration api."""
 
-# zope imports
+# python imports
 from mls.apiclient import (
     api,
     exceptions,
     resources,
 )
+
+# zope imports
 from plone import api as plone_api
 from plone.mls.core.api import get_settings
 from zope.annotation.interfaces import IAnnotations
