@@ -18,7 +18,7 @@
   padding: 4px;
 }
 
-  .overview__logo img {
+  .detail .overview__logo img {
     max-width: 100%;
   }
 
@@ -28,6 +28,9 @@
   margin-right: 1em;
 }
 
+.development__overview .listings__link {
+  float: right;
+}
 
 .area__picture {
   background-color: #FFF;

@@ -21,7 +21,9 @@
            metal:define-macro="main"
            tal:define="item view/item | nothing;
                        images item/pictures | nothing;
-                       title item/title/value | nothing;">
+                       title item/title/value | nothing;
+                       id item/id/value | nothing;
+                       self_link string:${plone_view/renderBase}${id}">
 
         <div id="viewlet-above-content-title" tal:content="structure provider:plone.abovecontenttitle" tal:condition="not:ajax_load" />
         <hgroup>
@@ -82,7 +84,10 @@
                 </tr>
                 <tr tal:define="field item/number_of_listings | nothing" tal:condition="field">
                   <th class="number_of_listings" tal:content="field/title">[Label]</th>
-                  <td class="number_of_listings" tal:content="structure field/value">[Value]</td>
+                  <td class="number_of_listings"><span
+                      tal:content="structure field/value">[Value]</span> <a class="listings__link" href=""
+                      tal:attributes="href string:${self_link}/listings"
+                      i18n:translate="">Show Listings</a></td>
                 </tr>
                 <tr tal:define="field item/number_of_phases | nothing" tal:condition="field">
                   <th class="number_of_phases" tal:content="field/title">[Label]</th>
@@ -98,7 +103,7 @@
                 tal:define="text item/long_description | nothing"
                 tal:condition="text"
                 tal:content="text/value"></p>
-              <div class="visualClear"
+              <div class="visualClear video"
                   tal:define="video item/video_embedding | nothing"
                   tal:condition="video"
                   tal:content="structure video/value"></div>
@@ -120,16 +125,26 @@
                   <th class="status" tal:content="titles/status | nothing">[Status]</th>
                   <th class="completion_date" tal:content="titles/completion_date | nothing">[Completion Date]</th>
                   <th class="number_of_listings" tal:content="titles/number_of_listings | nothing">[Number of Listings]</th>
+                  <th class="listings__link"></th>
                 </tr>
               </thead>
               <tbody>
                 <tr tal:repeat="phase phases">
-                  <td class="title" tal:content="phase/title/value | string:-">[Title]</td>
-                  <td class="units" tal:content="phase/units/value | string:-">[Units]</td>
-                  <td class="unit_types" tal:content="phase/unit_types/value | string:-">[Unit Types]</td>
-                  <td class="status" tal:content="phase/status/value | string:-">[Status]</td>
-                  <td class="completion_date" tal:content="phase/completion_date/value | string:-">[Completion Date]</td>
-                  <td class="number_of_listings" tal:content="phase/number_of_listings/value | string:-">[Number of Listings]</td>
+                  <tal:phases
+                      tal:define="phase_id phase/id/value | nothing;
+                                  phase_listings_link string:${self_link}/listings?phase=${phase_id}">
+                    <td class="title"><a href=""
+                        tal:attributes="href phase_listings_link"
+                        tal:content="phase/title/value | string:-">[Title]</a></td>
+                    <td class="units" tal:content="phase/units/value | string:-">[Units]</td>
+                    <td class="unit_types" tal:content="phase/unit_types/value | string:-">[Unit Types]</td>
+                    <td class="status" tal:content="phase/status/value | string:-">[Status]</td>
+                    <td class="completion_date" tal:content="phase/completion_date/value | string:-">[Completion Date]</td>
+                    <td class="number_of_listings" tal:content="phase/number_of_listings/value | string:-">[Number of Listings]</td>
+                    <td class="listings__link"><a href=""
+                        tal:attributes="href phase_listings_link"
+                        i18n:translate="">Show Listings</a></td>
+                  </tal:phases>
                 </tr>
               </tbody>
             </table>
@@ -152,17 +167,27 @@
                   <th class="status" tal:content="titles/status | nothing">[Status]</th>
                   <th class="starting_price" tal:content="titles/starting_price | nothing">[Starting Price]</th>
                   <th class="number_of_listings" tal:content="titles/number_of_listings | nothing">[Number of Listings]</th>
+                  <th></th>
                 </tr>
               </thead>
               <tbody>
                 <tr tal:repeat="group groups">
-                  <td class="title" tal:content="group/title/value | string:-">[Title]</td>
+                  <tal:groups
+                      tal:define="group_id group/id/value | nothing;
+                                  group_listings_link string:${self_link}/listings?group=${group_id}">
+                  <td class="title"><a href=""
+                      tal:attributes="href group_listings_link"
+                      tal:content="group/title/value | string:-">[Title]</a></td>
                   <td class="lot_size" tal:content="group/lot_size/value | string:-">[Lot Size]</td>
                   <td class="interior_area" tal:content="group/interior_area/value | string:-">[Interior Area]</td>
                   <td class="beds_baths" tal:content="group/beds_baths/value | string:-">[Beds/Baths]</td>
                   <td class="status" tal:content="group/status/value | string:-">[Status]</td>
                   <td class="starting_price" tal:content="group/starting_price/value | string:-">[Starting Price]</td>
                   <td class="number_of_listings" tal:content="group/number_of_listings/value | string:-">[Number of Listings]</td>
+                    <td class="listings__link"><a href=""
+                        tal:attributes="href group_listings_link"
+                        i18n:translate="">Show Listings</a></td>
+                  </tal:groups>
                 </tr>
               </tbody>
             </table>
