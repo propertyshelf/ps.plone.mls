@@ -15,8 +15,6 @@ from zope.interface import Interface, alsoProvides, noLongerProvides
 from zope.traversing.browser.absoluteurl import absoluteURL
 
 # local imports
-# from plone.mls.core.navigation import ListingBatch
-# from plone.mls.listing.api import prepare_search_params, search
 from plone.mls.listing.browser.interfaces import (
     IBaseListingItems,
     IListingDetails,
@@ -33,6 +31,7 @@ from ps.plone.mls.interfaces import (
 )
 
 
+#: Reduce the API load by defining the fields we need.
 FIELDS = [
     'id',
     'title',
@@ -53,9 +52,11 @@ class DevelopmentCollectionViewlet(ViewletBase):
 
     _items = None
     _batching = None
+    limit = None
 
     @property
     def available(self):
+        """Check if this viewlet is available for rendering."""
         return IDevelopmentCollection.providedBy(self.context) and \
             not IDevelopmentDetails.providedBy(self.view) and \
             not IBaseListingItems.providedBy(self.view) and \
@@ -63,7 +64,7 @@ class DevelopmentCollectionViewlet(ViewletBase):
 
     @property
     def config(self):
-        """Get view configuration data from annotations."""
+        """Get the embedding configuration data from annotations."""
         annotations = IAnnotations(self.context)
         return annotations.get(config.SETTINGS_DEVELOPMENT_COLLECTION, {})
 
@@ -74,17 +75,19 @@ class DevelopmentCollectionViewlet(ViewletBase):
             (self.context, self.request), name='plone_context_state',
         )
 
-        if not self.available:
-            return
-        self.limit = self.config.get('limit', 5)
-        self._get_items()
+        if self.available:
+            # Only query the MLS if we show the viewlet.
+            self.limit = self.config.get('limit', 5)
+            self._get_items()
 
     @property
     @memoize
     def items(self):
+        """Return the collection items."""
         return self._items
 
     def _get_items(self):
+        """Get the collection items from the MLS."""
         lang = self.portal_state.language()
         mlsapi = api.get_api(context=self.context, lang=lang)
         params = {
@@ -108,12 +111,17 @@ class DevelopmentCollectionViewlet(ViewletBase):
     def view_url(self):
         """Generate view url."""
         if not self.context_state.is_view_template():
+            # We have the default view rendered.
             return self.context_state.current_base_url()
         else:
-            return absoluteURL(self.context, self.request) + '/'
+            return '/'.join([
+                absoluteURL(self.context, self.request),
+                '',
+            ])
 
     @property
     def batching(self):
+        """Create the batch provider for the collection items."""
         return ListingBatch(
             self.items,
             self.limit,
