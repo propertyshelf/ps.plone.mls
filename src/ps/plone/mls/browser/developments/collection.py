@@ -96,6 +96,8 @@ class DevelopmentCollectionViewlet(ViewletBase):
             'limit': self.limit,
             'offset': self.request.get('b_start', 0),
         }
+        params.update(self.config)
+        params = api.prepare_search_params(params, context=self.context)
         try:
             result = api.Development.search(mlsapi, params=params)
         except:
