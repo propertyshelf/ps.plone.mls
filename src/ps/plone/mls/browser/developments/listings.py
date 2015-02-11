@@ -15,8 +15,11 @@ from zope.interface import implementer
 from zope.traversing.browser.absoluteurl import absoluteURL
 
 # local imports
-from ps.plone.mls import api, logger
-from ps.plone.mls.browser.developments.collection import CONFIGURATION_KEY
+from ps.plone.mls import (
+    api,
+    config,
+    logger,
+)
 
 
 @implementer(IBaseListingItems)
@@ -48,7 +51,7 @@ class DevelopmentListings(BrowserView):
     def config(self):
         """Get view configuration data from annotations."""
         annotations = IAnnotations(self.context)
-        return annotations.get(CONFIGURATION_KEY, {})
+        return annotations.get(config.SETTINGS_DEVELOPMENT_COLLECTION, {})
 
     @property
     def batching(self):

@@ -222,6 +222,12 @@ class DevelopmentDetails(BrowserView):
         self.registry = getUtility(IRegistry)
 
     @property
+    def config(self):
+        """Get view configuration data from annotations."""
+        annotations = IAnnotations(self.context)
+        return annotations.get(config.SETTINGS_DEVELOPMENT_COLLECTION, {})
+
+    @property
     def item(self):
         if self._item is None:
             self._item = self._get_item()

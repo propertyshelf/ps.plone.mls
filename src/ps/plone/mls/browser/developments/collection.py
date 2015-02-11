@@ -21,7 +21,11 @@ from plone.mls.listing.browser.interfaces import (
     IBaseListingItems,
     IListingDetails,
 )
-from ps.plone.mls import _, api
+from ps.plone.mls import (
+    _,
+    api,
+    config,
+)
 from ps.plone.mls.interfaces import (
     IDevelopmentCollection,
     IDevelopmentDetails,
@@ -29,7 +33,6 @@ from ps.plone.mls.interfaces import (
 )
 
 
-CONFIGURATION_KEY = 'ps.plone.mls.developmentcollection'
 FIELDS = [
     'id',
     'title',
@@ -62,7 +65,7 @@ class DevelopmentCollectionViewlet(ViewletBase):
     def config(self):
         """Get view configuration data from annotations."""
         annotations = IAnnotations(self.context)
-        return annotations.get(CONFIGURATION_KEY, {})
+        return annotations.get(config.SETTINGS_DEVELOPMENT_COLLECTION, {})
 
     def update(self):
         """Prepare view related data."""
@@ -234,7 +237,8 @@ class DevelopmentCollectionConfiguration(form.Form):
     def getContent(self):
         annotations = IAnnotations(self.context)
         return annotations.get(
-            CONFIGURATION_KEY, annotations.setdefault(CONFIGURATION_KEY, {})
+            config.SETTINGS_DEVELOPMENT_COLLECTION,
+            annotations.setdefault(config.SETTINGS_DEVELOPMENT_COLLECTION, {})
         )
 
     @button.buttonAndHandler(_(u'Save'))
@@ -244,7 +248,7 @@ class DevelopmentCollectionConfiguration(form.Form):
             self.status = self.formErrorsMessage
             return
         annotations = IAnnotations(self.context)
-        annotations[CONFIGURATION_KEY] = data
+        annotations[config.SETTINGS_DEVELOPMENT_COLLECTION] = data
         self.request.response.redirect(absoluteURL(self.context, self.request))
 
     @button.buttonAndHandler(_(u'Cancel'))
