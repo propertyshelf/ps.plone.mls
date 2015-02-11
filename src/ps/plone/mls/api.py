@@ -19,6 +19,42 @@ import Globals
 from ps.plone.mls import _
 
 
+def prepare_search_params(params, context=None):
+    """Prepare search params."""
+    settings = get_settings(context=context)
+    result = {}
+
+    for item in params:
+        if item in ['baths', 'beds', 'lot_size', 'interior_area']:
+            min_max = params[item]
+            if isinstance(min_max, (list, tuple, )):
+                if len(min_max) > 0 and min_max[0] != '--MINVALUE--':
+                    result[item + '_min'] = min_max[0]
+                if len(min_max) > 1 and min_max[1] != '--MAXVALUE--':
+                    result[item + '_max'] = min_max[1]
+                continue
+
+        # Convert lists and tuples to comma separated lists.
+        if isinstance(params[item], (list, tuple, )):
+            if len(params.get(item, ())) > 0:
+                params[item] = ','.join(params[item])
+            else:
+                params[item] = None
+
+        # Remove all None-Type values.
+        if params[item] is not None:
+            value = params[item]
+            if isinstance(value, unicode):
+                value = value.encode('utf-8')
+            result[item] = value
+
+    agency_developments = result.pop('agency_developments', False)
+    if agency_developments is True:
+        result['agency_developments'] = settings.get('agency_id', None)
+
+    return result
+
+
 def get_api(context=None, lang=None):
     """Get the API Client based on the local configuration."""
     settings = get_settings(context=context)
