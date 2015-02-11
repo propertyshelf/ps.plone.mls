@@ -70,6 +70,7 @@ function initializeMap() {{
         mapTypeId: google.maps.MapTypeId.TERRAIN,
         mapTypeControl: true,
         disableDoubleClickZoom: true,
+        overviewMapControl: true,
         streetViewControl: true
     }}
 
@@ -279,7 +280,7 @@ class DevelopmentDetails(BrowserView):
             lat=lat,
             lng=lng,
             map_id=self.map_id,
-            zoom=7,
+            zoom=self.config.get('map_zoom_level', 7),
         )
 
     def use_fotorama(self):

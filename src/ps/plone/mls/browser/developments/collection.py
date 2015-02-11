@@ -145,6 +145,20 @@ class IDevelopmentCollectionConfiguration(Interface):
         title=_(u'Agency Developments'),
     )
 
+    map_zoom_level = schema.Int(
+        default=7,
+        description=_(
+            u'Set the resolution for the map. 0 is the lowest zoom level, in '
+            u'which the entire world can be seen. The higher the zoom level, '
+            u'the more details can be seen. The available maximum zoom level '
+            u'value differs from area to area and can change over time, also '
+            u'depending on the used map provider.'
+        ),
+        min=0,
+        max=21,
+        required=True,
+        title=_(u'Zoom level for maps'),
+    )
 
     # location_state = schema.Choice(
     #     required=False,
