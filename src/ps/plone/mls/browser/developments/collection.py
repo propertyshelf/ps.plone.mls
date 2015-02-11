@@ -136,23 +136,15 @@ class DevelopmentCollectionViewlet(ViewletBase):
 class IDevelopmentCollectionConfiguration(Interface):
     """Development Collection Configuration Form."""
 
-    # agency_listings = schema.Bool(
-    #     description=_(
-    #         u'If activated, only listings of the configured agency are '
-    #         u'shown.',
-    #     ),
-    #     required=False,
-    #     title=_(u'Agency Listings'),
-    # )
+    agency_developments = schema.Bool(
+        description=_(
+            u'If activated, only developments for the configured agency '
+            u'will be shown.',
+        ),
+        required=False,
+        title=_(u'Agency Developments'),
+    )
 
-    # listing_type = schema.Tuple(
-    #     default=('cl', 'cs', 'll', 'rl', 'rs', ),
-    #     required=False,
-    #     title=_(u'Listing Type'),
-    #     value_type=schema.Choice(
-    #         source='plone.mls.listing.ListingTypes'
-    #     ),
-    # )
 
     # location_state = schema.Choice(
     #     required=False,
@@ -206,25 +198,9 @@ class IDevelopmentCollectionConfiguration(Interface):
     #     ),
     # )
 
-    # object_type = schema.Tuple(
-    #     required=False,
-    #     title=_(u'Object Type'),
-    #     value_type=schema.Choice(
-    #         source='plone.mls.listing.ObjectTypes'
-    #     ),
-    # )
-
-    # ownership_type = schema.Tuple(
-    #     required=False,
-    #     title=_(u'Ownership Type'),
-    #     value_type=schema.Choice(
-    #         source='plone.mls.listing.OwnershipTypes'
-    #     ),
-    # )
-
     limit = schema.Int(
         default=5,
-        required=False,
+        required=True,
         title=_(u'Items per Page'),
     )
 
@@ -234,10 +210,7 @@ class DevelopmentCollectionConfiguration(form.Form):
 
     fields = field.Fields(IDevelopmentCollectionConfiguration)
     # fields['geographic_type'].widgetFactory = checkbox.CheckBoxFieldWidget
-    # fields['listing_type'].widgetFactory = checkbox.CheckBoxFieldWidget
     # fields['location_type'].widgetFactory = checkbox.CheckBoxFieldWidget
-    # fields['object_type'].widgetFactory = checkbox.CheckBoxFieldWidget
-    # fields['ownership_type'].widgetFactory = checkbox.CheckBoxFieldWidget
     # fields['view_type'].widgetFactory = checkbox.CheckBoxFieldWidget
     label = _(u'\'Development Collection\' Configuration')
     description = _(
