@@ -18,14 +18,33 @@ import Globals
 # local imports
 from ps.plone.mls import _
 
+MIN_MAX_FIELDS = [
+    'baths',
+    'beds',
+    'lot_size',
+    'interior_area',
+]
 
-def prepare_search_params(params, context=None):
+
+def _remove_omitted(params, omit):
+    """Removed omitted keys from the params dict."""
+    if omit is not None and isinstance(omit, (list, tuple)):
+        for item in omit:
+            try:
+                del params[item]
+            except:
+                continue
+
+
+def prepare_search_params(params, context=None, omit=None):
     """Prepare search params."""
     settings = get_settings(context=context)
     result = {}
 
+    _remove_omitted(params, omit)
+
     for item in params:
-        if item in ['baths', 'beds', 'lot_size', 'interior_area']:
+        if item in MIN_MAX_FIELDS:
             min_max = params[item]
             if isinstance(min_max, (list, tuple, )):
                 if len(min_max) > 0 and min_max[0] != '--MINVALUE--':
