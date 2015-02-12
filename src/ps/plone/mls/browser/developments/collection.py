@@ -6,12 +6,16 @@ from plone.app.layout.viewlets.common import ViewletBase
 from plone.directives import form
 from plone.memoize.view import memoize
 from plone.mls.core.navigation import ListingBatch
-from z3c.form import field, button
+from z3c.form import button
+from plone.supermodel.directives import fieldset
 # from z3c.form.browser import checkbox
 from zope import schema
 from zope.annotation.interfaces import IAnnotations
 from zope.component import queryMultiAdapter
-from zope.interface import Interface, alsoProvides, noLongerProvides
+from zope.interface import (
+    alsoProvides,
+    noLongerProvides,
+)
 from zope.traversing.browser.absoluteurl import absoluteURL
 
 # local imports
@@ -44,6 +48,12 @@ FIELDS = [
     'number_of_phases',
     'number_of_groups',
     'number_of_pictures',
+]
+
+EXCLUDED_SEARCH_FIELDS = [
+    'map_zoom_level',
+    'show_contact_form',
+    'show_contact_info',
 ]
 
 
@@ -97,7 +107,11 @@ class DevelopmentCollectionViewlet(ViewletBase):
             'offset': self.request.get('b_start', 0),
         }
         params.update(self.config)
-        params = api.prepare_search_params(params, context=self.context)
+        params = api.prepare_search_params(
+            params,
+            context=self.context,
+            omit=EXCLUDED_SEARCH_FIELDS,
+        )
         try:
             result = api.Development.search(mlsapi, params=params)
         except:
@@ -133,18 +147,22 @@ class DevelopmentCollectionViewlet(ViewletBase):
         )
 
 
-class IDevelopmentCollectionConfiguration(Interface):
+FIELDS_FILTER = (
+    'agency_developments',
+    'q',
+)
+
+
+class IDevelopmentCollectionConfiguration(form.Schema):
     """Development Collection Configuration Form."""
 
-    agency_developments = schema.Bool(
-        description=_(
-            u'If activated, only developments for the configured agency '
-            u'will be shown.',
-        ),
-        required=False,
-        title=_(u'Agency Developments'),
+    fieldset(
+        'filter',
+        label=_(u'Filter Options'),
+        fields=FIELDS_FILTER,
     )
 
+    # Fields for 'Defautl' fieldset.
     map_zoom_level = schema.Int(
         default=7,
         description=_(
@@ -158,6 +176,51 @@ class IDevelopmentCollectionConfiguration(Interface):
         max=21,
         required=True,
         title=_(u'Zoom level for maps'),
+    )
+
+    show_contact_info = schema.Bool(
+        default=False,
+        description=_(
+            u'If enabled, the contact information for a development will be '
+            u'shown on the detail page for a development.'
+        ),
+        required=False,
+        title=_(u'Show Contact Information'),
+    )
+
+    show_contact_form = schema.Bool(
+        default=False,
+        description=_(
+            u'If enabled, a form to contact the responsible agent will be '
+            u'shown on the detail page for a development.'
+        ),
+        required=False,
+        title=_(u'Show Contact Form'),
+    )
+
+    limit = schema.Int(
+        default=5,
+        required=True,
+        title=_(u'Items per Page'),
+    )
+
+    # Fields for 'Filter Options' fieldset.
+    agency_developments = schema.Bool(
+        default=False,
+        description=_(
+            u'If enabled, only developments for the configured agency '
+            u'will be shown.'
+        ),
+        required=False,
+        title=_(u'Agency Developments'),
+    )
+
+    q = schema.TextLine(
+        description=_(
+            u'Enter a search term to filter the results.'
+        ),
+        required=False,
+        title=_(u'Searchable Text'),
     )
 
     # location_state = schema.Choice(
@@ -176,16 +239,6 @@ class IDevelopmentCollectionConfiguration(Interface):
     #     required=False,
     #     title=_(u'District'),
     #     source='plone.mls.listing.LocationDistricts',
-    # )
-
-    # price_min = schema.Int(
-    #     required=False,
-    #     title=_(u'Price (Min)'),
-    # )
-
-    # price_max = schema.Int(
-    #     required=False,
-    #     title=_(u'Price (Max)'),
     # )
 
     # location_type = schema.Tuple(
@@ -212,20 +265,11 @@ class IDevelopmentCollectionConfiguration(Interface):
     #     ),
     # )
 
-    limit = schema.Int(
-        default=5,
-        required=True,
-        title=_(u'Items per Page'),
-    )
 
-
-class DevelopmentCollectionConfiguration(form.Form):
+class DevelopmentCollectionConfiguration(form.SchemaForm):
     """Development Collection Configuration Form."""
 
-    fields = field.Fields(IDevelopmentCollectionConfiguration)
-    # fields['geographic_type'].widgetFactory = checkbox.CheckBoxFieldWidget
-    # fields['location_type'].widgetFactory = checkbox.CheckBoxFieldWidget
-    # fields['view_type'].widgetFactory = checkbox.CheckBoxFieldWidget
+    schema = IDevelopmentCollectionConfiguration
     label = _(u'\'Development Collection\' Configuration')
     description = _(
         u'Adjust the behaviour for this \'Development Collection\' viewlet.'
