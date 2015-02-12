@@ -314,40 +314,46 @@
 
           <section class="development__contact"
               itemscope itemtype="http://schema.org/LocalBusiness"
-              tal:define="agency item/agency | nothing;
-                          agent item/agent | nothing;
-                          name agency/title | nothing;
-                          description agency/description | nothing;
-                          address agency/address | nothing;
-                          office_phone agency/office_phone | nothing;
-                          office_fax agency/office_fax | nothing;
-                          website agency/website | nothing;
-                          email agency/email | nothing;">
+              tal:condition="view/show_section_contact | nothing">
             <h2 i18n:translate="">Contact Us</h2>
-            <h3 itemprop="name"
-                tal:condition="name"
-                tal:content="name/value">[Agency Name]</h3>
-            <p itemprop="description"
-                tal:condition="description"
-                tal:content="description/value">[Description]</p>
 
-            <address>
-              <div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress"><span itemprop="streetAddress"
-                  tal:condition="address"
-                  tal:content="address/value">[address]</span></div>
-              <div itemprop="telephone"
-                  tal:condition="office_phone"
-                  tal:content="office_phone/value">[office_phone]</div>
-              <div itemprop="faxNumber"
-                  tal:condition="office_fax"
-                  tal:content="office_fax/value">[office_fax]</div>
-              <div itemprop="url"
-                  tal:condition="website"
-                  tal:content="website/value">[website]</div>
-              <div itemprop="email"
-                  tal:condition="email"
-                  tal:content="email/value">[email]</div>
-            </address>
+            <tal:contact_info
+                tal:define="contact_info view/contact_info | nothing;
+                            agency contact_info/agency | nothing;
+                            agent contact_info/agent | nothing;
+                            name agency/title | nothing;
+                            description agency/description | nothing;
+                            address agency/address | nothing;
+                            office_phone agency/office_phone | nothing;
+                            office_fax agency/office_fax | nothing;
+                            website agency/website | nothing;
+                            email agency/email | nothing;"
+                tal:condition="contact_info">
+              <h3 itemprop="name"
+                  tal:condition="name"
+                  tal:content="name/value">[Agency Name]</h3>
+              <p itemprop="description"
+                  tal:condition="description"
+                  tal:content="description/value">[Description]</p>
+
+              <address>
+                <div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress"><span itemprop="streetAddress"
+                    tal:condition="address"
+                    tal:content="address/value">[address]</span></div>
+                <div itemprop="telephone"
+                    tal:condition="office_phone"
+                    tal:content="office_phone/value">[office_phone]</div>
+                <div itemprop="faxNumber"
+                    tal:condition="office_fax"
+                    tal:content="office_fax/value">[office_fax]</div>
+                <div itemprop="url"
+                    tal:condition="website"
+                    tal:content="website/value">[website]</div>
+                <div itemprop="email"
+                    tal:condition="email"
+                    tal:content="email/value">[email]</div>
+              </address>
+            </tal:contact_info>
 
             <tal:form
                 tal:define="form view/contact_form"

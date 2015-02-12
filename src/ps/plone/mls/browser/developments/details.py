@@ -217,6 +217,7 @@ class DevelopmentDetails(BrowserView):
 
     _item = None
     _contact_form = None
+    _contact_info = None
 
     def __init__(self, context, request):
         super(DevelopmentDetails, self).__init__(context, request)
@@ -316,7 +317,32 @@ class DevelopmentDetails(BrowserView):
         raw = fake.field_titles()
         return raw.get('response', {}).get('fields', {})
 
+    def show_section_contact(self):
+        """Should the contact us section be shown at all?"""
+        show_form = self.contact_form() is not None
+        show_info = self.contact_info() is not None
+        return show_info or show_form
+
+    def contact_info(self):
+        """Get the contact information, if enabled."""
+        if not self.config.get('show_contact_info', False):
+            return
+
+        if self._contact_info is not None:
+            return self._contact_info
+
+        item = self.item
+        self._contact_info = {
+            'agency': getattr(item, 'agency', None),
+            'agent': getattr(item, 'agent', None),
+        }
+        return self._contact_info
+
     def contact_form(self):
+        """Get the contact form, if enabled."""
+        if not self.config.get('show_contact_form', False):
+            return
+
         if self._contact_form is not None:
             return self._contact_form
 
