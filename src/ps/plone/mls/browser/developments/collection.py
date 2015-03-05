@@ -200,8 +200,20 @@ class IDevelopmentCollectionConfiguration(form.Schema):
 
     limit_developments = schema.Int(
         default=5,
+        description=_(
+            u'How many developments should be shown per page?'
+        ),
         required=True,
-        title=_(u'Items per Page'),
+        title=_(u'Developments per Page'),
+    )
+
+    limit_listings = schema.Int(
+        default=25,
+        description=_(
+            u'How many listings should be shown per devlopment listings page?'
+        ),
+        required=True,
+        title=_(u'Listings per Page'),
     )
 
     # Fields for 'Filter Options' fieldset.
