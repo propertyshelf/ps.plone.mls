@@ -28,6 +28,7 @@ class DevelopmentListings(BrowserView):
 
     _listings = None
     _batching = None
+    limit = None
     item = None
 
     def __init__(self, context, request):
@@ -43,7 +44,7 @@ class DevelopmentListings(BrowserView):
             (self.context, self.request),
             name='plone_context_state',
         )
-        self.limit = self.config.get('limit', 25)
+        self.limit = self.config.get('limit_listings', 25)
         self._get_item()
         self._get_listings()
 
