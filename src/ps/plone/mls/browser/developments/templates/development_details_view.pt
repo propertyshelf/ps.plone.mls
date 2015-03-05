@@ -201,7 +201,7 @@
 
           <section class="development__gallery"
               tal:condition="images"
-              tal:define="lead_image item/lead_image | python: images[0] or None;
+              tal:define="lead_image view/lead_image | nothing;
                           use_fotorama view/use_fotorama | nothing;
                           use_galleria view/use_galleria | nothing;">
             <h2 i18n:translate="">Gallery</h2>

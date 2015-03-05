@@ -259,6 +259,25 @@ class DevelopmentDetails(BrowserView):
         return item
 
     @property
+    def lead_image(self):
+        """"""
+        item = self.item
+        try:
+            img = item.lead_image
+        except AttributeError:
+            pass
+        else:
+            return img
+
+        try:
+            images = item.pictures()
+        except AttributeError:
+            pass
+        else:
+            if len(images) > 0:
+                return images[0]
+
+    @property
     def map_id(self):
         """Generate a unique css id for the map."""
         try:
