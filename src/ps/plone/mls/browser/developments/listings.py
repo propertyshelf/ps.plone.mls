@@ -83,6 +83,11 @@ class DevelopmentListings(BrowserView):
         if item is None:
             return
 
+        params = {
+            'limit': self.limit,
+            'offset': self.request.get('b_start', 0),
+        }
+
         phase_id = self.request.form.get('phase')
         group_id = self.request.form.get('group')
 
@@ -98,7 +103,7 @@ class DevelopmentListings(BrowserView):
                 item = None
 
         try:
-            results, batching = item.listings()
+            results, batching = item.listings(params=params)
         except exceptions.MLSError, e:
             logger.warn(e)
         else:
