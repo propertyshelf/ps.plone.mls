@@ -87,7 +87,7 @@ class DevelopmentCollectionViewlet(ViewletBase):
 
         if self.available:
             # Only query the MLS if we show the viewlet.
-            self.limit = self.config.get('limit', 5)
+            self.limit = self.config.get('limit_developments', 5)
             self._get_items()
 
     @property
@@ -198,7 +198,7 @@ class IDevelopmentCollectionConfiguration(form.Schema):
         title=_(u'Show Contact Form'),
     )
 
-    limit = schema.Int(
+    limit_developments = schema.Int(
         default=5,
         required=True,
         title=_(u'Items per Page'),
