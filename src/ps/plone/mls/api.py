@@ -11,12 +11,16 @@ from mls.apiclient import (
 # zope imports
 from plone import api as plone_api
 from plone.mls.core.api import get_settings
+from plone.mls.listing.api import get_agency_info
 from zope.annotation.interfaces import IAnnotations
 from zope.globalrequest import getRequest
 import Globals
 
 # local imports
-from ps.plone.mls import _
+from ps.plone.mls import (
+    _,
+    utils,
+)
 
 MIN_MAX_FIELDS = [
     'baths',
@@ -200,9 +204,75 @@ class CacheMixin(object):
 class Agency(CacheMixin, resources.Agency):
     """'Agency' entity resource class with caching support."""
 
+    def override(self, context=None):
+        """Override the agency information with local settings."""
+        settings = get_agency_info(context=context)
+        if settings is None:
+            return
+
+        mls_settings = get_settings(context=context)
+        agency_id = mls_settings.get('agency_id', None)
+
+        if self._data.get('id', None) == agency_id:
+            if settings and settings.get('force', False) is True:
+                pass
+            else:
+                return
+
+        mapping = {
+            'agency_address': 'address',
+            'agency_description': 'description',
+            'agency_email': 'email',
+            'agency_email_alternative': 'email_alternative',
+            'agency_geo_location': 'geo_location',
+            'agency_logo_url': 'logo',
+            'agency_name': 'title',
+            'agency_office_fax': 'office_fax',
+            'agency_office_phone': 'office_phone',
+            'agency_office_phone_alternative': 'office_phone_alternative',
+            'agency_website': 'website',
+        }
+
+        utils.merge_local_contact_info(
+            settings=settings,
+            mapping=mapping,
+            data=self._data,
+        )
+
 
 class Agent(CacheMixin, resources.Agent):
     """'Agent' entity resource class with caching support."""
+
+    def override(self, context=None):
+        """Override the agent information with local settings."""
+        settings = get_agency_info(context=context)
+        if settings is None:
+            return
+
+        mls_settings = get_settings(context=context)
+        agency_id = mls_settings.get('agency_id', None)
+
+        if self._data.get('id', None) == agency_id:
+            if settings and settings.get('force', False) is True:
+                pass
+            else:
+                return
+
+        mapping = {
+            'agent_avatar_url': 'avatar',
+            'agent_cell_phone': 'cell_phone',
+            'agent_email': 'email',
+            'agent_fax': 'fax',
+            'agent_name': 'name',
+            'agent_office_phone': 'office_phone',
+            'agent_title': 'user_title',
+        }
+
+        utils.merge_local_contact_info(
+            settings=settings,
+            mapping=mapping,
+            data=self._data,
+        )
 
 
 class Development(CacheMixin, resources.Development):
