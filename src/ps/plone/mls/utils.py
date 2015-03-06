@@ -31,3 +31,25 @@ def contains_nuts(value):
         if check_for_url(value):
             raise Invalid(_(u'No URLs allowed.'))
     return True
+
+
+def merge_local_contact_info(settings=None, mapping=None, data=None):
+    """Merges values of locally provided contact info."""
+    keys_internal = [
+        'clear',
+        'force',
+        'use_custom_info',
+    ]
+
+    if settings.get('clear', False) is True:
+        data.clear()
+
+    for key, value in settings.items():
+        if key in keys_internal:
+            continue
+        if value is None:
+            continue
+        mapped_key = mapping.get(key)
+        if mapped_key is None:
+            continue
+        data[mapped_key] = value
