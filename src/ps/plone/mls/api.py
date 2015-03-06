@@ -197,7 +197,7 @@ class CacheMixin(object):
                 return Field(name, value, self)
 
 
-class Agency(CacheMixin, resources.Agent):
+class Agency(CacheMixin, resources.Agency):
     """'Agency' entity resource class with caching support."""
 
 
