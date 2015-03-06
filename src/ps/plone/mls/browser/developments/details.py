@@ -346,9 +346,17 @@ class DevelopmentDetails(BrowserView):
             return self._contact_info
 
         item = self.item
+        agency = getattr(item, 'agency', None)
+        if agency is not None:
+            agency = agency()
+            agency.override(context=self.context)
+        agent = getattr(item, 'agent', None)
+        if agent is not None:
+            agent = agent()
+            agent.override(context=self.context)
         self._contact_info = {
-            'agency': getattr(item, 'agency', None),
-            'agent': getattr(item, 'agent', None),
+            'agency': agency,
+            'agent': agent,
         }
         return self._contact_info
 
