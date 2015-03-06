@@ -11,6 +11,7 @@ from Acquisition import aq_inner
 from Products.CMFCore.utils import getToolByName
 from Products.CMFPlone import PloneMessageFactory as PMF
 from Products.Five import BrowserView
+from plone import api as plone_api
 from plone.directives import form
 from plone.mls.listing.interfaces import IMLSUISettings
 from plone.registry.interfaces import IRegistry
@@ -43,6 +44,7 @@ except ImportError:
 
 # local imports
 from ps.plone.mls import (
+    _,
     api,
     config,
     utils,
@@ -176,8 +178,14 @@ class ContactForm(form.Form):
             return
 
         if not self.already_sent:
-            self.send_email(data)
-            self._email_sent = True
+            if self.send_email(data):
+                self._email_sent = True
+                plone_api.portal.show_message(
+                    message=_(u'Your contact request was sent successfully.'),
+                    request=self.request,
+                    type='info',
+                )
+        self.request.response.redirect(self.request.URL)
         return
 
     def send_email(self, data):
@@ -206,9 +214,11 @@ class ContactForm(form.Form):
         message['From'] = from_address
         message['Reply-to'] = sender
         message['Subject'] = subject
-
-        mailhost.send(message, immediate=True, charset=email_charset)
-        return
+        try:
+            mailhost.send(message, immediate=True, charset=email_charset)
+        except:
+            return False
+        return True
 
 
 @implementer(IDevelopmentDetails)
