@@ -16,6 +16,7 @@ To configure the **Development Collection** click on the new link **Configure De
 The configuration form opens in a nice overlay:
 
 .. image:: ../_images/configure_development_collection.png
+.. image:: ../_images/configure_development_collection_filter.png
 
 Once all search criterias are entered click the **Save** button.
 
