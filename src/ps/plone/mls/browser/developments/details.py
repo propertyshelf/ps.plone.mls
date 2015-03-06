@@ -20,10 +20,7 @@ from z3c.form import (
     button,
     field,
 )
-from z3c.form.interfaces import (
-    # HIDDEN_MODE,
-    IFormLayer,
-)
+from z3c.form.interfaces import IFormLayer
 from zope import schema
 from zope.annotation.interfaces import IAnnotations
 from zope.component import (
@@ -156,18 +153,6 @@ class ContactForm(form.Form):
     @property
     def already_sent(self):
         return self._email_sent
-
-    def updateWidgets(self):
-        super(ContactForm, self).updateWidgets()
-        # urltool = getToolByName(self.context, 'portal_url')
-        # portal = urltool.getPortalObject()
-        # subject = u'{portal_title}: {title} ({lid})'.format(
-        #     lid=self.listing_info['listing_id'],
-        #     portal_title=portal.getProperty('title').decode('utf-8'),
-        #     title=self.listing_info['listing_title'],
-        # )
-        # self.widgets['subject'].mode = HIDDEN_MODE
-        # self.widgets['subject'].value = subject
 
     @button.buttonAndHandler(PMF(u'label_send', default='Send'), name='send')
     def handle_send(self, action):
