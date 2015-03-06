@@ -347,8 +347,9 @@
                     tal:condition="office_fax"
                     tal:content="office_fax/value">[office_fax]</div>
                 <div itemprop="url"
-                    tal:condition="website"
-                    tal:content="website/value">[website]</div>
+                    tal:condition="website"><a href=""
+                    tal:content="website/value"
+                    tal:attributes="href website/value">[website]</a></div>
                 <div itemprop="email"
                     tal:condition="email"
                     tal:content="email/value">[email]</div>
