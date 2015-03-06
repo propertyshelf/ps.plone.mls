@@ -186,8 +186,8 @@ class ContactForm(form.Form):
             from_address = '{0} <{1}>'.format(from_name, from_address)
 
         try:
-            agent = self.listing_info['agent']
-            rcp = agent.get('agent_email').get('value')
+            agent = self.item_info
+            rcp = agent.email.value
         except:
             rcp = from_address
         sender = '{0} <{1}>'.format(data['name'], data['sender_from_address'])
@@ -368,7 +368,7 @@ class DevelopmentDetails(BrowserView):
         if self._contact_form is not None:
             return self._contact_form
 
-        item_info = {}
+        item_info = self.contact_info().get('agent')
         z2.switch_on(self, request_layer=IFormLayer)
         self._contact_form = ContactForm(
             aq_inner(self.context),
