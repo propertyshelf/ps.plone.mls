@@ -45,6 +45,9 @@ Show how to activate the listing collection
 
     Click Overlay Link  css=#contentview-listing-collection-config a
 
+    Wait until element is visible
+    ...  css=div.pb-ajax
+
     Capture and crop page screenshot
     ...  configure_listing_collection.png
     ...  css=div.pb-ajax
