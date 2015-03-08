@@ -13,7 +13,11 @@ from Products.CMFPlone import PloneMessageFactory as PMF
 from Products.Five import BrowserView
 from plone import api as plone_api
 from plone.directives import form
-from plone.mls.listing.interfaces import IMLSUISettings
+try:
+    from plone.mls.listing.interfaces import IMLSUISettings
+    HAS_UI_SETTINGS = True
+except ImportError:
+    HAS_UI_SETTINGS = False
 from plone.registry.interfaces import IRegistry
 from plone.z3cform import z2
 from z3c.form import (
@@ -299,6 +303,9 @@ class DevelopmentDetails(BrowserView):
         )
 
     def use_fotorama(self):
+        if not HAS_UI_SETTINGS:
+            return False
+
         if self.registry is not None:
             try:
                 settings = self.registry.forInterface(IMLSUISettings)
@@ -309,6 +316,9 @@ class DevelopmentDetails(BrowserView):
         return False
 
     def use_galleria(self):
+        if not HAS_UI_SETTINGS:
+            return True
+
         if self.registry is not None:
             try:
                 settings = self.registry.forInterface(IMLSUISettings)
