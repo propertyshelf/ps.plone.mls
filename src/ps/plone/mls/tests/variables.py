@@ -13,6 +13,8 @@ elif CMFPLONE_VERSION.startswith('4.3'):
     PSPLONEMLS_PLONE_SELECTORS = 'selectors/plone-4.3.x.robot'
 elif CMFPLONE_VERSION.startswith('4.2'):
     PSPLONEMLS_PLONE_SELECTORS = 'selectors/plone-4.2.x.robot'
+elif CMFPLONE_VERSION.startswith('4.1'):
+    PSPLONEMLS_PLONE_SELECTORS = 'selectors/plone-4.1.x.robot'
 elif CMFPLONE_VERSION.startswith('4.'):
     PSPLONEMLS_PLONE_SELECTORS = 'selectors/plone-4.x.robot'
 
