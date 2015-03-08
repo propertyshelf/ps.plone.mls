@@ -12,7 +12,5 @@ def uninstall(portal, reinstall=False):
     """Uninstall the add-on."""
     if not reinstall:
         setup_tool = portal.portal_setup
-        setup_tool.runAllImportStepsFromProfile(
-            '{0}:uninstall'.format(config.PROFILE_ID)
-        )
+        setup_tool.runAllImportStepsFromProfile(config.UNINSTALL_PROFILE)
         logger.info('Uninstall done')
