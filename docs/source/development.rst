@@ -90,7 +90,7 @@ Searchable Text
     - Words connected by punctuation implies phrase search, e.g. ``casa-beach``.
     - A leading hyphen implies NOT, e.g. ``casa -beach``
     - These rules can be combined, e.g. ``casa -"casa beach"`` or ``casa -casa-beach``.
-    - * and ? are used for globbing (i.e. prefix search), e.g. ``casa*``.
+    - \* and ? are used for globbing (i.e. prefix search), e.g. ``casa*``.
 
 Once all configuration options are entered click the **Save** button.
 
