@@ -2,6 +2,7 @@
 """Configuration options for the Propertyshelf MLS Plone Embedding."""
 
 PROFILE_ID = u'profile-ps.plone.mls'
+INSTALL_PROFILE = '{0}:default'.format(PROFILE_ID)
 PROJECT_NAME = 'ps.plone.mls'
 
 #: Configuration key for development collection settings.

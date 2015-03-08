@@ -17,4 +17,4 @@ def migrate_to_1001(context):
     """
     site = getUtility(IPloneSiteRoot)
     setup = getToolByName(site, 'portal_setup')
-    setup.runImportStepFromProfile(config.PROFILE_ID, 'actions')
+    setup.runImportStepFromProfile(config.INSTALL_PROFILE, 'actions')
