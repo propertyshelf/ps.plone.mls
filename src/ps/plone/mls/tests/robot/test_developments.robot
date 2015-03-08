@@ -52,7 +52,7 @@ Show how to activate the development collection
     ...  configure_development_collection.png
     ...  css=div.pb-ajax
 
-    Click link  css=div.pb-ajax #fieldsetlegend-filter
+    Click link  ${LINK_DEVELOPMENT_CONFIGURATION_TAB_FITER}
 
     Capture and crop page screenshot
     ...  configure_development_collection_filter.png
