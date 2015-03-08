@@ -13,6 +13,11 @@ from Products.CMFPlone import PloneMessageFactory as PMF
 from Products.Five import BrowserView
 from plone import api as plone_api
 from plone.directives import form
+from plone.formwidget.captcha.widget import CaptchaFieldWidget
+from plone.formwidget.captcha.validator import (
+    CaptchaValidator,
+    WrongCaptchaCode,
+)
 try:
     from plone.mls.listing.interfaces import IMLSUISettings
     HAS_UI_SETTINGS = True
@@ -23,6 +28,7 @@ from plone.z3cform import z2
 from z3c.form import (
     button,
     field,
+    validator,
 )
 from z3c.form.interfaces import IFormLayer
 from zope import schema
@@ -142,6 +148,12 @@ class IContactForm(form.Schema):
         title=PMF(u'label_message', default=u'Message'),
     )
 
+    form.widget(captcha=CaptchaFieldWidget)
+    captcha = schema.TextLine(
+        required=True,
+        title=_(u'Captcha'),
+    )
+
 
 class ContactForm(form.Form):
     """Contact Form."""
@@ -149,10 +161,22 @@ class ContactForm(form.Form):
     ignoreContext = True
     method = 'post'
     _email_sent = False
+    fields['captcha'].widgetFactory = CaptchaFieldWidget
 
     def __init__(self, context, request, info=None):
         super(ContactForm, self).__init__(context, request)
         self.item_info = info
+
+    @property
+    def config(self):
+        """Get view configuration data from annotations."""
+        annotations = IAnnotations(self.context)
+        return annotations.get(config.SETTINGS_DEVELOPMENT_COLLECTION, {})
+
+    def update(self):
+        if self.config.get('show_captcha', False) is False:
+            self.fields = field.Fields(IContactForm).omit('captcha')
+        super(ContactForm, self).update()
 
     @property
     def already_sent(self):
@@ -161,12 +185,29 @@ class ContactForm(form.Form):
     @button.buttonAndHandler(PMF(u'label_send', default='Send'), name='send')
     def handle_send(self, action):
         """Send button for sending the email."""
+        can_send = True
         data, errors = self.extractData()
         if errors:
             self.status = self.formErrorsMessage
             return
 
-        if not self.already_sent:
+        if 'captcha' in data:
+            can_send = False
+            # Verify the user input against the captcha
+            captcha = CaptchaValidator(
+                self.context,
+                self.request,
+                None,
+                IContactForm['captcha'],
+                None,
+            )
+            try:
+                can_send = captcha.validate(data['captcha'])
+            except WrongCaptchaCode, e:
+                self.status = e.doc()
+                return
+
+        if not self.already_sent and can_send:
             if self.send_email(data):
                 self._email_sent = True
                 plone_api.portal.show_message(
@@ -208,6 +249,11 @@ class ContactForm(form.Form):
         except:
             return False
         return True
+
+
+# Register Captcha validator for the captcha field in the ICaptchaForm
+validator.WidgetValidatorDiscriminators(
+    CaptchaValidator, field=IContactForm['captcha'])
 
 
 @implementer(IDevelopmentDetails)

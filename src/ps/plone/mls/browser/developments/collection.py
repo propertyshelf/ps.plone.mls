@@ -198,6 +198,15 @@ class IDevelopmentCollectionConfiguration(form.Schema):
         title=_(u'Show Contact Form'),
     )
 
+    show_captcha = schema.Bool(
+        default=False,
+        description=_(
+            u'Show a captcha field within the contact form to prevent spam.'
+        ),
+        required=False,
+        title=_(u'Show Captcha'),
+    )
+
     limit_developments = schema.Int(
         default=5,
         description=_(
