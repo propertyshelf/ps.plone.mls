@@ -22,10 +22,10 @@ Show how to activate the development collection
     Wait until element is visible
     ...  css=#plone-contentmenu-actions dd.actionMenuContent
 
-    ${note1}  Add pointy note  css=#plone-contentmenu-actions-development-collection-activate
+    ${note1}  Add pointy note  ${LINK_DEVELOPMENT_COLLECTION_ACTIVATE}
     ...  Click to activate the Development Collection
     ...  position=left
-    Mouse over  css=#plone-contentmenu-actions-development-collection-activate
+    Mouse over  ${LINK_DEVELOPMENT_COLLECTION_ACTIVATE}
     Update element style  portal-footer  display  none
 
     Capture and crop page screenshot
@@ -36,7 +36,7 @@ Show how to activate the development collection
     Remove elements  ${note1}
 
     ${href} =  get element attribute
-    ...  css=#plone-contentmenu-actions-development-collection-activate@href
+    ...  ${LINK_DEVELOPMENT_COLLECTION_ACTIVATE}@href
     go to  ${href}
 
     Capture and crop page screenshot
@@ -65,10 +65,10 @@ Show how to activate the development collection
     Wait until element is visible
     ...  css=#plone-contentmenu-actions dd.actionMenuContent
 
-    ${note1}  Add pointy note  css=#plone-contentmenu-actions-development-collection-deactivate
+    ${note1}  Add pointy note  ${LINK_DEVELOPMENT_COLLECTION_DEACTIVATE}
     ...  Click to deactivate the Development Collection
     ...  position=left
-    Mouse over  css=#plone-contentmenu-actions-development-collection-deactivate
+    Mouse over  ${LINK_DEVELOPMENT_COLLECTION_DEACTIVATE}
     Update element style  portal-footer  display  none
 
     Capture and crop page screenshot
@@ -79,7 +79,7 @@ Show how to activate the development collection
     Remove elements  ${note1}
 
     ${href} =  get element attribute
-    ...  css=#plone-contentmenu-actions-development-collection-deactivate@href
+    ...  ${LINK_DEVELOPMENT_COLLECTION_DEACTIVATE}@href
     go to  ${href}
 
     Capture and crop page screenshot
