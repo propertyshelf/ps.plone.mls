@@ -403,11 +403,11 @@ class DevelopmentDetails(BrowserView):
 
         item = self.item
         agency = getattr(item, 'agency', None)
-        if agency is not None:
+        if agency is not None and agency() is not None:
             agency = agency()
             agency.override(context=self.context)
         agent = getattr(item, 'agent', None)
-        if agent is not None:
+        if agent is not None and agent() is not None:
             agent = agent()
             agent.override(context=self.context)
         self._contact_info = {
