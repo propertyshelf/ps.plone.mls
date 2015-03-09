@@ -4,7 +4,7 @@ Embedding Development Projects
 Enable the Embedding for Development Projects
 ---------------------------------------------
 
-To show development projects within you site, go to the place in your Plone site where you want to have the development projects available and open the **Actions**-menu.
+To show development projects within your site, go to the place in your Plone site where you want to have the development projects available and open the **Actions**-menu.
 Select **Activate Development Collection** from the available options:
 
 .. image:: ../_images/activate_development_collection.png
@@ -31,7 +31,7 @@ With the basic settings, available under the **Default** tab, you can adjust the
 Zoom level for maps
     This is the default level of detail for the maps within the community page of a development.
     You can choose a value between *0* and *21*, where *0* shows the entire world and *21* is at street level.
-    Please note that not all zoom level are available for all areas.
+    Please note that not all zoom levels are available for all areas.
 
 Show Contact Information
     Enable this setting to show the contact information for this development.
