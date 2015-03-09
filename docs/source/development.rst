@@ -62,7 +62,9 @@ To refine the search results for the develoments, use the options provided at th
 
 Agency Developments
     Enable this option to only show developments from the configured agency.
-    This filter does not work if the agency does not match the provided API key.
+
+    .. note::
+        This filter does not work if the agency ID set in the MLS configuration does not match the provided API key.
 
 Searchable Text
     Use this option to search for developments.
@@ -81,7 +83,7 @@ Searchable Text
 
     You can use **AND**, **OR** and **NOT** to build a more complex search query, e.g.::
 
-        ecuador AND NOT quito and luxury
+        ecuador AND NOT quito AND luxury
 
     Summarizing the default operator rules:
 
@@ -91,6 +93,20 @@ Searchable Text
     - A leading hyphen implies NOT, e.g. ``casa -beach``
     - These rules can be combined, e.g. ``casa -"casa beach"`` or ``casa -casa-beach``.
     - \* and ? are used for globbing (i.e. prefix search), e.g. ``casa*``.
+
+Sort results by
+    Sort the search results by the given sort option.
+    The current available values are:
+
+    - **No selection**: The results are sorted by relevance.
+    - **Created**: The results are sorted by the date and time the developments were created.
+    - **Title**: The results are sorted by the development title.
+
+Reverse sort order?
+    Enable this setting to reverse the sort order.
+
+    .. note::
+        To build e.g. a *Recent Developments* collection, where the newest developments will show up first, select **Created** from the **Sort results by** selection and enable the **Reverse sort order?** option.
 
 Once all configuration options are entered click the **Save** button.
 
