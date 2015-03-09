@@ -150,6 +150,8 @@ class DevelopmentCollectionViewlet(ViewletBase):
 FIELDS_FILTER = (
     'agency_developments',
     'q',
+    'sort_on',
+    'reverse',
 )
 
 
@@ -242,6 +244,22 @@ class IDevelopmentCollectionConfiguration(form.Schema):
         ),
         required=False,
         title=_(u'Searchable Text'),
+    )
+
+    sort_on = schema.Choice(
+        description=_(
+            u'How should the results be sorted? If nothing is selected, the '
+            u'results are sorted by relevance.'
+        ),
+        required=False,
+        title=_('Sort results by'),
+        vocabulary='ps.plone.mls.developments.sort_options',
+    )
+
+    reverse = schema.Bool(
+        default=False,
+        required=False,
+        title=_('Reverse sort order?'),
     )
 
     # location_state = schema.Choice(
