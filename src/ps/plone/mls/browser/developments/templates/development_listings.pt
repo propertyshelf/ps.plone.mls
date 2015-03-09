@@ -1,0 +1,30 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="ps.plone.mls"
+      tal:omit-tag="">
+  <body>
+    <metal:main fill-slot="main">
+      <article class="listing-summary"
+          tal:define="batch view/batching | nothing;
+                      page_url view/view_url | nothing;"
+          tal:condition="view/available">
+
+        <div id="viewlet-above-content-title" tal:content="structure provider:plone.abovecontenttitle" tal:condition="not:ajax_load" />
+        <hgroup>
+          <h1 class="documentFirstHeading" i18n:translate="">Listings</h1>
+        </hgroup>
+        <div id="viewlet-below-content-title" tal:content="structure provider:plone.belowcontenttitle" tal:condition="not:ajax_load" />
+
+        <div metal:use-macro="context/@@ps.plone.mls.macros/listing_results">Show list of listings.</div>
+
+        <div id="viewlet-above-content-body" tal:content="structure provider:plone.abovecontentbody" tal:condition="not:ajax_load" />
+        <div id="viewlet-below-content-body" tal:content="structure provider:plone.belowcontentbody" tal:condition="not:ajax_load" />
+      </article>
+    </metal:main>
+  </body>
+</html>

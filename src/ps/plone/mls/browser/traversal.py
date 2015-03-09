@@ -1,7 +1,12 @@
 # -*- coding: utf-8 -*-
+"""Custom traversers for MLS Embedding items."""
+
+# python imports
+import copy
 
 # zope imports
 from ZPublisher.BaseRequest import DefaultPublishTraverse
+from zope.annotation.interfaces import IAnnotations
 from zope.component import adapter, queryMultiAdapter
 from zope.interface import implementer
 from zope.publisher.interfaces import NotFound
@@ -11,34 +16,32 @@ from zope.publisher.interfaces.browser import (
 )
 
 # local imports
+from ps.plone.mls import api
 from ps.plone.mls.content import featured
-from ps.plone.mls.interfaces import IListingTraversable
-
-
-@adapter(
+from ps.plone.mls.interfaces import (
+    IDevelopmentTraversable,
     IListingTraversable,
-    IBrowserRequest,
 )
-@implementer(IBrowserPublisher)
-class ListingTraverser(DefaultPublishTraverse):
-    """Custom Traverser for Listings.
 
-    The traverser looks for a listing id in the traversal stack and
-    tries to call the listing details view. But before it does so, it
+
+@implementer(IBrowserPublisher)
+class MLSItemTraverser(DefaultPublishTraverse):
+    """Custom Traverser for MLS Embedding items.
+
+    The traverser looks for a MLS item id in the traversal stack and
+    tries to call the corresponding details view. But before it does so, it
     tries to call all (currently) known traversers.
 
-    It also does a check on the listing id. By default this one returns
-    ``True``. But a subclass can override it to only return listings
+    It also does a check on the MLS item id. By default this one returns
+    ``True``. But a subclass can override it to only return items
     that match a given condition.
     """
-    __used_for__ = IListingTraversable
 
-    def check_listing(self, listing_id):
-        """Check if the listing ID is available."""
-        return True
+    detail_view_name = None
+    item_id = 'item_id'
 
     def _lookup_add_on_traverser(self):
-        """"""
+        """Call 3rd party traversers."""
         traverser_class = None
         try:
             from plone.app.imaging.traverse import ImageTraverser
@@ -57,12 +60,16 @@ class ListingTraverser(DefaultPublishTraverse):
 
         return traverser_class
 
+    def check_item(self, item_id):
+        """Check if the MLS item with given ID is available."""
+        return True
+
     def publishTraverse(self, request, name):
         """See zope.publisher.interfaces.IPublishTraverse"""
 
         # Try to deliver the default content views.
         try:
-            return super(ListingTraverser, self).publishTraverse(
+            return super(MLSItemTraverser, self).publishTraverse(
                 request, name,
             )
         except (NotFound, AttributeError):
@@ -75,23 +82,23 @@ class ListingTraverser(DefaultPublishTraverse):
                 return traverser.publishTraverse(request, name)
             except (NotFound, AttributeError):
                 pass
+        name = self.pre_lookup(name)
 
-        if not self.check_listing(name):
+        if not self.check_item(name):
             raise NotFound(self.context, name, request)
 
-        # We store the listing_id parameter in the request.
-        self.request.listing_id = name
+        self.post_lookup(name)
+
         if len(self.request.path) > 0:
-            listing_view = self.request.path.pop()
-            if listing_view.startswith('@@'):
-                listing_view = listing_view[2:]
+            view_name = self.get_view_name_from_request()
         else:
-            listing_view = 'listing-detail'
+            view_name = self.detail_view_name
+
         default_view = self.context.getDefaultLayout()
 
-        # Let's call the listing view.
+        # Let's call the detail view.
         view = queryMultiAdapter(
-            (self.context, request), name=listing_view,
+            (self.context, request), name=view_name,
         )
         if view is not None:
             return view
@@ -105,6 +112,105 @@ class ListingTraverser(DefaultPublishTraverse):
 
         raise NotFound(self.context, name, request)
 
+    def pre_lookup(self, name):
+        """Pre lookup hook."""
+        return name.split('___')[0]
+
+    def post_lookup(self, name):
+        """Post lookup hook."""
+        # We store the additional subpath for later reference.
+        setattr(self.request, 'subpath', copy.copy(self.request.path))
+
+        # We store the item_id parameter in the request.
+        setattr(self.request, self.item_id, name)
+
+    def get_view_name_from_request(self):
+        view_name = None
+        path = self.request.path
+        if len(path) > 0:
+            view_name = path.pop(-1)
+            if view_name.startswith('@@'):
+                view_name = view_name[2:]
+        return view_name
+
+
+@adapter(
+    IDevelopmentTraversable,
+    IBrowserRequest,
+)
+class DevelopmentTraverser(MLSItemTraverser):
+    """Custom Traverser for Developments.
+
+    See ``MLSItemTraverser`` for details.
+    """
+    __used_for__ = IDevelopmentTraversable
+    detail_view_name = 'development-detail'
+    item_id = 'development_id'
+    has_development = False
+
+    def post_lookup(self, item_id):
+        """Post lookup hook."""
+        super(DevelopmentTraverser, self).post_lookup(item_id)
+        portal_state = queryMultiAdapter(
+            (self.context, self.request),
+            name='plone_portal_state',
+        )
+        lang = portal_state.language()
+        item = api.get_development(
+            item_id=item_id,
+            context=self.context,
+            request=self.request,
+            lang=lang,
+        )
+        if item is not None:
+            cache = IAnnotations(self.request)
+            cache['ps.plone.mls.development.traversed'] = item
+            self.has_development = True
+
+    def get_view_name_from_request(self):
+        view_name = None
+        allowed_view_names = [
+            'listings',
+        ]
+        path = self.request.path
+        if len(path) < 1:
+            return view_name
+
+        view_name = path.pop(-1)
+        if view_name.startswith('@@'):
+            view_name = view_name[2:]
+
+        if view_name in allowed_view_names:
+            return view_name
+
+        view_name = self.get_listing_view(view_name)
+
+        return view_name
+
+    def get_listing_view(self, listing_id):
+        """"""
+        if not self.has_development:
+            return
+        cache = IAnnotations(self.request)
+        item = cache['ps.plone.mls.development.traversed']
+        if item.has_listing(listing_id):
+            setattr(self.request, 'listing_id', listing_id)
+            return 'listing-detail'
+
+
+@adapter(
+    IListingTraversable,
+    IBrowserRequest,
+)
+class ListingTraverser(MLSItemTraverser):
+    """Custom Traverser for Listings.
+
+    See ``MLSItemTraverser`` for details.
+    """
+    __used_for__ = IListingTraversable
+    detail_view_name = 'listing-detail'
+    item_id = 'listing_id'
+
 
 @adapter(
     featured.IFeaturedListings,
@@ -117,6 +223,6 @@ class FeaturedListingsTraverser(ListingTraverser):
     """
     __used_for__ = featured.IFeaturedListings
 
-    def check_listing(self, listing_id):
+    def check_item(self, item_id):
         """Check if the listing ID is available."""
-        return listing_id in self.context.listing_ids
+        return item_id in self.context.listing_ids

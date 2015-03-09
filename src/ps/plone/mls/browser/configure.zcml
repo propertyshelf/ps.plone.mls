@@ -5,6 +5,7 @@
 
   <!-- Include packages and files. -->
   <!-- =========================== -->
+  <include package=".developments" />
   <include package=".listings" />
 
 
@@ -19,6 +20,12 @@
 
   <!-- Traversing Adapter. -->
   <!-- =================== -->
+
+  <!-- Basic Development Traverser. -->
+  <adapter
+      factory=".traversal.DevelopmentTraverser"
+      permission="zope2.View"
+      />
 
   <!-- Basic Listing Traverser. -->
   <adapter
@@ -37,11 +44,40 @@
   <!-- ====================== -->
   <browser:page
       allowed_attributes="breadcrumbs"
+      class=".navigation.DevelopmentDetailsNavigationBreadcrumbs"
+      for="ps.plone.mls.interfaces.IDevelopmentTraversable"
+      layer=".interfaces.IPloneMLSLayer"
+      name="breadcrumbs_view"
+      permission="zope.Public"
+      />
+
+  <browser:page
+      allowed_attributes="breadcrumbs"
       class=".navigation.ListingDetailsNavigationBreadcrumbs"
       for="ps.plone.mls.interfaces.IListingTraversable"
       layer=".interfaces.IPloneMLSLayer"
       name="breadcrumbs_view"
       permission="zope.Public"
       />
+
+  <browser:page
+      for="*"
+      name="ps.plone.mls.macros"
+      template="templates/macros.pt"
+      permission="zope2.View"
+      />
+
+
+  <!-- Custom viewlets. -->
+  <!-- ================ -->
+
+  <!-- Render the browser title -->
+  <browser:viewlet
+      name="ps.plone.htmlhead.title"
+      manager="plone.app.layout.viewlets.interfaces.IHtmlHead"
+      class=".viewlets.TitleViewlet"
+      permission="zope2.View"
+      />
+
 
 </configure>

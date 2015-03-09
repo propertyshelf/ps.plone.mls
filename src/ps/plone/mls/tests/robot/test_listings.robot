@@ -8,41 +8,6 @@ Suite Teardown  Teardown
 
 *** Test cases ***
 
-Show how to activate the add-on
-    Enable autologin as  Manager
-    Go to  ${PLONE_URL}/prefs_install_products_form
-    Page should contain element  id=ps.plone.mls
-    Assign id to element
-    ...  xpath=//*[@id='ps.plone.mls']/parent::*
-    ...  addons-ps-plone-mls
-    Assign id to element
-    ...  xpath=//*[@id='ps.plone.mls']/ancestor::form
-    ...  addons-enabled
-
-    Highlight  addons-ps-plone-mls
-    Capture and crop page screenshot
-    ...  setup_select_add_on.png
-    ...  id=addons-enabled
-
-
-Show how to configure the base MLS settings
-    Enable autologin as  Manager
-    Go to  ${PLONE_URL}/@@mls-controlpanel
-    ${note1}  Add pointy note  css=#form-widgets-mls_key
-    ...  Enter your MLS API-Key
-    ...  position=right
-    ${note2}  Add pointy note  css=#form-widgets-mls_site
-    ...  Enter the URL for the MLS
-    ...  position=right
-    ${note3}  Add pointy note  css=#form-widgets-agency_id
-    ...  Enter your agency id
-    ...  position=right
-    Capture and crop page screenshot
-    ...  configure_base_settings.png
-    ...  css=#content
-    ...  ${note1}  ${note2}  ${note3}
-    Remove elements  ${note1}  ${note2}  ${note3}
-
 
 Show how to activate the listing collection
     Enable autologin as  Site Administrator
@@ -57,10 +22,10 @@ Show how to activate the listing collection
     Wait until element is visible
     ...  css=#plone-contentmenu-actions dd.actionMenuContent
 
-    ${note1}  Add pointy note  css=#plone-contentmenu-actions-listing-collection-activate
+    ${note1}  Add pointy note  ${LINK_LISTING_COLLECTION_ACTIVATE}
     ...  Click to activate the Listing Collection
     ...  position=left
-    Mouse over  css=#plone-contentmenu-actions-listing-collection-activate
+    Mouse over  ${LINK_LISTING_COLLECTION_ACTIVATE}
     Update element style  portal-footer  display  none
 
     Capture and crop page screenshot
@@ -71,7 +36,7 @@ Show how to activate the listing collection
     Remove elements  ${note1}
 
     ${href} =  get element attribute
-    ...  css=#plone-contentmenu-actions-listing-collection-activate@href
+    ...  ${LINK_LISTING_COLLECTION_ACTIVATE}@href
     go to  ${href}
 
     Capture and crop page screenshot
@@ -79,6 +44,9 @@ Show how to activate the listing collection
     ...  css=#portal-column-content
 
     Click Overlay Link  css=#contentview-listing-collection-config a
+
+    Wait until element is visible
+    ...  css=div.pb-ajax
 
     Capture and crop page screenshot
     ...  configure_listing_collection.png
@@ -91,10 +59,10 @@ Show how to activate the listing collection
     Wait until element is visible
     ...  css=#plone-contentmenu-actions dd.actionMenuContent
 
-    ${note1}  Add pointy note  css=#plone-contentmenu-actions-listing-collection-deactivate
+    ${note1}  Add pointy note  ${LINK_LISTING_COLLECTION_DEACTIVATE}
     ...  Click to deactivate the Listing Collection
     ...  position=left
-    Mouse over  css=#plone-contentmenu-actions-listing-collection-deactivate
+    Mouse over  ${LINK_LISTING_COLLECTION_DEACTIVATE}
     Update element style  portal-footer  display  none
 
     Capture and crop page screenshot
@@ -105,7 +73,7 @@ Show how to activate the listing collection
     Remove elements  ${note1}
 
     ${href} =  get element attribute
-    ...  css=#plone-contentmenu-actions-listing-collection-deactivate@href
+    ...  ${LINK_LISTING_COLLECTION_DEACTIVATE}@href
     go to  ${href}
 
     Capture and crop page screenshot

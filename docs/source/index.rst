@@ -16,6 +16,7 @@ It activates the embedding of real estate listings from the `Propertyshelf`_ MLS
    configuration
    listing_collections
    listing_search
+   development
 
 
 .. only:: html

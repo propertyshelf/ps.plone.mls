@@ -55,6 +55,7 @@ setup(
             'httpretty',
             'plone.app.robotframework',
             'plone.app.testing',
+            'plone.mls.listing[fotorama]',
             'robotframework-selenium2screenshots',
         ],
     ),

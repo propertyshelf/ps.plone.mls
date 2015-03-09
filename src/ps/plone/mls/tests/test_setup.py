@@ -12,8 +12,17 @@ from plone import api
 from plone.browserlayer.utils import registered_layers
 
 # local imports
-from ps.plone.mls.config import PROJECTNAME
+from ps.plone.mls.config import PROJECT_NAME
 from ps.plone.mls.testing import INTEGRATION_TESTING
+
+
+CSS = [
+    '++resource++ps.plone.mls/mls.css',
+]
+
+JS = [
+    '++resource++ps.plone.mls/mls.js',
+]
 
 
 class TestSetup(unittest.TestCase):
@@ -28,12 +37,24 @@ class TestSetup(unittest.TestCase):
     def test_product_is_installed(self):
         """Validate that our product is installed."""
         qi = self.portal.portal_quickinstaller
-        self.assertTrue(qi.isProductInstalled(PROJECTNAME))
+        self.assertTrue(qi.isProductInstalled(PROJECT_NAME))
 
     def test_addon_layer(self):
         """Validate that the browserlayer for our product is installed."""
         layers = [l.getName() for l in registered_layers()]
         self.assertIn('IPloneMLSLayer', layers)
+
+    def test_cssregistry(self):
+        """Validate the CSS file registration."""
+        resource_ids = self.portal.portal_css.getResourceIds()
+        for id in CSS:
+            self.assertIn(id, resource_ids, '{0} not installed'.format(id))
+
+    def test_jsregistry(self):
+        """Validate the JS file registration."""
+        resource_ids = self.portal.portal_javascripts.getResourceIds()
+        for id in JS:
+            self.assertIn(id, resource_ids, '{0} not installed'.format(id))
 
     def test_collective_z3cform_widgets_installed(self):
         """Validate that collective.z3cform.widgets is installed."""
@@ -61,14 +82,32 @@ class UninstallTestCase(unittest.TestCase):
 
         qi = self.portal.portal_quickinstaller
         with api.env.adopt_roles(['Manager']):
-            qi.uninstallProducts(products=[PROJECTNAME])
+            qi.uninstallProducts(products=[PROJECT_NAME])
 
     def test_product_is_uninstalled(self):
         """Validate that our product is uninstalled."""
         qi = self.portal.portal_quickinstaller
-        self.assertFalse(qi.isProductInstalled(PROJECTNAME))
+        self.assertFalse(qi.isProductInstalled(PROJECT_NAME))
 
     def test_addon_layer_removed(self):
         """Validate that the browserlayer is removed."""
         layers = [l.getName() for l in registered_layers()]
         self.assertNotIn('IPloneMLSLayer', layers)
+
+    def test_cssregistry(self):
+        """Validate the CSS file unregistration."""
+        resource_ids = self.portal.portal_css.getResourceIds()
+        for id in CSS:
+            self.assertNotIn(
+                id, resource_ids,
+                '{0} is still installed'.format(id),
+            )
+
+    def test_jsregistry(self):
+        """Validate the JS file unregistration."""
+        resource_ids = self.portal.portal_javascripts.getResourceIds()
+        for id in JS:
+            self.assertNotIn(
+                id, resource_ids,
+                '{0} is still installed'.format(id),
+            )
