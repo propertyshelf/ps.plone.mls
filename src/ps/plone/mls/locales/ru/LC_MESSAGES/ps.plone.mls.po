@@ -1,12 +1,13 @@
-# 
+# --- PLEASE EDIT THE LINES BELOW CORRECTLY ---
+# SOME DESCRIPTIVE TITLE.
 # Translators:
 # Olga Plavidal <oplavidal@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: MLS Plone Components\n"
-"POT-Creation-Date: 2014-07-09 09:38+0000\n"
-"PO-Revision-Date: 2014-09-16 20:31+0000\n"
-"Last-Translator: Olga Plavidal <oplavidal@gmail.com>\n"
+"POT-Creation-Date: 2015-03-10 07:04+0000\n"
+"PO-Revision-Date: 2015-03-10 07:05+0000\n"
+"Last-Translator: Thomas Massmann <thomas.massmann@it-spir.it>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/MLS_Plone/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,15 +19,27 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "Preferred-Encodings: utf-8 latin1\n"
 
-#: ps/plone/mls/browser/listings/featured.py:113
+#: ps/plone/mls/browser/developments/collection.py:312
+msgid "'Development Collection' Configuration"
+msgstr ""
+
+#: ps/plone/mls/browser/developments/collection.py:374
+msgid "'Development Collection' viewlet activated."
+msgstr ""
+
+#: ps/plone/mls/browser/developments/collection.py:370
+msgid "'Development Collection' viewlet deactivated."
+msgstr ""
+
+#: ps/plone/mls/browser/listings/featured.py:130
 msgid "'Featured Listings' Configuration"
 msgstr "Конфигурация 'Рекомендуемые листинги' "
 
-#: ps/plone/mls/browser/listings/featured.py:174
+#: ps/plone/mls/browser/listings/featured.py:191
 msgid "'Featured Listings' viewlet activated."
 msgstr "Обзор 'Рекомендуемые листинги' активирован."
 
-#: ps/plone/mls/browser/listings/featured.py:170
+#: ps/plone/mls/browser/listings/featured.py:187
 msgid "'Featured Listings' viewlet deactivated."
 msgstr "Обзор 'Рекомендуемые листинги' деактивирован."
 
@@ -34,64 +47,270 @@ msgstr "Обзор 'Рекомендуемые листинги' деактив�
 msgid "A static collection of featured MLS Listings"
 msgstr "Статическая коллекция рекомендуемых листингов MLS"
 
+#: ps/plone/mls/browser/developments/templates/development_details_view.pt:272
+msgid "About the Area"
+msgstr ""
+
+#: ps/plone/mls/profiles/default/actions.xml
+msgid "Activate Development Collection"
+msgstr ""
+
 #: ps/plone/mls/profiles/default/actions.xml
 msgid "Activate Featured Listings"
 msgstr "Активируйте рекомендуемые листинги"
 
 #: ps/plone/mls/profiles/default/actions.xml
+msgid "Activate the Development Collection viewlet."
+msgstr ""
+
+#: ps/plone/mls/profiles/default/actions.xml
 msgid "Activate the Featured Listings viewlet."
 msgstr "Активируйте обзор Рекомендуемых Листингов."
 
-#: ps/plone/mls/browser/listings/featured.py:99
+#: ps/plone/mls/browser/listings/featured.py:116
 #: ps/plone/mls/content/featured.py:25
 msgid "Add one Listing ID for each entry to show up."
 msgstr "Добавьте один идентификатор Листинга для каждого ввода."
 
-#: ps/plone/mls/browser/listings/featured.py:114
+#: ps/plone/mls/browser/developments/collection.py:313
+msgid "Adjust the behaviour for this 'Development Collection' viewlet."
+msgstr ""
+
+#: ps/plone/mls/browser/listings/featured.py:131
 msgid "Adjust the behaviour for this 'Featured Listings' viewlet."
 msgstr "Отрегулируйте поведение для обзора этого 'Рекомендуемого листинга'"
 
-#: ps/plone/mls/browser/listings/featured.py:134
+#: ps/plone/mls/browser/developments/collection.py:238
+msgid "Agency Developments"
+msgstr ""
+
+#: ps/plone/mls/api.py:98
+msgid ""
+"An error occured trying to connect to the configured MLS. Please check your "
+"settings or try again later."
+msgstr ""
+
+#: ps/plone/mls/browser/developments/collection.py:334
+#: ps/plone/mls/browser/listings/featured.py:151
 msgid "Cancel"
 msgstr "Отменить"
+
+#: ps/plone/mls/browser/developments/details.py:154
+msgid "Captcha"
+msgstr ""
+
+#: ps/plone/mls/profiles/default/actions.xml
+msgid "Configure Development Collection"
+msgstr ""
 
 #: ps/plone/mls/profiles/default/actions.xml
 msgid "Configure Featured Listings"
 msgstr "Конфигурировать Рекомендуемые листинги"
 
 #: ps/plone/mls/profiles/default/actions.xml
+msgid "Configure the Development Collection viewlet."
+msgstr ""
+
+#: ps/plone/mls/profiles/default/actions.xml
 msgid "Configure the Featured Listings viewlet."
 msgstr "Конфигурировать обзор Рекомендуемых листингов"
+
+#: ps/plone/mls/browser/developments/templates/development_details_view.pt:115
+msgid "Construction Status"
+msgstr ""
+
+#: ps/plone/mls/browser/developments/templates/development_details_view.pt:318
+msgid "Contact Us"
+msgstr ""
+
+#: ps/plone/mls/vocabularies/developments.py:18
+msgid "Creation Date"
+msgstr ""
+
+#: ps/plone/mls/profiles/default/actions.xml
+msgid "Deactivate Development Collection"
+msgstr ""
 
 #: ps/plone/mls/profiles/default/actions.xml
 msgid "Deactivate Featured Listings"
 msgstr "Деактивировать Рекомендуемые листинги"
 
 #: ps/plone/mls/profiles/default/actions.xml
+msgid "Deactivate the Development Collection viewlet."
+msgstr ""
+
+#: ps/plone/mls/profiles/default/actions.xml
 msgid "Deactivate the Featured Listings viewlet."
 msgstr "Деактивировать обзор 'Рекомендуемых листингов'"
+
+#: ps/plone/mls/browser/developments/templates/development_details_view.pt:54
+msgid "Development Facts"
+msgstr ""
+
+#: ps/plone/mls/browser/developments/collection.py:218
+msgid "Developments per Page"
+msgstr ""
+
+#: ps/plone/mls/browser/developments/collection.py:242
+msgid "Enter a search term to filter the results."
+msgstr ""
 
 #: ps/plone/mls/profiles/default/types/ps.plone.mls.featured.xml
 msgid "Featured Listings"
 msgstr "Рекомендуемые листинги"
 
-#: ps/plone/mls/browser/listings/featured.py:103
+#: ps/plone/mls/browser/developments/collection.py:163
+msgid "Filter Options"
+msgstr ""
+
+#: ps/plone/mls/browser/developments/templates/development_details_view.pt:207
+msgid "Gallery"
+msgstr ""
+
+#: ps/plone/mls/browser/developments/collection.py:214
+msgid "How many developments should be shown per page?"
+msgstr ""
+
+#: ps/plone/mls/browser/developments/collection.py:223
+msgid "How many listings should be shown per devlopment listings page?"
+msgstr ""
+
+#: ps/plone/mls/browser/developments/collection.py:250
+msgid ""
+"How should the results be sorted? If nothing is selected, the results are "
+"sorted by relevance."
+msgstr ""
+
+#: ps/plone/mls/browser/listings/featured.py:120
 #: ps/plone/mls/content/featured.py:29
 msgid "ID"
 msgstr "Номер"
 
-#: ps/plone/mls/browser/listings/featured.py:100
+#: ps/plone/mls/browser/developments/collection.py:195
+msgid ""
+"If enabled, a form to contact the responsible agent will be shown on the "
+"detail page for a development."
+msgstr ""
+
+#: ps/plone/mls/browser/developments/collection.py:233
+msgid "If enabled, only developments for the configured agency will be shown."
+msgstr ""
+
+#: ps/plone/mls/browser/developments/collection.py:185
+msgid ""
+"If enabled, the contact information for a development will be shown on the "
+"detail page for a development."
+msgstr ""
+
+#: ps/plone/mls/utils.py:24
+msgid "Invalid email address."
+msgstr ""
+
+#: ps/plone/mls/browser/developments/templates/development_listings.pt:19
+#: ps/plone/mls/browser/navigation.py:16
+msgid "Listings"
+msgstr ""
+
+#: ps/plone/mls/browser/developments/collection.py:227
+msgid "Listings per Page"
+msgstr ""
+
+#: ps/plone/mls/browser/listings/featured.py:117
 #: ps/plone/mls/content/featured.py:26
 msgid "MLS Listing IDs"
 msgstr "Идентификация листинга MLS"
 
-#: ps/plone/mls/browser/listings/featured.py:124
+#: ps/plone/mls/browser/developments/templates/development_details_view.pt:263
+msgid "Map"
+msgstr ""
+
+#: ps/plone/mls/browser/developments/templates/development_details_view.pt:287
+msgid "Meet the Developers"
+msgstr ""
+
+#: ps/plone/mls/utils.py:32
+msgid "No URLs allowed."
+msgstr ""
+
+#: ps/plone/mls/browser/developments/templates/development_details_view.pt:199
+msgid "Project Map"
+msgstr ""
+
+#: ps/plone/mls/browser/developments/templates/development_details_view.pt:156
+msgid "Properties Available"
+msgstr ""
+
+#: ps/plone/mls/browser/developments/collection.py:262
+msgid "Reverse sort order?"
+msgstr ""
+
+#: ps/plone/mls/browser/developments/collection.py:324
+#: ps/plone/mls/browser/listings/featured.py:141
 msgid "Save"
 msgstr "Сохранить"
 
-#: ps/plone/mls/browser/listings/featured.py:176
+#: ps/plone/mls/browser/developments/collection.py:246
+msgid "Searchable Text"
+msgstr ""
+
+#: ps/plone/mls/browser/developments/collection.py:170
+msgid ""
+"Set the resolution for the map. 0 is the lowest zoom level, in which the "
+"entire world can be seen. The higher the zoom level, the more details can be"
+" seen. The available maximum zoom level value differs from area to area and "
+"can change over time, also depending on the used map provider."
+msgstr ""
+
+#: ps/plone/mls/browser/developments/collection.py:209
+msgid "Show Captcha"
+msgstr ""
+
+#: ps/plone/mls/browser/developments/collection.py:200
+msgid "Show Contact Form"
+msgstr ""
+
+#: ps/plone/mls/browser/developments/collection.py:190
+msgid "Show Contact Information"
+msgstr ""
+
+#: ps/plone/mls/browser/developments/templates/development_details_view.pt:88
+msgid "Show Listings"
+msgstr ""
+
+#: ps/plone/mls/browser/developments/collection.py:205
+msgid "Show a captcha field within the contact form to prevent spam."
+msgstr ""
+
+#: ps/plone/mls/browser/developments/collection.py:255
+msgid "Sort results by"
+msgstr ""
+
+#: ps/plone/mls/browser/developments/collection.py:376
+msgid ""
+"The 'Development Collection' viewlet does't work with this content type. Add"
+" 'IPossibleDevelopmentCollection' to the provided interfaces to enable this "
+"feature."
+msgstr ""
+
+#: ps/plone/mls/browser/listings/featured.py:193
 msgid ""
 "The 'Featured Listings' viewlet does't work with this content type. Add "
 "'IPossibleFeaturedListings' to the provided interfaces to enable this "
 "feature."
 msgstr "Обзор 'Рекомендуемых листингов' не работает с этим типом контента. Добавьте \"IPossibleFeaturedListings\" в список предоставляемых интерфейсов для включения этой функции."
+
+#: ps/plone/mls/api.py:109
+msgid "The requested development was not found."
+msgstr ""
+
+#: ps/plone/mls/vocabularies/developments.py:19
+msgid "Title"
+msgstr ""
+
+#: ps/plone/mls/browser/developments/details.py:214
+msgid "Your contact request was sent successfully."
+msgstr ""
+
+#: ps/plone/mls/browser/developments/collection.py:180
+msgid "Zoom level for maps"
+msgstr ""
