@@ -1,12 +1,13 @@
 # 
 # Translators:
 # Thomas Massmann <thomas.massmann@it-spir.it>, 2014
+# Valeria Garcia <valeriassimsou@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: MLS Plone Components\n"
 "POT-Creation-Date: 2014-07-09 09:38+0000\n"
-"PO-Revision-Date: 2014-07-09 09:40+0000\n"
-"Last-Translator: Thomas Massmann <thomas.massmann@it-spir.it>\n"
+"PO-Revision-Date: 2014-07-09 17:47+0000\n"
+"Last-Translator: Valeria Garcia <valeriassimsou@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/MLS_Plone/language/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,15 +21,15 @@ msgstr ""
 
 #: ps/plone/mls/browser/listings/featured.py:113
 msgid "'Featured Listings' Configuration"
-msgstr ""
+msgstr "Configuración 'Listados Destacados'"
 
 #: ps/plone/mls/browser/listings/featured.py:174
 msgid "'Featured Listings' viewlet activated."
-msgstr ""
+msgstr "'Listados Destacados' viewlet activado."
 
 #: ps/plone/mls/browser/listings/featured.py:170
 msgid "'Featured Listings' viewlet deactivated."
-msgstr ""
+msgstr "'Listados Destacados' viewlet desactivado."
 
 #: ps/plone/mls/profiles/default/types/ps.plone.mls.featured.xml
 msgid "A static collection of featured MLS Listings"
@@ -36,11 +37,11 @@ msgstr "Una colección estática de Listados del MLS"
 
 #: ps/plone/mls/profiles/default/actions.xml
 msgid "Activate Featured Listings"
-msgstr ""
+msgstr "Activar Listados Destacados"
 
 #: ps/plone/mls/profiles/default/actions.xml
 msgid "Activate the Featured Listings viewlet."
-msgstr ""
+msgstr "Activar viewlet de los Listados Destacados"
 
 #: ps/plone/mls/browser/listings/featured.py:99
 #: ps/plone/mls/content/featured.py:25
@@ -49,27 +50,27 @@ msgstr "Añadir un ID al Listado para mostrarse en cada entrada."
 
 #: ps/plone/mls/browser/listings/featured.py:114
 msgid "Adjust the behaviour for this 'Featured Listings' viewlet."
-msgstr ""
+msgstr "Ajustar el comportamiento de este viewlet 'Listados Destacados."
 
 #: ps/plone/mls/browser/listings/featured.py:134
 msgid "Cancel"
-msgstr ""
+msgstr "Cancelar"
 
 #: ps/plone/mls/profiles/default/actions.xml
 msgid "Configure Featured Listings"
-msgstr ""
+msgstr "Configurar Listados Destacados"
 
 #: ps/plone/mls/profiles/default/actions.xml
 msgid "Configure the Featured Listings viewlet."
-msgstr ""
+msgstr "Configurar el viewlet de los Listados Destacados."
 
 #: ps/plone/mls/profiles/default/actions.xml
 msgid "Deactivate Featured Listings"
-msgstr ""
+msgstr "Desactivar Listados Destacados"
 
 #: ps/plone/mls/profiles/default/actions.xml
 msgid "Deactivate the Featured Listings viewlet."
-msgstr ""
+msgstr "Desactivar el viewlet de los Listados Destacados."
 
 #: ps/plone/mls/profiles/default/types/ps.plone.mls.featured.xml
 msgid "Featured Listings"
@@ -87,11 +88,11 @@ msgstr "IDs de los listados del MLS"
 
 #: ps/plone/mls/browser/listings/featured.py:124
 msgid "Save"
-msgstr ""
+msgstr "Guardar"
 
 #: ps/plone/mls/browser/listings/featured.py:176
 msgid ""
 "The 'Featured Listings' viewlet does't work with this content type. Add "
 "'IPossibleFeaturedListings' to the provided interfaces to enable this "
 "feature."
-msgstr ""
+msgstr "Viewlet de los 'Listados Destacados' no trabaja con este tipo de contenido. Añadir 'IPossibleFeaturedListings' a las interfaces proporcionadas para activar esta función."

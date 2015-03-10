@@ -1,11 +1,12 @@
 # 
 # Translators:
+# Olga Plavidal <oplavidal@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: MLS Plone Components\n"
 "POT-Creation-Date: 2014-07-09 09:38+0000\n"
-"PO-Revision-Date: 2014-07-09 09:40+0000\n"
-"Last-Translator: Thomas Massmann <thomas.massmann@it-spir.it>\n"
+"PO-Revision-Date: 2014-09-16 20:31+0000\n"
+"Last-Translator: Olga Plavidal <oplavidal@gmail.com>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/MLS_Plone/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,78 +20,78 @@ msgstr ""
 
 #: ps/plone/mls/browser/listings/featured.py:113
 msgid "'Featured Listings' Configuration"
-msgstr ""
+msgstr "Конфигурация 'Рекомендуемые листинги' "
 
 #: ps/plone/mls/browser/listings/featured.py:174
 msgid "'Featured Listings' viewlet activated."
-msgstr ""
+msgstr "Обзор 'Рекомендуемые листинги' активирован."
 
 #: ps/plone/mls/browser/listings/featured.py:170
 msgid "'Featured Listings' viewlet deactivated."
-msgstr ""
+msgstr "Обзор 'Рекомендуемые листинги' деактивирован."
 
 #: ps/plone/mls/profiles/default/types/ps.plone.mls.featured.xml
 msgid "A static collection of featured MLS Listings"
-msgstr ""
+msgstr "Статическая коллекция рекомендуемых листингов MLS"
 
 #: ps/plone/mls/profiles/default/actions.xml
 msgid "Activate Featured Listings"
-msgstr ""
+msgstr "Активируйте рекомендуемые листинги"
 
 #: ps/plone/mls/profiles/default/actions.xml
 msgid "Activate the Featured Listings viewlet."
-msgstr ""
+msgstr "Активируйте обзор Рекомендуемых Листингов."
 
 #: ps/plone/mls/browser/listings/featured.py:99
 #: ps/plone/mls/content/featured.py:25
 msgid "Add one Listing ID for each entry to show up."
-msgstr ""
+msgstr "Добавьте один идентификатор Листинга для каждого ввода."
 
 #: ps/plone/mls/browser/listings/featured.py:114
 msgid "Adjust the behaviour for this 'Featured Listings' viewlet."
-msgstr ""
+msgstr "Отрегулируйте поведение для обзора этого 'Рекомендуемого листинга'"
 
 #: ps/plone/mls/browser/listings/featured.py:134
 msgid "Cancel"
-msgstr ""
+msgstr "Отменить"
 
 #: ps/plone/mls/profiles/default/actions.xml
 msgid "Configure Featured Listings"
-msgstr ""
+msgstr "Конфигурировать Рекомендуемые листинги"
 
 #: ps/plone/mls/profiles/default/actions.xml
 msgid "Configure the Featured Listings viewlet."
-msgstr ""
+msgstr "Конфигурировать обзор Рекомендуемых листингов"
 
 #: ps/plone/mls/profiles/default/actions.xml
 msgid "Deactivate Featured Listings"
-msgstr ""
+msgstr "Деактивировать Рекомендуемые листинги"
 
 #: ps/plone/mls/profiles/default/actions.xml
 msgid "Deactivate the Featured Listings viewlet."
-msgstr ""
+msgstr "Деактивировать обзор 'Рекомендуемых листингов'"
 
 #: ps/plone/mls/profiles/default/types/ps.plone.mls.featured.xml
 msgid "Featured Listings"
-msgstr ""
+msgstr "Рекомендуемые листинги"
 
 #: ps/plone/mls/browser/listings/featured.py:103
 #: ps/plone/mls/content/featured.py:29
 msgid "ID"
-msgstr ""
+msgstr "Номер"
 
 #: ps/plone/mls/browser/listings/featured.py:100
 #: ps/plone/mls/content/featured.py:26
 msgid "MLS Listing IDs"
-msgstr ""
+msgstr "Идентификация листинга MLS"
 
 #: ps/plone/mls/browser/listings/featured.py:124
 msgid "Save"
-msgstr ""
+msgstr "Сохранить"
 
 #: ps/plone/mls/browser/listings/featured.py:176
 msgid ""
 "The 'Featured Listings' viewlet does't work with this content type. Add "
 "'IPossibleFeaturedListings' to the provided interfaces to enable this "
 "feature."
-msgstr ""
+msgstr "Обзор 'Рекомендуемых листингов' не работает с этим типом контента. Добавьте \"IPossibleFeaturedListings\" в список предоставляемых интерфейсов для включения этой функции."
