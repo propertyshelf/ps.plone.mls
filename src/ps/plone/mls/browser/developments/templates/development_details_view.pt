@@ -255,6 +255,9 @@
                 tal:attributes="id view/map_id">Please enable JavaScript to show the Map.</div>
             <script type="text/javascript" tal:content="structure js"></script>
           </section>
+          <section class="development__distances">
+            DISTANCE ICONS
+          </section>
 
           <section class="development__representatives"
               tal:define="representatives item/representatives | nothing"
@@ -339,6 +342,8 @@
                   tal:replace="structure form/render"></form>
             </tal:form>
 
+          </section>
+          <section class="development_agent_vcard">VCARD
           </section>
         </div>
 
