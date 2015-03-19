@@ -26,32 +26,26 @@
                        self_link string:${plone_view/renderBase}${id}">
 
         <div id="viewlet-above-content-title" tal:content="structure provider:plone.abovecontenttitle" tal:condition="not:ajax_load" />
+        <div tal:content="string:AMETIES ICONS" />
+        <!--
         <hgroup>
           <h1 class="documentFirstHeading">
             <span tal:replace="title">[Title]</span>
           </h1>
         </hgroup>
+        -->
         <div id="viewlet-below-content-title" tal:content="structure provider:plone.belowcontenttitle" tal:condition="not:ajax_load" />
 
-        <p class="documentDescription">
-          <picture class="overview__logo"
-              tal:define="image item/logo | nothing"
-              tal:condition="image"><a href="" rel="prettyPhoto[item]"
-              tal:attributes="href image/value">
-            <img src="" title="" alt=""
-                tal:attributes="src image/value;
-                                title title;
-                                alt title;" />
-              </a>
-          </picture>
-          <span tal:replace="item/description/value | nothing" />
-        </p>
 
         <div id="viewlet-above-content-body" tal:content="structure provider:plone.abovecontentbody" tal:condition="not:ajax_load" />
 
         <div id="content-core" tal:condition="item">
           <section class="development__overview">
-            <h2 class="" i18n:translate="">Development Facts</h2>
+            <h2 class="" i18n:translate="">Overview</h2>
+            <p class="documentDescription">
+              <span tal:replace="structure item/description/value | nothing" />
+            </p>
+            <!--
             <table class="vertical listing overview__table">
               <tbody>
                 <tr tal:define="field item/location | nothing" tal:condition="field">
@@ -99,16 +93,30 @@
                 </tr>
               </tbody>
             </table>
+          -->
             <p class="overview__long_description"
                 tal:define="text item/long_description | nothing"
                 tal:condition="text"
-                tal:content="text/value"></p>
-              <div class="visualClear video"
-                  tal:define="video item/video_embedding | nothing"
-                  tal:condition="video"
-                  tal:content="structure video/value"></div>
+                tal:content="structure text/value"></p>
+              <div class="visualClear video" />
           </section>
-
+          <section class="development__groups"
+              tal:define="groups item/groups | nothing"
+              tal:condition="groups">
+            <h2 i18n:translate="">Properties Available</h2>
+            <ul>
+              <li tal:repeat="group groups">
+                <tal:groups
+                      tal:define="group_id group/id/value | nothing;
+                                  group_listings_link string:${self_link}/listings?group=${group_id}">
+                  <a href=""
+                      tal:attributes="href group_listings_link"
+                      tal:content="group/title/value | string:-">[Title]</a>
+                </tal:groups>
+              </li>
+            </ul>
+          </section>
+<!--
           <section class="development__phases"
               tal:define="phases item/phases | nothing"
               tal:condition="phases">
@@ -149,54 +157,15 @@
               </tbody>
             </table>
           </section>
-
-          <section class="development__groups"
-              tal:define="groups item/groups | nothing"
-              tal:condition="groups">
-            <h2 i18n:translate="">Properties Available</h2>
-
-            <table class="listing groups__table">
-              <thead
-                  tal:define="titles view/titles_for_groups | nothing"
-                  tal:condition="titles">
-                <tr>
-                  <th class="title" tal:content="titles/title | nothing">[Group Name]</th>
-                  <th class="lot_size" tal:content="titles/lot_size | nothing">[Lot Size]</th>
-                  <th class="interior_area" tal:content="titles/interior_area | nothing">[Interior Area]</th>
-                  <th class="beds_baths" tal:content="titles/beds_baths | nothing">[Beds/Baths]</th>
-                  <th class="status" tal:content="titles/status | nothing">[Status]</th>
-                  <th class="starting_price" tal:content="titles/starting_price | nothing">[Starting Price]</th>
-                  <th class="number_of_listings" tal:content="titles/number_of_listings | nothing">[Number of Listings]</th>
-                  <th></th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr tal:repeat="group groups">
-                  <tal:groups
-                      tal:define="group_id group/id/value | nothing;
-                                  group_listings_link string:${self_link}/listings?group=${group_id}">
-                  <td class="title"><a href=""
-                      tal:attributes="href group_listings_link"
-                      tal:content="group/title/value | string:-">[Title]</a></td>
-                  <td class="lot_size" tal:content="group/lot_size/value | string:-">[Lot Size]</td>
-                  <td class="interior_area" tal:content="group/interior_area/value | string:-">[Interior Area]</td>
-                  <td class="beds_baths" tal:content="group/beds_baths/value | string:-">[Beds/Baths]</td>
-                  <td class="status" tal:content="group/status/value | string:-">[Status]</td>
-                  <td class="starting_price" tal:content="group/starting_price/value | string:-">[Starting Price]</td>
-                  <td class="number_of_listings" tal:content="group/number_of_listings/value | string:-">[Number of Listings]</td>
-                    <td class="listings__link"><a href=""
-                        tal:attributes="href group_listings_link"
-                        i18n:translate="">Show Listings</a></td>
-                  </tal:groups>
-                </tr>
-              </tbody>
-            </table>
-          </section>
-
+-->
           <section class="development__projectmap"
-              tal:define="projectmap item/projectmap | nothing"
+              tal:define="projectmap item/projectmap | item/video_embedding | nothing"
               tal:condition="projectmap">
             <h2 i18n:translate="">Project Map</h2>
+            <div class="projectmap"
+                  tal:define="video item/video_embedding | nothing"
+                  tal:condition="video"
+                  tal:content="structure video/value"></div>
           </section>
 
           <section class="development__gallery"
@@ -255,15 +224,12 @@
               <script type="text/javascript" src="++resource++plone.mls.listing.javascript/classic/galleria.classic.min.js"></script>
             </tal:galleria>
           </section>
-
-          <section class="development__map"
-               tal:define="js view/javascript_map | nothing"
-               tal:condition="js">
-            <h2 i18n:translate="" tal:replace="nothing">Map & Distances</h2>
-            <h2 i18n:translate="">Map</h2>
-            <div class="map__canvas" id="map"
-                tal:attributes="id view/map_id">Please enable JavaScript to show the Map.</div>
-            <script type="text/javascript" tal:content="structure js"></script>
+          <section class="video_embedding">
+            <h2 i18n:translate="">Video</h2>
+            <div class="video"
+                  tal:define="video item/video_embedding | nothing"
+                  tal:condition="video"
+                  tal:content="structure video/value"></div>
           </section>
 
           <section class="development__area"
@@ -279,6 +245,15 @@
                                 alt title;" /></a></picture>
             <p class="area__description"
                 tal:content="text/value"></p>
+          </section>
+          <section class="development__map"
+               tal:define="js view/javascript_map | nothing"
+               tal:condition="js">
+            <h2 i18n:translate="" tal:replace="nothing">Map & Distances</h2>
+            <h2 i18n:translate="">Map & Distances</h2>
+            <div class="map__canvas" id="map"
+                tal:attributes="id view/map_id">Please enable JavaScript to show the Map.</div>
+            <script type="text/javascript" tal:content="structure js"></script>
           </section>
 
           <section class="development__representatives"
