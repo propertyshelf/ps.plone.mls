@@ -333,7 +333,7 @@ class DevelopmentDetails(BrowserView):
 
     def javascript_map(self):
         """Return the JS code for the map."""
-        if not hasattr(self.item, 'geolocation'):
+        if not hasattr(self.item, 'geolocation') or not self.item.geolocation:
             return
         icon = getattr(self.item, 'icon', None)
         if icon is not None:
