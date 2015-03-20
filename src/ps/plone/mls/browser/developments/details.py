@@ -116,7 +116,7 @@ class IContactForm(form.Schema):
     name = schema.TextLine(
         description=PMF(
             u'help_sender_fullname',
-            default=u'Please enter your full name',
+            default=u'',
         ),
         required=True,
         title=PMF(u'label_name', default=u"Name"),
@@ -126,22 +126,17 @@ class IContactForm(form.Schema):
         constraint=utils.validate_email,
         description=PMF(
             u'help_sender_from_address',
-            default=u'Please enter your e-mail address',
+            default=u'',
         ),
         required=True,
         title=PMF(u'label_sender_from_address', default=u'E-Mail'),
-    )
-
-    subject = schema.TextLine(
-        required=True,
-        title=PMF(u'label_subject', default=u'Subject')
     )
 
     message = schema.Text(
         constraint=utils.contains_nuts,
         description=PMF(
             u'help_message',
-            default=u'Please enter the message you want to send.',
+            default=u'',
         ),
         max_length=1000,
         required=True,
@@ -236,7 +231,7 @@ class ContactForm(form.Form):
         except:
             rcp = from_address
         sender = '{0} <{1}>'.format(data['name'], data['sender_from_address'])
-        subject = data['subject']
+        subject = u'Customer Contact Developments'
         data['url'] = self.request.getURL()
         message = EMAIL_TEMPLATE.format(**data)
         message = message_from_string(message.encode(email_charset))
