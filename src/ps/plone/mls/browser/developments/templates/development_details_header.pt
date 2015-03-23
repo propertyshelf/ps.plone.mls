@@ -12,8 +12,11 @@
                   logo view/get_logo|nothing;
                   location view/get_location;">
     <div class="development_logo"
-        tal:condition="logo"
-        tal:content="logo"/>
+        tal:condition="logo">
+        <img
+          tal:condition="logo"
+          tal:attributes="src logo" />
+    </div>
     <h1 class="development_title"
         tal:condition="title"
         tal:content='title'/>
