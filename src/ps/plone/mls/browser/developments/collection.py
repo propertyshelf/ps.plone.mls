@@ -54,6 +54,9 @@ EXCLUDED_SEARCH_FIELDS = [
     'map_zoom_level',
     'show_contact_form',
     'show_contact_info',
+    'show_captcha',
+    'limit_developments',
+    'limit_listings',
 ]
 
 
