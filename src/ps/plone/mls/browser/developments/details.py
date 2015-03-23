@@ -12,6 +12,7 @@ from Products.CMFCore.utils import getToolByName
 from Products.CMFPlone import PloneMessageFactory as PMF
 from Products.Five import BrowserView
 from plone import api as plone_api
+from plone.app.layout.viewlets.common import ViewletBase
 from plone.directives import form
 from plone.formwidget.captcha.widget import CaptchaFieldWidget
 from plone.formwidget.captcha.validator import (
@@ -56,7 +57,7 @@ from ps.plone.mls import (
     config,
     utils,
 )
-from ps.plone.mls.interfaces import IDevelopmentDetails
+from ps.plone.mls.interfaces import IDevelopmentDetails, IDevelopmentTraversable
 
 
 logger = logging.getLogger(config.PROJECT_NAME)
@@ -433,3 +434,20 @@ class DevelopmentDetails(BrowserView):
         if HAS_WRAPPED_FORM:
             alsoProvides(self._contact_form, IWrappedForm)
         return self._contact_form
+
+
+class HeaderViewlet(ViewletBase):
+    """Header Image"""
+
+    @property
+    def available(self):
+        return IDevelopmentTraversable.providedBy(self.context)
+
+    @property
+    def get_title(self):
+        """Get Plugin Code"""
+        return u'Development Title'
+
+    def update(self):
+        """Prepare view related data."""
+        super(HeaderViewlet, self).update()

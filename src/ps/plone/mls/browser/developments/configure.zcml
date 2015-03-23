@@ -71,4 +71,14 @@
       template="templates/development_listings.pt"
       />
 
+  <browser:viewlet
+      class=".details.HeaderViewlet"
+      for="ps.plone.mls.interfaces.IDevelopmentTraversable"
+      layer="ps.plone.mls.browser.interfaces.IPloneMLSLayer"
+      manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
+      name="ps.plone.mls.development-detail-header"
+      permission="zope2.View"
+      template="templates/development_details_header.pt"
+      />
+
 </configure>
