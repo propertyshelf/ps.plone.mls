@@ -4,12 +4,25 @@
       xmlns:i18n="http://xml.zope.org/namespaces/i18n"
       lang="en"
       i18n:domain="ps.plone.mls"
-      tal:omit-tag="">
-  <section class="development header"
+      tal:omit-tag=""
       tal:condition="view/available">
-    <h1 class=""
-      tal:condition="view/get_title"
-      tal:content='view/get_title |nothing'></h1>
-      Development Header Image
+  <section class="development header"
+      tal:define="title view/get_title|nothing;
+                  slogan view/get_slogan|nothing;
+                  logo view/get_logo|nothing;
+                  location view/get_location;">
+    <div class="development_logo"
+        tal:condition="logo"
+        tal:content="logo"/>
+    <h1 class="development_title"
+        tal:condition="title"
+        tal:content='title'/>
+    <h2 class="development_slogan"
+        tal:condition="slogan"
+        tal:content="slogan"/>
+    <h3 class="development_location"
+        tal:condition="location"
+        tal:content="location"/>
+
   </section>
 </html>

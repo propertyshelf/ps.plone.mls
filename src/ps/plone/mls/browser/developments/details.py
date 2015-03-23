@@ -439,20 +439,51 @@ class DevelopmentDetails(BrowserView):
 class HeaderViewlet(ViewletBase):
     """Header Image"""
 
+    _id = None
+    _title = None
+    _slogan = None
+    _location = None
+    _logo = None
+
     @property
     def available(self):
         # do we have a development?
-        development_id = getattr(self.request, 'development_id', None)
-        if development_id is not None:
+        self._id = getattr(self.request, 'development_id', None)
+        if self._id is not None:
             return True
         else:
             return False
 
     @property
     def get_title(self):
-        """Get Plugin Code"""
-        return u'Development Title'
+        """Get development title"""
+        return self._title
+
+    @property
+    def get_slogan(self):
+        """Get development slogan"""
+        return self._slogan
+
+    @property
+    def get_location(self):
+        """Get development location"""
+        return self._location
+
+    @property
+    def get_logo(self):
+        """Get development logo"""
+        return self._logo
 
     def update(self):
         """Prepare view related data."""
         super(HeaderViewlet, self).update()
+
+        if self.available:
+            self._set_development_info()
+
+    def _set_development_info(self):
+        """set all available data for the development header"""
+        self._title = self._id
+        self._slogan = u'Super awesomeness in our Development'
+        self._logo = u'http://mls-ecuador.com/logo.png'
+        self._location = u'Somewhere in Mexico'
