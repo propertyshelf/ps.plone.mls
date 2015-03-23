@@ -483,7 +483,25 @@ class HeaderViewlet(ViewletBase):
 
     def _set_development_info(self):
         """set all available data for the development header"""
-        self._title = self._id
-        self._slogan = u'Super awesomeness in our Development'
-        self._logo = u'http://mls-ecuador.com/logo.png'
-        self._location = u'Somewhere in Mexico'
+        cache = IAnnotations(self.request)
+        item = cache.get('ps.plone.mls.development.traversed', None)
+
+        if item is not None:
+            # try to set the available data
+            try:
+                self._logo = item.logo.value
+            except:
+                pass
+
+            try:
+                self._title = item.title.value
+            except:
+                pass
+            try:
+                self._slogan = item.slogan.value
+            except:
+                pass
+            try:
+                self._location = item.location.value
+            except:
+                pass
