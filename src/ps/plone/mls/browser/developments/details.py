@@ -57,7 +57,7 @@ from ps.plone.mls import (
     config,
     utils,
 )
-from ps.plone.mls.interfaces import IDevelopmentDetails, IDevelopmentTraversable
+from ps.plone.mls.interfaces import IDevelopmentDetails
 
 
 logger = logging.getLogger(config.PROJECT_NAME)
@@ -441,7 +441,12 @@ class HeaderViewlet(ViewletBase):
 
     @property
     def available(self):
-        return IDevelopmentTraversable.providedBy(self.context)
+        # do we have a development?
+        development_id = getattr(self.request, 'development_id', None)
+        if development_id is not None:
+            return True
+        else:
+            return False
 
     @property
     def get_title(self):
