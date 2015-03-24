@@ -134,11 +134,11 @@
               <script type="text/javascript" src="++resource++plone.mls.listing.javascript/classic/galleria.classic.min.js"></script>
             </tal:galleria>
           </section>
-          <section class="video_embedding">
+          <section class="video_embedding"
+                  tal:define="video item/video_embedding | nothing"
+                  tal:condition="video">
             <h2 i18n:translate="">Video</h2>
             <div class="video"
-                  tal:define="video item/video_embedding | nothing"
-                  tal:condition="video"
                   tal:content="structure video/value"></div>
           </section>
 
