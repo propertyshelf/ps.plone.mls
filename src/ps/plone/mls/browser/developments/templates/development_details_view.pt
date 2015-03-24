@@ -73,9 +73,7 @@
               tal:condition="projectmap">
             <h2 i18n:translate="">Project Map</h2>
             <div class="projectmap"
-                  tal:define="video item/video_embedding | nothing"
-                  tal:condition="video"
-                  tal:content="structure video/value"></div>
+                  tal:content="structure projectmap/value"></div>
           </section>
 
           <section class="development__gallery"
