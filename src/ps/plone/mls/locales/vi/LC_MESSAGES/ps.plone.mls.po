@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: MLS Plone Components\n"
-"POT-Creation-Date: 2015-03-10 07:04+0000\n"
+"POT-Creation-Date: 2015-03-24 17:11+0000\n"
 "PO-Revision-Date: 2015-03-10 07:05+0000\n"
 "Last-Translator: Thomas Massmann <thomas.massmann@it-spir.it>\n"
 "Language-Team: Vietnamese (http://www.transifex.com/projects/p/MLS_Plone/language/vi/)\n"
@@ -18,15 +18,15 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "Preferred-Encodings: utf-8 latin1\n"
 
-#: ps/plone/mls/browser/developments/collection.py:312
+#: ps/plone/mls/browser/developments/collection.py:315
 msgid "'Development Collection' Configuration"
 msgstr ""
 
-#: ps/plone/mls/browser/developments/collection.py:374
+#: ps/plone/mls/browser/developments/collection.py:377
 msgid "'Development Collection' viewlet activated."
 msgstr ""
 
-#: ps/plone/mls/browser/developments/collection.py:370
+#: ps/plone/mls/browser/developments/collection.py:373
 msgid "'Development Collection' viewlet deactivated."
 msgstr ""
 
@@ -71,7 +71,7 @@ msgstr ""
 msgid "Add one Listing ID for each entry to show up."
 msgstr ""
 
-#: ps/plone/mls/browser/developments/collection.py:313
+#: ps/plone/mls/browser/developments/collection.py:316
 msgid "Adjust the behaviour for this 'Development Collection' viewlet."
 msgstr ""
 
@@ -79,7 +79,7 @@ msgstr ""
 msgid "Adjust the behaviour for this 'Featured Listings' viewlet."
 msgstr ""
 
-#: ps/plone/mls/browser/developments/collection.py:238
+#: ps/plone/mls/browser/developments/collection.py:241
 msgid "Agency Developments"
 msgstr ""
 
@@ -89,7 +89,7 @@ msgid ""
 "settings or try again later."
 msgstr ""
 
-#: ps/plone/mls/browser/developments/collection.py:334
+#: ps/plone/mls/browser/developments/collection.py:337
 #: ps/plone/mls/browser/listings/featured.py:151
 msgid "Cancel"
 msgstr ""
@@ -146,11 +146,11 @@ msgstr ""
 msgid "Development Facts"
 msgstr ""
 
-#: ps/plone/mls/browser/developments/collection.py:218
+#: ps/plone/mls/browser/developments/collection.py:221
 msgid "Developments per Page"
 msgstr ""
 
-#: ps/plone/mls/browser/developments/collection.py:242
+#: ps/plone/mls/browser/developments/collection.py:245
 msgid "Enter a search term to filter the results."
 msgstr ""
 
@@ -158,7 +158,7 @@ msgstr ""
 msgid "Featured Listings"
 msgstr ""
 
-#: ps/plone/mls/browser/developments/collection.py:163
+#: ps/plone/mls/browser/developments/collection.py:166
 msgid "Filter Options"
 msgstr ""
 
@@ -166,15 +166,15 @@ msgstr ""
 msgid "Gallery"
 msgstr ""
 
-#: ps/plone/mls/browser/developments/collection.py:214
+#: ps/plone/mls/browser/developments/collection.py:217
 msgid "How many developments should be shown per page?"
 msgstr ""
 
-#: ps/plone/mls/browser/developments/collection.py:223
+#: ps/plone/mls/browser/developments/collection.py:226
 msgid "How many listings should be shown per devlopment listings page?"
 msgstr ""
 
-#: ps/plone/mls/browser/developments/collection.py:250
+#: ps/plone/mls/browser/developments/collection.py:253
 msgid ""
 "How should the results be sorted? If nothing is selected, the results are "
 "sorted by relevance."
@@ -185,17 +185,17 @@ msgstr ""
 msgid "ID"
 msgstr ""
 
-#: ps/plone/mls/browser/developments/collection.py:195
+#: ps/plone/mls/browser/developments/collection.py:198
 msgid ""
 "If enabled, a form to contact the responsible agent will be shown on the "
 "detail page for a development."
 msgstr ""
 
-#: ps/plone/mls/browser/developments/collection.py:233
+#: ps/plone/mls/browser/developments/collection.py:236
 msgid "If enabled, only developments for the configured agency will be shown."
 msgstr ""
 
-#: ps/plone/mls/browser/developments/collection.py:185
+#: ps/plone/mls/browser/developments/collection.py:188
 msgid ""
 "If enabled, the contact information for a development will be shown on the "
 "detail page for a development."
@@ -210,7 +210,7 @@ msgstr ""
 msgid "Listings"
 msgstr ""
 
-#: ps/plone/mls/browser/developments/collection.py:227
+#: ps/plone/mls/browser/developments/collection.py:230
 msgid "Listings per Page"
 msgstr ""
 
@@ -239,20 +239,20 @@ msgstr ""
 msgid "Properties Available"
 msgstr ""
 
-#: ps/plone/mls/browser/developments/collection.py:262
+#: ps/plone/mls/browser/developments/collection.py:265
 msgid "Reverse sort order?"
 msgstr ""
 
-#: ps/plone/mls/browser/developments/collection.py:324
+#: ps/plone/mls/browser/developments/collection.py:327
 #: ps/plone/mls/browser/listings/featured.py:141
 msgid "Save"
 msgstr ""
 
-#: ps/plone/mls/browser/developments/collection.py:246
+#: ps/plone/mls/browser/developments/collection.py:249
 msgid "Searchable Text"
 msgstr ""
 
-#: ps/plone/mls/browser/developments/collection.py:170
+#: ps/plone/mls/browser/developments/collection.py:173
 msgid ""
 "Set the resolution for the map. 0 is the lowest zoom level, in which the "
 "entire world can be seen. The higher the zoom level, the more details can be"
@@ -260,15 +260,15 @@ msgid ""
 "can change over time, also depending on the used map provider."
 msgstr ""
 
-#: ps/plone/mls/browser/developments/collection.py:209
+#: ps/plone/mls/browser/developments/collection.py:212
 msgid "Show Captcha"
 msgstr ""
 
-#: ps/plone/mls/browser/developments/collection.py:200
+#: ps/plone/mls/browser/developments/collection.py:203
 msgid "Show Contact Form"
 msgstr ""
 
-#: ps/plone/mls/browser/developments/collection.py:190
+#: ps/plone/mls/browser/developments/collection.py:193
 msgid "Show Contact Information"
 msgstr ""
 
@@ -276,15 +276,15 @@ msgstr ""
 msgid "Show Listings"
 msgstr ""
 
-#: ps/plone/mls/browser/developments/collection.py:205
+#: ps/plone/mls/browser/developments/collection.py:208
 msgid "Show a captcha field within the contact form to prevent spam."
 msgstr ""
 
-#: ps/plone/mls/browser/developments/collection.py:255
+#: ps/plone/mls/browser/developments/collection.py:258
 msgid "Sort results by"
 msgstr ""
 
-#: ps/plone/mls/browser/developments/collection.py:376
+#: ps/plone/mls/browser/developments/collection.py:379
 msgid ""
 "The 'Development Collection' viewlet does't work with this content type. Add"
 " 'IPossibleDevelopmentCollection' to the provided interfaces to enable this "
@@ -310,6 +310,6 @@ msgstr ""
 msgid "Your contact request was sent successfully."
 msgstr ""
 
-#: ps/plone/mls/browser/developments/collection.py:180
+#: ps/plone/mls/browser/developments/collection.py:183
 msgid "Zoom level for maps"
 msgstr ""
