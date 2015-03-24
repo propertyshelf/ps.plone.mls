@@ -10,22 +10,28 @@
       tal:define="title view/get_title|nothing;
                   slogan view/get_slogan|nothing;
                   logo view/get_logo|nothing;
-                  location view/get_location;">
-    <div class="development_logo"
+                  location view/get_location|nothing;
+                  img view/get_banner|nothing;">
+    <img tal:condition="img"
+        tal:attributes="src img;
+                        title title;
+                        alt location"/>
+    <div class="header_capture">
+      <div class="development_logo"
         tal:condition="logo">
         <img
           tal:condition="logo"
-          tal:attributes="src logo" />
-    </div>
-    <h1 class="development_title"
-        tal:condition="title"
-        tal:content='title'/>
-    <h2 class="development_slogan"
-        tal:condition="slogan"
-        tal:content="slogan"/>
-    <h3 class="development_location"
-        tal:condition="location"
-        tal:content="location"/>
-
+          tal:attributes="src logo;" />
+      </div>
+      <h1 class="development_title"
+          tal:condition="title"
+          tal:content='title'/>
+      <h2 class="development_slogan"
+          tal:condition="slogan"
+          tal:content="slogan"/>
+      <h3 class="development_location"
+          tal:condition="location"
+          tal:content="location"/>
+      </div>
   </section>
 </html>

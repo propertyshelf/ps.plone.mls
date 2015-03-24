@@ -444,6 +444,8 @@ class HeaderViewlet(ViewletBase):
     _slogan = None
     _location = None
     _logo = None
+    _banner = None
+    _has_banner = False
 
     @property
     def available(self):
@@ -474,12 +476,34 @@ class HeaderViewlet(ViewletBase):
         """Get development logo"""
         return self._logo
 
+    @property
+    def get_banner(self):
+        """Get development header"""
+        return self._banner
+
     def update(self):
         """Prepare view related data."""
         super(HeaderViewlet, self).update()
 
         if self.available:
             self._set_development_info()
+
+    def _set_banner(self, item):
+        """Look for available Header image"""
+        try:
+            # banner image as regular data
+            self._banner = item.header_image.value
+            self._has_banner = True
+        except:
+            # no header image found yet
+            # take the first available picture instead
+            try:
+                pics = item.pictures()
+                self._banner = pics[0].get()
+                self._has_banner = True
+            except:
+                # still no header image found
+                self._has_banner = False
 
     def _set_development_info(self):
         """set all available data for the development header"""
@@ -492,7 +516,6 @@ class HeaderViewlet(ViewletBase):
                 self._logo = item.logo.value
             except:
                 pass
-
             try:
                 self._title = item.title.value
             except:
@@ -505,3 +528,5 @@ class HeaderViewlet(ViewletBase):
                 self._location = item.location.value
             except:
                 pass
+            # set header image
+            self._set_banner(item)
