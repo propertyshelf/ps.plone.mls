@@ -74,6 +74,18 @@
             <h2 i18n:translate="">Project Map</h2>
             <div class="projectmap"
                   tal:content="structure projectmap/value"></div>
+            <div class="pdf_download"
+                tal:define="file item/download_link | item/logo | nothing;
+                            file_href file/value | nothing;
+                            download_title string:${title} | nothing;"
+                tal:condition="file_href">
+                <a class="download"
+                  tal:attributes="href file_href;
+                                  download download_title;
+                                  target string:_blank;"
+                  i18n:translate="">Download PDF</a>
+
+            </div>
           </section>
 
           <section class="development__gallery"
@@ -163,6 +175,7 @@
                 tal:attributes="id view/map_id">Please enable JavaScript to show the Map.</div>
             <script type="text/javascript" tal:content="structure js"></script>
           </section>
+
           <section class="development__distances">
             DISTANCE ICONS
           </section>
