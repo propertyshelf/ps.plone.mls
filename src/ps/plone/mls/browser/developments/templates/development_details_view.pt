@@ -23,15 +23,25 @@
                        images item/pictures | nothing;
                        title item/title/value | nothing;
                        id item/id/value | nothing;
-                       self_link string:${plone_view/renderBase}${id}">
+                       self_link string:${plone_view/renderBase}${id};
+                       amenities item/amenities_order/value | nothing;
+                       amenities_dict item/amenities_lookup/value | nopthing;">
 
         <div id="viewlet-above-content-title" tal:content="structure provider:plone.abovecontenttitle" tal:condition="not:ajax_load" />
-        <div tal:content="string:AMETIES ICONS" />
         <div id="viewlet-below-content-title" tal:content="structure provider:plone.belowcontenttitle" tal:condition="not:ajax_load" />
 
         <div id="viewlet-above-content-body" tal:content="structure provider:plone.abovecontentbody" tal:condition="not:ajax_load" />
 
         <div id="content-core" tal:condition="item">
+          <section class="development__amenities" tal:condition="amenities">
+            <tal:amenity tal:repeat="amenity amenities">
+              <span aria-hidden="true"
+                  tal:define="amentity_label python:amenities_dict[amenity]"
+                  tal:attributes="class string:amenitiesicon ${amenity};
+                                  aria-label amentity_label;" >
+              </span>
+            </tal:amenity>
+          </section>
           <section class="development__overview">
             <h2 class="" i18n:translate="">Overview</h2>
             <p class="documentDescription">
