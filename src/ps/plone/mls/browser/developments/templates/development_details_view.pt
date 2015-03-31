@@ -87,7 +87,7 @@
             <div class="projectmap"
                   tal:content="structure projectmap/value"></div>
             <div class="pdf_download"
-                tal:define="file item/download_link | item/logo | nothing;
+                tal:define="file item/project_map_pdf | item/logo | nothing;
                             file_href file/value | nothing;
                             download_title string:${title} | nothing;"
                 tal:condition="file_href">
