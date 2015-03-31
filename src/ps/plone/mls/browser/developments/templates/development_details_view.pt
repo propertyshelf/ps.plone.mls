@@ -69,17 +69,19 @@
               tal:define="groups item/groups | nothing"
               tal:condition="groups">
             <h2 i18n:translate="">Properties Available</h2>
-            <ul>
-              <li tal:repeat="group groups">
-                <tal:groups
-                      tal:define="group_id group/id/value | nothing;
+            <dl id="group-listings" class="enableFormTabbing">
+              <tal:groups tal:repeat="group groups">
+                <tal:group tal:define="group_id group/id/value | nothing;
                                   group_listings_link string:${self_link}/listings?group=${group_id}">
-                  <a href=""
-                      tal:attributes="href group_listings_link"
-                      tal:content="group/title/value | string:-">[Title]</a>
-                </tal:groups>
-              </li>
-            </ul>
+                  <dt tal:content="group/title/value | string:-"
+                    tal:attributes="id string:fieldsetlegend-${group_id};"
+                    style="visibility: hidden; font-size: 0; padding: 0; height: 0; width: 0; line-height: 0;"/>
+                  <dd class="formPanel"
+                    tal:content="group_listings_link"
+                    tal:attributes="id string:fieldset-${group_id};"/>
+                </tal:group>
+              </tal:groups>
+            </dl>
           </section>
 
           <section class="development__projectmap"
