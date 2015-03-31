@@ -492,7 +492,7 @@ class HeaderViewlet(ViewletBase):
         """Look for available Header image"""
         try:
             # banner image as regular data
-            self._banner = item.header_image.value
+            self._banner = item.banner_image.value
             self._has_banner = True
         except:
             # no header image found yet
