@@ -74,11 +74,15 @@
                 <tal:group tal:define="group_id group/id/value | nothing;
                                   group_listings_link string:${self_link}/listings?group=${group_id}">
                   <dt tal:content="group/title/value | string:-"
-                    tal:attributes="id string:fieldsetlegend-${group_id};"
-                    style="visibility: hidden; font-size: 0; padding: 0; height: 0; width: 0; line-height: 0;"/>
+                    tal:attributes="id string:fieldsetlegend-${group_id};"/>
                   <dd class="formPanel"
-                    tal:content="group_listings_link"
-                    tal:attributes="id string:fieldset-${group_id};"/>
+                    tal:attributes="id string:fieldset-${group_id};">
+                    <span class="show_all group_listings">
+                      <a i18n:translate=""
+                        tal:attributes="href group_listings_link"
+                        >Show all properties on this group</a>
+                    </span>
+                  </dd>
                 </tal:group>
               </tal:groups>
             </dl>
