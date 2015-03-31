@@ -525,8 +525,12 @@ class HeaderViewlet(ViewletBase):
             except:
                 pass
             try:
-                self._location = item.location.value
+                seq = (item.city.value,
+                       item.subdivision.value,
+                       item.country.value)
+                joint = ', '
+                self._location = joint.join(seq)
             except:
-                pass
+                self._location = item.location.value
             # set header image
             self._set_banner(item)
