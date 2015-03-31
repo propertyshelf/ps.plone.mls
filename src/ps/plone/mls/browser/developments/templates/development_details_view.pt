@@ -81,7 +81,7 @@
           </section>
 
           <section class="development__projectmap"
-              tal:define="projectmap item/projectmap | item/video_embedding | nothing"
+              tal:define="projectmap item/project_map_embedding | nothing"
               tal:condition="projectmap">
             <h2 i18n:translate="">Project Map</h2>
             <div class="projectmap"
