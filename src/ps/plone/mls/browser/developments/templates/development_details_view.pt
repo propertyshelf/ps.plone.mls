@@ -23,7 +23,9 @@
                        images item/pictures | nothing;
                        title item/title/value | nothing;
                        id item/id/value | nothing;
-                       self_link string:${plone_view/renderBase}${id};
+                       base_link string:${plone_view/renderBase};
+                       seperator python: '' if base_link.endswith('/') else '/';
+                       self_link string:${plone_view/renderBase}${seperator}${id};
                        amenities item/amenities_order/value | nothing;
                        amenities_dict item/amenities_lookup/value | nopthing;">
 
