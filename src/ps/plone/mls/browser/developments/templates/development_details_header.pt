@@ -27,7 +27,7 @@
           tal:condition="title"
           tal:content='title'/>
       <h2 class="development_headline"
-          tal:condition="slogan"
+          tal:condition="headline"
           tal:content="headline"/>
       <h3 class="development_location"
           tal:condition="location"
