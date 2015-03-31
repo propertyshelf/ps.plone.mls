@@ -194,7 +194,7 @@
           <section class="development__phases"
               tal:define="phases item/phases | nothing"
               tal:condition="phases">
-            <h2 i18n:translate="">Construction Status</h2>
+            <h2 i18n:translate="">Phases</h2>
 
             <table class="listing phases__table">
               <thead
