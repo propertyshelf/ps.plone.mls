@@ -8,7 +8,7 @@
       tal:condition="view/available">
   <section class="development header"
       tal:define="title view/get_title|nothing;
-                  slogan view/get_slogan|nothing;
+                  headline view/get_headline|nothing;
                   logo view/get_logo|nothing;
                   location view/get_location|nothing;
                   img view/get_banner|nothing;">
@@ -26,9 +26,9 @@
       <h1 class="development_title"
           tal:condition="title"
           tal:content='title'/>
-      <h2 class="development_slogan"
+      <h2 class="development_headline"
           tal:condition="slogan"
-          tal:content="slogan"/>
+          tal:content="headline"/>
       <h3 class="development_location"
           tal:condition="location"
           tal:content="location"/>

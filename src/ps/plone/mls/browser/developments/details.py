@@ -441,7 +441,7 @@ class HeaderViewlet(ViewletBase):
 
     _id = None
     _title = None
-    _slogan = None
+    _headline = None
     _location = None
     _logo = None
     _banner = None
@@ -462,9 +462,9 @@ class HeaderViewlet(ViewletBase):
         return self._title
 
     @property
-    def get_slogan(self):
-        """Get development slogan"""
-        return self._slogan
+    def get_headline(self):
+        """Get development headline"""
+        return self._headline
 
     @property
     def get_location(self):
@@ -521,7 +521,7 @@ class HeaderViewlet(ViewletBase):
             except:
                 pass
             try:
-                self._slogan = item.slogan.value
+                self._headline = item.headline.value
             except:
                 pass
             try:
