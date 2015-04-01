@@ -51,14 +51,21 @@
             <p class="documentDescription">
               <span tal:replace="structure item/description/value | nothing" />
             </p>
-            <!-- temporary use area image -->
-            <picture class="description__picture"
-                tal:define="image item/area_picture | nothing"
-                tal:condition="image"><a href="" rel="prettyPhoto[item]"
-                tal:attributes="href image/value"><img src="" title="" alt=""
-                tal:attributes="src image/value;
-                                title title;
-                                alt title;" /></a></picture>
+            <!-- use lead image next to description-->
+            <picture class="lead_image"
+              tal:define="lead_image view/lead_image | nothing;
+                          lead_href python: lead_image.get('preview') if lead_image is not None else None;
+                          lead_title lead_image/title | nothing;
+                          lead_alt lead_image/description| nothing;"
+              tal:condition="lead_image" >
+                <img
+                 tal:attributes="src lead_href;
+                                  alt lead_alt;
+                                  title lead_title" />
+                <span class="caption"
+                  tal:content="lead_title" />
+            </picture>
+
             <p class="overview__long_description"
                 tal:define="text item/long_description | nothing"
                 tal:condition="text"
