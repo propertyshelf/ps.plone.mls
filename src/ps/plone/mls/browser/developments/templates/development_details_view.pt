@@ -97,7 +97,7 @@
             <div class="pdf_download"
                 tal:define="file item/project_map_pdf | item/logo | nothing;
                             file_href file/value | nothing;
-                            download_title string:${title} | nothing;"
+                            download_title string:${title}"
                 tal:condition="file_href">
                 <a class="download"
                   tal:attributes="href file_href;
