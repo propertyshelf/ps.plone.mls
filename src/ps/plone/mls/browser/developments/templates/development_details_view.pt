@@ -204,7 +204,25 @@
           </section>
 
           <section class="development__distances">
-            DISTANCE ICONS
+            <div class="distanceicon airport"
+              tal:define="name item/airport_name/value;
+                          distance item/airport_distance/value;
+                          text string:${distance} - ${name};"
+              tal:condition="text">
+              <span aria-hidden="true"
+                  class="icon airport" ></span>
+              <h5 i18n:translate="">Closest Airport</h5>
+              <span tal:content="text" />
+            </div>
+            <div class="distanceicon hospital"
+              tal:define="hospital_name item/hospital_name/value;
+                          hospital_distance item/hospital_distance/value;
+                          hospital_text string:${hospital_distance} - ${hospital_name};"
+              tal:condition="hospital_text">
+              <span aria-hidden="true" class="icon hospital" ></span>
+              <h5 i18n:translate="">Closest Medical Facility</h5>
+              <span tal:content="hospital_text" />
+            </div>
           </section>
           <section class="development__phases"
               tal:define="phases item/phases | nothing"
