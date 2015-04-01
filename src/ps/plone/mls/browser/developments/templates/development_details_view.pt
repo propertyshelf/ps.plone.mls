@@ -223,12 +223,41 @@
               <h5 i18n:translate="">Closest Medical Facility</h5>
               <span tal:content="hospital_text" />
             </div>
+            <div class="distanceicon shopping"
+              tal:define="name item/shopping_name/value;
+                          distance item/shopping_distance/value;
+                          text string:${distance} - ${name};"
+              tal:condition="text">
+              <span aria-hidden="true"
+                  class="icon shopping" ></span>
+              <h5 i18n:translate="">Closest Mall</h5>
+              <span tal:content="text" />
+            </div>
+            <div class="distanceicon bank"
+              tal:define="name item/bank_name/value;
+                          distance item/bank_distance/value;
+                          text string:${distance} - ${name};"
+              tal:condition="text">
+              <span aria-hidden="true"
+                  class="icon bank" ></span>
+              <h5 i18n:translate="">Closest Bank / ATM</h5>
+              <span tal:content="text" />
+            </div>
+            <div class="distanceicon gas_station"
+              tal:define="name item/gas_station_name/value;
+                          distance item/gas_station_distance/value;
+                          text string:${distance} - ${name};"
+              tal:condition="text">
+              <span aria-hidden="true"
+                  class="icon gas_station" ></span>
+              <h5 i18n:translate="">Closest gas station</h5>
+              <span tal:content="text" />
+            </div>
           </section>
           <section class="development__phases"
               tal:define="phases item/phases | nothing"
               tal:condition="phases">
             <h2 i18n:translate="">Phases</h2>
-
             <table class="listing phases__table">
               <thead
                   tal:define="titles view/titles_for_phases | nothing"
