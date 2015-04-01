@@ -495,15 +495,7 @@ class HeaderViewlet(ViewletBase):
             self._banner = item.banner_image.value
             self._has_banner = True
         except:
-            # no header image found yet
-            # take the first available picture instead
-            try:
-                pics = item.pictures()
-                self._banner = pics[0].get()
-                self._has_banner = True
-            except:
-                # still no header image found
-                self._has_banner = False
+            self._has_banner = False
 
     def _set_development_info(self):
         """set all available data for the development header"""
