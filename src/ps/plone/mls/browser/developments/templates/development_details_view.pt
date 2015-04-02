@@ -205,49 +205,49 @@
 
           <section class="development__distances">
             <div class="distanceicon airport"
-              tal:define="name item/airport_name/value;
-                          distance item/airport_distance/value;
+              tal:define="name item/airport_name/value | nothing;
+                          distance item/airport_distance/value | nothing;
                           text string:${distance} - ${name};"
-              tal:condition="text">
+              tal:condition="name">
               <span aria-hidden="true"
                   class="icon airport" ></span>
               <h5 i18n:translate="">Closest Airport</h5>
               <span tal:content="text" />
             </div>
             <div class="distanceicon hospital"
-              tal:define="hospital_name item/hospital_name/value;
-                          hospital_distance item/hospital_distance/value;
-                          hospital_text string:${hospital_distance} - ${hospital_name};"
-              tal:condition="hospital_text">
+              tal:define="name item/hospital_name/value | nothing;
+                          distance item/hospital_distance/value | nothing;
+                          text string:${distance} - ${name};"
+              tal:condition="name">
               <span aria-hidden="true" class="icon hospital" ></span>
               <h5 i18n:translate="">Closest Medical Facility</h5>
-              <span tal:content="hospital_text" />
+              <span tal:content="text" />
             </div>
             <div class="distanceicon shopping"
-              tal:define="name item/shopping_name/value;
-                          distance item/shopping_distance/value;
+              tal:define="name item/shopping_name/value | nothing;
+                          distance item/shopping_distance/value | nothing;
                           text string:${distance} - ${name};"
-              tal:condition="text">
+              tal:condition="name">
               <span aria-hidden="true"
                   class="icon shopping" ></span>
               <h5 i18n:translate="">Closest Mall</h5>
               <span tal:content="text" />
             </div>
             <div class="distanceicon bank"
-              tal:define="name item/bank_name/value;
-                          distance item/bank_distance/value;
+              tal:define="name item/bank_name/value | nothing;
+                          distance item/bank_distance/value | nothing;
                           text string:${distance} - ${name};"
-              tal:condition="text">
+              tal:condition="name">
               <span aria-hidden="true"
                   class="icon bank" ></span>
               <h5 i18n:translate="">Closest Bank / ATM</h5>
               <span tal:content="text" />
             </div>
             <div class="distanceicon gas_station"
-              tal:define="name item/gas_station_name/value;
-                          distance item/gas_station_distance/value;
+              tal:define="name item/gas_station_name/value | nothing;
+                          distance item/gas_station_distance/value | nothing;
                           text string:${distance} - ${name};"
-              tal:condition="text">
+              tal:condition="name">
               <span aria-hidden="true"
                   class="icon gas_station" ></span>
               <h5 i18n:translate="">Closest gas station</h5>
