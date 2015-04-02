@@ -204,7 +204,7 @@
           </section>
 
           <section class="development__distances">
-            <div class="distanceicon airport"
+            <div class="distanceicon"
               tal:define="name item/airport_name/value | nothing;
                           distance item/airport_distance/value | nothing;
                           text string:${distance} - ${name};"
@@ -214,7 +214,7 @@
               <h5 i18n:translate="">Closest Airport</h5>
               <span tal:content="text" />
             </div>
-            <div class="distanceicon hospital"
+            <div class="distanceicon"
               tal:define="name item/hospital_name/value | nothing;
                           distance item/hospital_distance/value | nothing;
                           text string:${distance} - ${name};"
@@ -223,7 +223,7 @@
               <h5 i18n:translate="">Closest Medical Facility</h5>
               <span tal:content="text" />
             </div>
-            <div class="distanceicon shopping"
+            <div class="distanceicon"
               tal:define="name item/shopping_name/value | nothing;
                           distance item/shopping_distance/value | nothing;
                           text string:${distance} - ${name};"
@@ -233,7 +233,7 @@
               <h5 i18n:translate="">Closest Mall</h5>
               <span tal:content="text" />
             </div>
-            <div class="distanceicon bank"
+            <div class="distanceicon"
               tal:define="name item/bank_name/value | nothing;
                           distance item/bank_distance/value | nothing;
                           text string:${distance} - ${name};"
@@ -243,7 +243,7 @@
               <h5 i18n:translate="">Closest Bank / ATM</h5>
               <span tal:content="text" />
             </div>
-            <div class="distanceicon gas_station"
+            <div class="distanceicon"
               tal:define="name item/gas_station_name/value | nothing;
                           distance item/gas_station_distance/value | nothing;
                           text string:${distance} - ${name};"
