@@ -182,7 +182,8 @@
 .development__amenities .count_4{
   max-width: 23%;
 }
-.development__amenities .count_5{
+.development__amenities .count_5,
+.development__distances .distanceicon{
   max-width: 18%;
 }
 .development__amenities .count_6,
@@ -222,4 +223,34 @@
 .development__amenities .count_29,
 .development__amenities .count_30{
   max-width: 8.5%;
+}
+
+/* Distance icons */
+.distanceicon{
+    display:inline-block;
+    vertical-align:top;
+}
+
+.distanceicon .icon{
+  width:122px;
+  height:122px;
+  max-width:100%;
+  display:block;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.distanceicon .airport{
+  background-image: url(++resource++ps.plone.mls/icons/distance_airport.png);
+}
+.distanceicon .hospital{
+  background-image: url(++resource++ps.plone.mls/icons/distance_hospital.png);
+}
+.distanceicon .shopping{
+  background-image: url(++resource++ps.plone.mls/icons/distance_shopping.png);
+}
+.distanceicon .bank{
+  background-image: url(++resource++ps.plone.mls/icons/distance_bank.png);
+}
+.distanceicon .gas_station{
+  background-image: url(++resource++ps.plone.mls/icons/distance_gas_station.png);
 }
