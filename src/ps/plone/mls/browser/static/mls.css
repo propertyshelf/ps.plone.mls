@@ -74,6 +74,8 @@
   width:65px;
   height:65px;
   display:inline-block;
+  background-size: contain;
+  background-repeat: no-repeat;
 
 }
 
