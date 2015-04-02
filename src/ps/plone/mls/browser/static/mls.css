@@ -68,3 +68,102 @@
   height: 300px;
   width: 100%;
 }
+
+/* Amenity icons  */
+.development__amenities .amenitiesicon{
+  width:65px;
+  height:65px;
+  display:inline-block;
+
+}
+
+.development__amenities .activities_equipment{
+  background-image: url(++resource++ps.plone.mls/icons/equipment_rental.png);
+}
+.development__amenities .bar{
+  background-image: url(++resource++ps.plone.mls/icons/bar.png);
+}
+.development__amenities .basketball_court{
+  background-image: url(++resource++ps.plone.mls/icons/basketball.png);
+}
+.development__amenities .bbq{
+  background-image: url(++resource++ps.plone.mls/icons/bbq.png);
+}
+.development__amenities .beach_club{
+  background-image: url(++resource++ps.plone.mls/icons/beach_club.png);
+}
+.development__amenities .changing_rooms{
+  background-image: url(++resource++ps.plone.mls/icons/changing_rooms.png);
+}
+.development__amenities .concierge{
+  background-image: url(++resource++ps.plone.mls/icons/concierge.png);
+}
+.development__amenities .entertainment_cinema{
+  background-image: url(++resource++ps.plone.mls/icons/cinema.png);
+}
+.development__amenities .game_room{
+  background-image: url(++resource++ps.plone.mls/icons/game_room.png);
+}
+.development__amenities .gardens{
+  background-image: url(++resource++ps.plone.mls/icons/garden.png);
+}
+.development__amenities .golf_course{
+  background-image: url(++resource++ps.plone.mls/icons/golf.png);
+}
+.development__amenities .gym{
+  background-image: url(++resource++ps.plone.mls/icons/gym.png);
+}
+.development__amenities .heated_pool{
+  background-image: url(++resource++ps.plone.mls/icons/heated_pool.png);
+}
+.development__amenities .helicopter_pad{
+  background-image: url(++resource++ps.plone.mls/icons/helicopter_pad.png);
+}
+.development__amenities .hotel{
+  background-image: url(++resource++ps.plone.mls/icons/hotel.png);
+}
+.development__amenities .laundry_facility{
+  background-image: url(++resource++ps.plone.mls/icons/laundry.png);
+}
+.development__amenities .medical_facility{
+  background-image: url(++resource++ps.plone.mls/icons/medical_facility.png);
+}
+.development__amenities .mini_market{
+  background-image: url(++resource++ps.plone.mls/icons/minimarket.png);
+}
+.development__amenities .pool{
+  background-image: url(++resource++ps.plone.mls/icons/pool.png);
+}
+.development__amenities .property_management{
+  background-image: url(++resource++ps.plone.mls/icons/property_management.png);
+}
+.development__amenities .restaurant{
+  background-image: url(++resource++ps.plone.mls/icons/restaurant.png);
+}
+.development__amenities .security{
+  background-image: url(++resource++ps.plone.mls/icons/security.png);
+}
+.development__amenities .soccer_field{
+  background-image: url(++resource++ps.plone.mls/icons/soccer.png);
+}
+.development__amenities .spa{
+  background-image: url(++resource++ps.plone.mls/icons/spa.png);
+}
+.development__amenities .stables{
+  background-image: url(++resource++ps.plone.mls/icons/stable.png);
+}
+.development__amenities .storage_lockers{
+  background-image: url(++resource++ps.plone.mls/icons/storage.png);
+}
+.development__amenities .tennis_court{
+  background-image: url(++resource++ps.plone.mls/icons/tennis.png);
+}
+.development__amenities .trash_collection{
+  background-image: url(++resource++ps.plone.mls/icons/rubbish.png);
+}
+.development__amenities .valet{
+  background-image: url(++resource++ps.plone.mls/icons/transportation.png);
+}
+.development__amenities .volleyball_court{
+  background-image: url(++resource++ps.plone.mls/icons/volleyball.png);
+}
