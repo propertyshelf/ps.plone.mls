@@ -8,17 +8,7 @@
 }
 
 /* headline defaults */
-.development__overview h2,
-.development__groups h2,
-.development__projectmap h2,
-.development__gallery h2,
-.development__video_embedding h2,
-.development__area h2,
-.development__map h2,
-.development__distances h2,
-.development__phases h2,
-.development__representatives h2,
-.development__contact h2
+.development_details h2
 {
   text-transform: uppercase;
   color: #33a1b5;
@@ -26,6 +16,12 @@
   text-align: center;
   font-weight:200;
   letter-spacing: 2px;
+}
+
+.development_details h2:before,
+.development_details h2:after{
+    content: "\2015";
+    font-size:1.4em;
 }
 
 /* Description text */
