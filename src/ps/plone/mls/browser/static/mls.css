@@ -98,13 +98,16 @@
 }
 
 /* Amenity icons  */
+.development__amenities,
+.development__distances{
+  text-align: center;
+}
 .development__amenities .amenitiesicon{
   width:65px;
   height:65px;
   display:inline-block;
   background-size: contain;
   background-repeat: no-repeat;
-
 }
 
 .development__amenities .activities_equipment{
