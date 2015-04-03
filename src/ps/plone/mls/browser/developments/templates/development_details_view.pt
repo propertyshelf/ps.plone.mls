@@ -35,7 +35,7 @@
 
         <div id="viewlet-above-content-body" tal:content="structure provider:plone.abovecontentbody" tal:condition="not:ajax_load" />
 
-        <div id="content-core" tal:condition="item">
+        <div id="content-core" class="development_details" tal:condition="item">
           <section class="development__amenities" tal:condition="amenities">
             <tal:amenity tal:repeat="amenity amenities">
 
