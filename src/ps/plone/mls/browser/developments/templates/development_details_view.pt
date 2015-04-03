@@ -46,32 +46,34 @@
               </span>
             </tal:amenity>
           </section>
+
           <section class="development__overview">
             <h2 class="" i18n:translate="">Overview</h2>
             <p class="documentDescription">
               <span tal:replace="structure item/description/value | nothing" />
             </p>
-            <!-- use lead image next to description-->
-            <picture class="lead_image"
-              tal:define="lead_image view/lead_image | nothing;
+
+            <p class="overview__long_description"
+                tal:define="text item/long_description | nothing">
+              <!-- use lead image next to description-->
+              <picture class="lead_image"
+                tal:define="lead_image view/lead_image | nothing;
                           lead_href python: lead_image.get('preview') if lead_image is not None else None;
                           lead_title lead_image/title | nothing;
                           lead_alt lead_image/description| nothing;"
-              tal:condition="lead_image" >
-                <img
-                 tal:attributes="src lead_href;
+                tal:condition="lead_image" >
+                  <img
+                    tal:attributes="src lead_href;
                                   alt lead_alt;
                                   title lead_title" />
-                <span class="caption"
-                  tal:content="lead_title" />
-            </picture>
-
-            <p class="overview__long_description"
-                tal:define="text item/long_description | nothing"
-                tal:condition="text"
-                tal:content="structure text/value"></p>
-              <div class="visualClear" />
+                  <span class="caption"
+                    tal:content="lead_title" />
+              </picture>
+              <span tal:condition="text" tal:content="structure text/value"/>
+            </p>
+            <div class="visualClear" />
           </section>
+
           <section class="development__groups"
               tal:define="groups item/groups | nothing"
               tal:condition="groups">
