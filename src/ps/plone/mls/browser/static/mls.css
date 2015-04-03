@@ -7,6 +7,38 @@
   margin-top: 1.5em; /* Equals default line-height of p elements. */
 }
 
+/* headline defaults */
+.development__overview h2,
+.development__groups h2,
+.development__projectmap h2,
+.development__gallery h2,
+.development__video_embedding h2,
+.development__area h2,
+.development__map h2,
+.development__distances h2,
+.development__phases h2,
+.development__representatives h2,
+.development__contact h2
+{
+  text-transform: uppercase;
+  color: #33a1b5;
+  font-size:30px;
+  text-align: center;
+  font-weight:200;
+  letter-spacing: 2px;
+}
+
+/* Description text */
+#content .development__overview .documentDescription{
+  font-size:15px;
+  font-style: italic;
+  font-weight: 400;
+  color:#095765;
+
+  text-align: center;
+
+}
+
 .detail .overview__logo {
   background-color: #FFF;
   border: 1px solid #CCC;
