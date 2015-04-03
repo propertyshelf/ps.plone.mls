@@ -193,6 +193,7 @@
             <p class="area__description"
                 tal:content="text/value"></p>
           </section>
+
           <section class="development__map"
                tal:define="js view/javascript_map | nothing"
                tal:condition="js">
@@ -203,7 +204,11 @@
             <script type="text/javascript" tal:content="structure js"></script>
           </section>
 
-          <section class="development__distances">
+          <section class="development__distances"
+            tal:define="distance_class view/distance_class;
+                        distance_available python: None if distance_class=='count_0' else 1"
+            tal:attributes="class string:development__distances ${distance_class}"
+            tal:condition="distance_available">
             <div class="distanceicon"
               tal:define="name item/airport_name/value | nothing;
                           distance item/airport_distance/value | nothing;

@@ -296,7 +296,6 @@ class DevelopmentDetails(BrowserView):
                 request=self.request,
                 lang=lang,
             )
-
         return item
 
     @property
@@ -386,6 +385,29 @@ class DevelopmentDetails(BrowserView):
         fake = api.PropertyGroup(self.item._api, {})
         raw = fake.field_titles()
         return raw.get('response', {}).get('fields', {})
+
+    def distance_class(self):
+        """count how many distances are set"""
+        counter = 0
+        # get all distances
+        airport_distance = self._item.airport_distance
+        bank_distance = self._item.bank_distance
+        gas_station_distance = self._item.gas_station_distance
+        hospital_distance = self._item.hospital_distance
+        shopping_distance = self._item.shopping_distance
+
+        if airport_distance is not None:
+            counter += 1
+        if bank_distance is not None:
+            counter += 1
+        if gas_station_distance is not None:
+            counter += 1
+        if hospital_distance is not None:
+            counter += 1
+        if shopping_distance is not None:
+            counter += 1
+
+        return 'count_' + str(counter)
 
     def show_section_contact(self):
         """Should the contact us section be shown at all?"""
