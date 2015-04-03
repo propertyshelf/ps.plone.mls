@@ -50,9 +50,14 @@ jQuery(function(jq) {
       closeselector: '[name="form.buttons.cancel"]'
     });
   }
+
   icons = jq('.amenitiesicon');
   if(icons.length>0){
     resize_icons(icons);
+  }
+  d_icons =jQuery('.distanceicon .icon');
+  if(d_icons.length>0){
+    resize_icons(d_icons);
   }
 
 });
@@ -60,5 +65,10 @@ jQuery(window).resize(function() {
   icons = jQuery('.development__amenities .amenitiesicon');
   if(icons.length>0){
     resize_icons(icons);
+  }
+
+  d_icons =jQuery('.distanceicon .icon');
+  if(d_icons.length>0){
+    resize_icons(d_icons);
   }
 });
