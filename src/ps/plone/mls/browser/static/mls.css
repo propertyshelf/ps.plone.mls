@@ -169,21 +169,25 @@
 .development__amenities .volleyball_court{
   background-image: url(++resource++ps.plone.mls/icons/volleyball.png);
 }
-/*  */
-.development__amenities .count_1{
+/* Set dynamic max width's to keep icons in a single line */
+.development__amenities .count_1,
+.count_1 .distanceicon{
   max-width: 98%;
 }
-.development__amenities .count_2{
+.development__amenities .count_2,
+.count_2 .distanceicon{
   max-width: 48%;
 }
-.development__amenities .count_3{
+.development__amenities .count_3,
+.count_3 .distanceicon{
   max-width: 31%;
 }
-.development__amenities .count_4{
+.development__amenities .count_4,
+.count_4 .distanceicon{
   max-width: 23%;
 }
 .development__amenities .count_5,
-.development__distances .distanceicon{
+.count_5 .distanceicon{
   max-width: 18%;
 }
 .development__amenities .count_6,
@@ -229,13 +233,14 @@
 .distanceicon{
     display:inline-block;
     vertical-align:top;
+    text-align:center;
 }
 
 .distanceicon .icon{
   width:122px;
   height:122px;
   max-width:100%;
-  display:block;
+  display:inline-block;
   background-size: contain;
   background-repeat: no-repeat;
 }
