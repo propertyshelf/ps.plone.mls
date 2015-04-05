@@ -117,7 +117,7 @@
                   tal:attributes="href file_href;
                                   download download_title;
                                   target string:_blank;"
-                  i18n:translate=""><img src="" /></a>
+                  i18n:translate=""><img src="++resource++ps.plone.mls/icons/pdf.png" /></a>
 
             </div>
           </section>

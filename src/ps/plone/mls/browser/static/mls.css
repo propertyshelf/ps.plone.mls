@@ -54,7 +54,7 @@
   left:0;
   top:13px;
   padding:14px 18px 12px;
-
+  background-color: rgb(0, 0, 0);
   background-color:rgba(0, 0, 0, 0.75);
   border: 1px solid #999;
   border-left:0 none transparent;
@@ -68,9 +68,40 @@
 
 .overview__long_description{
   font-size:15px;
+}
+
+.development__projectmap{
+  overflow:hidden;
+}
+
+.pdf_download{
+  background-color:#ff0000;
+  display: inline-block;
+  text-transform: uppercase;
+
+  margin-top:20px;
+  padding:15px 80px 14px 20px;
+
+  position:relative;
+  overflow: visible;
+}
+.pdf_download a:link{
+  color:#fff !important;
+  font-size: 20px;
+  border:0 none transparent !important;
+}
+
+.pdf_download .icon{
+  position:absolute;
+  top:-10px;
+  right:20px;
 
 }
 
+.pdf_download .text{
+  padding-right:20px;
+  display:inline-block;
+}
 
 .detail .overview__logo {
   background-color: #FFF;
