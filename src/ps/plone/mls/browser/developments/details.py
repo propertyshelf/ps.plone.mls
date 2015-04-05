@@ -457,6 +457,13 @@ class DevelopmentDetails(BrowserView):
             alsoProvides(self._contact_form, IWrappedForm)
         return self._contact_form
 
+    def get_field_label(self, field_name):
+        """Get the field label for ``field_name`` even if the data may not
+        exist within the current development object.
+        """
+        field = api.Field(field_name, None, self.item)
+        return field.title
+
 
 class HeaderViewlet(ViewletBase):
     """Header Image"""

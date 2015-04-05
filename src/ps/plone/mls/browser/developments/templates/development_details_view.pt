@@ -223,7 +223,7 @@
               tal:condition="name">
               <span aria-hidden="true"
                   class="icon airport" ></span>
-              <h5 i18n:translate="">Closest Airport</h5>
+              <h5 tal:content="python: view.get_field_label('airport_name')">[Closest Airport]</h5>
               <span tal:content="text" />
             </div>
             <div class="distanceicon"
@@ -232,7 +232,7 @@
                           text string:${distance} - ${name};"
               tal:condition="name">
               <span aria-hidden="true" class="icon hospital" ></span>
-              <h5 i18n:translate="">Closest Medical Facility</h5>
+              <h5 tal:content="python: view.get_field_label('hospital_name')">[Closest Hospital]</h5>
               <span tal:content="text" />
             </div>
             <div class="distanceicon"
@@ -242,7 +242,7 @@
               tal:condition="name">
               <span aria-hidden="true"
                   class="icon shopping" ></span>
-              <h5 i18n:translate="">Closest Mall</h5>
+              <h5 tal:content="python: view.get_field_label('shopping_name')">[Closest Shopping Center]</h5>
               <span tal:content="text" />
             </div>
             <div class="distanceicon"
@@ -252,7 +252,7 @@
               tal:condition="name">
               <span aria-hidden="true"
                   class="icon bank" ></span>
-              <h5 i18n:translate="">Closest Bank / ATM</h5>
+              <h5 tal:content="python: view.get_field_label('bank_name')">[Closest Bank/ATM]</h5>
               <span tal:content="text" />
             </div>
             <div class="distanceicon"
@@ -262,7 +262,7 @@
               tal:condition="name">
               <span aria-hidden="true"
                   class="icon gas_station" ></span>
-              <h5 i18n:translate="">Closest gas station</h5>
+              <h5 tal:content="python: view.get_field_label('gas_station_name')">[Closest Gas Station]</h5>
               <span tal:content="text" />
             </div>
           </section>
