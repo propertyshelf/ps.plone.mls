@@ -217,52 +217,47 @@
             tal:condition="distance_available">
             <div class="distanceicon"
               tal:define="name item/airport_name/value | nothing;
-                          distance item/airport_distance/value | nothing;
-                          text string:${distance} - ${name};"
+                          distance item/airport_distance/value | nothing;"
               tal:condition="python: name or distance">
               <span aria-hidden="true"
                   class="icon airport" ></span>
               <h5 tal:content="python: view.get_field_label('airport_name')">[Closest Airport]</h5>
-              <span tal:content="text" />
+              <span tal:content="python: view.format_distance(name, distance)" />
             </div>
             <div class="distanceicon"
               tal:define="name item/hospital_name/value | nothing;
-                          distance item/hospital_distance/value | nothing;
-                          text string:${distance} - ${name};"
+                          distance item/hospital_distance/value | nothing;"
               tal:condition="python: name or distance">
               <span aria-hidden="true" class="icon hospital" ></span>
               <h5 tal:content="python: view.get_field_label('hospital_name')">[Closest Hospital]</h5>
-              <span tal:content="text" />
+              <span tal:content="python: view.format_distance(name, distance)" />
             </div>
             <div class="distanceicon"
               tal:define="name item/shopping_name/value | nothing;
-                          distance item/shopping_distance/value | nothing;
-                          text string:${distance} - ${name};"
+                          distance item/shopping_distance/value | nothing;"
               tal:condition="python: name or distance">
               <span aria-hidden="true"
                   class="icon shopping" ></span>
               <h5 tal:content="python: view.get_field_label('shopping_name')">[Closest Shopping Center]</h5>
-              <span tal:content="text" />
+              <span tal:content="python: view.format_distance(name, distance)" />
             </div>
             <div class="distanceicon"
               tal:define="name item/bank_name/value | nothing;
-                          distance item/bank_distance/value | nothing;
-                          text string:${distance} - ${name};"
+                          distance item/bank_distance/value | nothing;"
               tal:condition="python: name or distance">
               <span aria-hidden="true"
                   class="icon bank" ></span>
               <h5 tal:content="python: view.get_field_label('bank_name')">[Closest Bank/ATM]</h5>
-              <span tal:content="text" />
+              <span tal:content="python: view.format_distance(name, distance)" />
             </div>
             <div class="distanceicon"
               tal:define="name item/gas_station_name/value | nothing;
-                          distance item/gas_station_distance/value | nothing;
-                          text string:${distance} - ${name};"
+                          distance item/gas_station_distance/value | nothing;"
               tal:condition="python: name or distance">
               <span aria-hidden="true"
                   class="icon gas_station" ></span>
               <h5 tal:content="python: view.get_field_label('gas_station_name')">[Closest Gas Station]</h5>
-              <span tal:content="text" />
+              <span tal:content="python: view.format_distance(name, distance)" />
             </div>
           </section>
           <section class="development__phases"

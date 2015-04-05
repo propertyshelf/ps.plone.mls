@@ -465,6 +465,17 @@ class DevelopmentDetails(BrowserView):
         field = api.Field(field_name, None, self.item)
         return field.title
 
+    def format_distance(self, name, distance):
+        """Format the distance labels in the form of ``name - distance`` but
+        also correctly handle None values.
+        """
+        text = []
+        if name is not None:
+            text.append(name)
+        if distance is not None:
+            text.append(distance)
+        return u' - '.join(text)
+
 
 class HeaderViewlet(ViewletBase):
     """Header Image"""
