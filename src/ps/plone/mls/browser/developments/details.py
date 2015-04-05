@@ -390,21 +390,22 @@ class DevelopmentDetails(BrowserView):
         """count how many distances are set"""
         counter = 0
         # get all distances
-        airport_distance = self._item.airport_distance
-        bank_distance = self._item.bank_distance
-        gas_station_distance = self._item.gas_station_distance
-        hospital_distance = self._item.hospital_distance
-        shopping_distance = self._item.shopping_distance
+        item = self.item
+        airport = item.airport_name or item.airport_distance
+        bank = item.bank_name or item.bank_distance
+        gas_station = item.gas_station_name or item.gas_station_distance
+        hospital = item.hospital_name or item.hospital_distance
+        shopping = item.shopping_name or item.shopping_distance
 
-        if airport_distance is not None:
+        if airport is not None:
             counter += 1
-        if bank_distance is not None:
+        if bank is not None:
             counter += 1
-        if gas_station_distance is not None:
+        if gas_station is not None:
             counter += 1
-        if hospital_distance is not None:
+        if hospital is not None:
             counter += 1
-        if shopping_distance is not None:
+        if shopping is not None:
             counter += 1
 
         return 'count_' + str(counter)
