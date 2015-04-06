@@ -9,6 +9,7 @@
 
 /* Font Defaults */
 .development_details h2,
+.development_details h3,
 #content .development__overview .documentDescription,
 .development__overview .lead_image .caption,
 .overview__long_description,
@@ -16,7 +17,8 @@
 .development__header .development_title,
 .development__header .development_headline,
 .development__header .development_location,
-#content-core.development_details li.formTab a:link{
+#content-core.development_details li.formTab a:link
+{
 
   font-family: 'Arial Narrow', Arial, sans-serif;
 }
@@ -569,4 +571,29 @@
   height:26px;
   padding: 2px 25px;
   border:1px solid #c1c1c1;
+}
+.development__vcard{
+  padding:19px 44px;
+  border:1px solid #c1c1c1;
+  background-color:#ebebeb;
+
+  -webkit-box-shadow: 0 0 10px 0 rgba(0,0,0,0.25);
+  -moz-box-shadow: 0 0 10px 0 rgba(0,0,0,0.25);
+  box-shadow: 0 0 10px 0 rgba(0,0,0,0.25);
+
+  background: rgba(230,230,230);
+  background: -moz-linear-gradient(top, rgba(230,230,230,1) 0%, rgba(246,246,246,1) 53%, rgba(255,255,255,1) 100%);
+  background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(230,230,230,1)), color-stop(53%, rgba(246,246,246,1)), color-stop(100%, rgba(255,255,255,1)));
+  background: -webkit-linear-gradient(top, rgba(230,230,230,1) 0%, rgba(246,246,246,1) 53%, rgba(255,255,255,1) 100%);
+  background: -o-linear-gradient(top, rgba(230,230,230,1) 0%, rgba(246,246,246,1) 53%, rgba(255,255,255,1) 100%);
+  background: -ms-linear-gradient(top, rgba(230,230,230,1) 0%, rgba(246,246,246,1) 53%, rgba(255,255,255,1) 100%);
+  background: linear-gradient(to bottom, rgba(230,230,230,1) 0%, rgba(246,246,246,1) 53%, rgba(255,255,255,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e6e6e6', endColorstr='#ffffff', GradientType=0 );
+}
+.development__vcard h3{
+  text-transform: uppercase;
+  font-style: italic;
+  font-weight:bold;
+  font-size:16px;
+  color:#000;
 }

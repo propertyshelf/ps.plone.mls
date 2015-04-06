@@ -352,7 +352,7 @@
                   tal:condition="not: form/already_sent"
                   tal:replace="structure form/render"></form>
             </tal:form>
-            <tal:contact_info
+            <div class="development__vcard"
                 tal:define="contact_info view/contact_info | nothing;
                             agency contact_info/agency | nothing;
                             agent contact_info/agent | nothing;
@@ -390,7 +390,7 @@
                     tal:condition="email"
                     tal:content="email/value">[email]</div>
               </address>
-            </tal:contact_info>
+            </div>
           </section>
         </div>
 
