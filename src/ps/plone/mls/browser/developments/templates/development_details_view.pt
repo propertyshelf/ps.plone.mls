@@ -49,9 +49,13 @@
 
           <section class="development__overview">
             <h2 class="" i18n:translate="">Overview</h2>
-            <p class="documentDescription">
-              <span tal:replace="structure item/description/value | nothing" />
-            </p>
+            <div class="documentDescription"
+                  tal:define="description_text item/description/value | nothing"
+                  tal:condition="description_text">
+              <tal:descriptionline tal:repeat="line python:description_text.splitlines()">
+                <p tal:content="line">[Description Line]</p>
+              </tal:descriptionline>
+            </div>
 
             <p class="overview__long_description"
                 tal:define="text item/long_description | nothing">
