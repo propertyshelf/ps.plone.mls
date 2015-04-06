@@ -47,30 +47,31 @@
             </tal:amenity>
           </section>
 
-          <section class="development__overview">
+          <section class="development__overview"
+                  tal:define="description_text item/description/value | nothing;
+                              text item/long_description/value | nothing;
+                              lead_image view/lead_image | nothing;"
+                  tal:condition="python: description_text or text or lead_image">
             <h2 class="" i18n:translate="">Overview</h2>
-            <div class="documentDescription"
-                  tal:define="description_text item/description/value | nothing"
-                  tal:condition="description_text">
+            <div class="documentDescription" tal:condition="description_text">
               <tal:descriptionline tal:repeat="line python:description_text.splitlines()">
                 <p tal:content="line">[Description Line]</p>
               </tal:descriptionline>
             </div>
 
-            <div class="overview__long_description"
-                tal:define="text item/long_description/value | nothing">
+            <div class="overview__long_description">
               <!-- use lead image next to description-->
               <picture class="lead_image"
-                tal:define="lead_image view/lead_image | nothing;
-                          lead_href python: lead_image.get('preview') if lead_image is not None else None;
-                          lead_title lead_image/title | nothing;
-                          lead_alt lead_image/description| nothing;"
+                tal:define="lead_href python: lead_image.get('preview') if lead_image is not None else None;
+                            lead_title lead_image/title | nothing;
+                            lead_alt lead_image/description| nothing;"
                 tal:condition="lead_image" >
                   <img
                     tal:attributes="src lead_href;
                                   alt lead_alt;
                                   title lead_title" />
                   <span class="caption"
+                    tal:condition="lead_title"
                     tal:content="lead_title" />
               </picture>
               <tal:descriptionline tal:repeat="line python:text.splitlines()" tal:condition="text">
