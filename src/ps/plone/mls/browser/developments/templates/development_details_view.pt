@@ -329,10 +329,13 @@
                     tal:define="user_title agent/user_title/value | nothing"
                     tal:condition="user_title"
                     tal:content="user_title">[Developer Title]</p>
-                <p class="representative__personal_description"
-                    tal:define="text agent/personal_description/value | nothing"
-                    tal:condition="text"
-                    tal:content="text">[Personal Description]</p>
+                <div class="representative__personal_description"
+                      tal:define="text agent/personal_description/value | nothing"
+                      tal:condition="text">
+                  <tal:descriptionline tal:repeat="line python:text.splitlines()">
+                    <p tal:content="line">[Description Line]</p>
+                  </tal:descriptionline>
+                </div>
               </tal:agent>
             </div>
           </section>
