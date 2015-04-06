@@ -1,3 +1,10 @@
+function resize_icons(icons){
+  // adjust height & width to make the icons fit in one line
+  icon_width = jQuery(icons[0]).width();
+  // square the icon
+  jQuery(icons).height(icon_width);
+}
+
 jQuery(function(jq) {
 
   if (jq('.mls .development__gallery .thumbnails').length > 0) {
@@ -44,4 +51,24 @@ jQuery(function(jq) {
     });
   }
 
+  icons = jq('.amenitiesicon');
+  if(icons.length>0){
+    resize_icons(icons);
+  }
+  d_icons =jQuery('.distanceicon .icon');
+  if(d_icons.length>0){
+    resize_icons(d_icons);
+  }
+
+});
+jQuery(window).resize(function() {
+  icons = jQuery('.development__amenities .amenitiesicon');
+  if(icons.length>0){
+    resize_icons(icons);
+  }
+
+  d_icons =jQuery('.distanceicon .icon');
+  if(d_icons.length>0){
+    resize_icons(d_icons);
+  }
 });

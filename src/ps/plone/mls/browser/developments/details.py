@@ -12,6 +12,7 @@ from Products.CMFCore.utils import getToolByName
 from Products.CMFPlone import PloneMessageFactory as PMF
 from Products.Five import BrowserView
 from plone import api as plone_api
+from plone.app.layout.viewlets.common import ViewletBase
 from plone.directives import form
 from plone.formwidget.captcha.widget import CaptchaFieldWidget
 from plone.formwidget.captcha.validator import (
@@ -113,35 +114,35 @@ google.maps.event.addDomListener(window, "resize", function() {{
 class IContactForm(form.Schema):
     """Contact Form schema."""
 
-    name = schema.TextLine(
-        description=PMF(
-            u'help_sender_fullname',
-            default=u'Please enter your full name',
-        ),
-        required=True,
-        title=PMF(u'label_name', default=u"Name"),
-    )
-
     sender_from_address = schema.TextLine(
         constraint=utils.validate_email,
         description=PMF(
             u'help_sender_from_address',
-            default=u'Please enter your e-mail address',
+            default=u'',
         ),
         required=True,
         title=PMF(u'label_sender_from_address', default=u'E-Mail'),
     )
 
-    subject = schema.TextLine(
+    name = schema.TextLine(
+        description=PMF(
+            u'help_sender_fullname',
+            default=u'',
+        ),
         required=True,
-        title=PMF(u'label_subject', default=u'Subject')
+        title=PMF(u'label_name', default=u"Name"),
+    )
+
+    phone = schema.TextLine(
+        required=False,
+        title=PMF(u'label_phone', default=u'Phone')
     )
 
     message = schema.Text(
         constraint=utils.contains_nuts,
         description=PMF(
             u'help_message',
-            default=u'Please enter the message you want to send.',
+            default=u'',
         ),
         max_length=1000,
         required=True,
@@ -236,7 +237,7 @@ class ContactForm(form.Form):
         except:
             rcp = from_address
         sender = '{0} <{1}>'.format(data['name'], data['sender_from_address'])
-        subject = data['subject']
+        subject = u'Customer Contact Developments'
         data['url'] = self.request.getURL()
         message = EMAIL_TEMPLATE.format(**data)
         message = message_from_string(message.encode(email_charset))
@@ -300,7 +301,6 @@ class DevelopmentDetails(BrowserView):
                 request=self.request,
                 lang=lang,
             )
-
         return item
 
     @property
@@ -335,11 +335,14 @@ class DevelopmentDetails(BrowserView):
         """Return the JS code for the map."""
         if not hasattr(self.item, 'geolocation') or not self.item.geolocation:
             return
+
         icon = getattr(self.item, 'icon', None)
         if icon is not None:
             icon = icon.value
         icon_url = json.dumps(icon)
+
         lat, lng = self.item.geolocation.value.split(',')
+
         return MAP_JS.format(
             icon=icon_url,
             lat=lat,
@@ -386,6 +389,30 @@ class DevelopmentDetails(BrowserView):
         fake = api.PropertyGroup(self.item._api, {})
         raw = fake.field_titles()
         return raw.get('response', {}).get('fields', {})
+
+    def distance_class(self):
+        """count how many distances are set"""
+        counter = 0
+        # get all distances
+        item = self.item
+        airport = item.airport_name or item.airport_distance
+        bank = item.bank_name or item.bank_distance
+        gas_station = item.gas_station_name or item.gas_station_distance
+        hospital = item.hospital_name or item.hospital_distance
+        shopping = item.shopping_name or item.shopping_distance
+
+        if airport is not None:
+            counter += 1
+        if bank is not None:
+            counter += 1
+        if gas_station is not None:
+            counter += 1
+        if hospital is not None:
+            counter += 1
+        if shopping is not None:
+            counter += 1
+
+        return 'count_' + str(counter)
 
     def show_section_contact(self):
         """Should the contact us section be shown at all?"""
@@ -434,3 +461,113 @@ class DevelopmentDetails(BrowserView):
         if HAS_WRAPPED_FORM:
             alsoProvides(self._contact_form, IWrappedForm)
         return self._contact_form
+
+    def get_field_label(self, field_name):
+        """Get the field label for ``field_name`` even if the data may not
+        exist within the current development object.
+        """
+        field = api.Field(field_name, None, self.item)
+        return field.title
+
+    def format_distance(self, name, distance):
+        """Format the distance labels in the form of ``name - distance`` but
+        also correctly handle None values.
+        """
+        text = []
+        if name is not None:
+            text.append(name)
+        if distance is not None:
+            text.append(distance)
+        return u' - '.join(text)
+
+
+class HeaderViewlet(ViewletBase):
+    """Header Image"""
+
+    _id = None
+    _title = None
+    _headline = None
+    _location = None
+    _logo = None
+    _banner = None
+    _has_banner = False
+
+    @property
+    def available(self):
+        # do we have a development?
+        self._id = getattr(self.request, 'development_id', None)
+        if self._id is not None:
+            return True
+        else:
+            return False
+
+    @property
+    def get_title(self):
+        """Get development title"""
+        return self._title
+
+    @property
+    def get_headline(self):
+        """Get development headline"""
+        return self._headline
+
+    @property
+    def get_location(self):
+        """Get development location"""
+        return self._location
+
+    @property
+    def get_logo(self):
+        """Get development logo"""
+        return self._logo
+
+    @property
+    def get_banner(self):
+        """Get development header"""
+        return self._banner
+
+    def update(self):
+        """Prepare view related data."""
+        super(HeaderViewlet, self).update()
+
+        if self.available:
+            self._set_development_info()
+
+    def _set_banner(self, item):
+        """Look for available Header image"""
+        try:
+            # banner image as regular data
+            self._banner = item.banner_image.value
+            self._has_banner = True
+        except:
+            self._has_banner = False
+
+    def _set_development_info(self):
+        """set all available data for the development header"""
+        cache = IAnnotations(self.request)
+        item = cache.get('ps.plone.mls.development.traversed', None)
+
+        if item is not None:
+            # try to set the available data
+            try:
+                self._logo = item.logo.value
+            except:
+                pass
+            try:
+                self._title = item.title.value
+            except:
+                pass
+            try:
+                self._headline = item.headline.value
+            except:
+                pass
+            try:
+                seq = (item.city.value,
+                       item.subdivision.value,
+                       item.country.value)
+                joint = ', '
+                self._location = joint.join(seq)
+            except:
+                self._location = item.location.value
+            # set header image
+            self._set_banner(item)

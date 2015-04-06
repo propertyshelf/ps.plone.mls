@@ -23,180 +23,110 @@
                        images item/pictures | nothing;
                        title item/title/value | nothing;
                        id item/id/value | nothing;
-                       self_link string:${plone_view/renderBase}${id}">
+                       base_link string:${plone_view/renderBase};
+                       seperator python: '' if base_link.endswith('/') else '/';
+                       self_link string:${plone_view/renderBase}${seperator}${id};
+                       amenities item/amenities_order/value | nothing;
+                       amenities_dict item/amenities_lookup/value | nopthing;
+                       amenities_count python:len(amenities);">
 
         <div id="viewlet-above-content-title" tal:content="structure provider:plone.abovecontenttitle" tal:condition="not:ajax_load" />
-        <hgroup>
-          <h1 class="documentFirstHeading">
-            <span tal:replace="title">[Title]</span>
-          </h1>
-        </hgroup>
         <div id="viewlet-below-content-title" tal:content="structure provider:plone.belowcontenttitle" tal:condition="not:ajax_load" />
-
-        <p class="documentDescription">
-          <picture class="overview__logo"
-              tal:define="image item/logo | nothing"
-              tal:condition="image"><a href="" rel="prettyPhoto[item]"
-              tal:attributes="href image/value">
-            <img src="" title="" alt=""
-                tal:attributes="src image/value;
-                                title title;
-                                alt title;" />
-              </a>
-          </picture>
-          <span tal:replace="item/description/value | nothing" />
-        </p>
 
         <div id="viewlet-above-content-body" tal:content="structure provider:plone.abovecontentbody" tal:condition="not:ajax_load" />
 
-        <div id="content-core" tal:condition="item">
-          <section class="development__overview">
-            <h2 class="" i18n:translate="">Development Facts</h2>
-            <table class="vertical listing overview__table">
-              <tbody>
-                <tr tal:define="field item/location | nothing" tal:condition="field">
-                  <th class="location" tal:content="field/title">[Label]</th>
-                  <td class="location" tal:content="structure field/value">[Value]</td>
-                </tr>
-                <tr tal:define="field item/lot_size | nothing" tal:condition="field">
-                  <th class="lot_size" tal:content="field/title">[Label]</th>
-                  <td class="lot_size" tal:content="structure field/value">[Value]</td>
-                </tr>
-                <tr tal:define="field item/location_type | nothing" tal:condition="field">
-                  <th class="location_type" tal:content="field/title">[Label]</th>
-                  <td class="location_type" tal:content="structure field/value">[Value]</td>
-                </tr>
-                <tr tal:define="field item/geographic_type | nothing" tal:condition="field">
-                  <th class="geographic_type" tal:content="field/title">[Label]</th>
-                  <td class="geographic_type" tal:content="structure field/value">[Value]</td>
-                </tr>
-                <tr tal:define="field item/precipitation_type | nothing" tal:condition="field">
-                  <th class="precipitation_type" tal:content="field/title">[Label]</th>
-                  <td class="precipitation_type" tal:content="structure field/value">[Value]</td>
-                </tr>
-                <tr tal:define="field item/precipitation | nothing" tal:condition="field">
-                  <th class="precipitation" tal:content="field/title">[Label]</th>
-                  <td class="precipitation" tal:content="structure field/value">[Value]</td>
-                </tr>
-                <tr tal:define="field item/amenities | nothing" tal:condition="field">
-                  <th class="amenities" tal:content="field/title">[Label]</th>
-                  <td class="amenities" tal:content="structure field/value">[Value]</td>
-                </tr>
-                <tr tal:define="field item/number_of_listings | nothing" tal:condition="field">
-                  <th class="number_of_listings" tal:content="field/title">[Label]</th>
-                  <td class="number_of_listings"><span
-                      tal:content="structure field/value">[Value]</span> <a class="listings__link" href=""
-                      tal:attributes="href string:${self_link}/listings"
-                      i18n:translate="">Show Listings</a></td>
-                </tr>
-                <tr tal:define="field item/number_of_phases | nothing" tal:condition="field">
-                  <th class="number_of_phases" tal:content="field/title">[Label]</th>
-                  <td class="number_of_phases" tal:content="structure field/value">[Value]</td>
-                </tr>
-                <tr tal:define="field item/number_of_groups | nothing" tal:condition="field">
-                  <th class="number_of_groups" tal:content="field/title">[Label]</th>
-                  <td class="number_of_groups" tal:content="structure field/value">[Value]</td>
-                </tr>
-              </tbody>
-            </table>
-            <p class="overview__long_description"
-                tal:define="text item/long_description | nothing"
-                tal:condition="text"
-                tal:content="text/value"></p>
-              <div class="visualClear video"
-                  tal:define="video item/video_embedding | nothing"
-                  tal:condition="video"
-                  tal:content="structure video/value"></div>
+        <div id="content-core" class="development_details" tal:condition="item">
+          <section class="development__amenities" tal:condition="amenities">
+            <tal:amenity tal:repeat="amenity amenities">
+
+              <span aria-hidden="true"
+                  tal:define="amentity_label python:amenities_dict[amenity]"
+                  tal:attributes="class string:amenitiesicon ${amenity} count_${amenities_count};
+                                  aria-label amentity_label;" >
+              </span>
+            </tal:amenity>
           </section>
 
-          <section class="development__phases"
-              tal:define="phases item/phases | nothing"
-              tal:condition="phases">
-            <h2 i18n:translate="">Construction Status</h2>
+          <section class="development__overview"
+                  tal:define="description_text item/description/value | nothing;
+                              text item/long_description/value | nothing;
+                              lead_image view/lead_image | nothing;"
+                  tal:condition="python: description_text or text or lead_image">
+            <h2 class="" i18n:translate="">Overview</h2>
+            <div class="documentDescription" tal:condition="description_text">
+              <tal:descriptionline tal:repeat="line python:description_text.splitlines()">
+                <p tal:content="line">[Description Line]</p>
+              </tal:descriptionline>
+            </div>
 
-            <table class="listing phases__table">
-              <thead
-                  tal:define="titles view/titles_for_phases | nothing"
-                  tal:condition="titles">
-                <tr>
-                  <th class="title" tal:content="titles/title | nothing">[Phase Name]</th>
-                  <th class="units" tal:content="titles/units | nothing">[Number of Units]</th>
-                  <th class="unit_types" tal:content="titles/unit_types | nothing">[Available Unit Types]</th>
-                  <th class="status" tal:content="titles/status | nothing">[Status]</th>
-                  <th class="completion_date" tal:content="titles/completion_date | nothing">[Completion Date]</th>
-                  <th class="number_of_listings" tal:content="titles/number_of_listings | nothing">[Number of Listings]</th>
-                  <th class="listings__link"></th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr tal:repeat="phase phases">
-                  <tal:phases
-                      tal:define="phase_id phase/id/value | nothing;
-                                  phase_listings_link string:${self_link}/listings?phase=${phase_id}">
-                    <td class="title"><a href=""
-                        tal:attributes="href phase_listings_link"
-                        tal:content="phase/title/value | string:-">[Title]</a></td>
-                    <td class="units" tal:content="phase/units/value | string:-">[Units]</td>
-                    <td class="unit_types" tal:content="phase/unit_types/value | string:-">[Unit Types]</td>
-                    <td class="status" tal:content="phase/status/value | string:-">[Status]</td>
-                    <td class="completion_date" tal:content="phase/completion_date/value | string:-">[Completion Date]</td>
-                    <td class="number_of_listings" tal:content="phase/number_of_listings/value | string:-">[Number of Listings]</td>
-                    <td class="listings__link"><a href=""
-                        tal:attributes="href phase_listings_link"
-                        i18n:translate="">Show Listings</a></td>
-                  </tal:phases>
-                </tr>
-              </tbody>
-            </table>
+            <div class="overview__long_description">
+              <!-- use lead image next to description-->
+              <picture class="lead_image"
+                tal:define="lead_href python: lead_image.get('preview') if lead_image is not None else None;
+                            lead_title lead_image/title | nothing;
+                            lead_alt lead_image/description| nothing;"
+                tal:condition="lead_image" >
+                  <img
+                    tal:attributes="src lead_href;
+                                  alt lead_alt;
+                                  title lead_title" />
+                  <span class="caption"
+                    tal:condition="lead_title"
+                    tal:content="lead_title" />
+              </picture>
+              <tal:descriptionline tal:repeat="line python:text.splitlines()" tal:condition="text">
+                <p tal:content="line">[Description Line]</p>
+              </tal:descriptionline>
+            </div>
+            <div class="visualClear" />
           </section>
 
           <section class="development__groups"
               tal:define="groups item/groups | nothing"
               tal:condition="groups">
             <h2 i18n:translate="">Properties Available</h2>
-
-            <table class="listing groups__table">
-              <thead
-                  tal:define="titles view/titles_for_groups | nothing"
-                  tal:condition="titles">
-                <tr>
-                  <th class="title" tal:content="titles/title | nothing">[Group Name]</th>
-                  <th class="lot_size" tal:content="titles/lot_size | nothing">[Lot Size]</th>
-                  <th class="interior_area" tal:content="titles/interior_area | nothing">[Interior Area]</th>
-                  <th class="beds_baths" tal:content="titles/beds_baths | nothing">[Beds/Baths]</th>
-                  <th class="status" tal:content="titles/status | nothing">[Status]</th>
-                  <th class="starting_price" tal:content="titles/starting_price | nothing">[Starting Price]</th>
-                  <th class="number_of_listings" tal:content="titles/number_of_listings | nothing">[Number of Listings]</th>
-                  <th></th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr tal:repeat="group groups">
-                  <tal:groups
-                      tal:define="group_id group/id/value | nothing;
+            <dl id="group-listings" class="enableFormTabbing">
+              <tal:groups tal:repeat="group groups">
+                <tal:group tal:define="group_id group/id/value | nothing;
                                   group_listings_link string:${self_link}/listings?group=${group_id}">
-                  <td class="title"><a href=""
-                      tal:attributes="href group_listings_link"
-                      tal:content="group/title/value | string:-">[Title]</a></td>
-                  <td class="lot_size" tal:content="group/lot_size/value | string:-">[Lot Size]</td>
-                  <td class="interior_area" tal:content="group/interior_area/value | string:-">[Interior Area]</td>
-                  <td class="beds_baths" tal:content="group/beds_baths/value | string:-">[Beds/Baths]</td>
-                  <td class="status" tal:content="group/status/value | string:-">[Status]</td>
-                  <td class="starting_price" tal:content="group/starting_price/value | string:-">[Starting Price]</td>
-                  <td class="number_of_listings" tal:content="group/number_of_listings/value | string:-">[Number of Listings]</td>
-                    <td class="listings__link"><a href=""
+                  <dt tal:content="group/title/value | string:-"
+                    tal:attributes="id string:fieldsetlegend-${group_id};"/>
+                  <dd class="formPanel"
+                    tal:attributes="id string:fieldset-${group_id};">
+                    <span class="show_all group_listings">
+                      <a i18n:translate=""
                         tal:attributes="href group_listings_link"
-                        i18n:translate="">Show Listings</a></td>
-                  </tal:groups>
-                </tr>
-              </tbody>
-            </table>
+                        >Show all properties on this group</a>
+                    </span>
+                  </dd>
+                </tal:group>
+              </tal:groups>
+            </dl>
           </section>
 
           <section class="development__projectmap"
-              tal:define="projectmap item/projectmap | nothing"
+              tal:define="projectmap item/project_map_embedding | nothing"
               tal:condition="projectmap">
             <h2 i18n:translate="">Project Map</h2>
+            <div class="projectmap"
+                  tal:content="structure projectmap/value"></div>
+            <div class="pdf_download"
+                tal:define="file item/project_map_pdf | nothing;
+                            file_href file/value | nothing;
+                            download_title string:${title}"
+                tal:condition="file_href">
+                <a class="download text"
+                  tal:attributes="href file_href;
+                                  download download_title;
+                                  target string:_blank;"
+                  i18n:translate="">Download PDF</a>
+                <a class="download icon"
+                  tal:attributes="href file_href;
+                                  download download_title;
+                                  target string:_blank;"
+                  i18n:translate=""><img src="++resource++ps.plone.mls/icons/pdf.png" /></a>
+
+            </div>
           </section>
 
           <section class="development__gallery"
@@ -255,19 +185,16 @@
               <script type="text/javascript" src="++resource++plone.mls.listing.javascript/classic/galleria.classic.min.js"></script>
             </tal:galleria>
           </section>
-
-          <section class="development__map"
-               tal:define="js view/javascript_map | nothing"
-               tal:condition="js">
-            <h2 i18n:translate="" tal:replace="nothing">Map & Distances</h2>
-            <h2 i18n:translate="">Map</h2>
-            <div class="map__canvas" id="map"
-                tal:attributes="id view/map_id">Please enable JavaScript to show the Map.</div>
-            <script type="text/javascript" tal:content="structure js"></script>
+          <section class="development__video_embedding"
+                  tal:define="video item/video_embedding | nothing"
+                  tal:condition="video">
+            <h2 i18n:translate="">Video</h2>
+            <div class="video"
+                  tal:content="structure video/value"></div>
           </section>
 
           <section class="development__area"
-              tal:define="text item/area_description | nothing"
+              tal:define="text item/area_description/value | nothing"
               tal:condition="text">
             <h2 i18n:translate="">About the Area</h2>
             <picture class="area__picture"
@@ -277,10 +204,109 @@
                 tal:attributes="src image/value;
                                 title title;
                                 alt title;" /></a></picture>
-            <p class="area__description"
-                tal:content="text/value"></p>
+            <div class="area__description">
+              <tal:descriptionline tal:repeat="line python:text.splitlines()">
+                    <p tal:content="line">[Description Line]</p>
+              </tal:descriptionline>
+            </div>
           </section>
 
+          <section class="development__map"
+               tal:define="js view/javascript_map | nothing"
+               tal:condition="js">
+            <h2 i18n:translate="">Map & Distances</h2>
+            <div class="map__canvas" id="map"
+                tal:attributes="id view/map_id">Please enable JavaScript to show the Map.</div>
+            <script type="text/javascript" tal:content="structure js"></script>
+          </section>
+
+          <section class="development__distances"
+            tal:define="distance_class view/distance_class;
+                        distance_available python: None if distance_class=='count_0' else 1"
+            tal:attributes="class string:development__distances ${distance_class}"
+            tal:condition="distance_available">
+            <div class="distanceicon"
+              tal:define="name item/airport_name/value | nothing;
+                          distance item/airport_distance/value | nothing;"
+              tal:condition="python: name or distance">
+              <span aria-hidden="true"
+                  class="icon airport" ></span>
+              <h5 tal:content="python: view.get_field_label('airport_name')">[Closest Airport]</h5>
+              <span tal:content="python: view.format_distance(name, distance)" />
+            </div>
+            <div class="distanceicon"
+              tal:define="name item/hospital_name/value | nothing;
+                          distance item/hospital_distance/value | nothing;"
+              tal:condition="python: name or distance">
+              <span aria-hidden="true" class="icon hospital" ></span>
+              <h5 tal:content="python: view.get_field_label('hospital_name')">[Closest Hospital]</h5>
+              <span tal:content="python: view.format_distance(name, distance)" />
+            </div>
+            <div class="distanceicon"
+              tal:define="name item/shopping_name/value | nothing;
+                          distance item/shopping_distance/value | nothing;"
+              tal:condition="python: name or distance">
+              <span aria-hidden="true"
+                  class="icon shopping" ></span>
+              <h5 tal:content="python: view.get_field_label('shopping_name')">[Closest Shopping Center]</h5>
+              <span tal:content="python: view.format_distance(name, distance)" />
+            </div>
+            <div class="distanceicon"
+              tal:define="name item/bank_name/value | nothing;
+                          distance item/bank_distance/value | nothing;"
+              tal:condition="python: name or distance">
+              <span aria-hidden="true"
+                  class="icon bank" ></span>
+              <h5 tal:content="python: view.get_field_label('bank_name')">[Closest Bank/ATM]</h5>
+              <span tal:content="python: view.format_distance(name, distance)" />
+            </div>
+            <div class="distanceicon"
+              tal:define="name item/gas_station_name/value | nothing;
+                          distance item/gas_station_distance/value | nothing;"
+              tal:condition="python: name or distance">
+              <span aria-hidden="true"
+                  class="icon gas_station" ></span>
+              <h5 tal:content="python: view.get_field_label('gas_station_name')">[Closest Gas Station]</h5>
+              <span tal:content="python: view.format_distance(name, distance)" />
+            </div>
+          </section>
+          <section class="development__phases"
+              tal:define="phases item/phases | nothing"
+              tal:condition="phases">
+            <h2 i18n:translate="">Phases</h2>
+            <table class="listing phases__table">
+              <thead
+                  tal:define="titles view/titles_for_phases | nothing"
+                  tal:condition="titles">
+                <tr>
+                  <th class="title" tal:content="titles/title | nothing">[Phase Name]</th>
+                  <th class="units" tal:content="titles/units | nothing">[Number of Units]</th>
+                  <th class="status" tal:content="titles/status | nothing">[Status]</th>
+                  <th class="completion_date" tal:content="titles/completion_date | nothing">[Completion Date]</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr tal:repeat="phase phases">
+                  <tal:phases
+                      tal:define="phase_id phase/id/value | nothing;
+                                  phase_listings_link string:${self_link}/listings?phase=${phase_id}">
+                    <td class="title">
+                      <a tal:attributes="href phase_listings_link"
+                         tal:content="phase/title/value | string:-">[Title]</a></td>
+                    <td class="units">
+                      <a tal:attributes="href phase_listings_link"
+                         tal:content="phase/units/value | string:-">[Units]</a></td>
+                    <td class="status">
+                      <a tal:attributes="href phase_listings_link"
+                         tal:content="phase/status/value | string:-">[Status]</a></td>
+                    <td class="completion_date">
+                      <a tal:attributes="href phase_listings_link"
+                        tal:content="phase/completion_date/value | string:-">[Completion Date]</a></td>
+                  </tal:phases>
+                </tr>
+              </tbody>
+            </table>
+          </section>
           <section class="development__representatives"
               tal:define="representatives item/representatives | nothing"
               tal:condition="representatives">
@@ -304,10 +330,13 @@
                     tal:define="user_title agent/user_title/value | nothing"
                     tal:condition="user_title"
                     tal:content="user_title">[Developer Title]</p>
-                <p class="representative__personal_description"
-                    tal:define="text agent/personal_description/value | nothing"
-                    tal:condition="text"
-                    tal:content="text">[Personal Description]</p>
+                <div class="representative__personal_description"
+                      tal:define="text agent/personal_description/value | nothing"
+                      tal:condition="text">
+                  <tal:descriptionline tal:repeat="line python:text.splitlines()">
+                    <p tal:content="line">[Description Line]</p>
+                  </tal:descriptionline>
+                </div>
               </tal:agent>
             </div>
           </section>
@@ -315,9 +344,15 @@
           <section class="development__contact"
               itemscope itemtype="http://schema.org/LocalBusiness"
               tal:condition="view/show_section_contact | nothing">
-            <h2 i18n:translate="">Contact Us</h2>
-
-            <tal:contact_info
+            <h2 i18n:translate="">Contact</h2>
+            <tal:form
+                tal:define="form view/contact_form"
+                tal:condition="form">
+              <form action=""
+                  tal:condition="not: form/already_sent"
+                  tal:replace="structure form/render"></form>
+            </tal:form>
+            <div class="development__vcard"
                 tal:define="contact_info view/contact_info | nothing;
                             agency contact_info/agency | nothing;
                             agent contact_info/agent | nothing;
@@ -337,7 +372,8 @@
                   tal:content="description/value">[Description]</p>
 
               <address>
-                <div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress"><span itemprop="streetAddress"
+                <div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress" >
+                  <span itemprop="streetAddress"
                     tal:condition="address"
                     tal:content="address/value">[address]</span></div>
                 <div itemprop="telephone"
@@ -354,16 +390,7 @@
                     tal:condition="email"
                     tal:content="email/value">[email]</div>
               </address>
-            </tal:contact_info>
-
-            <tal:form
-                tal:define="form view/contact_form"
-                tal:condition="form">
-              <form action=""
-                  tal:condition="not: form/already_sent"
-                  tal:replace="structure form/render"></form>
-            </tal:form>
-
+            </div>
           </section>
         </div>
 
@@ -371,5 +398,4 @@
       </article>
     </metal:main>
   </body>
-
 </html>
