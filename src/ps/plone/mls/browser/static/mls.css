@@ -127,7 +127,7 @@
   padding: 4px;
 }
 
-  .detail .overview__logo img {
+.detail .overview__logo img {
     max-width: 100%;
   }
 
@@ -375,11 +375,13 @@
 /* Development header: Banner  */
 .development__header{
   position:relative;
+  overflow:hidden;
 }
 
 .development__header .development__banner{
-  min-width: 100%;
-  max-width: 100%
+  min-width:100%;
+  height:auto;
+  min-height:300px;
 }
 .development__header .header_caption{
   position:absolute;
@@ -389,7 +391,6 @@
 
   background-color: rgb(0, 0, 0);
   background-color:rgba(0, 0, 0, 0.75);
-  min-width:320px;
 
   text-align: center;
   padding:0 30px 20px 0;
