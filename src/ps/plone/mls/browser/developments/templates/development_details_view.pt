@@ -73,7 +73,7 @@
                   <span class="caption"
                     tal:content="lead_title" />
               </picture>
-              <tal:descriptionline tal:repeat="line python:text.splitlines()">
+              <tal:descriptionline tal:repeat="line python:text.splitlines()" tal:condition="text">
                 <p tal:content="line">[Description Line]</p>
               </tal:descriptionline>
             </div>
