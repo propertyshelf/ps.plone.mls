@@ -54,7 +54,7 @@
   position:relative;
   float:left;
 
-  margin:0 30px 15px 0;
+  margin:0 30px 0 0;
   max-width: 100%;
 }
 
@@ -183,18 +183,15 @@
 
 .area__picture {
   background-color: #FFF;
-  border: 1px solid #CCC;
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  float: right;
-  margin-bottom: 1em;
-  margin-left: 1em;
-  max-width: 15em;
-  padding: 4px;
+  float: left;
+  margin-bottom: 0;
+  margin-right: 30px;
+  padding: 0;
 }
 
-.area__picture img {
-    max-width: 100%;
-  }
+#content .area__picture a{
+  border-bottom:0 none transparent;
+}
 
 .representative__avatar {
   background-color: #FFF;
