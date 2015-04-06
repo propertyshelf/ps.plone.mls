@@ -189,7 +189,7 @@
   padding: 0;
 }
 
-#content .area__picture a{
+#content .development_details picture a:link{
   border-bottom:0 none transparent;
 }
 
