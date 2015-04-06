@@ -193,7 +193,7 @@
           </section>
 
           <section class="development__area"
-              tal:define="text item/area_description | nothing"
+              tal:define="text item/area_description/value | nothing"
               tal:condition="text">
             <h2 i18n:translate="">About the Area</h2>
             <picture class="area__picture"
@@ -203,8 +203,11 @@
                 tal:attributes="src image/value;
                                 title title;
                                 alt title;" /></a></picture>
-            <p class="area__description"
-                tal:content="text/value"></p>
+            <div class="area__description">
+              <tal:descriptionline tal:repeat="line python:text.splitlines()">
+                    <p tal:content="line">[Description Line]</p>
+              </tal:descriptionline>
+            </div>
           </section>
 
           <section class="development__map"
