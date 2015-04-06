@@ -114,6 +114,16 @@ google.maps.event.addDomListener(window, "resize", function() {{
 class IContactForm(form.Schema):
     """Contact Form schema."""
 
+    sender_from_address = schema.TextLine(
+        constraint=utils.validate_email,
+        description=PMF(
+            u'help_sender_from_address',
+            default=u'',
+        ),
+        required=True,
+        title=PMF(u'label_sender_from_address', default=u'E-Mail'),
+    )
+
     name = schema.TextLine(
         description=PMF(
             u'help_sender_fullname',
@@ -123,14 +133,9 @@ class IContactForm(form.Schema):
         title=PMF(u'label_name', default=u"Name"),
     )
 
-    sender_from_address = schema.TextLine(
-        constraint=utils.validate_email,
-        description=PMF(
-            u'help_sender_from_address',
-            default=u'',
-        ),
-        required=True,
-        title=PMF(u'label_sender_from_address', default=u'E-Mail'),
+    phone = schema.TextLine(
+        required=False,
+        title=PMF(u'label_phone', default=u'Phone')
     )
 
     message = schema.Text(
