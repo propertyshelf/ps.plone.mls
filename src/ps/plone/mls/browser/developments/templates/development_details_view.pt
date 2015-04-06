@@ -57,8 +57,8 @@
               </tal:descriptionline>
             </div>
 
-            <p class="overview__long_description"
-                tal:define="text item/long_description | nothing">
+            <div class="overview__long_description"
+                tal:define="text item/long_description/value | nothing">
               <!-- use lead image next to description-->
               <picture class="lead_image"
                 tal:define="lead_image view/lead_image | nothing;
@@ -73,8 +73,10 @@
                   <span class="caption"
                     tal:content="lead_title" />
               </picture>
-              <span tal:condition="text" tal:content="structure text/value"/>
-            </p>
+              <tal:descriptionline tal:repeat="line python:text.splitlines()">
+                <p tal:content="line">[Description Line]</p>
+              </tal:descriptionline>
+            </div>
             <div class="visualClear" />
           </section>
 
