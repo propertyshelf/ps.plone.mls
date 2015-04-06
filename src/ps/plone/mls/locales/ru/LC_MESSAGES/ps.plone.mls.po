@@ -5,9 +5,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: MLS Plone Components\n"
-"POT-Creation-Date: 2015-03-24 17:11+0000\n"
-"PO-Revision-Date: 2015-03-10 07:05+0000\n"
-"Last-Translator: Thomas Massmann <thomas.massmann@it-spir.it>\n"
+"POT-Creation-Date: 2015-04-06 23:47+0000\n"
+"PO-Revision-Date: 2015-04-06 23:47+0000\n"
+"Last-Translator: Zach Cashero <zcashero@gmail.com>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/MLS_Plone/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -47,7 +47,7 @@ msgstr "Обзор 'Рекомендуемые листинги' деактив�
 msgid "A static collection of featured MLS Listings"
 msgstr "Статическая коллекция рекомендуемых листингов MLS"
 
-#: ps/plone/mls/browser/developments/templates/development_details_view.pt:272
+#: ps/plone/mls/browser/developments/templates/development_details_view.pt:200
 msgid "About the Area"
 msgstr ""
 
@@ -95,7 +95,7 @@ msgstr ""
 msgid "Cancel"
 msgstr "Отменить"
 
-#: ps/plone/mls/browser/developments/details.py:154
+#: ps/plone/mls/browser/developments/details.py:155
 msgid "Captcha"
 msgstr ""
 
@@ -115,12 +115,8 @@ msgstr ""
 msgid "Configure the Featured Listings viewlet."
 msgstr "Конфигурировать обзор Рекомендуемых листингов"
 
-#: ps/plone/mls/browser/developments/templates/development_details_view.pt:115
-msgid "Construction Status"
-msgstr ""
-
-#: ps/plone/mls/browser/developments/templates/development_details_view.pt:318
-msgid "Contact Us"
+#: ps/plone/mls/browser/developments/templates/development_details_view.pt:348
+msgid "Contact"
 msgstr ""
 
 #: ps/plone/mls/vocabularies/developments.py:18
@@ -143,12 +139,12 @@ msgstr ""
 msgid "Deactivate the Featured Listings viewlet."
 msgstr "Деактивировать обзор 'Рекомендуемых листингов'"
 
-#: ps/plone/mls/browser/developments/templates/development_details_view.pt:54
-msgid "Development Facts"
-msgstr ""
-
 #: ps/plone/mls/browser/developments/collection.py:221
 msgid "Developments per Page"
+msgstr ""
+
+#: ps/plone/mls/browser/developments/templates/development_details_view.pt:118
+msgid "Download PDF"
 msgstr ""
 
 #: ps/plone/mls/browser/developments/collection.py:245
@@ -163,7 +159,7 @@ msgstr "Рекомендуемые листинги"
 msgid "Filter Options"
 msgstr ""
 
-#: ps/plone/mls/browser/developments/templates/development_details_view.pt:207
+#: ps/plone/mls/browser/developments/templates/development_details_view.pt:138
 msgid "Gallery"
 msgstr ""
 
@@ -220,11 +216,11 @@ msgstr ""
 msgid "MLS Listing IDs"
 msgstr "Идентификация листинга MLS"
 
-#: ps/plone/mls/browser/developments/templates/development_details_view.pt:263
-msgid "Map"
+#: ps/plone/mls/browser/developments/templates/development_details_view.pt:218
+msgid "Map & Distances"
 msgstr ""
 
-#: ps/plone/mls/browser/developments/templates/development_details_view.pt:287
+#: ps/plone/mls/browser/developments/templates/development_details_view.pt:314
 msgid "Meet the Developers"
 msgstr ""
 
@@ -232,11 +228,19 @@ msgstr ""
 msgid "No URLs allowed."
 msgstr ""
 
-#: ps/plone/mls/browser/developments/templates/development_details_view.pt:199
+#: ps/plone/mls/browser/developments/templates/development_details_view.pt:55
+msgid "Overview"
+msgstr ""
+
+#: ps/plone/mls/browser/developments/templates/development_details_view.pt:277
+msgid "Phases"
+msgstr ""
+
+#: ps/plone/mls/browser/developments/templates/development_details_view.pt:110
 msgid "Project Map"
 msgstr ""
 
-#: ps/plone/mls/browser/developments/templates/development_details_view.pt:156
+#: ps/plone/mls/browser/developments/templates/development_details_view.pt:87
 msgid "Properties Available"
 msgstr ""
 
@@ -273,12 +277,12 @@ msgstr ""
 msgid "Show Contact Information"
 msgstr ""
 
-#: ps/plone/mls/browser/developments/templates/development_details_view.pt:88
-msgid "Show Listings"
-msgstr ""
-
 #: ps/plone/mls/browser/developments/collection.py:208
 msgid "Show a captcha field within the contact form to prevent spam."
+msgstr ""
+
+#: ps/plone/mls/browser/developments/templates/development_details_view.pt:97
+msgid "Show all properties on this group"
 msgstr ""
 
 #: ps/plone/mls/browser/developments/collection.py:258
@@ -307,7 +311,11 @@ msgstr ""
 msgid "Title"
 msgstr ""
 
-#: ps/plone/mls/browser/developments/details.py:214
+#: ps/plone/mls/browser/developments/templates/development_details_view.pt:192
+msgid "Video"
+msgstr ""
+
+#: ps/plone/mls/browser/developments/details.py:215
 msgid "Your contact request was sent successfully."
 msgstr ""
 
