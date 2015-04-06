@@ -194,20 +194,26 @@
 }
 
 .representative__avatar {
-  background-color: #FFF;
-  border: 1px solid #CCC;
-  border: 1px solid rgba(0, 0, 0, 0.2);
   float: left;
-  margin-bottom: 1em;
-  margin-right: 1em;
-  max-width: 15em;
-  padding: 4px;
-  min-width: 15em;
+  margin-bottom:0;
+  margin-right: 30px;
 }
 .representative__avatar img {
     max-width: 100%;
     width: 100%;
   }
+
+.representative__name,
+.representative__user_title{
+  color:#095765;
+  font-style: italic;
+  font-weight: bold;
+  font-size: 15px;
+  font-family: 'Arial Narrow', Arial, sans-serif;
+}
+.representative__name{
+  text-transform: uppercase;
+}
 
 .map__canvas {
   height: 300px;
