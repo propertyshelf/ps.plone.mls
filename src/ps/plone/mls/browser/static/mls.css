@@ -7,6 +7,18 @@
   margin-top: 1.5em; /* Equals default line-height of p elements. */
 }
 
+/* Font Defaults */
+.development_details h2,
+#content .development__overview .documentDescription,
+.development__overview .lead_image .caption,
+.overview__long_description,
+.development__header .header_caption,
+.development__header .development_title,
+.development__header .development_headline,
+.development__header .development_location
+{
+  font-family: 'Arial Narrow', Arial, sans-serif;
+}
 /* headline defaults */
 .development_details h2
 {
@@ -89,6 +101,7 @@
   color:#fff !important;
   font-size: 20px;
   border:0 none transparent !important;
+  font-family: 'Arial Narrow', Arial, sans-serif !important;
 }
 
 .pdf_download .icon{
