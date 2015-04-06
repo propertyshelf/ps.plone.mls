@@ -15,8 +15,9 @@
 .development__header .header_caption,
 .development__header .development_title,
 .development__header .development_headline,
-.development__header .development_location
-{
+.development__header .development_location,
+#content-core.development_details li.formTab a:link{
+
   font-family: 'Arial Narrow', Arial, sans-serif;
 }
 /* headline defaults */
@@ -80,6 +81,45 @@
 
 .overview__long_description{
   font-size:15px;
+}
+
+/* Property groups */
+#content .development_details ul.formTabs,
+#content .development_details li.formTab{
+  border-radius:0;
+  border:0 none transparent;
+  background-color: transparent;
+  text-transform: uppercase;
+}
+
+#content-core.development_details li.formTab a:link{
+  display:inline-block;
+  background-color: #87bcc7;
+  color:#fefefe;
+  padding:20px;
+  font-size:18px;
+  margin-right:35px;
+}
+#content-core.development_details li.formTab a.selected{
+  background-color: #9c9c9b;
+  color:#fefefe;
+  border-radius:0;
+
+  font-weight: 400;
+}
+
+#content .development_details li.formTab a.selected:hover,
+#content .development_details li.formTab a.selected:focus,
+#content .development_details li.formTab a.selected:visited{
+  background-color: #9c9c9b;
+}
+
+#content .development_details li.formTab a:hover,
+#content .development_details li.formTab a:focus,
+#content .development_details li.formTab a:visited{
+  color:#fefefe !important;
+  background-color: #87bcc7;
+  border-radius:0;
 }
 
 .development__projectmap{
@@ -152,7 +192,7 @@
   padding: 4px;
 }
 
-  .area__picture img {
+.area__picture img {
     max-width: 100%;
   }
 
@@ -167,8 +207,7 @@
   padding: 4px;
   min-width: 15em;
 }
-
-  .representative__avatar img {
+.representative__avatar img {
     max-width: 100%;
     width: 100%;
   }
