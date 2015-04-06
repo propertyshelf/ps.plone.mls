@@ -469,3 +469,104 @@
   text-align: center;
 }
 
+/* Contact form */
+.development__contact form{
+  background-color:#0a5664;
+  color:#fff;
+  font-size: 16px;
+  font-family: 'Arial Narrow', Arial, sans-serif;
+
+  padding: 15px 44px 5px;
+  position: relative;
+
+}
+
+.development__contact form div.field.error{
+  background-color: transparent;
+  border: 0 none transparent;
+  font-size: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.development__contact .fieldErrorBox .error{
+  background-color: transparent;
+  border:0 none transparent;
+  display:inline-block;
+  padding:0;
+  font-size: 12px;
+  margin:0;
+
+}
+
+.development__contact label{
+  display:inline-block;
+  font-weight:400;
+}
+.development__contact label span.horizontal:before,
+.development__contact #formfield-form-widgets-phone label:after{
+  content:":";
+}
+
+.development__contact input[type="text"]{
+  display:block;
+  width:100%;
+  height:24px;
+  font-size:15px;
+  background-color: #e9e8e8;
+  border-width: 1px;
+}
+
+.development__contact .fieldErrorBox{
+  display:inline-block;
+}
+.development__contact #form textarea{
+  display:block;
+  max-width:100%;
+  background-color: #e9e8e8;
+  border-width: 1px;
+  height:154px;
+}
+.development__contact #formfield-form-widgets-message{
+  width:45%;
+  position: absolute;
+  top:15px;
+  right:44px;
+}
+.development__contact #formfield-form-widgets-name,
+.development__contact #formfield-form-widgets-sender_from_address,
+.development__contact #form-widgets-phone{
+  width:45%;
+}
+@media (max-width: 600px){
+  .development__contact #formfield-form-widgets-name,
+  .development__contact #formfield-form-widgets-sender_from_address,
+  .development__contact #form-widgets-phone{
+      width:40%;
+  }
+}
+@media handheld, screen and (max-device-width: 480px) {
+  .development__contact input,
+  .development__contact textarea{
+    font-size: 100% !important;
+  }
+  .development__contact #formfield-form-widgets-name,
+  .development__contact #formfield-form-widgets-sender_from_address,
+  .development__contact #form-widgets-phone{
+      width:35%;
+  }
+}
+
+.development__contact div.formControls{
+  margin:0;
+  text-align: right;
+}
+
+.development__contact input[type="submit"]{
+  color:#000;
+  text-transform: uppercase;
+  font-size:14px;
+  height:26px;
+  padding: 2px 25px;
+  border:1px solid #c1c1c1;
+}
