@@ -358,3 +358,58 @@
 .distanceicon .gas_station{
   background-image: url(++resource++ps.plone.mls/icons/distance_gas_station.png);
 }
+
+/* Development header: Banner  */
+.development__header{
+  position:relative;
+}
+
+.development__header .development__banner{
+  min-width: 100%;
+  max-width: 100%
+}
+.development__header .header_caption{
+  position:absolute;
+  top:5%;
+  left:5%;
+  right:5%;
+
+  background-color: rgb(0, 0, 0);
+  background-color:rgba(0, 0, 0, 0.75);
+  min-width:320px;
+
+  text-align: center;
+  padding:0 30px 20px 0;
+}
+.development__header .development_logo{
+  max-width:30%;
+  float:left;
+  margin-right:3%;
+}
+.development__header .development_logo img{
+  max-width:100%;
+}
+.development__header .development_title{
+  color:#fffcfc;
+  font-size:65px;
+  font-weight:400;
+  line-height: 1em;
+  margin-left:33%;
+  margin-top:20px;
+
+}
+.development__header .development_headline{
+  color:#fffcfc;
+  font-size:23px;
+  font-weight:normal;
+  margin-left:33%;
+
+}
+.development__header .development_location{
+  color:#fffcfc;
+  font-size:20px;
+  font-weight:normal;
+  margin-left:33%;
+  text-align: center;
+}
+
