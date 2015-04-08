@@ -101,6 +101,7 @@
   padding:20px;
   font-size:18px;
   margin-right:35px;
+  margin-bottom:15px;
 }
 #content-core.development_details li.formTab a.selected{
   background-color: #9c9c9b;
