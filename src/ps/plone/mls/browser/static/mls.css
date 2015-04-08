@@ -26,7 +26,7 @@
 .development_details h2
 {
   text-transform: uppercase;
-  color: #33a1b5;
+  color: #9c9c9b;
   font-size:30px;
   text-align: center;
   font-weight:200;
@@ -46,7 +46,7 @@
   font-size:15px;
   font-style: italic;
   font-weight: 400;
-  color:#095765;
+  color:#9c9c9b;
   text-align: center;
 
   margin-bottom:35px;
@@ -207,7 +207,7 @@
 
 .representative__name,
 .representative__user_title{
-  color:#095765;
+  color:#9c9c9b;
   font-style: italic;
   font-weight: bold;
   font-size: 15px;
@@ -473,13 +473,28 @@
 
 /* Contact form */
 .development__contact form{
-  background-color:#0a5664;
-  color:#fff;
+  color:#000;
   font-size: 16px;
   font-family: 'Arial Narrow', Arial, sans-serif;
 
   padding: 15px 44px 5px;
   position: relative;
+
+  border:1px solid #c1c1c1;
+  background-color:#ebebeb;
+
+  -webkit-box-shadow: 0 0 10px 0 rgba(0,0,0,0.25);
+  -moz-box-shadow: 0 0 10px 0 rgba(0,0,0,0.25);
+  box-shadow: 0 0 10px 0 rgba(0,0,0,0.25);
+
+  background: rgba(230,230,230);
+  background: -moz-linear-gradient(top, rgba(230,230,230,1) 0%, rgba(246,246,246,1) 53%, rgba(255,255,255,1) 100%);
+  background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(230,230,230,1)), color-stop(53%, rgba(246,246,246,1)), color-stop(100%, rgba(255,255,255,1)));
+  background: -webkit-linear-gradient(top, rgba(230,230,230,1) 0%, rgba(246,246,246,1) 53%, rgba(255,255,255,1) 100%);
+  background: -o-linear-gradient(top, rgba(230,230,230,1) 0%, rgba(246,246,246,1) 53%, rgba(255,255,255,1) 100%);
+  background: -ms-linear-gradient(top, rgba(230,230,230,1) 0%, rgba(246,246,246,1) 53%, rgba(255,255,255,1) 100%);
+  background: linear-gradient(to bottom, rgba(230,230,230,1) 0%, rgba(246,246,246,1) 53%, rgba(255,255,255,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e6e6e6', endColorstr='#ffffff', GradientType=0 );
 
 }
 
