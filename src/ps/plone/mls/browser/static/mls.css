@@ -8,6 +8,7 @@
 }
 
 /* Font Defaults */
+/*
 .development_details h2,
 .development_details h3,
 #content .development__overview .documentDescription,
@@ -22,25 +23,31 @@
 
   font-family: 'Arial Narrow', Arial, sans-serif;
 }
+*/
 /* headline defaults */
+/*
+.development_details h2{
+    color: #9c9c9b;
+    font-size:30px;
+    font-weight:200;
+    letter-spacing: 2px;
+
+}
+*/
 .development_details h2
 {
   text-transform: uppercase;
-  color: #9c9c9b;
-  font-size:30px;
   text-align: center;
-  font-weight:200;
-  letter-spacing: 2px;
-
   margin-bottom:10px;
 }
 
+/*
 .development_details h2:before,
 .development_details h2:after{
     content: "\2015";
     font-size:1.4em;
 }
-
+*/
 /* Description text */
 #content .development__overview .documentDescription{
   font-size:15px;
@@ -48,7 +55,6 @@
   font-weight: 400;
   color:#9c9c9b;
   text-align: center;
-
   margin-bottom:35px;
 }
 
@@ -213,11 +219,13 @@
 
 .representative__name,
 .representative__user_title{
+  /*
   color:#9c9c9b;
-  font-style: italic;
-  font-weight: bold;
   font-size: 15px;
   font-family: 'Arial Narrow', Arial, sans-serif;
+  */
+  font-style: italic;
+  font-weight: bold;
 }
 .representative__name{
   text-transform: uppercase;
@@ -481,7 +489,7 @@
 .development__contact form{
   color:#000;
   font-size: 16px;
-  font-family: 'Arial Narrow', Arial, sans-serif;
+  /* font-family: 'Arial Narrow', Arial, sans-serif; */
 
   padding: 15px 44px 5px;
   position: relative;
