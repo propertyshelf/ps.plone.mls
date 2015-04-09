@@ -500,7 +500,7 @@
 #content .phases__table tbody tr:focus a:focus,
 #content .phases__table .odd:hover a:hover,
 #content .phases__table .odd:focus a:focus{
-  color:#fff;
+  color:#fff !important;
 }
 
 #content .phases__table .odd td{
