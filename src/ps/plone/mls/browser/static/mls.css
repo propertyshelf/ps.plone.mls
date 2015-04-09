@@ -133,6 +133,7 @@
 
 .development__projectmap{
   overflow:hidden;
+  text-align:center;
 }
 @media (max-width: 900px) {
   .development__projectmap .projectmap{
