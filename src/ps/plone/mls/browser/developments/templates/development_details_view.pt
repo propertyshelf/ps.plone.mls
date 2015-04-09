@@ -88,16 +88,16 @@
             <dl id="group-listings" class="enableFormTabbing">
               <tal:groups tal:repeat="group groups">
                 <tal:group tal:define="group_id group/id/value | nothing;
-                                  group_listings_link string:${self_link}/listings?group=${group_id}">
+                                  group_listings_link string:${self_link}/listings?group=${group_id}&ajax_load=1">
                   <dt tal:content="group/title/value | string:-"
                     tal:attributes="id string:fieldsetlegend-${group_id};"/>
                   <dd class="formPanel"
                     tal:attributes="id string:fieldset-${group_id};">
-                    <span class="show_all group_listings">
+                    <h5 class="show_all group_listings">
                       <a i18n:translate=""
-                        tal:attributes="href group_listings_link"
+                        tal:attributes="href group_listings_link" class="prettyPhotoIframe"
                         >Show all properties on this group</a>
-                    </span>
+                    </h5>
                   </dd>
                 </tal:group>
               </tal:groups>
