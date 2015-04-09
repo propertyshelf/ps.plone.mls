@@ -430,6 +430,92 @@
   background-image: url(++resource++ps.plone.mls/icons/distance_gas_station.png);
 }
 
+/*  Phases */
+#content .phases__table{
+  border:1px solid #c1c1c1;
+  text-align: center;
+}
+#content .phases__table thead{
+  border-bottom:1px solid #c1c1c1;
+}
+
+#content .phases__table th{
+  font-weight: 400;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-size: 15px;
+}
+#content .phases__table a:link,
+#content .phases__table a:visited{
+  color:inherit;
+  font-weight: 100;
+  cursor: pointer;
+}
+#content .phases__table,
+#content .phases__table thead,
+#content .phases__table tbody{
+  min-width: 100%
+}
+
+.phases__table thead tr{
+  background: #efefef;
+  background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjQ3JSIgc3RvcC1jb2xvcj0iI2Y2ZjZmNiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNlZGVkZWQiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+  background: -moz-linear-gradient(top,  #efefef 0%, #eaeaea 47%, #d6d6d6 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#efefef), color-stop(47%,#eaeaea), color-stop(100%,#d6d6d6));
+  background: -webkit-linear-gradient(top,  #efefef 0%,#eaeaea 47%,#d6d6d6 100%);
+  background: -o-linear-gradient(top,  #efefef 0%,#eaeaea 47%,#d6d6d6 100%);
+  background: -ms-linear-gradient(top,  #efefef 0%,#eaeaea 47%,#d6d6d6 100%);
+  background: linear-gradient(to bottom,  #efefef 0%,#eaeaea 47%,#d6d6d6 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#efefef', endColorstr='#d6d6d6',GradientType=0 );
+
+}
+.phases__table tbody tr,
+#content .phases__table .odd{
+  background: #efefef;
+  background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjQ3JSIgc3RvcC1jb2xvcj0iI2Y2ZjZmNiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNlZGVkZWQiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+  background: -moz-linear-gradient(top,  #efefef 0%, #eaeaea 47%, #e3e3e3 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#efefef), color-stop(47%,#eaeaea), color-stop(100%,#e3e3e3));
+  background: -webkit-linear-gradient(top,  #efefef 0%,#eaeaea 47%,#e3e3e3 100%);
+  background: -o-linear-gradient(top,  #efefef 0%,#eaeaea 47%,#e3e3e3 100%);
+  background: -ms-linear-gradient(top,  #efefef 0%,#eaeaea 47%,#e3e3e3 100%);
+  background: linear-gradient(to bottom,  #efefef 0%,#eaeaea 47%,#e3e3e3 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#efefef', endColorstr='#e3e3e3',GradientType=0 );
+
+}
+.phases__table tbody tr:hover,
+.phases__table tbody tr:focus,
+#content .phases__table .odd:hover,
+#content .phases__table .odd:focus{
+  background: #87bcc7;
+}
+#content .phases__table tbody tr:hover a,
+#content .phases__table tbody tr:focus a,
+#content .phases__table .odd:hover a,
+#content .phases__table .odd:focus a,
+#content .phases__table tbody tr:hover a:visited,
+#content .phases__table tbody tr:focus a:visited,
+#content .phases__table .odd:hover a:visited,
+#content .phases__table .odd:focus a:visited,
+#content .phases__table tbody tr:hover a:hover,
+#content .phases__table tbody tr:focus a:focus,
+#content .phases__table .odd:hover a:hover,
+#content .phases__table .odd:focus a:focus{
+  color:#fff;
+}
+
+#content .phases__table .odd td{
+  background-color: transparent;
+}
+table.phases__table th,
+table.phases__table td{
+  background: none repeat scroll 0 0 transparent;
+  border:0 none transparent;
+  text-align: center;
+}
+.phases__table td{
+  background-color: transparent;
+  border:0 none transparent;
+}
 /* Development header: Banner  */
 .development__header{
   position:relative;
