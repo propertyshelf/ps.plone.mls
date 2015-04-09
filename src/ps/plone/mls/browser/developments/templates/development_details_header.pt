@@ -17,13 +17,14 @@
         tal:attributes="src img;
                         title title;
                         alt location"/>
-    <div class="header_caption">
-      <div class="development_logo"
+
+    <div class="development_logo"
         tal:condition="logo">
         <img
           tal:condition="logo"
           tal:attributes="src logo;" />
-      </div>
+    </div>
+    <div class="header_caption">
       <h1 class="development_title"
           tal:condition="title"
           tal:content='title'/>
