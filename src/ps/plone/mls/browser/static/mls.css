@@ -134,6 +134,15 @@
 .development__projectmap{
   overflow:hidden;
 }
+@media (max-width: 900px) {
+  .development__projectmap .projectmap{
+    display:none;
+  }
+  .development__projectmap{
+    text-align:center;
+  }
+
+}
 
 .pdf_download{
   background-color:#ff0000;
