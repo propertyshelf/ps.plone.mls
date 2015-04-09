@@ -167,14 +167,15 @@
   position:absolute;
   top:-10px;
   right:20px;
-
 }
 
 .pdf_download .text{
   padding-right:20px;
   display:inline-block;
 }
-
+.development__video_embedding{
+  text-align: center;
+}
 .detail .overview__logo {
   background-color: #FFF;
   border: 1px solid #CCC;
@@ -441,6 +442,9 @@
 }
 
 /*  Phases */
+.development__phases{
+  overflow: auto;
+}
 #content .phases__table{
   border:1px solid #c1c1c1;
   text-align: center;
