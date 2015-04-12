@@ -27,7 +27,7 @@
                        seperator python: '' if base_link.endswith('/') else '/';
                        self_link string:${plone_view/renderBase}${seperator}${id};
                        amenities item/amenities_order/value | nothing;
-                       amenities_dict item/amenities_lookup/value | nopthing;
+                       amenities_dict item/amenities_lookup/value | nothing;
                        amenities_count python:len(amenities);">
 
         <div id="viewlet-above-content-title" tal:content="structure provider:plone.abovecontenttitle" tal:condition="not:ajax_load" />
