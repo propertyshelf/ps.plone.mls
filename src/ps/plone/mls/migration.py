@@ -28,3 +28,4 @@ def migrate_to_1002(context):
     site = getUtility(IPloneSiteRoot)
     setup = getToolByName(site, 'portal_setup')
     setup.runImportStepFromProfile(config.INSTALL_PROFILE, 'cssregistry')
+    setup.runImportStepFromProfile(config.INSTALL_PROFILE, 'jsregistry')
