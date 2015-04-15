@@ -204,8 +204,8 @@ class IDevelopmentCollectionConfiguration(form.Schema):
     show_contact_link = schema.Bool(
         default=False,
         description=_(
-            u'If contact form is enabled, a anchor link will show as quick '
-            u'navigation down to the form'
+            u'If the contact form is enabled, an anchor link will show as '
+            u'quick navigation to the form.'
         ),
         required=False,
         title=_(u'Show Contact-Us anchor link'),
