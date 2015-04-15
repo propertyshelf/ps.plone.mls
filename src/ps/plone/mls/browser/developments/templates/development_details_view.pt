@@ -20,6 +20,11 @@
 
   <body>
     <metal:main fill-slot="main">
+      <tal:anchorlink
+        tal:condition="view/contact_link | nothing">
+        <a id="contact-us" class="anchorlink"
+          href="#quick_form" i18n:translate="">Contact us</a>
+      </tal:anchorlink>
       <article class="mls detail development"
            metal:define-macro="main"
            tal:define="item view/item | nothing;
@@ -348,6 +353,7 @@
               itemscope itemtype="http://schema.org/LocalBusiness"
               tal:condition="view/show_section_contact | nothing">
             <h2 i18n:translate="">Contact</h2>
+            <a name="quick_form" tal:condition="view/contact_link | nothing"></a>
             <tal:form
                 tal:define="form view/contact_form"
                 tal:condition="form">
