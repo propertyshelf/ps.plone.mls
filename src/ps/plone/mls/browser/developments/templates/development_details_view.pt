@@ -10,8 +10,11 @@
   <head>
     <metal:baseslot fill-slot="base"
         tal:define="item view/item | nothing;
-                    id item/id/value | nothing;">
-      <base tal:attributes="href string:${plone_view/renderBase}${id}" /><!--[if lt IE 7]></base><![endif]-->
+                    id item/id/value | nothing;
+                    base_link string:${plone_view/renderBase};
+                    seperator python: '' if base_link.endswith('/') else '/';
+                    self_link string:${plone_view/renderBase}${seperator}${id};">
+      <base tal:attributes="href self_link" /><!--[if lt IE 7]></base><![endif]-->
     </metal:baseslot>
   </head>
 
