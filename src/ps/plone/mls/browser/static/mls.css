@@ -847,6 +847,30 @@ table.phases__table td{
   color:#000;
 }
 
+/* Contact us Anchor link*/
+
+.anchorlink{
+  position: fixed;
+  left:0;
+  top:40%;
+  font-size: 18px;
+  padding:10px;
+
+  background: none repeat scroll 0 0 #205081;
+  transform: rotate(270deg);
+  transform-origin: left top 0;
+
+  z-index: 99;
+
+}
+.anchorlink a:link,
+.anchorlink a,
+.anchorlink a:visited
+{
+  color: #fff !important;
+  text-decoration: none !important;
+}
+
 /* Plone mobile.css fixes */
 @media handheld, screen and (max-device-width: 480px) {
 
