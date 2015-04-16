@@ -92,15 +92,18 @@
 }
 
 /* Property groups */
-#content .development_details ul.formTabs,
-#content .development_details li.formTab{
-  border-radius:0;
-  border:0 none transparent;
-  background-color: transparent;
+.development_details #group-listings{
+  list-style: outside none none;
+  margin:0;
+  padding:0;
+
+}
+.development_details #group-listings li{
+  display:inline;
   text-transform: uppercase;
 }
 
-#content-core.development_details li.formTab a:link{
+.development_details #group-listings li a:link{
   display:inline-block;
   background-color: #87bcc7;
   color:#fefefe;
@@ -109,7 +112,7 @@
   margin-right:35px;
   margin-bottom:15px;
 }
-#content-core.development_details li.formTab a.selected{
+.development_details #group-listings li a.current{
   background-color: #9c9c9b;
   color:#fefefe;
   border-radius:0;
@@ -117,15 +120,15 @@
   font-weight: 400;
 }
 
-#content .development_details li.formTab a.selected:hover,
-#content .development_details li.formTab a.selected:focus,
-#content .development_details li.formTab a.selected:visited{
+#content .development_details #group-listings li a.current:hover,
+#content .development_details #group-listings li a.current:focus,
+#content .development_details #group-listings li a.current:visited{
   background-color: #9c9c9b;
 }
 
-#content .development_details li.formTab a:hover,
-#content .development_details li.formTab a:focus,
-#content .development_details li.formTab a:visited{
+#content .development_details #group-listings li a:hover,
+#content .development_details #group-listings li a:focus,
+#content .development_details #group-listings li a:visited{
   color:#fefefe !important;
   background-color: #87bcc7;
   border-radius:0;
