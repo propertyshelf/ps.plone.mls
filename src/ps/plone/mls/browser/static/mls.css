@@ -86,6 +86,128 @@
   font-weight: 400;
 }
 
+.development_details .listing-summary .tileItem{
+  width: 48%;
+  margin:0 1%;
+  float:left;
+}
+.development_details .listing-summary .tileItem .image_row{
+  overflow: auto;
+  background-color: #e5e4e4;
+  color:#767676;
+  margin-bottom:3px;
+  font-size: 18px;
+  text-align: center;
+  vertical-align: middle;
+  height: 121px;
+  position: relative;
+
+}
+@media (max-width: 900px) {
+  body .development_details .listing-summary .tileItem{
+    width:96%;
+  }
+}
+@media (max-width: 660px) {
+  .development_details .listing-summary .tileItem .image_row{
+    max-height: 101px;
+  }
+}
+@media (max-width: 500px) {
+  body .development_details .listing-summary .tileItem{
+    width:98%;
+  }
+
+  .development_details .listing-summary .tileItem .image_row{
+    max-height: 81px;
+    font-size: 14px;
+  }
+  .development_details .listing-summary .tileItem .data_row,
+  body .development_details .data_row .lot_size{
+    font-size: 12px;
+  }
+  body .development_details .data_row .price{
+    font-size: 15px;
+    height:28px;
+    padding-top: 14px;
+  }
+}
+.development_details .image_row figure{
+  max-height: 100%;
+  overflow: auto;
+}
+.development_details .image_row .tileHeadline{
+  padding:3%;
+}
+
+.development_details .listing-summary .tileItem .image_row a,
+.development_details .listing-summary .tileItem .image_row a:link,
+.development_details .listing-summary .tileItem .image_row a:visited{
+  color:#767676;
+}
+
+#content-core.development_details .listing-summary figure{
+  width:30%;
+  margin-right:2%;
+  overflow: auto;
+}
+
+#content-core.development_details .listing-summary figure a{
+  border:0 none transparent;
+  padding:0;
+  color:#767676;
+}
+
+#content-core .listing-summary a:link{
+  border:0 none transparent;
+  color:#767676;
+}
+.development_details .listing-summary .tileItem .data_row div{
+  display: inline-block;
+}
+.development_details .listing-summary .tileItem .data_row{
+  background-color: #9c9c9b;
+  color:#fff;
+  font-size: 15px;
+  min-height: 34px;
+  position: relative;
+}
+
+.development_details .data_row .price{
+  height:1.4em;
+  padding-top:0.7em;
+  font-size:20px;
+  background-color: #87bcc7;
+  width:30%;
+  text-align: center;
+}
+.development_details .data_row .lot_size{
+  width:30%;
+  text-align: center;
+}
+.development_details .data_row .beds{
+  width:15%;
+  text-align: right;
+  padding-right: 2%;
+  background-image: url(++resource++ps.plone.mls/icons/bed_white.png);
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+.development_details .data_row .baths{
+  width:15%;
+  text-align: right;
+  padding-right: 2%;
+  background-image: url(++resource++ps.plone.mls/icons/shower_white.png);
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+@media (max-width: 480px) {
+  .development_details .data_row .beds{
+    background-position:5px;
+  }
+}
+
 #content .development_details #group-listings li a.current:hover,
 #content .development_details #group-listings li a.current:focus,
 #content .development_details #group-listings li a.current:visited{
