@@ -93,23 +93,39 @@
               tal:define="groups item/groups | nothing"
               tal:condition="groups">
             <h2 i18n:translate="">Properties Available</h2>
-            <dl id="group-listings" class="enableFormTabbing">
+            <ul id="group-listings">
               <tal:groups tal:repeat="group groups">
                 <tal:group tal:define="group_id group/id/value | nothing;
                                   group_listings_link string:${self_link}/listings?group=${group_id}&ajax_load=1">
-                  <dt tal:content="group/title/value | string:-"
-                    tal:attributes="id string:fieldsetlegend-${group_id};"/>
-                  <dd class="formPanel"
-                    tal:attributes="id string:fieldset-${group_id};">
-                    <h5 class="show_all group_listings">
-                      <a i18n:translate=""
-                        tal:attributes="href group_listings_link" class="prettyPhotoIframe"
-                        >Show all properties on this group</a>
-                    </h5>
-                  </dd>
+                  <li tal:attributes="id string:fieldsetlegend-${group_id};">
+                    <a class="tab_link"
+                        tal:content="group/title/value | string:-"
+                        tal:attributes="href group_listings_link" />
+                  </li>
                 </tal:group>
               </tal:groups>
-            </dl>
+            </ul>
+            <div class="tab_content">
+              <tal:groups tal:repeat="group groups">
+                <div></div>
+              </tal:groups>
+            </div>
+            <script>
+              $(function() {
+                $("#group-listings").tabs("div.tab_content > div", {
+                  effect: 'fade',
+                  onBeforeClick: function(event, i) {
+                  // get the pane to be opened
+                  var pane = this.getPanes().eq(i);
+                    // only load once.
+                    if (pane.is(":empty")) {
+                    // load it with a page specified in the tab's href
+                      pane.load(this.getTabs().eq(i).attr("href"));
+                    }
+                  }
+                });
+              });
+            </script>
           </section>
 
           <section class="development__projectmap"
