@@ -7,33 +7,6 @@
   margin-top: 1.5em; /* Equals default line-height of p elements. */
 }
 
-/* Font Defaults */
-/*
-.development_details h2,
-.development_details h3,
-#content .development__overview .documentDescription,
-.development__overview .lead_image .caption,
-.overview__long_description,
-.development__header .header_caption,
-.development__header .development_title,
-.development__header .development_headline,
-.development__header .development_location,
-#content-core.development_details li.formTab a:link
-{
-
-  font-family: 'Arial Narrow', Arial, sans-serif;
-}
-*/
-/* headline defaults */
-/*
-.development_details h2{
-    color: #9c9c9b;
-    font-size:30px;
-    font-weight:200;
-    letter-spacing: 2px;
-
-}
-*/
 .development_details h2
 {
   text-transform: uppercase;
@@ -41,13 +14,6 @@
   margin-bottom:10px;
 }
 
-/*
-.development_details h2:before,
-.development_details h2:after{
-    content: "\2015";
-    font-size:1.4em;
-}
-*/
 /* Description text */
 #content .development__overview .documentDescription{
   font-size:15px;
