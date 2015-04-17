@@ -120,12 +120,14 @@
                     // only load once.
                     if (pane.is(":empty")) {
                     // load it with a page specified in the tab's href
-                      pane.load(this.getTabs().eq(i).attr("href"));
+                    content_raw= this.getTabs().eq(i).attr("href");
+                    content_selected= content_raw.concat(" #content .listing-summary")
+                    pane.load(content_selected);
                     }
                   }
                 });
               });
-            </script>
+             </script>
           </section>
 
           <section class="development__projectmap"
