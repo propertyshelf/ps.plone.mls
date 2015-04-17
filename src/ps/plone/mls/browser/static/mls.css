@@ -132,10 +132,7 @@
     padding-top: 14px;
   }
 }
-.development_details .image_row figure{
-  max-height: 100%;
-  overflow: auto;
-}
+
 .development_details .image_row .tileHeadline{
   padding:3%;
 }
@@ -148,14 +145,23 @@
 
 #content-core.development_details .listing-summary figure{
   width:30%;
+  height:100%;
   margin-right:2%;
-  overflow: auto;
+  overflow: hidden;
 }
 
 #content-core.development_details .listing-summary figure a{
   border:0 none transparent;
   padding:0;
   color:#767676;
+}
+
+#content-core.development_details .listing-summary figure img{
+  width:auto;
+  height:auto;
+  max-height:200%;
+  min-height: 100%;
+  max-width: 200%;
 }
 
 #content-core .listing-summary a:link{
