@@ -191,6 +191,11 @@
   width:30%;
   text-align: center;
 }
+/* land listings never have bath or bed rooms */
+.development_details .ll .data_row .lot_size{
+  width: 69%;
+}
+
 .development_details .data_row .beds{
   width:15%;
   text-align: right;
@@ -327,11 +332,7 @@
 
 .representative__name,
 .representative__user_title{
-  /*
-  color:#9c9c9b;
-  font-size: 15px;
-  font-family: 'Arial Narrow', Arial, sans-serif;
-  */
+
   font-style: italic;
   font-weight: bold;
 }
@@ -871,7 +872,8 @@ table.phases__table td{
 }
 .anchorlink a:link,
 .anchorlink a,
-.anchorlink a:visited
+.anchorlink a:visited,
+.anchorlink a:hover
 {
   color: #fff !important;
   text-decoration: none !important;
