@@ -639,8 +639,9 @@ table.phases__table td{
 
 .development__header .development__banner{
   min-width:100%;
+  max-width: 100%;
   height:auto;
-  min-height:300px;
+  min-height:0;
 }
 .development__header .header_caption{
   position:absolute;
@@ -670,6 +671,20 @@ table.phases__table td{
   line-height: 1em;
   margin:0;
 }
+
+@media (max-width: 900px){
+  body .development__header .header_caption {
+    background-color: #000;
+    border-bottom: 1.5px solid #fff;
+    border-top: 1.5px solid #fff;
+    position: static;
+    text-align: left;
+  }
+  body .development__header .development_location{
+    text-align: left;
+  }
+}
+
 @media (max-width: 800px){
   .development__header .development_title{
     font-size:2em;
