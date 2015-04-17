@@ -462,6 +462,9 @@ class DevelopmentDetails(BrowserView):
             alsoProvides(self._contact_form, IWrappedForm)
         return self._contact_form
 
+    def contact_link(self):
+        return self.config.get('show_contact_link', False)
+
     def get_field_label(self, field_name):
         """Get the field label for ``field_name`` even if the data may not
         exist within the current development object.

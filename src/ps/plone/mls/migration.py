@@ -18,3 +18,14 @@ def migrate_to_1001(context):
     site = getUtility(IPloneSiteRoot)
     setup = getToolByName(site, 'portal_setup')
     setup.runImportStepFromProfile(config.INSTALL_PROFILE, 'actions')
+
+
+def migrate_to_1002(context):
+    """Migrate from 1001 to 1002.
+
+    * ensure mls.css
+    """
+    site = getUtility(IPloneSiteRoot)
+    setup = getToolByName(site, 'portal_setup')
+    setup.runImportStepFromProfile(config.INSTALL_PROFILE, 'cssregistry')
+    setup.runImportStepFromProfile(config.INSTALL_PROFILE, 'jsregistry')

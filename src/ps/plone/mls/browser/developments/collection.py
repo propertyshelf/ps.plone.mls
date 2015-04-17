@@ -53,6 +53,7 @@ FIELDS = [
 EXCLUDED_SEARCH_FIELDS = [
     'map_zoom_level',
     'show_contact_form',
+    'show_contact_link',
     'show_contact_info',
     'show_captcha',
     'limit_developments',
@@ -201,6 +202,16 @@ class IDevelopmentCollectionConfiguration(form.Schema):
         ),
         required=False,
         title=_(u'Show Contact Form'),
+    )
+
+    show_contact_link = schema.Bool(
+        default=False,
+        description=_(
+            u'If the contact form is enabled, an anchor link will show as '
+            u'quick navigation to the form.'
+        ),
+        required=False,
+        title=_(u'Show Contact-Us anchor link'),
     )
 
     show_captcha = schema.Bool(
