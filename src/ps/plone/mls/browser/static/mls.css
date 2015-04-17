@@ -159,9 +159,12 @@
 #content-core.development_details .listing-summary figure img{
   width:auto;
   height:auto;
-  max-height:200%;
+  max-height:150%;
   min-height: 100%;
-  max-width: 200%;
+  max-width: 150%;
+  position:relative;
+  right:25%;
+  top:-10%;
 }
 
 #content-core .listing-summary a:link{
