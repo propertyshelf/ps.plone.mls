@@ -1,13 +1,14 @@
 # --- PLEASE EDIT THE LINES BELOW CORRECTLY ---
 # SOME DESCRIPTIVE TITLE.
 # Translators:
+# Anna-Lya Masson <masson@monde-immo.fr>, 2015
 # Thomas Massmann <thomas.massmann@it-spir.it>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: MLS Plone Components\n"
 "POT-Creation-Date: 2015-04-06 23:47+0000\n"
-"PO-Revision-Date: 2015-04-06 23:47+0000\n"
-"Last-Translator: Zach Cashero <zcashero@gmail.com>\n"
+"PO-Revision-Date: 2015-04-10 14:47+0000\n"
+"Last-Translator: Anna-Lya Masson <masson@monde-immo.fr>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/MLS_Plone/language/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,7 +22,7 @@ msgstr ""
 
 #: ps/plone/mls/browser/developments/collection.py:315
 msgid "'Development Collection' Configuration"
-msgstr ""
+msgstr "Configuration de la collection des propriétés"
 
 #: ps/plone/mls/browser/developments/collection.py:377
 msgid "'Development Collection' viewlet activated."
@@ -33,7 +34,7 @@ msgstr ""
 
 #: ps/plone/mls/browser/listings/featured.py:130
 msgid "'Featured Listings' Configuration"
-msgstr ""
+msgstr "Configuration des propriétés en vedette "
 
 #: ps/plone/mls/browser/listings/featured.py:191
 msgid "'Featured Listings' viewlet activated."
@@ -49,15 +50,15 @@ msgstr "Une collection statique de propriétés vedettes de MLS"
 
 #: ps/plone/mls/browser/developments/templates/development_details_view.pt:200
 msgid "About the Area"
-msgstr ""
+msgstr "À propos du secteur"
 
 #: ps/plone/mls/profiles/default/actions.xml
 msgid "Activate Development Collection"
-msgstr ""
+msgstr "Activer la collection du listage"
 
 #: ps/plone/mls/profiles/default/actions.xml
 msgid "Activate Featured Listings"
-msgstr ""
+msgstr "Activer les références présénté"
 
 #: ps/plone/mls/profiles/default/actions.xml
 msgid "Activate the Development Collection viewlet."
@@ -82,7 +83,7 @@ msgstr ""
 
 #: ps/plone/mls/browser/developments/collection.py:241
 msgid "Agency Developments"
-msgstr ""
+msgstr "Développements d'agence"
 
 #: ps/plone/mls/api.py:98
 msgid ""
@@ -93,19 +94,19 @@ msgstr ""
 #: ps/plone/mls/browser/developments/collection.py:337
 #: ps/plone/mls/browser/listings/featured.py:151
 msgid "Cancel"
-msgstr ""
+msgstr "Annuler"
 
 #: ps/plone/mls/browser/developments/details.py:155
 msgid "Captcha"
-msgstr ""
+msgstr "Captcha"
 
 #: ps/plone/mls/profiles/default/actions.xml
 msgid "Configure Development Collection"
-msgstr ""
+msgstr "Configurer la collection du listage"
 
 #: ps/plone/mls/profiles/default/actions.xml
 msgid "Configure Featured Listings"
-msgstr ""
+msgstr "Configurer les propriétés en vedette"
 
 #: ps/plone/mls/profiles/default/actions.xml
 msgid "Configure the Development Collection viewlet."
@@ -117,19 +118,19 @@ msgstr ""
 
 #: ps/plone/mls/browser/developments/templates/development_details_view.pt:348
 msgid "Contact"
-msgstr ""
+msgstr "Contact"
 
 #: ps/plone/mls/vocabularies/developments.py:18
 msgid "Creation Date"
-msgstr ""
+msgstr "Date de création "
 
 #: ps/plone/mls/profiles/default/actions.xml
 msgid "Deactivate Development Collection"
-msgstr ""
+msgstr "Désactiver  la collection du listage"
 
 #: ps/plone/mls/profiles/default/actions.xml
 msgid "Deactivate Featured Listings"
-msgstr ""
+msgstr "Désactiver les propriétés en vedette"
 
 #: ps/plone/mls/profiles/default/actions.xml
 msgid "Deactivate the Development Collection viewlet."
@@ -141,11 +142,11 @@ msgstr ""
 
 #: ps/plone/mls/browser/developments/collection.py:221
 msgid "Developments per Page"
-msgstr ""
+msgstr "Développements par page"
 
 #: ps/plone/mls/browser/developments/templates/development_details_view.pt:118
 msgid "Download PDF"
-msgstr ""
+msgstr "Télécharger le PDF"
 
 #: ps/plone/mls/browser/developments/collection.py:245
 msgid "Enter a search term to filter the results."
@@ -157,11 +158,11 @@ msgstr "Propriétés Vedettes"
 
 #: ps/plone/mls/browser/developments/collection.py:166
 msgid "Filter Options"
-msgstr ""
+msgstr "Filtrer les Résultats"
 
 #: ps/plone/mls/browser/developments/templates/development_details_view.pt:138
 msgid "Gallery"
-msgstr ""
+msgstr "Galerie"
 
 #: ps/plone/mls/browser/developments/collection.py:217
 msgid "How many developments should be shown per page?"
@@ -200,16 +201,16 @@ msgstr ""
 
 #: ps/plone/mls/utils.py:24
 msgid "Invalid email address."
-msgstr ""
+msgstr "email invalide"
 
 #: ps/plone/mls/browser/developments/templates/development_listings.pt:19
 #: ps/plone/mls/browser/navigation.py:16
 msgid "Listings"
-msgstr ""
+msgstr "Listage"
 
 #: ps/plone/mls/browser/developments/collection.py:230
 msgid "Listings per Page"
-msgstr ""
+msgstr "Listage par page"
 
 #: ps/plone/mls/browser/listings/featured.py:117
 #: ps/plone/mls/content/featured.py:26
@@ -218,31 +219,31 @@ msgstr "IDs des Propriétés MLS"
 
 #: ps/plone/mls/browser/developments/templates/development_details_view.pt:218
 msgid "Map & Distances"
-msgstr ""
+msgstr "Carte et distance"
 
 #: ps/plone/mls/browser/developments/templates/development_details_view.pt:314
 msgid "Meet the Developers"
-msgstr ""
+msgstr "Rencontrer le promoteur"
 
 #: ps/plone/mls/utils.py:32
 msgid "No URLs allowed."
-msgstr ""
+msgstr "Aucun URL est permis"
 
 #: ps/plone/mls/browser/developments/templates/development_details_view.pt:55
 msgid "Overview"
-msgstr ""
+msgstr "Aperçu"
 
 #: ps/plone/mls/browser/developments/templates/development_details_view.pt:277
 msgid "Phases"
-msgstr ""
+msgstr "Des phases"
 
 #: ps/plone/mls/browser/developments/templates/development_details_view.pt:110
 msgid "Project Map"
-msgstr ""
+msgstr "Carte du projet"
 
 #: ps/plone/mls/browser/developments/templates/development_details_view.pt:87
 msgid "Properties Available"
-msgstr ""
+msgstr "Propriétés Disponibles"
 
 #: ps/plone/mls/browser/developments/collection.py:265
 msgid "Reverse sort order?"
@@ -251,7 +252,7 @@ msgstr ""
 #: ps/plone/mls/browser/developments/collection.py:327
 #: ps/plone/mls/browser/listings/featured.py:141
 msgid "Save"
-msgstr ""
+msgstr "Enregistrer"
 
 #: ps/plone/mls/browser/developments/collection.py:249
 msgid "Searchable Text"
@@ -267,15 +268,15 @@ msgstr ""
 
 #: ps/plone/mls/browser/developments/collection.py:212
 msgid "Show Captcha"
-msgstr ""
+msgstr "Montrer Captcha"
 
 #: ps/plone/mls/browser/developments/collection.py:203
 msgid "Show Contact Form"
-msgstr ""
+msgstr "Montrer le formulaire des contacts"
 
 #: ps/plone/mls/browser/developments/collection.py:193
 msgid "Show Contact Information"
-msgstr ""
+msgstr "Montrer l'information des contacts"
 
 #: ps/plone/mls/browser/developments/collection.py:208
 msgid "Show a captcha field within the contact form to prevent spam."
@@ -283,11 +284,11 @@ msgstr ""
 
 #: ps/plone/mls/browser/developments/templates/development_details_view.pt:97
 msgid "Show all properties on this group"
-msgstr ""
+msgstr "Montrer tous les propriétés dans cet groupe "
 
 #: ps/plone/mls/browser/developments/collection.py:258
 msgid "Sort results by"
-msgstr ""
+msgstr "trier des résultats par"
 
 #: ps/plone/mls/browser/developments/collection.py:379
 msgid ""
@@ -305,20 +306,20 @@ msgstr ""
 
 #: ps/plone/mls/api.py:109
 msgid "The requested development was not found."
-msgstr ""
+msgstr "La référence recherchée n'était pas trouvé"
 
 #: ps/plone/mls/vocabularies/developments.py:19
 msgid "Title"
-msgstr ""
+msgstr "Titre"
 
 #: ps/plone/mls/browser/developments/templates/development_details_view.pt:192
 msgid "Video"
-msgstr ""
+msgstr "Video"
 
 #: ps/plone/mls/browser/developments/details.py:215
 msgid "Your contact request was sent successfully."
-msgstr ""
+msgstr "Votre demande de contact était envoyé avec succès "
 
 #: ps/plone/mls/browser/developments/collection.py:183
 msgid "Zoom level for maps"
-msgstr ""
+msgstr "Niveau de zoom pour les cartes"

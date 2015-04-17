@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MLS Plone Components\n"
 "POT-Creation-Date: 2015-04-06 23:47+0000\n"
-"PO-Revision-Date: 2015-04-06 23:47+0000\n"
-"Last-Translator: Zach Cashero <zcashero@gmail.com>\n"
+"PO-Revision-Date: 2015-04-07 18:30+0000\n"
+"Last-Translator: Ameet Oliver Mahajan <ameet@propertyshelf.com>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/MLS_Plone/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,15 +22,15 @@ msgstr ""
 
 #: ps/plone/mls/browser/developments/collection.py:315
 msgid "'Development Collection' Configuration"
-msgstr ""
+msgstr "Konfiguration der 'Bauerschließung-Kollektion'"
 
 #: ps/plone/mls/browser/developments/collection.py:377
 msgid "'Development Collection' viewlet activated."
-msgstr ""
+msgstr "Die 'Bauerschließung-Kollektion' Viewlet wurde aktiviert."
 
 #: ps/plone/mls/browser/developments/collection.py:373
 msgid "'Development Collection' viewlet deactivated."
-msgstr ""
+msgstr "Die 'Bauerschließung-Kollektion' Viewlet wurde deaktiviert."
 
 #: ps/plone/mls/browser/listings/featured.py:130
 msgid "'Featured Listings' Configuration"
@@ -38,11 +38,11 @@ msgstr "Konfiguration der 'Immobilien-Empfehlungen'"
 
 #: ps/plone/mls/browser/listings/featured.py:191
 msgid "'Featured Listings' viewlet activated."
-msgstr "Die Komponente für 'Immobilien-Empfehlungen' wurde aktiviert."
+msgstr "'Immobilien-Empfehlungen' Viewlet wurde aktiviert."
 
 #: ps/plone/mls/browser/listings/featured.py:187
 msgid "'Featured Listings' viewlet deactivated."
-msgstr "Die Komponente für 'Immobilien-Empfehlungen' wurde deaktiviert."
+msgstr "'Immobilien-Empfehlungen' Viewlet wurde deaktiviert."
 
 #: ps/plone/mls/profiles/default/types/ps.plone.mls.featured.xml
 msgid "A static collection of featured MLS Listings"
@@ -62,11 +62,11 @@ msgstr "Immobilien-Empfehlungen aktivieren"
 
 #: ps/plone/mls/profiles/default/actions.xml
 msgid "Activate the Development Collection viewlet."
-msgstr ""
+msgstr "Viewlet für die Bauerschließung-Kollektion aktivieren."
 
 #: ps/plone/mls/profiles/default/actions.xml
 msgid "Activate the Featured Listings viewlet."
-msgstr "Die Komponente für Immobilien-Empfehlungen aktivieren."
+msgstr "Viewlet für Immobilien-Empfehlungen aktivieren."
 
 #: ps/plone/mls/browser/listings/featured.py:116
 #: ps/plone/mls/content/featured.py:25
@@ -75,21 +75,21 @@ msgstr "Geben Sie genau eine Immobilien-ID für jeden anzuzeigenden Eintrag an."
 
 #: ps/plone/mls/browser/developments/collection.py:316
 msgid "Adjust the behaviour for this 'Development Collection' viewlet."
-msgstr ""
+msgstr "Passen Sie die Einstellungen für das 'Bauerschließung-Kollektion' Viewlet an."
 
 #: ps/plone/mls/browser/listings/featured.py:131
 msgid "Adjust the behaviour for this 'Featured Listings' viewlet."
-msgstr "Passen Sie die Einstellungen für die Komponente 'Immobilien-Empfehlungen' an."
+msgstr "Passen Sie die Einstellungen für das Viewlet 'Immobilien-Empfehlungen' an."
 
 #: ps/plone/mls/browser/developments/collection.py:241
 msgid "Agency Developments"
-msgstr ""
+msgstr "Bauerschließungen der Agentur"
 
 #: ps/plone/mls/api.py:98
 msgid ""
 "An error occured trying to connect to the configured MLS. Please check your "
 "settings or try again later."
-msgstr ""
+msgstr "Beim Versuch sich mit dem konfiguriertem MLS zu verbinden ist ein Fehler aufgetreten. Prüfen Sie bitte Ihre Einstellungen oder versuchen es erneut zu einem späteren Zeitpunkt."
 
 #: ps/plone/mls/browser/developments/collection.py:337
 #: ps/plone/mls/browser/listings/featured.py:151
@@ -102,7 +102,7 @@ msgstr "Captcha"
 
 #: ps/plone/mls/profiles/default/actions.xml
 msgid "Configure Development Collection"
-msgstr ""
+msgstr "Bauerschließung-Kollektion konfigurieren"
 
 #: ps/plone/mls/profiles/default/actions.xml
 msgid "Configure Featured Listings"
@@ -110,15 +110,15 @@ msgstr "Immobilien-Empfehlungen konfigurieren"
 
 #: ps/plone/mls/profiles/default/actions.xml
 msgid "Configure the Development Collection viewlet."
-msgstr ""
+msgstr "Das Viewlets für Bauerschließung-Kollektionen konfigurieren."
 
 #: ps/plone/mls/profiles/default/actions.xml
 msgid "Configure the Featured Listings viewlet."
-msgstr "Konfigurieren Sie die Komponente für 'Immobilien-Empfehlungen'."
+msgstr "Konfigurieren Sie das Viewlet für 'Immobilien-Empfehlungen'."
 
 #: ps/plone/mls/browser/developments/templates/development_details_view.pt:348
 msgid "Contact"
-msgstr ""
+msgstr "Kontakt"
 
 #: ps/plone/mls/vocabularies/developments.py:18
 msgid "Creation Date"
@@ -126,7 +126,7 @@ msgstr "Erstellungsdatum"
 
 #: ps/plone/mls/profiles/default/actions.xml
 msgid "Deactivate Development Collection"
-msgstr ""
+msgstr "Bauerschließung-Kollektion deaktivieren"
 
 #: ps/plone/mls/profiles/default/actions.xml
 msgid "Deactivate Featured Listings"
@@ -134,19 +134,19 @@ msgstr "Immobilien-Empfehlungen deaktivieren"
 
 #: ps/plone/mls/profiles/default/actions.xml
 msgid "Deactivate the Development Collection viewlet."
-msgstr ""
+msgstr "Bauerschließung-Kollektion Viewlet deaktivieren."
 
 #: ps/plone/mls/profiles/default/actions.xml
 msgid "Deactivate the Featured Listings viewlet."
-msgstr "Die Komponente für Immobilien-Empfehlungen deaktivieren."
+msgstr "Das Viewlet Immobilien-Empfehlungen deaktivieren."
 
 #: ps/plone/mls/browser/developments/collection.py:221
 msgid "Developments per Page"
-msgstr ""
+msgstr "Bauerschließungen pro Seite"
 
 #: ps/plone/mls/browser/developments/templates/development_details_view.pt:118
 msgid "Download PDF"
-msgstr ""
+msgstr "PDF herunterladen"
 
 #: ps/plone/mls/browser/developments/collection.py:245
 msgid "Enter a search term to filter the results."
@@ -166,17 +166,17 @@ msgstr "Galerie"
 
 #: ps/plone/mls/browser/developments/collection.py:217
 msgid "How many developments should be shown per page?"
-msgstr ""
+msgstr "Wieviele Bauerschließungen sollen pro Seite angezeigt werden?"
 
 #: ps/plone/mls/browser/developments/collection.py:226
 msgid "How many listings should be shown per devlopment listings page?"
-msgstr ""
+msgstr "Wieviele Immobilien sollen pro Bauerschließungsimmobilienseite angezeigt werden?"
 
 #: ps/plone/mls/browser/developments/collection.py:253
 msgid ""
 "How should the results be sorted? If nothing is selected, the results are "
 "sorted by relevance."
-msgstr ""
+msgstr "Wie sollen die Ergebnisse sortiert werden? Die Ergegnisse werden nach Relevanz sortiert, falls nichts ausgewählt wird."
 
 #: ps/plone/mls/browser/listings/featured.py:120
 #: ps/plone/mls/content/featured.py:29
@@ -187,17 +187,17 @@ msgstr "ID"
 msgid ""
 "If enabled, a form to contact the responsible agent will be shown on the "
 "detail page for a development."
-msgstr ""
+msgstr "Wenn diese Option aktiviert ist, erscheint ein Kontaktformular des verantwortlichen Maklers auf der Detailansicht der Bauerschließung."
 
 #: ps/plone/mls/browser/developments/collection.py:236
 msgid "If enabled, only developments for the configured agency will be shown."
-msgstr ""
+msgstr "Wenn diese Option aktiviert ist, werden nur Bauerschließungen der konfigurierten Agentur angezeigt."
 
 #: ps/plone/mls/browser/developments/collection.py:188
 msgid ""
 "If enabled, the contact information for a development will be shown on the "
 "detail page for a development."
-msgstr ""
+msgstr "Wenn diese Option aktiviert ist, erscheinen die Kontaktinformationen der Bauerschließung auf der Detailansicht der Bauerschließung."
 
 #: ps/plone/mls/utils.py:24
 msgid "Invalid email address."
@@ -219,11 +219,11 @@ msgstr "MLS Immobilien-IDs"
 
 #: ps/plone/mls/browser/developments/templates/development_details_view.pt:218
 msgid "Map & Distances"
-msgstr ""
+msgstr "Karte & Entfernungen"
 
 #: ps/plone/mls/browser/developments/templates/development_details_view.pt:314
 msgid "Meet the Developers"
-msgstr ""
+msgstr "Treffen Sie den Bauträger"
 
 #: ps/plone/mls/utils.py:32
 msgid "No URLs allowed."
@@ -231,15 +231,15 @@ msgstr "Es sind keine URLs erlaubt."
 
 #: ps/plone/mls/browser/developments/templates/development_details_view.pt:55
 msgid "Overview"
-msgstr ""
+msgstr "Übersicht"
 
 #: ps/plone/mls/browser/developments/templates/development_details_view.pt:277
 msgid "Phases"
-msgstr ""
+msgstr "Bauabschnitte"
 
 #: ps/plone/mls/browser/developments/templates/development_details_view.pt:110
 msgid "Project Map"
-msgstr ""
+msgstr "Projektkarte"
 
 #: ps/plone/mls/browser/developments/templates/development_details_view.pt:87
 msgid "Properties Available"
@@ -247,7 +247,7 @@ msgstr "Verfügbare Immobilien"
 
 #: ps/plone/mls/browser/developments/collection.py:265
 msgid "Reverse sort order?"
-msgstr ""
+msgstr "Sortierreihenfolge umgekehren?"
 
 #: ps/plone/mls/browser/developments/collection.py:327
 #: ps/plone/mls/browser/listings/featured.py:141
@@ -256,7 +256,7 @@ msgstr "Speichern"
 
 #: ps/plone/mls/browser/developments/collection.py:249
 msgid "Searchable Text"
-msgstr ""
+msgstr "Durchsuchbarer Text"
 
 #: ps/plone/mls/browser/developments/collection.py:173
 msgid ""
@@ -264,7 +264,7 @@ msgid ""
 "entire world can be seen. The higher the zoom level, the more details can be"
 " seen. The available maximum zoom level value differs from area to area and "
 "can change over time, also depending on the used map provider."
-msgstr ""
+msgstr "Legen Sie die Kartenauflösung fest.  0 is das niedrigste Zoom-Level, mit dem die gesamte Welt sichtbar ist. Je höher das Zoom-Level, desto mehr Details können gesehen werden. Der zur Verfügung stehende höchste Zoom-Level-Wert hängt von der jeweiligen Gegend, die sich mit der Zeit verändern kann und ist auch in Abhängigkeit des verwendeten Karten-Providers."
 
 #: ps/plone/mls/browser/developments/collection.py:212
 msgid "Show Captcha"
@@ -280,46 +280,46 @@ msgstr "Kontaktinformationen anzeigen"
 
 #: ps/plone/mls/browser/developments/collection.py:208
 msgid "Show a captcha field within the contact form to prevent spam."
-msgstr ""
+msgstr "Das Captcha-Feld in dem Kontakformular anzeigen, um Spam zu verhindern."
 
 #: ps/plone/mls/browser/developments/templates/development_details_view.pt:97
 msgid "Show all properties on this group"
-msgstr ""
+msgstr "Alle Immobilien dieser Gruppe anzeigen"
 
 #: ps/plone/mls/browser/developments/collection.py:258
 msgid "Sort results by"
-msgstr ""
+msgstr "Ergenisse sortieren nach"
 
 #: ps/plone/mls/browser/developments/collection.py:379
 msgid ""
 "The 'Development Collection' viewlet does't work with this content type. Add"
 " 'IPossibleDevelopmentCollection' to the provided interfaces to enable this "
 "feature."
-msgstr ""
+msgstr "Die 'Bauerschließung-Kollektion\"' konnte für diesen Inhaltstyp nicht aktiviert werden. Fügen Sie 'IPossibleDevelopmentCollection' zu den unterstützten Interfaces hinzu, um dieses Feature zu aktivieren."
 
 #: ps/plone/mls/browser/listings/featured.py:193
 msgid ""
 "The 'Featured Listings' viewlet does't work with this content type. Add "
 "'IPossibleFeaturedListings' to the provided interfaces to enable this "
 "feature."
-msgstr "Die Komponente 'Immobilien-Empfehlungen' konnte für diesen Inhaltstyp nicht aktiviert werden. Fügen Sie 'IPossibleFeaturedListings' zu den unterstützten Interfaces hinzu um dieses Feature zu aktivieren."
+msgstr "Das Viewlet 'Immobilien-Empfehlungen' konnte für diesen Inhaltstyp nicht aktiviert werden. Fügen Sie 'IPossibleFeaturedListings' zu den unterstützten Interfaces hinzu um dieses Feature zu aktivieren."
 
 #: ps/plone/mls/api.py:109
 msgid "The requested development was not found."
-msgstr ""
+msgstr "Die gewünschte Bauerschließung wurde nicht gefunden."
 
 #: ps/plone/mls/vocabularies/developments.py:19
 msgid "Title"
-msgstr ""
+msgstr "Titel"
 
 #: ps/plone/mls/browser/developments/templates/development_details_view.pt:192
 msgid "Video"
-msgstr ""
+msgstr "Video"
 
 #: ps/plone/mls/browser/developments/details.py:215
 msgid "Your contact request was sent successfully."
-msgstr ""
+msgstr "Ihre Kontakanfrage wurde erfolgreich versendet."
 
 #: ps/plone/mls/browser/developments/collection.py:183
 msgid "Zoom level for maps"
-msgstr ""
+msgstr "Zoom-Level für Karten"
