@@ -191,11 +191,8 @@ class DevelopmentTraverser(MLSItemTraverser):
         """"""
         if not self.has_development:
             return
-        cache = IAnnotations(self.request)
-        item = cache['ps.plone.mls.development.traversed']
-        if item.has_listing(listing_id):
-            setattr(self.request, 'listing_id', listing_id)
-            return 'listing-detail'
+        setattr(self.request, 'listing_id', listing_id)
+        return 'listing-detail'
 
 
 @adapter(
