@@ -81,7 +81,8 @@ function initializeMap() {{
         mapTypeControl: true,
         disableDoubleClickZoom: true,
         overviewMapControl: true,
-        streetViewControl: true
+        streetViewControl: true,
+        scrollwheel: false
     }}
 
     var map = new google.maps.Map(
