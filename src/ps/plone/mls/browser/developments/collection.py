@@ -53,6 +53,7 @@ FIELDS = [
 EXCLUDED_SEARCH_FIELDS = [
     'map_zoom_level',
     'show_contact_form',
+    'contact_override',
     'show_contact_link',
     'show_contact_info',
     'show_captcha',
@@ -202,6 +203,14 @@ class IDevelopmentCollectionConfiguration(form.Schema):
         ),
         required=False,
         title=_(u'Show Contact Form'),
+    )
+
+    contact_override = schema.TextLine(
+        description=_(
+            u'Send the contact form to this email instead direct to the agent'
+        ),
+        required=False,
+        title=_(u'Alternative Email recipient'),
     )
 
     show_contact_link = schema.Bool(

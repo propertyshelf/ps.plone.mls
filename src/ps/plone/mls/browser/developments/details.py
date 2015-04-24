@@ -163,6 +163,7 @@ class ContactForm(form.Form):
     method = 'post'
     _email_sent = False
     fields['captcha'].widgetFactory = CaptchaFieldWidget
+    email_override = None
 
     def __init__(self, context, request, info=None):
         super(ContactForm, self).__init__(context, request)
@@ -177,6 +178,12 @@ class ContactForm(form.Form):
     def update(self):
         if self.config.get('show_captcha', False) is False:
             self.fields = field.Fields(IContactForm).omit('captcha')
+
+        email_override = self.config.get('contact_override', None)
+
+        if email_override is not None:
+            self.email_override = email_override
+
         super(ContactForm, self).update()
 
     @property
@@ -236,6 +243,10 @@ class ContactForm(form.Form):
             rcp = agent.email.value
         except:
             rcp = from_address
+
+        if self.email_override is not None:
+            rcp = self.email_override
+
         sender = '{0} <{1}>'.format(data['name'], data['sender_from_address'])
         subject = u'Customer Contact Developments'
         data['url'] = self.request.getURL()
