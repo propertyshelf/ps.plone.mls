@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MLS Plone Components\n"
 "POT-Creation-Date: 2015-04-17 16:44+0000\n"
-"PO-Revision-Date: 2015-04-17 16:45+0000\n"
-"Last-Translator: Zach Cashero <zcashero@gmail.com>\n"
+"PO-Revision-Date: 2015-04-23 10:48+0000\n"
+"Last-Translator: Athanassios <a.karaiannis@gmail.com>\n"
 "Language-Team: Italian (http://www.transifex.com/projects/p/MLS_Plone/language/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -121,7 +121,7 @@ msgstr "Contatto"
 
 #: ps/plone/mls/browser/developments/templates/development_details_view.pt:25
 msgid "Contact us"
-msgstr ""
+msgstr "Contattaci"
 
 #: ps/plone/mls/vocabularies/developments.py:18
 msgid "Creation Date"
@@ -206,7 +206,7 @@ msgstr "Se abilitato, le informazioni di contatto di un progetto saranno mostrat
 msgid ""
 "If the contact form is enabled, an anchor link will show as quick navigation"
 " to the form."
-msgstr ""
+msgstr "Se il modulo di contatto è abilitato, comparirà un link per navigare velocemente al form."
 
 #: ps/plone/mls/utils.py:24
 msgid "Invalid email address."
@@ -289,7 +289,7 @@ msgstr "Mostra Informazioni di Contatto"
 
 #: ps/plone/mls/browser/developments/collection.py:214
 msgid "Show Contact-Us anchor link"
-msgstr ""
+msgstr "Mostra link Contattateci"
 
 #: ps/plone/mls/browser/developments/collection.py:219
 msgid "Show a captcha field within the contact form to prevent spam."
