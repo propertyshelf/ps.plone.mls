@@ -1,7 +1,7 @@
 Changelog
 =========
 
-0.2 (unreleased)
+0.2 (2015-05-13)
 ----------------
 
 - Added Developer MLS Embedding.
