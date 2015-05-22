@@ -96,7 +96,7 @@
             <ul id="group-listings">
               <tal:groups tal:repeat="group groups">
                 <tal:group tal:define="group_id group/id/value | nothing;
-                                  group_listings_link string:${self_link}/listings?group=${group_id}&ajax_load=1">
+                                  group_listings_link string:${self_link}/listings?group=${group_id}&amp;ajax_load=1">
                   <li tal:attributes="id string:fieldsetlegend-${group_id};">
                     <a class="tab_link"
                         tal:content="group/title/value | string:-"
@@ -241,7 +241,7 @@
           <section class="development__map"
                tal:define="js view/javascript_map | nothing"
                tal:condition="js">
-            <h2 i18n:translate="">Map & Distances</h2>
+            <h2 i18n:translate="">Map &amp; Distances</h2>
             <div class="map__canvas" id="map"
                 tal:attributes="id view/map_id">Please enable JavaScript to show the Map.</div>
             <script type="text/javascript" tal:content="structure js"></script>
@@ -316,7 +316,7 @@
                 <tr tal:repeat="phase phases">
                   <tal:phases
                       tal:define="phase_id phase/id/value | nothing;
-                                  phase_listings_link string:${self_link}/listings?phase=${phase_id}&ajax_load=1">
+                                  phase_listings_link string:${self_link}/listings?phase=${phase_id}&amp;ajax_load=1">
                     <td class="title">
                       <a tal:attributes="href phase_listings_link" class="prettyPhotoIframe"
                          tal:content="phase/title/value | string:-">[Title]</a></td>
