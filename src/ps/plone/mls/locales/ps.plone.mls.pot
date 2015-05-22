@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2015-04-29 22:06+0000\n"
+"POT-Creation-Date: 2015-05-22 19:00+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -115,7 +115,7 @@ msgstr ""
 msgid "Configure the Featured Listings viewlet."
 msgstr ""
 
-#: ps/plone/mls/browser/developments/templates/development_details_view.pt:374
+#: ps/plone/mls/browser/developments/templates/development_details_view.pt:375
 msgid "Contact"
 msgstr ""
 
@@ -219,10 +219,10 @@ msgid "MLS Listing IDs"
 msgstr ""
 
 #: ps/plone/mls/browser/developments/templates/development_details_view.pt:244
-msgid "Map & Distances"
+msgid "Map &amp; Distances"
 msgstr ""
 
-#: ps/plone/mls/browser/developments/templates/development_details_view.pt:340
+#: ps/plone/mls/browser/developments/templates/development_details_view.pt:341
 msgid "Meet the Developers"
 msgstr ""
 
@@ -234,8 +234,12 @@ msgstr ""
 msgid "Overview"
 msgstr ""
 
-#: ps/plone/mls/browser/developments/templates/development_details_view.pt:303
+#: ps/plone/mls/browser/developments/templates/development_details_view.pt:304
 msgid "Phases"
+msgstr ""
+
+#: ps/plone/mls/browser/developments/templates/development_details_view.pt:245
+msgid "Please enable JavaScript to show the Map."
 msgstr ""
 
 #: ps/plone/mls/browser/developments/templates/development_details_view.pt:136
