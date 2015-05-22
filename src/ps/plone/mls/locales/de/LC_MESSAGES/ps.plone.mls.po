@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MLS Plone Components\n"
 "POT-Creation-Date: 2015-04-29 22:06+0000\n"
-"PO-Revision-Date: 2015-04-29 22:07+0000\n"
-"Last-Translator: Zach Cashero <zcashero@gmail.com>\n"
+"PO-Revision-Date: 2015-05-04 08:51+0000\n"
+"Last-Translator: Ameet Oliver Mahajan <ameet@propertyshelf.com>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/MLS_Plone/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -87,7 +87,7 @@ msgstr "Bauerschließungen der Agentur"
 
 #: ps/plone/mls/browser/developments/collection.py:213
 msgid "Alternative Email recipient"
-msgstr ""
+msgstr "Alternativer Email-Empfänger"
 
 #: ps/plone/mls/api.py:98
 msgid ""
@@ -274,7 +274,7 @@ msgstr "Durchsuchbarer Text"
 
 #: ps/plone/mls/browser/developments/collection.py:209
 msgid "Send the contact form to this email instead direct to the agent"
-msgstr ""
+msgstr "Das Kontaktformular anstatt direkt an den Makler an diese Email schicken"
 
 #: ps/plone/mls/browser/developments/collection.py:175
 msgid ""
