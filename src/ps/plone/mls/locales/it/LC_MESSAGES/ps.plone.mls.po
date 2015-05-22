@@ -5,8 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: MLS Plone Components\n"
-"POT-Creation-Date: 2015-04-29 22:06+0000\n"
-"PO-Revision-Date: 2015-04-29 22:07+0000\n"
+"POT-Creation-Date: 2015-05-22 19:00+0000\n"
+"PO-Revision-Date: 2015-05-22 19:00+0000\n"
 "Last-Translator: Zach Cashero <zcashero@gmail.com>\n"
 "Language-Team: Italian (http://www.transifex.com/projects/p/MLS_Plone/language/it/)\n"
 "MIME-Version: 1.0\n"
@@ -119,7 +119,7 @@ msgstr "Configura la viewlet della Collezione Progetti."
 msgid "Configure the Featured Listings viewlet."
 msgstr "Configura la viewlet degli Annunci in Primo Piano."
 
-#: ps/plone/mls/browser/developments/templates/development_details_view.pt:374
+#: ps/plone/mls/browser/developments/templates/development_details_view.pt:375
 msgid "Contact"
 msgstr "Contatto"
 
@@ -231,10 +231,10 @@ msgid "MLS Listing IDs"
 msgstr "ID Annunci MLS"
 
 #: ps/plone/mls/browser/developments/templates/development_details_view.pt:244
-msgid "Map & Distances"
-msgstr "Mappa & Distanze"
+msgid "Map &amp; Distances"
+msgstr ""
 
-#: ps/plone/mls/browser/developments/templates/development_details_view.pt:340
+#: ps/plone/mls/browser/developments/templates/development_details_view.pt:341
 msgid "Meet the Developers"
 msgstr "Incontra i Costruttori"
 
@@ -246,9 +246,13 @@ msgstr "Non sono ammessi URL."
 msgid "Overview"
 msgstr "Panoramica"
 
-#: ps/plone/mls/browser/developments/templates/development_details_view.pt:303
+#: ps/plone/mls/browser/developments/templates/development_details_view.pt:304
 msgid "Phases"
 msgstr "Fasi"
+
+#: ps/plone/mls/browser/developments/templates/development_details_view.pt:245
+msgid "Please enable JavaScript to show the Map."
+msgstr ""
 
 #: ps/plone/mls/browser/developments/templates/development_details_view.pt:136
 msgid "Project Map"

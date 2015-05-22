@@ -6,9 +6,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: MLS Plone Components\n"
-"POT-Creation-Date: 2015-04-29 22:06+0000\n"
-"PO-Revision-Date: 2015-05-04 08:51+0000\n"
-"Last-Translator: Ameet Oliver Mahajan <ameet@propertyshelf.com>\n"
+"POT-Creation-Date: 2015-05-22 19:00+0000\n"
+"PO-Revision-Date: 2015-05-22 19:00+0000\n"
+"Last-Translator: Zach Cashero <zcashero@gmail.com>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/MLS_Plone/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -120,7 +120,7 @@ msgstr "Das Viewlets für Bauerschließung-Kollektionen konfigurieren."
 msgid "Configure the Featured Listings viewlet."
 msgstr "Konfigurieren Sie das Viewlet für 'Immobilien-Empfehlungen'."
 
-#: ps/plone/mls/browser/developments/templates/development_details_view.pt:374
+#: ps/plone/mls/browser/developments/templates/development_details_view.pt:375
 msgid "Contact"
 msgstr "Kontakt"
 
@@ -232,10 +232,10 @@ msgid "MLS Listing IDs"
 msgstr "MLS Immobilien-IDs"
 
 #: ps/plone/mls/browser/developments/templates/development_details_view.pt:244
-msgid "Map & Distances"
-msgstr "Karte & Entfernungen"
+msgid "Map &amp; Distances"
+msgstr ""
 
-#: ps/plone/mls/browser/developments/templates/development_details_view.pt:340
+#: ps/plone/mls/browser/developments/templates/development_details_view.pt:341
 msgid "Meet the Developers"
 msgstr "Treffen Sie den Bauträger"
 
@@ -247,9 +247,13 @@ msgstr "Es sind keine URLs erlaubt."
 msgid "Overview"
 msgstr "Übersicht"
 
-#: ps/plone/mls/browser/developments/templates/development_details_view.pt:303
+#: ps/plone/mls/browser/developments/templates/development_details_view.pt:304
 msgid "Phases"
 msgstr "Bauabschnitte"
+
+#: ps/plone/mls/browser/developments/templates/development_details_view.pt:245
+msgid "Please enable JavaScript to show the Map."
+msgstr ""
 
 #: ps/plone/mls/browser/developments/templates/development_details_view.pt:136
 msgid "Project Map"
