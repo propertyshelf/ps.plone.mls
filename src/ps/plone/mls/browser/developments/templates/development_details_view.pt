@@ -243,6 +243,7 @@
                tal:condition="js">
             <h2 i18n:translate="">Map &amp; Distances</h2>
             <div class="map__canvas" id="map"
+                i18n:translate=""
                 tal:attributes="id view/map_id">Please enable JavaScript to show the Map.</div>
             <script type="text/javascript" tal:content="structure js"></script>
           </section>
