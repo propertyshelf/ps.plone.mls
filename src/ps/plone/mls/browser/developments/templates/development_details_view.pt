@@ -370,7 +370,7 @@
           </section>
 
           <section class="development__contact"
-              itemscope="" itemtype="http://schema.org/LocalBusiness"
+              itemscope="itemscope" itemtype="http://schema.org/LocalBusiness"
               tal:condition="view/show_section_contact | nothing">
             <h2 i18n:translate="">Contact</h2>
             <a name="quick_form" tal:condition="view/contact_link | nothing"></a>
@@ -401,7 +401,7 @@
                   tal:content="description/value">[Description]</p>
 
               <address>
-                <div itemprop="address" itemscope="" itemtype="http://schema.org/PostalAddress" >
+                <div itemprop="address" itemscope="itemscope" itemtype="http://schema.org/PostalAddress" >
                   <span itemprop="streetAddress"
                     tal:condition="address"
                     tal:content="address/value">[address]</span></div>
