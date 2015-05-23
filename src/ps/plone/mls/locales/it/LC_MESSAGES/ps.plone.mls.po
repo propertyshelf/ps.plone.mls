@@ -2,11 +2,12 @@
 # SOME DESCRIPTIVE TITLE.
 # Translators:
 # Athanassios <a.karaiannis@gmail.com>, 2015
+# Zach Cashero <zcashero@gmail.com>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: MLS Plone Components\n"
 "POT-Creation-Date: 2015-05-22 19:00+0000\n"
-"PO-Revision-Date: 2015-05-22 19:00+0000\n"
+"PO-Revision-Date: 2015-05-23 14:37+0000\n"
 "Last-Translator: Zach Cashero <zcashero@gmail.com>\n"
 "Language-Team: Italian (http://www.transifex.com/projects/p/MLS_Plone/language/it/)\n"
 "MIME-Version: 1.0\n"
@@ -232,7 +233,7 @@ msgstr "ID Annunci MLS"
 
 #: ps/plone/mls/browser/developments/templates/development_details_view.pt:244
 msgid "Map &amp; Distances"
-msgstr ""
+msgstr "Mappa & Distanze"
 
 #: ps/plone/mls/browser/developments/templates/development_details_view.pt:341
 msgid "Meet the Developers"
