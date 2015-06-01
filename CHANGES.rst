@@ -1,6 +1,13 @@
 Changelog
 =========
 
+0.2.1 (2015-06-01)
+------------------
+
+- improve Developments Summary View
+- improve Developments Detail View: no prettyPhoto Iframe links for phase-listings
+
+
 0.2 (2015-05-13)
 ----------------
 
