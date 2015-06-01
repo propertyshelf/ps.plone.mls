@@ -43,11 +43,8 @@ FIELDS = [
     'location',
     'lot_size',
     'location_type',
-    'geographic_type',
     'number_of_listings',
-    'number_of_phases',
     'number_of_groups',
-    'number_of_pictures',
 ]
 
 EXCLUDED_SEARCH_FIELDS = [
