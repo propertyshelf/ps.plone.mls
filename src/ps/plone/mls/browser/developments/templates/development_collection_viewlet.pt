@@ -20,7 +20,11 @@
       <div metal:use-macro="context/batch_macros/macros/navigation" />
       <div class="tileItem visualIEFloatFix"
            tal:repeat="item batch">
-        <tal:item tal:define="item_url string:${page_url}${item/id/value}___${item/title/value}-${item/location/value}">
+        <tal:item tal:define="item_url string:${page_url}${item/id/value}___${item/title/value}-${item/location/value};
+                              location_raw item/location/value;
+                              location_list python: location_raw.split(',');
+                              lcount python: len(location_list);
+                              location python: location_list[0]+', '+location_list[lcount-2]+', '+location_list[lcount-1];">
 
           <h2 class="tileHeadline"><a href="" class="summary url"
               tal:attributes="href item_url"><span
@@ -42,9 +46,9 @@
 
           <section>
             <dl>
-              <tal:field tal:define="field item/location | nothing" tal:condition="field">
+              <tal:field tal:define="field item/location | nothing" tal:condition="location">
                 <dt class="location row label"><span tal:replace="field/title">Label</span>:</dt>
-                <dd class="location full"><span tal:replace="structure field/value">Value</span></dd>
+                <dd class="location full"><span tal:replace="structure location">Value</span></dd>
               </tal:field>
 
               <tal:field tal:define="field item/lot_size | nothing" tal:condition="field">
