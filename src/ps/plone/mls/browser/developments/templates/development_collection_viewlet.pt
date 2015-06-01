@@ -53,13 +53,6 @@
               </tal:field>
 
               <tal:field tal:define="field item/location_type | nothing" tal:condition="field">
-                <dt class="row"><span tal:replace="field/title">Label</span>:</dt>
-                <dd class="full"><span tal:replace="structure field/value">Value</span></dd>
-              </tal:field>
-
-              <tal:field tal:define="field item/geographic_type | nothing" tal:condition="field">
-                <dt class="row"><span tal:replace="field/title">Label</span>:</dt>
-                <dd class="full"><span tal:replace="structure field/value">Value</span></dd>
               </tal:field>
 
               <tal:field tal:define="field item/agency_name | nothing" tal:condition="field">
@@ -82,10 +75,6 @@
                 <dd><span tal:replace="structure field/value">Value</span></dd>
               </tal:field>
 
-              <tal:field tal:define="field item/number_of_pictures | nothing" tal:condition="field">
-                <dt><span tal:replace="field/title">Label</span>:</dt>
-                <dd><span tal:replace="structure field/value">Value</span></dd>
-              </tal:field>
             </dl>
           </section>
 
