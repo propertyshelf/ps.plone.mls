@@ -61,13 +61,6 @@
               </tal:field>
 
               <tal:field tal:define="field item/number_of_listings | nothing" tal:condition="field">
-                <dt class="row"><span tal:replace="field/title">Label</span>:</dt>
-                <dd><span tal:replace="structure field/value">Value</span></dd>
-              </tal:field>
-
-              <tal:field tal:define="field item/number_of_phases | nothing" tal:condition="field">
-                <dt><span tal:replace="field/title">Label</span>:</dt>
-                <dd><span tal:replace="structure field/value">Value</span></dd>
               </tal:field>
 
               <tal:field tal:define="field item/number_of_groups | nothing" tal:condition="field">
