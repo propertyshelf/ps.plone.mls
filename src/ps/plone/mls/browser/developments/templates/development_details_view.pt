@@ -317,18 +317,18 @@
                 <tr tal:repeat="phase phases">
                   <tal:phases
                       tal:define="phase_id phase/id/value | nothing;
-                                  phase_listings_link string:${self_link}/listings?phase=${phase_id}&amp;ajax_load=1">
+                                  phase_listings_link string:${self_link}/listings?phase=${phase_id}">
                     <td class="title">
-                      <a tal:attributes="href phase_listings_link" class="prettyPhotoIframe"
+                      <a tal:attributes="href phase_listings_link" target="_listings_link"
                          tal:content="phase/title/value | string:-">[Title]</a></td>
                     <td class="units">
-                      <a tal:attributes="href phase_listings_link" class="prettyPhotoIframe"
+                      <a tal:attributes="href phase_listings_link" target="_listings_link"
                          tal:content="phase/units/value | string:-">[Units]</a></td>
                     <td class="status">
-                      <a tal:attributes="href phase_listings_link" class="prettyPhotoIframe"
+                      <a tal:attributes="href phase_listings_link" target="_listings_link"
                          tal:content="phase/status/value | string:-">[Status]</a></td>
                     <td class="completion_date">
-                      <a tal:attributes="href phase_listings_link" class="prettyPhotoIframe"
+                      <a tal:attributes="href phase_listings_link" target="_listings_link"
                         tal:content="phase/completion_date/value | string:-">[Completion Date]</a></td>
                   </tal:phases>
                 </tr>
