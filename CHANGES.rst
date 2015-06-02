@@ -1,6 +1,12 @@
 Changelog
 =========
 
+0.2.2 (2015-06-02)
+------------------
+
+- Develoments Summary: get custom css class for prettier results
+
+
 0.2.1 (2015-06-01)
 ------------------
 
