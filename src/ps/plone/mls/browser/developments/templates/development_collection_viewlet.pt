@@ -11,7 +11,7 @@
                   results batch/sequence_length | nothing;">
 
 
-  <section class="listing-summary"
+  <section class="listing-summary development-summary"
            tal:define="page_url view/view_url | nothing;
                        b_size view/limit;
                        b_orphan python: 1;
