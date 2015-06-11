@@ -1,6 +1,13 @@
 Changelog
 =========
 
+
+0.2.3 (2015-06-11)
+------------------
+
+- **Develoments Details:** add hover *"title"* for development icons
+
+
 0.2.2 (2015-06-02)
 ------------------
 
