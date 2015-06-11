@@ -2,6 +2,12 @@ Changelog
 =========
 
 
+0.2.4 (2015-06-11)
+------------------
+
+- prevent pagination error of plone.batching (1.0.4) in *development details*
+
+
 0.2.3 (2015-06-11)
 ------------------
 
