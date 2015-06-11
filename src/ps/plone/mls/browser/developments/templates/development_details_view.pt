@@ -298,7 +298,7 @@
                           distance item/gas_station_distance/value | nothing;"
               tal:condition="python: name or distance">
               <span aria-hidden="true"
-                  class="icon gas_station" 
+                  class="icon gas_station"
                   tal:attributes="title python: view.get_field_label('gas_station_name')"></span>
               <h5 tal:content="python: view.get_field_label('gas_station_name')">[Closest Gas Station]</h5>
               <span tal:content="python: view.format_distance(name, distance)" ></span>
