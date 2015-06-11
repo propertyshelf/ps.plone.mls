@@ -428,8 +428,6 @@
             </div>
           </section>
         </div>
-
-        <div id="viewlet-below-content-body" tal:content="structure provider:plone.belowcontentbody" tal:condition="not:ajax_load" />
       </article>
     </metal:main>
   </body>
