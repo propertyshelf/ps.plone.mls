@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: MLS Plone Components\n"
-"POT-Creation-Date: 2015-05-22 19:00+0000\n"
+"POT-Creation-Date: 2015-06-11 23:31+0000\n"
 "PO-Revision-Date: 2015-05-23 14:37+0000\n"
 "Last-Translator: Zach Cashero <zcashero@gmail.com>\n"
 "Language-Team: Italian (http://www.transifex.com/projects/p/MLS_Plone/language/it/)\n"
@@ -20,15 +20,15 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Preferred-Encodings: utf-8 latin1\n"
 
-#: ps/plone/mls/browser/developments/collection.py:335
+#: ps/plone/mls/browser/developments/collection.py:332
 msgid "'Development Collection' Configuration"
 msgstr "Configurazione 'Collezione Progetti'"
 
-#: ps/plone/mls/browser/developments/collection.py:397
+#: ps/plone/mls/browser/developments/collection.py:394
 msgid "'Development Collection' viewlet activated."
 msgstr "Viewlet 'Collezione Progetti' attivata."
 
-#: ps/plone/mls/browser/developments/collection.py:393
+#: ps/plone/mls/browser/developments/collection.py:390
 msgid "'Development Collection' viewlet deactivated."
 msgstr "Viewlet 'Collezione Progetti' disattivata."
 
@@ -48,7 +48,7 @@ msgstr "Viewlet 'Annunci In Primo Piano' disattivata."
 msgid "A static collection of featured MLS Listings"
 msgstr "Una collezione statica di annunci MLS in primo piano"
 
-#: ps/plone/mls/browser/developments/templates/development_details_view.pt:226
+#: ps/plone/mls/browser/developments/templates/development_details_view.pt:227
 msgid "About the Area"
 msgstr "Riguardo all'Area"
 
@@ -73,7 +73,7 @@ msgstr "Attiva viewlet Annunci in Primo Piano."
 msgid "Add one Listing ID for each entry to show up."
 msgstr "Aggiungi un ID Annuncio per ogni voce da mostrare."
 
-#: ps/plone/mls/browser/developments/collection.py:336
+#: ps/plone/mls/browser/developments/collection.py:333
 msgid "Adjust the behaviour for this 'Development Collection' viewlet."
 msgstr "Modifica il comportamento di questa viewlet 'Collezione Progetti'."
 
@@ -81,11 +81,11 @@ msgstr "Modifica il comportamento di questa viewlet 'Collezione Progetti'."
 msgid "Adjust the behaviour for this 'Featured Listings' viewlet."
 msgstr "Modifica il comportamento di questa viewlet 'Annunci in Primo Piano'."
 
-#: ps/plone/mls/browser/developments/collection.py:261
+#: ps/plone/mls/browser/developments/collection.py:258
 msgid "Agency Developments"
 msgstr "Progetti Agenzia"
 
-#: ps/plone/mls/browser/developments/collection.py:213
+#: ps/plone/mls/browser/developments/collection.py:210
 msgid "Alternative Email recipient"
 msgstr ""
 
@@ -95,7 +95,7 @@ msgid ""
 "settings or try again later."
 msgstr "Si è verificato un errore durante la connessione al MLS configurato. Si prega di controllare le Vostre impostazioni o di riprovare più tardi."
 
-#: ps/plone/mls/browser/developments/collection.py:357
+#: ps/plone/mls/browser/developments/collection.py:354
 #: ps/plone/mls/browser/listings/featured.py:151
 msgid "Cancel"
 msgstr "Cancella"
@@ -120,7 +120,7 @@ msgstr "Configura la viewlet della Collezione Progetti."
 msgid "Configure the Featured Listings viewlet."
 msgstr "Configura la viewlet degli Annunci in Primo Piano."
 
-#: ps/plone/mls/browser/developments/templates/development_details_view.pt:375
+#: ps/plone/mls/browser/developments/templates/development_details_view.pt:381
 msgid "Contact"
 msgstr "Contatto"
 
@@ -148,15 +148,15 @@ msgstr "Disattiva la viewlet della Collezione Progetti."
 msgid "Deactivate the Featured Listings viewlet."
 msgstr "Disattiva la viewlet degli Annunci in Primo Piano."
 
-#: ps/plone/mls/browser/developments/collection.py:241
+#: ps/plone/mls/browser/developments/collection.py:238
 msgid "Developments per Page"
 msgstr "Progetti per Pagina"
 
-#: ps/plone/mls/browser/developments/templates/development_details_view.pt:144
+#: ps/plone/mls/browser/developments/templates/development_details_view.pt:145
 msgid "Download PDF"
 msgstr "Download PDF"
 
-#: ps/plone/mls/browser/developments/collection.py:265
+#: ps/plone/mls/browser/developments/collection.py:262
 msgid "Enter a search term to filter the results."
 msgstr "Inserire un termine di ricerca per filtrare i risultati."
 
@@ -164,23 +164,23 @@ msgstr "Inserire un termine di ricerca per filtrare i risultati."
 msgid "Featured Listings"
 msgstr "Annunci in Primo Piano"
 
-#: ps/plone/mls/browser/developments/collection.py:168
+#: ps/plone/mls/browser/developments/collection.py:165
 msgid "Filter Options"
 msgstr "Opzioni Filtro"
 
-#: ps/plone/mls/browser/developments/templates/development_details_view.pt:164
+#: ps/plone/mls/browser/developments/templates/development_details_view.pt:165
 msgid "Gallery"
 msgstr "Galleria"
 
-#: ps/plone/mls/browser/developments/collection.py:237
+#: ps/plone/mls/browser/developments/collection.py:234
 msgid "How many developments should be shown per page?"
 msgstr "Quanti progetti dovrebbero essere mostrati per pagina?"
 
-#: ps/plone/mls/browser/developments/collection.py:246
+#: ps/plone/mls/browser/developments/collection.py:243
 msgid "How many listings should be shown per devlopment listings page?"
 msgstr "Quanti annunci dovrebbero essere mostrati per ogni pagina di annunci di progetti?"
 
-#: ps/plone/mls/browser/developments/collection.py:273
+#: ps/plone/mls/browser/developments/collection.py:270
 msgid ""
 "How should the results be sorted? If nothing is selected, the results are "
 "sorted by relevance."
@@ -191,23 +191,23 @@ msgstr "Come dovrebbero essere ordinati i risultati? Se non si seleziona niente,
 msgid "ID"
 msgstr "ID"
 
-#: ps/plone/mls/browser/developments/collection.py:200
+#: ps/plone/mls/browser/developments/collection.py:197
 msgid ""
 "If enabled, a form to contact the responsible agent will be shown on the "
 "detail page for a development."
 msgstr "Se abilitato, un modulo di contatto con l'agente responsabile sarà mostrato sulla pagina dettagli di un progetto."
 
-#: ps/plone/mls/browser/developments/collection.py:256
+#: ps/plone/mls/browser/developments/collection.py:253
 msgid "If enabled, only developments for the configured agency will be shown."
 msgstr "Se abilitato, solo progetti relativi all'agenzia in questione saranno mostrati."
 
-#: ps/plone/mls/browser/developments/collection.py:190
+#: ps/plone/mls/browser/developments/collection.py:187
 msgid ""
 "If enabled, the contact information for a development will be shown on the "
 "detail page for a development."
 msgstr "Se abilitato, le informazioni di contatto di un progetto saranno mostrate sulla pagina dettagli del progetto."
 
-#: ps/plone/mls/browser/developments/collection.py:218
+#: ps/plone/mls/browser/developments/collection.py:215
 msgid ""
 "If the contact form is enabled, an anchor link will show as quick navigation"
 " to the form."
@@ -222,7 +222,7 @@ msgstr "Indirizzo email non valido."
 msgid "Listings"
 msgstr "Annunci"
 
-#: ps/plone/mls/browser/developments/collection.py:250
+#: ps/plone/mls/browser/developments/collection.py:247
 msgid "Listings per Page"
 msgstr "Annunci per Pagina"
 
@@ -231,11 +231,11 @@ msgstr "Annunci per Pagina"
 msgid "MLS Listing IDs"
 msgstr "ID Annunci MLS"
 
-#: ps/plone/mls/browser/developments/templates/development_details_view.pt:244
+#: ps/plone/mls/browser/developments/templates/development_details_view.pt:245
 msgid "Map &amp; Distances"
 msgstr "Mappa & Distanze"
 
-#: ps/plone/mls/browser/developments/templates/development_details_view.pt:341
+#: ps/plone/mls/browser/developments/templates/development_details_view.pt:347
 msgid "Meet the Developers"
 msgstr "Incontra i Costruttori"
 
@@ -243,44 +243,44 @@ msgstr "Incontra i Costruttori"
 msgid "No URLs allowed."
 msgstr "Non sono ammessi URL."
 
-#: ps/plone/mls/browser/developments/templates/development_details_view.pt:63
+#: ps/plone/mls/browser/developments/templates/development_details_view.pt:64
 msgid "Overview"
 msgstr "Panoramica"
 
-#: ps/plone/mls/browser/developments/templates/development_details_view.pt:304
+#: ps/plone/mls/browser/developments/templates/development_details_view.pt:310
 msgid "Phases"
 msgstr "Fasi"
 
-#: ps/plone/mls/browser/developments/templates/development_details_view.pt:245
+#: ps/plone/mls/browser/developments/templates/development_details_view.pt:246
 msgid "Please enable JavaScript to show the Map."
 msgstr ""
 
-#: ps/plone/mls/browser/developments/templates/development_details_view.pt:136
+#: ps/plone/mls/browser/developments/templates/development_details_view.pt:137
 msgid "Project Map"
 msgstr "Mappa del Progetto"
 
-#: ps/plone/mls/browser/developments/templates/development_details_view.pt:95
+#: ps/plone/mls/browser/developments/templates/development_details_view.pt:96
 msgid "Properties Available"
 msgstr "Proprietà Disponibili"
 
-#: ps/plone/mls/browser/developments/collection.py:285
+#: ps/plone/mls/browser/developments/collection.py:282
 msgid "Reverse sort order?"
 msgstr "Invertire ordine?"
 
-#: ps/plone/mls/browser/developments/collection.py:347
+#: ps/plone/mls/browser/developments/collection.py:344
 #: ps/plone/mls/browser/listings/featured.py:141
 msgid "Save"
 msgstr "Salva"
 
-#: ps/plone/mls/browser/developments/collection.py:269
+#: ps/plone/mls/browser/developments/collection.py:266
 msgid "Searchable Text"
 msgstr "Testo Ricercabile"
 
-#: ps/plone/mls/browser/developments/collection.py:209
+#: ps/plone/mls/browser/developments/collection.py:206
 msgid "Send the contact form to this email instead direct to the agent"
 msgstr ""
 
-#: ps/plone/mls/browser/developments/collection.py:175
+#: ps/plone/mls/browser/developments/collection.py:172
 msgid ""
 "Set the resolution for the map. 0 is the lowest zoom level, in which the "
 "entire world can be seen. The higher the zoom level, the more details can be"
@@ -288,31 +288,31 @@ msgid ""
 "can change over time, also depending on the used map provider."
 msgstr "Imposta la risoluzione per la mappa. 0 è il livello minimo di zoom con quale è visibile tutto il mondo. Più è alto il livello di zoom e più dettagli saranno visibili. Il livello massimo di zoom possibile varia da area ad area e può modificarsi nel tempo a seconda anche del provider della mappa."
 
-#: ps/plone/mls/browser/developments/collection.py:232
+#: ps/plone/mls/browser/developments/collection.py:229
 msgid "Show Captcha"
 msgstr "Mostra Captcha"
 
-#: ps/plone/mls/browser/developments/collection.py:205
+#: ps/plone/mls/browser/developments/collection.py:202
 msgid "Show Contact Form"
 msgstr "Mostra Modulo di Contatto"
 
-#: ps/plone/mls/browser/developments/collection.py:195
+#: ps/plone/mls/browser/developments/collection.py:192
 msgid "Show Contact Information"
 msgstr "Mostra Informazioni di Contatto"
 
-#: ps/plone/mls/browser/developments/collection.py:223
+#: ps/plone/mls/browser/developments/collection.py:220
 msgid "Show Contact-Us anchor link"
 msgstr "Mostra link Contattateci"
 
-#: ps/plone/mls/browser/developments/collection.py:228
+#: ps/plone/mls/browser/developments/collection.py:225
 msgid "Show a captcha field within the contact form to prevent spam."
 msgstr "Mostra un campo captcha nel modulo di contatto onde evitare spam."
 
-#: ps/plone/mls/browser/developments/collection.py:278
+#: ps/plone/mls/browser/developments/collection.py:275
 msgid "Sort results by"
 msgstr "Ordina risultati per"
 
-#: ps/plone/mls/browser/developments/collection.py:399
+#: ps/plone/mls/browser/developments/collection.py:396
 msgid ""
 "The 'Development Collection' viewlet does't work with this content type. Add"
 " 'IPossibleDevelopmentCollection' to the provided interfaces to enable this "
@@ -334,7 +334,7 @@ msgstr "Non è stato possibile trovare il progetto richiesto."
 msgid "Title"
 msgstr "Titolo"
 
-#: ps/plone/mls/browser/developments/templates/development_details_view.pt:218
+#: ps/plone/mls/browser/developments/templates/development_details_view.pt:219
 msgid "Video"
 msgstr "Video"
 
@@ -342,6 +342,6 @@ msgstr "Video"
 msgid "Your contact request was sent successfully."
 msgstr "La Vostra richiesta di contatto è stata inviata con successo."
 
-#: ps/plone/mls/browser/developments/collection.py:185
+#: ps/plone/mls/browser/developments/collection.py:182
 msgid "Zoom level for maps"
 msgstr "Livello di zoom per le mappe"
