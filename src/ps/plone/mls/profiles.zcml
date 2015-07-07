@@ -50,4 +50,15 @@
       sortkey="1"
       profile="ps.plone.mls:default"
       />
+
+  <genericsetup:upgradeStep
+      title="Upgrade ps.plone.mls"
+      description="Improve Developments embedding header"
+      source="1002"
+      destination="1003"
+      handler=".migration.migrate_to_1003"
+      sortkey="1"
+      profile="ps.plone.mls:default"
+      />
+
 </configure>
