@@ -31,9 +31,8 @@ def migrate_to_1002(context):
     setup.runImportStepFromProfile(config.INSTALL_PROFILE, 'jsregistry')
 
 
-def migrate_to_1003(context):
-    """Migrate from 1002 to 1003.
-    * update css
+def migrate_css(context):
+    """Migrate step for simple css updates
     """
     site = getUtility(IPloneSiteRoot)
     setup = getToolByName(site, 'portal_setup')

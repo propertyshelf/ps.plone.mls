@@ -53,10 +53,30 @@
 
   <genericsetup:upgradeStep
       title="Upgrade ps.plone.mls"
-      description="Improve Developments embedding header"
+      description="Upgrade CSS"
       source="1002"
       destination="1003"
-      handler=".migration.migrate_to_1003"
+      handler=".migration.migrate_css"
+      sortkey="1"
+      profile="ps.plone.mls:default"
+      />
+
+  <genericsetup:upgradeStep
+      title="Upgrade ps.plone.mls"
+      description="Upgrade CSS"
+      source="1002"
+      destination="1004"
+      handler=".migration.migrate_css"
+      sortkey="1"
+      profile="ps.plone.mls:default"
+      />
+      
+  <genericsetup:upgradeStep
+      title="Upgrade ps.plone.mls"
+      description="Upgrade CSS"
+      source="1003"
+      destination="1004"
+      handler=".migration.migrate_css"
       sortkey="1"
       profile="ps.plone.mls:default"
       />
