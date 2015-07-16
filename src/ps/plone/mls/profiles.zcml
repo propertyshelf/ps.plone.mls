@@ -70,7 +70,7 @@
       sortkey="1"
       profile="ps.plone.mls:default"
       />
-      
+  
   <genericsetup:upgradeStep
       title="Upgrade ps.plone.mls"
       description="Upgrade CSS"
