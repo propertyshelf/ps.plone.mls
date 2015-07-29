@@ -49,7 +49,7 @@
 
               <span aria-hidden="true"
                   tal:define="amentity_label python:amenities_dict[amenity]"
-                  tal:attributes="class string:amenitiesicon ${amenity} count_${amenities_count};
+                  tal:attributes="class string:amenitiesicon icon-${amenity} count_${amenities_count};
                                   aria-label amentity_label;
                                   title amentity_label;" >
               </span>

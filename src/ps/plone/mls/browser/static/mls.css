@@ -354,8 +354,8 @@
   text-align: center;
 }
 .development__amenities .amenitiesicon{
-  width:65px;
-  height:65px;
+  font-size:65px;
+  color:#ccc;
   display:inline-block;
   background-size: contain;
   background-repeat: no-repeat;
@@ -450,65 +450,6 @@
 }
 .development__amenities .volleyball_court{
   background-image: url(++resource++ps.plone.mls/icons/volleyball.png);
-}
-/* Set dynamic max width's to keep icons in a single line */
-.development__amenities .count_1,
-.count_1 .distanceicon{
-  max-width: 98%;
-}
-.development__amenities .count_2,
-.count_2 .distanceicon{
-  max-width: 48%;
-}
-.development__amenities .count_3,
-.count_3 .distanceicon{
-  max-width: 31%;
-}
-.development__amenities .count_4,
-.count_4 .distanceicon{
-  max-width: 23%;
-}
-.development__amenities .count_5,
-.count_5 .distanceicon{
-  max-width: 18%;
-}
-.development__amenities .count_6,
-.development__amenities .count_11,
-.development__amenities .count_12
-{
-  max-width: 14.5%;
-}
-.development__amenities .count_7,
-.development__amenities .count_13,
-.development__amenities .count_14,
-.development__amenities .count_21
-{
-  max-width: 12.5%;
-}
-.development__amenities .count_8,
-.development__amenities .count_15,
-.development__amenities .count_16,
-.development__amenities .count_22,
-.development__amenities .count_23,
-.development__amenities .count_24
-{
-  max-width: 10.5%;
-}
-.development__amenities .count_9,
-.development__amenities .count_17,
-.development__amenities .count_18,
-.development__amenities .count_25,
-.development__amenities .count_26,
-.development__amenities .count_27{
-  max-width: 9.5%;
-}
-.development__amenities .count_10,
-.development__amenities .count_19,
-.development__amenities .count_20,
-.development__amenities .count_28,
-.development__amenities .count_29,
-.development__amenities .count_30{
-  max-width: 8.5%;
 }
 
 /* Distance icons */
