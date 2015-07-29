@@ -364,18 +364,36 @@
 
 /* Distance icons */
 .distanceicon{
-    display:inline-block;
     vertical-align:top;
     text-align:center;
+    padding:10px;
+    width:15%;
+    display:inline-block;
 }
 
 .distanceicon .icon{
-  width:122px;
-  height:122px;
-  max-width:100%;
-  display:inline-block;
-  background-size: contain;
-  background-repeat: no-repeat;
+  font-size:120px;
+  color:#ccc;
+}
+
+@media (max-width: 800px) {
+  .distanceicon .icon{
+    font-size:90px;
+  }
+}
+@media (max-width: 640px) {
+  .distanceicon{
+    width:45%;
+  }
+  .distanceicon .icon{
+    font-size:60px;
+  }
+}
+@media (max-width: 420px) {
+  .distanceicon{
+    width:90%;
+    padding:10px 0;
+  }
 }
 
 /*  Phases */
