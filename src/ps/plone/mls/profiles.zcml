@@ -81,4 +81,14 @@
       profile="ps.plone.mls:default"
       />
 
+  <genericsetup:upgradeStep
+      title="Upgrade ps.plone.mls"
+      description="Ensure all needed addons and styles are active"
+      source="1004"
+      destination="1005"
+      handler=".migration.migrate_to_1005"
+      sortkey="1"
+      profile="ps.plone.mls:default"
+      />
+
 </configure>
