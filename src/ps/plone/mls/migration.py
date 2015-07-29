@@ -47,5 +47,5 @@ def migrate_to_1005(context):
     quickinstaller = getToolByName(site, 'portal_quickinstaller')
 
     # Add ps.fonts.iconmagic
-    if not quickinstaller.isProductInstalled('ps.fonts.iconmagic'):
-        quickinstaller.installProduct('ps.fonts.iconmagic')
+    if not quickinstaller.isProductInstalled('ps.plone.realestatefont'):
+        quickinstaller.installProduct('ps.plone.realestatefont')

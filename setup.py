@@ -18,7 +18,7 @@ install_requires = [
     'plone.api',
     'plone.app.dexterity',
     'plone.mls.listing >= 0.9.11',
-    'ps.fonts.iconmagic',
+    'ps.plone.realestatefont',
 ]
 
 setup(
