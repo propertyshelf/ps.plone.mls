@@ -367,12 +367,31 @@
     vertical-align:top;
     text-align:center;
     padding:10px;
-    width:15%;
+    
     display:inline-block;
 }
+.count_1 .distanceicon{
+  width:95%;
+}
+.count_2 .distanceicon{
+  width:45%;
+}
+.count_3 .distanceicon{
+  width:28%;
+}
+.count_4 .distanceicon{
+  width:20%;
+}
+.count_5 .distanceicon{
+  width:15%;
+}
+.count_6 .distanceicon{
+  width:28%;
+}
+
 
 .distanceicon .icon{
-  font-size:120px;
+  font-size:110px;
   color:#ccc;
 }
 
