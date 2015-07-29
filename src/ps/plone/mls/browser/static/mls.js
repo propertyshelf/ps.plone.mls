@@ -51,16 +51,4 @@ jQuery(function(jq) {
     });
   }
 
-
-  d_icons =jQuery('.distanceicon .icon');
-  if(d_icons.length>0){
-    resize_icons(d_icons);
-  }
-
-});
-jQuery(window).resize(function() {
-  d_icons =jQuery('.distanceicon .icon');
-  if(d_icons.length>0){
-    resize_icons(d_icons);
-  }
 });
