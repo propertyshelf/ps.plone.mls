@@ -354,192 +354,85 @@
   text-align: center;
 }
 .development__amenities .amenitiesicon{
-  width:65px;
-  height:65px;
+  font-size:65px;
+  color:#ccc;
   display:inline-block;
   background-size: contain;
   background-repeat: no-repeat;
 }
 
-.development__amenities .activities_equipment{
-  background-image: url(++resource++ps.plone.mls/icons/equipment_rental.png);
-}
-.development__amenities .bar{
-  background-image: url(++resource++ps.plone.mls/icons/bar.png);
-}
-.development__amenities .basketball_court{
-  background-image: url(++resource++ps.plone.mls/icons/basketball.png);
-}
-.development__amenities .bbq{
-  background-image: url(++resource++ps.plone.mls/icons/bbq.png);
-}
-.development__amenities .beach_club{
-  background-image: url(++resource++ps.plone.mls/icons/beach_club.png);
-}
-.development__amenities .changing_rooms{
-  background-image: url(++resource++ps.plone.mls/icons/changing_rooms.png);
-}
-.development__amenities .concierge{
-  background-image: url(++resource++ps.plone.mls/icons/concierge.png);
-}
-.development__amenities .entertainment_cinema{
-  background-image: url(++resource++ps.plone.mls/icons/cinema.png);
-}
-.development__amenities .game_room{
-  background-image: url(++resource++ps.plone.mls/icons/game_room.png);
-}
-.development__amenities .gardens{
-  background-image: url(++resource++ps.plone.mls/icons/garden.png);
-}
-.development__amenities .golf_course{
-  background-image: url(++resource++ps.plone.mls/icons/golf.png);
-}
-.development__amenities .gym{
-  background-image: url(++resource++ps.plone.mls/icons/gym.png);
-}
-.development__amenities .heated_pool{
-  background-image: url(++resource++ps.plone.mls/icons/heated_pool.png);
-}
-.development__amenities .helicopter_pad{
-  background-image: url(++resource++ps.plone.mls/icons/helicopter_pad.png);
-}
-.development__amenities .hotel{
-  background-image: url(++resource++ps.plone.mls/icons/hotel.png);
-}
-.development__amenities .laundry_facility{
-  background-image: url(++resource++ps.plone.mls/icons/laundry.png);
-}
-.development__amenities .medical_facility{
-  background-image: url(++resource++ps.plone.mls/icons/medical_facility.png);
-}
-.development__amenities .mini_market{
-  background-image: url(++resource++ps.plone.mls/icons/minimarket.png);
-}
-.development__amenities .pool{
-  background-image: url(++resource++ps.plone.mls/icons/pool.png);
-}
-.development__amenities .property_management{
-  background-image: url(++resource++ps.plone.mls/icons/property_management.png);
-}
-.development__amenities .restaurant{
-  background-image: url(++resource++ps.plone.mls/icons/restaurant.png);
-}
-.development__amenities .security{
-  background-image: url(++resource++ps.plone.mls/icons/security.png);
-}
-.development__amenities .soccer_field{
-  background-image: url(++resource++ps.plone.mls/icons/soccer.png);
-}
-.development__amenities .spa{
-  background-image: url(++resource++ps.plone.mls/icons/spa.png);
-}
-.development__amenities .stables{
-  background-image: url(++resource++ps.plone.mls/icons/stable.png);
-}
-.development__amenities .storage_lockers{
-  background-image: url(++resource++ps.plone.mls/icons/storage.png);
-}
-.development__amenities .tennis_court{
-  background-image: url(++resource++ps.plone.mls/icons/tennis.png);
-}
-.development__amenities .trash_collection{
-  background-image: url(++resource++ps.plone.mls/icons/rubbish.png);
-}
-.development__amenities .valet{
-  background-image: url(++resource++ps.plone.mls/icons/transportation.png);
-}
-.development__amenities .volleyball_court{
-  background-image: url(++resource++ps.plone.mls/icons/volleyball.png);
-}
-/* Set dynamic max width's to keep icons in a single line */
-.development__amenities .count_1,
-.count_1 .distanceicon{
-  max-width: 98%;
-}
-.development__amenities .count_2,
-.count_2 .distanceicon{
-  max-width: 48%;
-}
-.development__amenities .count_3,
-.count_3 .distanceicon{
-  max-width: 31%;
-}
-.development__amenities .count_4,
-.count_4 .distanceicon{
-  max-width: 23%;
-}
-.development__amenities .count_5,
-.count_5 .distanceicon{
-  max-width: 18%;
-}
-.development__amenities .count_6,
-.development__amenities .count_11,
-.development__amenities .count_12
-{
-  max-width: 14.5%;
-}
-.development__amenities .count_7,
-.development__amenities .count_13,
-.development__amenities .count_14,
-.development__amenities .count_21
-{
-  max-width: 12.5%;
-}
-.development__amenities .count_8,
-.development__amenities .count_15,
-.development__amenities .count_16,
-.development__amenities .count_22,
-.development__amenities .count_23,
-.development__amenities .count_24
-{
-  max-width: 10.5%;
-}
-.development__amenities .count_9,
-.development__amenities .count_17,
-.development__amenities .count_18,
-.development__amenities .count_25,
-.development__amenities .count_26,
-.development__amenities .count_27{
-  max-width: 9.5%;
-}
-.development__amenities .count_10,
-.development__amenities .count_19,
-.development__amenities .count_20,
-.development__amenities .count_28,
-.development__amenities .count_29,
-.development__amenities .count_30{
-  max-width: 8.5%;
-}
 
 /* Distance icons */
 .distanceicon{
-    display:inline-block;
     vertical-align:top;
     text-align:center;
+    padding:10px;
+    
+    display:inline-block;
+}
+.count_1 .distanceicon{
+  width:95%;
+}
+.count_2 .distanceicon{
+  width:45%;
+}
+.count_3 .distanceicon{
+  width:28%;
+}
+.count_4 .distanceicon{
+  width:20%;
+}
+.count_5 .distanceicon{
+  width:15%;
+}
+.count_6 .distanceicon{
+  width:28%;
 }
 
+
 .distanceicon .icon{
-  width:122px;
-  height:122px;
-  max-width:100%;
-  display:inline-block;
-  background-size: contain;
-  background-repeat: no-repeat;
+  font-size:100px;
+  color:#ccc;
 }
-.distanceicon .airport{
-  background-image: url(++resource++ps.plone.mls/icons/distance_airport.png);
+
+@media (max-width: 800px) {
+  .distanceicon .icon{
+    font-size:90px;
+  }
 }
-.distanceicon .hospital{
-  background-image: url(++resource++ps.plone.mls/icons/distance_hospital.png);
+@media (max-width: 700px) {
+
+  .count_2 .distanceicon,.count_4 .distanceicon 
+  .distanceicon{
+    width:45%;
+  }
+  .count_3 .distanceicon,
+  .count_5 .distanceicon,
+  .count_6 .distanceicon{
+    width:26%;
+  }
+  .distanceicon .icon{
+    font-size:70px;
+  }
 }
-.distanceicon .shopping{
-  background-image: url(++resource++ps.plone.mls/icons/distance_shopping.png);
+@media (max-width: 420px) {
+  .distanceicon,
+  .count_3 .distanceicon,
+  .count_5 .distanceicon,
+  .count_6 .distanceicon{
+    width:90%;
+    padding:10px 0;
+  }
 }
-.distanceicon .bank{
-  background-image: url(++resource++ps.plone.mls/icons/distance_bank.png);
-}
-.distanceicon .gas_station{
-  background-image: url(++resource++ps.plone.mls/icons/distance_gas_station.png);
+@media (max-width: 360px) {
+  .representative__avatar{
+    margin-right: 0;
+    float:none;
+  }
+  .representative__name,
+  .representative__name, .representative__user_title{
+    text-align: center;
+  }
 }
 
 /*  Phases */
@@ -669,20 +562,15 @@ table.phases__table td{
     right:0;
     text-align: left;
     padding:15px;
-
     background-color: #222;
     /* IE 8 */
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=75)";
-
   /* IE 5-7 */
   filter: alpha(opacity=75);
-
   /* Netscape */
   -moz-opacity: 0.75;
-
   /* Safari 1.x */
   -khtml-opacity: 0.75;
-
   /* Good browsers */
   opacity: 0.75;
 }
@@ -691,15 +579,48 @@ body .development__header .development_location{
     text-align: left;
 }
 
-
+@media (max-width: 900px){
+  .development__header .header_caption {
+    position:relative;
+    /* IE 8 */
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+    /* IE 5-7 */
+    filter: alpha(opacity=100);
+    /* Netscape */
+    -moz-opacity: 1;
+    /* Safari 1.x */
+    -khtml-opacity: 1;
+    /* Good browsers */
+    opacity: 1;
+  }
+}
 @media (max-width: 800px){
   .development__header .development_title{
-    font-size:2em;
+    font-size:1.7em;
   }
+}
+@media (max-width: 700px){
+  .overview__long_description .lead_image{
+    width:100%;
+  }
+  .development__overview .lead_image img{
+    width:100%;
+  }
+  .development__overview .lead_image .caption{
+    right:0;
+  }
+  .area__picture{
+    width:100%;
+    margin-right:0;
+  }
+  .area__picture img{
+    width:100%;
+  }
+
 }
 @media (max-width: 500px){
   .development__header .development_title{
-    font-size:1.8em;
+    font-size:1.5em;
   }
 }
 .development__header .development_headline{

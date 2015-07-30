@@ -3,7 +3,7 @@
 
 from setuptools import setup, find_packages
 
-version = '0.2.6.dev0'
+version = '0.2.6.dev3'
 description = "Propertyshelf MLS Plone Embedding."
 long_description = ('\n'.join([
     open('README.rst').read(),
@@ -18,6 +18,7 @@ install_requires = [
     'plone.api',
     'plone.app.dexterity',
     'plone.mls.listing >= 0.9.11',
+    'ps.plone.realestatefont',
 ]
 
 setup(

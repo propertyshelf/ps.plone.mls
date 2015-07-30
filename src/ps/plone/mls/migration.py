@@ -37,3 +37,15 @@ def migrate_css(context):
     site = getUtility(IPloneSiteRoot)
     setup = getToolByName(site, 'portal_setup')
     setup.runImportStepFromProfile(config.INSTALL_PROFILE, 'cssregistry')
+
+
+def migrate_to_1005(context):
+    """Migrate to 1005
+    * add ps.fonts.iconmagic
+    """
+    site = getUtility(IPloneSiteRoot)
+    quickinstaller = getToolByName(site, 'portal_quickinstaller')
+
+    # Add ps.fonts.iconmagic
+    if not quickinstaller.isProductInstalled('ps.plone.realestatefont'):
+        quickinstaller.installProduct('ps.plone.realestatefont')
