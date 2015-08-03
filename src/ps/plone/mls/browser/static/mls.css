@@ -71,7 +71,7 @@
 
 .development_details #group-listings li a:link{
   display:inline-block;
-  background-color: #87bcc7;
+  background-color: #ccc;
   color:#fefefe;
   padding:20px;
   font-size:18px;
@@ -186,7 +186,7 @@
   height:1.4em;
   padding-top:0.7em;
   font-size:20px;
-  background-color: #87bcc7;
+  background-color: #ccc;
   width:30%;
   text-align: center;
 }
@@ -232,7 +232,7 @@
 #content .development_details #group-listings li a:focus,
 #content .development_details #group-listings li a:visited{
   color:#fefefe !important;
-  background-color: #87bcc7;
+  background-color: #ccc;
   border-radius:0;
 }
 
@@ -492,7 +492,7 @@
 .phases__table tbody tr:focus,
 #content .phases__table .odd:hover,
 #content .phases__table .odd:focus{
-  background: #87bcc7;
+  background: #ccc;
 }
 #content .phases__table tbody tr:hover a,
 #content .phases__table tbody tr:focus a,
