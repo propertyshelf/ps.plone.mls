@@ -49,7 +49,7 @@
 
               <span aria-hidden="true"
                   tal:define="amentity_label python:amenities_dict[amenity]"
-                  tal:attributes="class string:amenitiesicon icon-${amenity} count_${amenities_count};
+                  tal:attributes="class string:amenitiesicon icon_re-${amenity} count_${amenities_count};
                                   aria-label amentity_label;
                                   title amentity_label;" >
               </span>
@@ -259,7 +259,7 @@
                           distance item/airport_distance/value | nothing;"
               tal:condition="python: name or distance">
               <span aria-hidden="true"
-                  class="icon icon-airport"
+                  class="icon icon_re-airport"
                   tal:attributes="title python: view.get_field_label('airport_name')" ></span>
               <h5 tal:content="python: view.get_field_label('airport_name')">[Closest Airport]</h5>
               <span tal:content="python: view.format_distance(name, distance)" ></span>
@@ -268,7 +268,7 @@
               tal:define="name item/hospital_name/value | nothing;
                           distance item/hospital_distance/value | nothing;"
               tal:condition="python: name or distance">
-              <span aria-hidden="true" class="icon icon-hospital"
+              <span aria-hidden="true" class="icon icon_re-hospital"
                     tal:attributes="title python: view.get_field_label('hospital_name')" ></span>
               <h5 tal:content="python: view.get_field_label('hospital_name')">[Closest Hospital]</h5>
               <span tal:content="python: view.format_distance(name, distance)" ></span>
@@ -278,7 +278,7 @@
                           distance item/shopping_distance/value | nothing;"
               tal:condition="python: name or distance">
               <span aria-hidden="true"
-                  class="icon icon-mall"
+                  class="icon icon_re-mall"
                   tal:attributes="title python: view.get_field_label('shopping_name')" ></span> 
               <h5 tal:content="python: view.get_field_label('shopping_name')">[Closest Shopping Center]</h5>
               <span tal:content="python: view.format_distance(name, distance)" ></span>
@@ -288,7 +288,7 @@
                           distance item/bank_distance/value | nothing;"
               tal:condition="python: name or distance">
               <span aria-hidden="true"
-                  class="icon icon-bank"
+                  class="icon icon_re-bank"
                   tal:attributes="title python: view.get_field_label('bank_name')" ></span>
               <h5 tal:content="python: view.get_field_label('bank_name')">[Closest Bank/ATM]</h5>
               <span tal:content="python: view.format_distance(name, distance)" ></span>
@@ -298,7 +298,7 @@
                           distance item/gas_station_distance/value | nothing;"
               tal:condition="python: name or distance">
               <span aria-hidden="true"
-                  class="icon icon-gas-station"
+                  class="icon icon_re-gas-station"
                   tal:attributes="title python: view.get_field_label('gas_station_name')"></span>
               <h5 tal:content="python: view.get_field_label('gas_station_name')">[Closest Gas Station]</h5>
               <span tal:content="python: view.format_distance(name, distance)" ></span>
