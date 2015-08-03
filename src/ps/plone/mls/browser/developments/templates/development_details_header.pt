@@ -18,12 +18,6 @@
                         title title;
                         alt location"/>
 
-    <div class="development_logo"
-        tal:condition="logo">
-        <img
-          tal:condition="logo"
-          tal:attributes="src logo;" />
-    </div>
     <div class="header_caption">
       <h1 class="development_title"
           tal:condition="title"
