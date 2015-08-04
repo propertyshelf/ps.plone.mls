@@ -366,7 +366,7 @@
     vertical-align:top;
     text-align:center;
     padding:10px;
-    
+
     display:inline-block;
 }
 .count_1 .distanceicon{
@@ -400,7 +400,7 @@
 }
 @media (max-width: 700px) {
 
-  .count_2 .distanceicon,.count_4 .distanceicon 
+  .count_2 .distanceicon,.count_4 .distanceicon
   .distanceicon{
     width:45%;
   }

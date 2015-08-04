@@ -279,7 +279,7 @@
               tal:condition="python: name or distance">
               <span aria-hidden="true"
                   class="icon icon_re-mall"
-                  tal:attributes="title python: view.get_field_label('shopping_name')" ></span> 
+                  tal:attributes="title python: view.get_field_label('shopping_name')" ></span>
               <h5 tal:content="python: view.get_field_label('shopping_name')">[Closest Shopping Center]</h5>
               <span tal:content="python: view.format_distance(name, distance)" ></span>
             </div>
