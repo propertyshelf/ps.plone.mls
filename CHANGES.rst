@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-0.2.6 (unreleased)
+0.2.6 (2015-08-11)
 ------------------
 
 - improved styling for Development header captions
