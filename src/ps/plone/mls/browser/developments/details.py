@@ -83,6 +83,8 @@ window.addEventListener('mousemove', function mouseMoveDetector(){{
 
 function initializeMap() {{
     var center = new google.maps.LatLng({lat}, {lng})
+    isTouch=true;
+
     var myOptions = {{
         zoom: {zoom},
         center: center,
