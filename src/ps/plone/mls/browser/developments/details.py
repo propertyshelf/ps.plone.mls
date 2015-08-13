@@ -72,6 +72,15 @@ Message:
 
 
 MAP_JS = """
+var isTouch = true;
+var map;
+
+window.addEventListener('mousemove', function mouseMoveDetector(){{
+    isTouch = false;
+    window.removeEventListener('mousemove', mouseMoveDetector);
+    map = initializeMap();
+}});
+
 function initializeMap() {{
     var center = new google.maps.LatLng({lat}, {lng})
     var myOptions = {{
@@ -82,7 +91,8 @@ function initializeMap() {{
         disableDoubleClickZoom: true,
         overviewMapControl: true,
         streetViewControl: true,
-        scrollwheel: false
+        scrollwheel: false,
+        draggable:!isTouch
     }}
 
     var map = new google.maps.Map(
