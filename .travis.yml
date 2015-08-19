@@ -26,6 +26,8 @@ matrix:
     - env: PLONE_VERSION=4.2
     - env: PLONE_VERSION=5.0
   fast_finish: true
+addons:
+  firefox: "39.0"
 install:
   - sed -ie "s#travis-4.x.cfg#travis-$PLONE_VERSION.x.cfg#" travis.cfg
   - sed -ie "s#versions-$PLONE_VERSION.x#versions#" travis.cfg
