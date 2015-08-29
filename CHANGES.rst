@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-0.2.7 (unreleased)
+0.2.7 (2015-08-29)
 ------------------
 
 - *bugfix:* Development contact form crashed on ascii characters in name or message
