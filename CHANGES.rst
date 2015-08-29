@@ -5,7 +5,7 @@ Changelog
 0.2.7 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- *bugfix:* Development contact form crashed on ascii characters in name or message
 
 
 0.2.6 (2015-08-11)
