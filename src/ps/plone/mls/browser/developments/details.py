@@ -62,7 +62,7 @@ from ps.plone.mls.interfaces import IDevelopmentDetails
 
 logger = logging.getLogger(config.PROJECT_NAME)
 
-EMAIL_TEMPLATE = """
+EMAIL_TEMPLATE = u"""
 Enquiry from: {name} <{sender_from_address}>
 Development URL: {url}
 
@@ -259,7 +259,7 @@ class ContactForm(form.Form):
         if self.email_override is not None:
             rcp = self.email_override
 
-        sender = '{0} <{1}>'.format(data['name'], data['sender_from_address'])
+        sender = u'{0} <{1}>'.format(data['name'], data['sender_from_address'])
         subject = u'Customer Contact Developments'
         data['url'] = self.request.getURL()
         message = EMAIL_TEMPLATE.format(**data)
