@@ -20,7 +20,7 @@
       <div metal:use-macro="context/batch_macros/macros/navigation" />
       <div class="tileItem visualIEFloatFix"
            tal:repeat="item batch">
-        <tal:item tal:define="item_url string:${page_url}${item/id/value};
+        <tal:item tal:define="item_url python: view.get_url(item);
                               location_raw item/location/value;
                               location_list python: location_raw.split(',');
                               lcount python: len(location_list);

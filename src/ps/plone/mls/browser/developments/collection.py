@@ -149,6 +149,13 @@ class DevelopmentCollectionViewlet(ViewletBase):
             batch_data=self._batching,
         )
 
+    def get_url(self, item):
+        """Get the (possibly modified) URL for the development item."""
+        url = u'%s%s' % (self.view_url(), item.id.value)
+        if self.config.get('modify_url', True):
+            url = u'%s___%s-%s' % (url, item.title.value, item.location.value)
+        return url
+
 
 FIELDS_FILTER = (
     'agency_developments',
