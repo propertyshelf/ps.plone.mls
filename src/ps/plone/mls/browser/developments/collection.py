@@ -54,6 +54,7 @@ EXCLUDED_SEARCH_FIELDS = [
     'show_contact_link',
     'show_contact_info',
     'show_captcha',
+    'modify_urls',
     'limit_developments',
     'limit_listings',
 ]
@@ -227,6 +228,16 @@ class IDevelopmentCollectionConfiguration(form.Schema):
         ),
         required=False,
         title=_(u'Show Captcha'),
+    )
+
+    modify_url = schema.Bool(
+        default=True,
+        description=_(
+            u'Modify the individual development URLs to show extra '
+            u'information, such as the Title and Location'
+        ),
+        required=False,
+        title=_(u'Modify URLs'),
     )
 
     limit_developments = schema.Int(
