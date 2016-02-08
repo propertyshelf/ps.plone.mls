@@ -54,6 +54,7 @@ Show how to activate the listing collection
 
     Click button  css=#form-buttons-cancel
 
+    Go to  ${PLONE_URL}/${FOLDER_ID}
     Page should contain element  css=#plone-contentmenu-actions dt a
     Click link  css=#plone-contentmenu-actions dt a
     Wait until element is visible
