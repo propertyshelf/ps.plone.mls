@@ -25,25 +25,5 @@ Mostly Harmless
     :target: http://badge.fury.io/gh/propertyshelf%2Fps.plone.mls
     :alt: Fury Github
 
-.. image:: https://pypip.in/d/ps.plone.mls/badge.png
-    :target: https://pypi.python.org/pypi/ps.plone.mls/
-    :alt: Downloads
-
-.. image:: https://pypip.in/v/ps.plone.mls/badge.png
-    :target: https://pypi.python.org/pypi/ps.plone.mls/
-    :alt: Latest Version
-
-.. image:: https://pypip.in/wheel/ps.plone.mls/badge.png
-    :target: https://pypi.python.org/pypi/ps.plone.mls/
-    :alt: Wheel Status
-
-.. image:: https://pypip.in/egg/ps.plone.mls/badge.png
-    :target: https://pypi.python.org/pypi/ps.plone.mls/
-    :alt: Egg Status
-
-.. image:: https://pypip.in/license/ps.plone.mls/badge.png
-    :target: https://pypi.python.org/pypi/ps.plone.mls/
-    :alt: License
-
 
 .. _`Propertyshelf`: http://propertyshelf.com
