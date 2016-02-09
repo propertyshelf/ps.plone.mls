@@ -117,7 +117,7 @@ class DevelopmentCollectionViewlet(ViewletBase):
         )
         try:
             result = api.Development.search(mlsapi, params=params)
-        except:
+        except Exception:
             pass
         else:
             self._items = result.get_items()
@@ -151,9 +151,13 @@ class DevelopmentCollectionViewlet(ViewletBase):
 
     def get_url(self, item):
         """Get the (possibly modified) URL for the development item."""
-        url = u'%s%s' % (self.view_url(), item.id.value)
+        url = u'{0}{1}'.format(self.view_url(), item.id.value)
         if self.config.get('modify_url', True):
-            url = u'%s___%s-%s' % (url, item.title.value, item.location.value)
+            url = u'{0}___{1}-{2}'.format(
+                url,
+                item.title.value,
+                item.location.value,
+            )
         return url
 
 

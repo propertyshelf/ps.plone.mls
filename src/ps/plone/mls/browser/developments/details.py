@@ -8,7 +8,6 @@ import logging
 
 # zope imports
 from Acquisition import aq_inner
-from Products.CMFCore.utils import getToolByName
 from Products.CMFPlone import PloneMessageFactory as PMF
 from Products.Five import BrowserView
 from plone import api as plone_api
@@ -24,7 +23,7 @@ try:
     HAS_UI_SETTINGS = True
 except ImportError:
     HAS_UI_SETTINGS = False
-from plone.registry.interfaces import IRegistry
+from plone.registry.interfaces import IRegistry  # noqa
 from plone.z3cform import z2
 from z3c.form import (
     button,
@@ -239,8 +238,8 @@ class ContactForm(form.Form):
         return
 
     def send_email(self, data):
-        mailhost = getToolByName(self.context, 'MailHost')
-        urltool = getToolByName(self.context, 'portal_url')
+        mailhost = plone_api.portal.get_tool(name='MailHost')
+        urltool = plone_api.portal.get_tool(name='portal_url')
         portal = urltool.getPortalObject()
         email_charset = portal.getProperty('email_charset')
 
@@ -253,7 +252,7 @@ class ContactForm(form.Form):
         try:
             agent = self.item_info
             rcp = agent.email.value
-        except:
+        except Exception:
             rcp = from_address
 
         if self.email_override is not None:
@@ -270,7 +269,7 @@ class ContactForm(form.Form):
         message['Subject'] = subject
         try:
             mailhost.send(message, immediate=True, charset=email_charset)
-        except:
+        except Exception:
             return False
         return True
 
@@ -290,7 +289,7 @@ class DevelopmentDetails(BrowserView):
 
     def __init__(self, context, request):
         super(DevelopmentDetails, self).__init__(context, request)
-        self.registry = getUtility(IRegistry)
+        self.registry = getUtility(IRegistry)  # noqa
 
     @property
     def config(self):
@@ -350,13 +349,13 @@ class DevelopmentDetails(BrowserView):
         """Generate a unique css id for the map."""
         try:
             item_id = self.item.id.value
-        except:
+        except Exception:
             item_id = 'unknown'
         return u'map__{0}'.format(item_id)
 
     def javascript_map(self):
         """Return the JS code for the map."""
-        if not hasattr(self.item, 'geolocation') or not self.item.geolocation:
+        if not hasattr(self.item, 'geolocation') or not self.item.geolocation:  # noqa
             return
 
         icon = getattr(self.item, 'icon', None)
@@ -381,7 +380,7 @@ class DevelopmentDetails(BrowserView):
         if self.registry is not None:
             try:
                 settings = self.registry.forInterface(IMLSUISettings)
-            except:
+            except Exception:
                 logger.warning('MLS UI settings not available.')
             else:
                 return getattr(settings, 'slideshow') == u'fotorama'
@@ -394,7 +393,7 @@ class DevelopmentDetails(BrowserView):
         if self.registry is not None:
             try:
                 settings = self.registry.forInterface(IMLSUISettings)
-            except:
+            except Exception:
                 logger.warning('MLS UI settings not available.')
             else:
                 return getattr(settings, 'slideshow') == u'galleria'
@@ -565,7 +564,7 @@ class HeaderViewlet(ViewletBase):
             # banner image as regular data
             self._banner = item.banner_image.value
             self._has_banner = True
-        except:
+        except Exception:
             self._has_banner = False
 
     def _set_development_info(self):
@@ -577,15 +576,15 @@ class HeaderViewlet(ViewletBase):
             # try to set the available data
             try:
                 self._logo = item.logo.value
-            except:
+            except Exception:
                 pass
             try:
                 self._title = item.title.value
-            except:
+            except Exception:
                 pass
             try:
                 self._headline = item.headline.value
-            except:
+            except Exception:
                 pass
             try:
                 seq = (item.city.value,
@@ -593,7 +592,7 @@ class HeaderViewlet(ViewletBase):
                        item.country.value)
                 joint = ', '
                 self._location = joint.join(seq)
-            except:
+            except Exception:
                 self._location = item.location.value
             # set header image
             self._set_banner(item)

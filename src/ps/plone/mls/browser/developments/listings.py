@@ -115,7 +115,7 @@ class DevelopmentListings(BrowserView):
         """Generate view url."""
         try:
             item_id = self.item.id.value
-        except:
+        except Exception:
             item_id = ''
 
         return '/'.join([

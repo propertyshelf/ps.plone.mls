@@ -13,7 +13,7 @@ class TitleViewlet(common.TitleViewlet):
 
         try:
             title = self.view.item.title.value
-        except:
+        except Exception:
             return
         else:
             self.site_title = u'{0} &mdash; {1}'.format(title, self.site_title)

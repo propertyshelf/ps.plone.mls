@@ -2,9 +2,7 @@
 """Migration steps for ps.plone.mls."""
 
 # zope imports
-from Products.CMFCore.utils import getToolByName
-from Products.CMFPlone.interfaces.siteroot import IPloneSiteRoot
-from zope.component import getUtility
+from plone import api
 
 # local imports
 from ps.plone.mls import config
@@ -15,8 +13,7 @@ def migrate_to_1001(context):
 
     * Activate portal actions.
     """
-    site = getUtility(IPloneSiteRoot)
-    setup = getToolByName(site, 'portal_setup')
+    setup = api.portal.get_tool(name='portal_setup')
     setup.runImportStepFromProfile(config.INSTALL_PROFILE, 'actions')
 
 
@@ -25,26 +22,23 @@ def migrate_to_1002(context):
 
     * ensure mls.css
     """
-    site = getUtility(IPloneSiteRoot)
-    setup = getToolByName(site, 'portal_setup')
+    setup = api.portal.get_tool(name='portal_setup')
     setup.runImportStepFromProfile(config.INSTALL_PROFILE, 'cssregistry')
     setup.runImportStepFromProfile(config.INSTALL_PROFILE, 'jsregistry')
 
 
 def migrate_css(context):
-    """Migrate step for simple css updates
-    """
-    site = getUtility(IPloneSiteRoot)
-    setup = getToolByName(site, 'portal_setup')
+    """Migration step for simple css updates."""
+    setup = api.portal.get_tool(name='portal_setup')
     setup.runImportStepFromProfile(config.INSTALL_PROFILE, 'cssregistry')
 
 
 def migrate_to_1005(context):
-    """Migrate to 1005
-    * add ps.fonts.iconmagic
+    """Migrate from 1004 to 1005
+
+    * add ps.plone.realestatefont
     """
-    site = getUtility(IPloneSiteRoot)
-    quickinstaller = getToolByName(site, 'portal_quickinstaller')
+    quickinstaller = api.portal.get_tool(name='portal_quickinstaller')
 
     # Add ps.fonts.iconmagic
     if not quickinstaller.isProductInstalled('ps.plone.realestatefont'):

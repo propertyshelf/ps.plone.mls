@@ -14,7 +14,6 @@ from plone.mls.core.api import get_settings
 from plone.mls.listing.api import get_agency_info
 from zope.annotation.interfaces import IAnnotations
 from zope.globalrequest import getRequest
-import Globals
 
 # local imports
 from ps.plone.mls import (
@@ -36,7 +35,7 @@ def _remove_omitted(params, omit):
         for item in omit:
             try:
                 del params[item]
-            except:
+            except KeyError:
                 continue
 
 
@@ -83,7 +82,7 @@ def get_api(context=None, lang=None):
     settings = get_settings(context=context)
     base_url = settings.get('mls_site', None)
     api_key = settings.get('mls_key', None)
-    debug = Globals.DevelopmentMode
+    debug = plone_api.env.debug_mode
     mls = api.API(base_url, api_key=api_key, lang=lang, debug=debug)
     return mls
 

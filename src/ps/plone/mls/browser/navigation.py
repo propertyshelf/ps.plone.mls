@@ -40,7 +40,7 @@ class DevelopmentDetailsNavigationBreadcrumbs(PhysicalNavigationBreadcrumbs):
 
         try:
             title = item.title.value
-        except:
+        except Exception:
             return base
 
         url = '/'.join([item_url, development_id])

@@ -5,12 +5,14 @@
 import unittest2 as unittest
 
 # zope imports
-from Products.CMFCore.utils import getToolByName
 from plone import api
 from plone.app.content.interfaces import INameFromTitle
 from plone.app.dexterity.behaviors.exclfromnav import IExcludeFromNavigation
 from plone.dexterity.interfaces import IDexterityFTI
-from zope.component import createObject, queryUtility
+from zope.component import (
+    createObject,  # noqa
+    queryUtility,
+)
 
 # local imports
 from ps.plone.mls.content.featured import IFeaturedListings
@@ -35,7 +37,7 @@ class FeaturedListingsIntegrationTestCase(unittest.TestCase):
 
     def test_ct_available(self):
         """Validate that the content type is available."""
-        portal_types = getToolByName(self.portal, 'portal_types')
+        portal_types = api.portal.get_tool(name='portal_types')
         self.assertTrue(CT in portal_types)
 
     def test_fti(self):
