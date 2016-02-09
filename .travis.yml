@@ -36,6 +36,9 @@ install:
   - pip install zc.buildout
   - buildout -c travis.cfg annotate
   - buildout -c travis.cfg -N -q
+branches:
+  only:
+    - master
 before_script:
   - "export DISPLAY=:99.0"
   - "sh -e /etc/init.d/xvfb start"
@@ -44,6 +47,5 @@ script:
   - bin/code-analysis
   - bin/test
 notifications:
-  irc: irc.freenode.org#propertyshelf
   hipchat:
     secure: "DNFt17qIiF4pD0XskghAx1qRiSbLu9vdr+KnxeJLgzVBX1mnIJScxO6pEZ0ZK+2ivjXNpmqHd/wkyWs38zBV9MNoih8t6IRmAnJ/4/+E+rbQ3zye8mcBsrvDwhtUKYDpJOHVfuQJjwco0ro+LnW200q/x3LJ7vmw+oPBka8HNSk="
