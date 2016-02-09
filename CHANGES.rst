@@ -5,7 +5,9 @@ Changelog
 0.2.8 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Added option switch between short and long urls for development collections.
+- Fix robot tests.
+- Fix code-analysis errors and warnings.
 
 
 0.2.7 (2015-08-29)
