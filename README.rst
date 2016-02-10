@@ -26,4 +26,10 @@ Mostly Harmless
     :alt: Fury Github
 
 
+Requirements
+------------
+
+Currently z3c.form needs to be pinned down to version 3.2.1 to render multi-select widgets for ListingCollections.
+
+
 .. _`Propertyshelf`: http://propertyshelf.com
