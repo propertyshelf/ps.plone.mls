@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-0.2.8 (unreleased)
+0.2.8 (2016-02-10)
 ------------------
 
 - Added option switch between short and long urls for development collections.
