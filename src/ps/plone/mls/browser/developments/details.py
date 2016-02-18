@@ -18,6 +18,7 @@ from plone.formwidget.captcha.validator import (
     CaptchaValidator,
     WrongCaptchaCode,
 )
+from plone.memoize.view import memoize
 try:
     from plone.mls.listing.interfaces import IMLSUISettings
     HAS_UI_SETTINGS = True
@@ -596,3 +597,19 @@ class HeaderViewlet(ViewletBase):
                 self._location = item.location.value
             # set header image
             self._set_banner(item)
+
+
+class DevelopmentCanonicalURL(ViewletBase):
+    """Defines a canonical link relation viewlet to be displayed across the
+    site. A canonical page is the preferred version of a set of pages with
+    highly similar content. For more information, see:
+    https://tools.ietf.org/html/rfc6596
+    https://support.google.com/webmasters/answer/139394?hl=en
+    """
+
+    @memoize
+    def render(self):
+        context_state = queryMultiAdapter(
+            (self.context, self.request), name=u'plone_context_state')
+        base_url = context_state.current_base_url()
+        return u'    <link rel="canonical" href="{0}" />'.format(base_url)

@@ -15,6 +15,15 @@
       template="templates/development_collection_viewlet.pt"
       />
 
+  <browser:viewlet
+      class=".details.DevelopmentCanonicalURL"
+      name="plone.links.canonical_url"
+      for="ps.plone.mls.interfaces.IDevelopmentCollection"
+      layer="ps.plone.mls.browser.interfaces.IPloneMLSLayer"
+      manager="plone.app.layout.viewlets.interfaces.IHtmlHeadLinks"
+      permission="zope2.View"
+      />
+
   <browser:page
       class=".collection.DevelopmentCollectionConfiguration"
       for="ps.plone.mls.interfaces.IDevelopmentCollection"
