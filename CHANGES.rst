@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-0.3 (unreleased)
+0.3 (2016-02-18)
 ----------------
 
 - Fix canonical links for development detail pages to point to themselves rather than the development collection.
