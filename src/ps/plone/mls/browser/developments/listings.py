@@ -86,6 +86,8 @@ class DevelopmentListings(BrowserView):
         params = {
             'limit': self.limit,
             'offset': self.request.get('b_start', 0),
+            'sort_on': 'last_activated_date',
+            'reverse': '1',
         }
 
         phase_id = self.request.form.get('phase')
