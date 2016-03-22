@@ -10,7 +10,6 @@ from plone.app.testing import (
     PLONE_FIXTURE,
 )
 from plone.testing import Layer, z2
-from zope.configuration import xmlconfig
 
 
 class Fixture(PloneSandboxLayer):
@@ -21,11 +20,7 @@ class Fixture(PloneSandboxLayer):
         """Set up Zope for testing."""
         # Load ZCML
         import ps.plone.mls
-        xmlconfig.file(
-            'configure.zcml',
-            ps.plone.mls,
-            context=configurationContext,
-        )
+        self.loadZCML(package=ps.plone.mls)
 
     def setUpPloneSite(self, portal):
         """Set up a Plone site for testing."""
