@@ -97,7 +97,7 @@
             <ul id="group-listings">
               <tal:groups tal:repeat="group groups">
                 <tal:group tal:define="group_id group/id/value | nothing;
-                                  group_listings_link string:${self_link}/listings?group=${group_id}&amp;ajax_load=1">
+                                  group_listings_link string:${self_link}/listings?group=${group_id}">
                   <li tal:attributes="id string:fieldsetlegend-${group_id};">
                     <a class="tab_link"
                         tal:content="group/title/value | string:-"
@@ -121,7 +121,7 @@
                     // only load once.
                     if (pane.is(":empty")) {
                     // load it with a page specified in the tab's href
-                    content_raw= this.getTabs().eq(i).attr("href");
+                    content_raw = this.getTabs().eq(i).attr('href') + '&ajax_load=1';
                     content_selected= content_raw.concat(" #content .listing-summary")
                     pane.load(content_selected);
                     }
