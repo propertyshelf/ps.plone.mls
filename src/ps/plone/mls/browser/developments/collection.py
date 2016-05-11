@@ -141,6 +141,8 @@ class DevelopmentCollectionViewlet(ViewletBase):
     @property
     def batching(self):
         """Create the batch provider for the collection items."""
+        if not self.items:
+            return
         return ListingBatch(
             self.items,
             self.limit,
