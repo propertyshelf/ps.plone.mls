@@ -6,6 +6,7 @@ Changelog
 ----------------
 
 - Add CSS classes to listing summary fields.
+- Only show development detail page if development is available in collection.
 
 
 0.3 (2016-02-18)

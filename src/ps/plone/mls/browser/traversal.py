@@ -6,6 +6,7 @@ import copy
 
 # zope imports
 from ZPublisher.BaseRequest import DefaultPublishTraverse
+from plone.memoize.view import memoize
 from zope.annotation.interfaces import IAnnotations
 from zope.component import adapter, queryMultiAdapter
 from zope.interface import implementer
@@ -17,6 +18,9 @@ from zope.publisher.interfaces.browser import (
 
 # local imports
 from ps.plone.mls import api
+from ps.plone.mls.browser.developments.collection import (
+    DevelopmentCollectionViewlet,
+)
 from ps.plone.mls.content import featured
 from ps.plone.mls.interfaces import (
     IDevelopmentTraversable,
@@ -147,6 +151,14 @@ class DevelopmentTraverser(MLSItemTraverser):
     detail_view_name = 'development-detail'
     item_id = 'development_id'
     has_development = False
+
+    @memoize
+    def check_item(self, item_id):
+        """Check if the development ID is available."""
+        dcv = DevelopmentCollectionViewlet(self.context, self.request, None)
+        dcv.update()
+        available_ids = [item.id.value for item in dcv.items]
+        return item_id in available_ids
 
     def post_lookup(self, item_id):
         """Post lookup hook."""
