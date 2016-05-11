@@ -6,6 +6,7 @@ import copy
 
 # zope imports
 from ZPublisher.BaseRequest import DefaultPublishTraverse
+from plone.memoize.view import memoize
 from zope.annotation.interfaces import IAnnotations
 from zope.component import adapter, queryMultiAdapter
 from zope.interface import implementer
@@ -151,6 +152,7 @@ class DevelopmentTraverser(MLSItemTraverser):
     item_id = 'development_id'
     has_development = False
 
+    @memoize
     def check_item(self, item_id):
         """Check if the development ID is available."""
         dcv = DevelopmentCollectionViewlet(self.context, self.request, None)
