@@ -7,6 +7,7 @@ Changelog
 
 - Add CSS classes to listing summary fields.
 - Only show development detail page if development is available in collection.
+- Show interior area and living area in listing summary, if available.
 
 
 0.3 (2016-02-18)
