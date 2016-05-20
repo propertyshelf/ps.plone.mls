@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-0.4 (unreleased)
+0.4 (2016-05-20)
 ----------------
 
 - Add CSS classes to listing summary fields.
