@@ -9,6 +9,32 @@ from plone.mls.listing.browser.interfaces import IListingDetails
 from ps.plone.mls.interfaces import IDevelopmentDetails
 
 
+class DublinCoreViewlet(common.DublinCoreViewlet):
+    """Customized DublinCore descriptions for MLS embeddings."""
+
+    def update(self):
+        super(DublinCoreViewlet, self).update()
+
+        description = None
+        if IDevelopmentDetails.providedBy(self.view):
+            try:
+                description = self.view.item.description.value
+            except AttributeError:
+                return
+        elif IListingDetails.providedBy(self.view):
+            try:
+                description = self.view.description
+            except AttributeError:
+                return
+
+        if description is not None:
+            for meta_tuple in self.metatags:
+                tag, text = meta_tuple
+                if tag == 'description':
+                    self.metatags.remove(meta_tuple)
+            self.metatags.append(('description', description))
+
+
 class TitleViewlet(common.TitleViewlet):
     """Customized title Viewlet for MLS embeddings."""
 

@@ -79,5 +79,12 @@
       permission="zope2.View"
       />
 
+  <!-- Render the dublin core metadata -->
+  <browser:viewlet
+      name="ps.plone.htmlhead.dublincore"
+      manager="plone.app.layout.viewlets.interfaces.IHtmlHead"
+      class=".viewlets.DublinCoreViewlet"
+      permission="zope2.View"
+      />
 
 </configure>
