@@ -34,7 +34,7 @@ def contains_nuts(value):
 
 
 def merge_local_contact_info(settings=None, mapping=None, data=None):
-    """Merges values of locally provided contact info."""
+    """Merge values of locally provided contact info."""
     keys_internal = [
         'force',
         'use_custom_info',
