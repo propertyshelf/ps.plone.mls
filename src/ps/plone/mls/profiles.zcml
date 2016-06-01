@@ -101,4 +101,14 @@
       profile="ps.plone.mls:default"
       />
 
+  <genericsetup:upgradeStep
+      title="Upgrade ps.plone.mls"
+      description="Upgrade meta description viewlet"
+      source="1006"
+      destination="1007"
+      handler=".migration.migrate_to_1007"
+      sortkey="1"
+      profile="ps.plone.mls:default"
+      />
+
 </configure>

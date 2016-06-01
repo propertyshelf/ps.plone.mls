@@ -43,3 +43,12 @@ def migrate_to_1005(context):
     # Add ps.fonts.iconmagic
     if not quickinstaller.isProductInstalled('ps.plone.realestatefont'):
         quickinstaller.installProduct('ps.plone.realestatefont')
+
+
+def migrate_to_1007(context):
+    """Migrate from 1006 to 1007.
+
+    * Hide default DublinCoreViewlet
+    """
+    setup = api.portal.get_tool(name='portal_setup')
+    setup.runImportStepFromProfile(config.INSTALL_PROFILE, 'viewlets')
