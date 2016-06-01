@@ -157,7 +157,12 @@ class DevelopmentTraverser(MLSItemTraverser):
     def check_item(self, item_id):
         """Check if the development ID is available."""
         dcv = DevelopmentCollectionViewlet(self.context, self.request, None)
-        mlsapi = api.get_api(context=self.context)
+        portal_state = queryMultiAdapter(
+            (self.context, self.request),
+            name='plone_portal_state',
+        )
+        lang = portal_state.language()
+        mlsapi = api.get_api(context=self.context, lang=lang)
         params = {'fields': u'id'}
         params.update(dcv.config)
         params = api.prepare_search_params(
