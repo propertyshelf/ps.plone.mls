@@ -7,6 +7,7 @@ from plone.mls.listing.browser.interfaces import IListingDetails
 
 # local imports
 from ps.plone.mls.interfaces import IDevelopmentDetails
+from ps.plone.mls import utils
 
 
 class DublinCoreViewlet(common.DublinCoreViewlet):
@@ -28,6 +29,7 @@ class DublinCoreViewlet(common.DublinCoreViewlet):
                 return
 
         if description is not None:
+            description = utils.smart_truncate(description)
             for meta_tuple in self.metatags:
                 tag, text = meta_tuple
                 if tag == 'description':

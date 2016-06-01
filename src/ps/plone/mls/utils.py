@@ -52,3 +52,10 @@ def merge_local_contact_info(settings=None, mapping=None, data=None):
         if mapped_key is None:
             continue
         data[mapped_key] = value
+
+
+def smart_truncate(content, length=160, suffix='...'):
+    """Truncate a string ror some maximum length, but split at word boundary"""
+    if len(content) > length:
+        content = content[:length].rsplit(' ', 1)[0] + suffix
+    return content
