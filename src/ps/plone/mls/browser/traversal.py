@@ -20,6 +20,7 @@ from zope.publisher.interfaces.browser import (
 from ps.plone.mls import api
 from ps.plone.mls.browser.developments.collection import (
     DevelopmentCollectionViewlet,
+    EXCLUDED_SEARCH_FIELDS,
 )
 from ps.plone.mls.content import featured
 from ps.plone.mls.interfaces import (
@@ -156,8 +157,20 @@ class DevelopmentTraverser(MLSItemTraverser):
     def check_item(self, item_id):
         """Check if the development ID is available."""
         dcv = DevelopmentCollectionViewlet(self.context, self.request, None)
-        dcv.update()
-        available_ids = [item.id.value for item in dcv.items]
+        mlsapi = api.get_api(context=self.context)
+        params = {'fields': u'id'}
+        params.update(dcv.config)
+        params = api.prepare_search_params(
+            params,
+            context=self.context,
+            omit=EXCLUDED_SEARCH_FIELDS,
+        )
+        try:
+            result = api.Development.search(mlsapi, params=params)
+        except Exception:
+            return False
+
+        available_ids = [item.id.value for item in result.get_items()]
         return item_id in available_ids
 
     def post_lookup(self, item_id):
