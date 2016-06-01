@@ -5,7 +5,9 @@ Changelog
 0.5 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- Modify the TitleViewlet to create a custom title for ListingDetail views.
+- Override the DublinCore viewlet to create custom meta descriptions for ListingDetail and DevelopmentDetail views.
+- Bug fix: Developments on second page of a collection (and beyond) cannot be shown
 
 
 0.4 (2016-05-20)
