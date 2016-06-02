@@ -2,6 +2,8 @@
 """Customized plone viewlets."""
 
 # zope imports
+from plone import api
+from plone.api.exc import InvalidParameterError
 from plone.app.layout.viewlets import common
 from plone.mls.listing.browser.interfaces import IListingDetails
 
@@ -13,10 +15,10 @@ from ps.plone.mls import utils
 class DublinCoreViewlet(common.DublinCoreViewlet):
     """Customized DublinCore descriptions for MLS embeddings."""
 
-    def update(self):
-        super(DublinCoreViewlet, self).update()
-
+    def _get_mls_description(self):
+        """Get the description from an embedded item."""
         description = None
+
         if IDevelopmentDetails.providedBy(self.view):
             try:
                 description = self.view.item.description.value
@@ -28,13 +30,34 @@ class DublinCoreViewlet(common.DublinCoreViewlet):
             except AttributeError:
                 return
 
-        if description is not None:
-            description = utils.smart_truncate(description)
-            for meta_tuple in self.metatags:
-                tag, text = meta_tuple
-                if tag == 'description':
-                    self.metatags.remove(meta_tuple)
-            self.metatags.append(('description', description))
+        description = utils.smart_truncate(description)
+        return description
+
+    def update(self):
+        super(DublinCoreViewlet, self).update()
+
+        description = self._get_mls_description()
+
+        if description is None:
+            return
+
+        meta_dict = dict(self.metatags)
+        meta_dict['description'] = description
+
+        try:
+            use_all = api.portal.get_registry_record(
+                'plone.exposeDCMetaTags'
+            )
+        except InvalidParameterError:
+            try:
+                props = api.portal.get_tool(name='portal_properties')
+                use_all = props.site_properties.exposeDCMetaTags
+            except Exception:
+                use_all = False
+
+        if use_all:
+            meta_dict['DC.description'] = description
+        self.metatags = meta_dict.items()
 
 
 class TitleViewlet(common.TitleViewlet):
