@@ -65,6 +65,9 @@ def smart_truncate(content):
     `ellipsis` has not yet been migrated. So we have to check for both
     settings individually.
     """
+    if content is None:
+        return
+
     try:
         length = api.portal.get_registry_record(
             'plone.search_results_description_length'
