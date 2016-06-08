@@ -224,6 +224,17 @@ class DevelopmentTraverser(MLSItemTraverser):
         ]
         if not self.has_development:
             return
+
+        # Check if the listing belongs to the development
+        cache = IAnnotations(self.request)
+        item = cache['ps.plone.mls.development.traversed']
+        results, batch = item.listings()
+        available_listings = [
+            listing.get('id', {}).get('value', None) for listing in results
+        ]
+        if listing_id not in available_listings:
+                raise NotFound(self.context, listing_id, self.request)
+
         setattr(self.request, 'listing_id', listing_id)
 
         while additional:

@@ -9,6 +9,7 @@ Changelog
 - Override the DublinCore viewlet to create custom metatags for ListingDetail and DevelopmentDetail views.
 - Bugfix: Developments on second page of a collection (and beyond) cannot be shown.
 - Bugfix: Allow print-listing view on listings within a development.
+- Check for valid development listings.
 
 
 0.4 (2016-05-20)
