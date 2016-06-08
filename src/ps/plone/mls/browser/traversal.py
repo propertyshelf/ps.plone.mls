@@ -213,15 +213,25 @@ class DevelopmentTraverser(MLSItemTraverser):
         if view_name in allowed_view_names:
             return view_name
 
-        view_name = self.get_listing_view(view_name)
+        view_name = self.get_listing_view(view_name, additional=path)
 
         return view_name
 
-    def get_listing_view(self, listing_id):
+    def get_listing_view(self, listing_id, additional=None):
         """"""
+        allowed_view_names = [
+            'print-listing',
+        ]
         if not self.has_development:
             return
         setattr(self.request, 'listing_id', listing_id)
+
+        while additional:
+            name = additional.pop()
+            if name in allowed_view_names:
+                return name
+            else:
+                raise NotFound(self.context, name, self.request)
         return 'listing-detail'
 
 
