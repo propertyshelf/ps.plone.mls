@@ -15,34 +15,72 @@ from ps.plone.mls import utils
 class DublinCoreViewlet(common.DublinCoreViewlet):
     """Customized DublinCore descriptions for MLS embeddings."""
 
+    def _get_dc_tags(self):
+        """Generate the Dublin Core meta tags for an embedded item."""
+        dc = {}
+
+        if IListingDetails.providedBy(self.view):
+            dc['DC.date.modified'] = self.view.data.get('modified')
+            dc['DC.date.created'] = self.view.data.get('created')
+            dc['DC.creator'] = self._get_mls_creator()
+            dc['DC.type'] = u'MLS Listing'
+
+        elif IDevelopmentDetails.providedBy(self.view):
+            # Not yet implemented
+            dc['DC.date.modified'] = None
+            # Not yet implemented
+            dc['DC.date.created'] = None
+            dc['DC.creator'] = self._get_mls_creator()
+            dc['DC.type'] = u'MLS Development'
+
+        return dc
+
+    def _get_mls_creator(self):
+        """Get the creator/author from an embedded item."""
+
+        if IListingDetails.providedBy(self.view):
+            try:
+                contact = self.view.contact
+            except AttributeError:
+                return
+            else:
+                return contact.get('agency', {}).get('name', {}).get('value')
+        elif IDevelopmentDetails.providedBy(self.view):
+            try:
+                return self.view.item.agency().title.value
+            except AttributeError:
+                return
+
     def _get_mls_description(self):
         """Get the description from an embedded item."""
         description = None
 
-        if IDevelopmentDetails.providedBy(self.view):
-            try:
-                description = self.view.item.description.value
-            except AttributeError:
-                return
-        elif IListingDetails.providedBy(self.view):
+        if IListingDetails.providedBy(self.view):
             try:
                 description = self.view.description
+            except AttributeError:
+                return
+        elif IDevelopmentDetails.providedBy(self.view):
+            try:
+                description = self.view.item.description.value
             except AttributeError:
                 return
 
         description = utils.smart_truncate(description)
         return description
 
+    @property
+    def available(self):
+        """Check if the preconditions are fullfilled."""
+        is_development = IDevelopmentDetails.providedBy(self.view)
+        is_listing = IListingDetails.providedBy(self.view)
+        return is_development or is_listing
+
     def update(self):
         super(DublinCoreViewlet, self).update()
 
-        description = self._get_mls_description()
-
-        if description is None:
+        if not self.available:
             return
-
-        meta_dict = dict(self.metatags)
-        meta_dict['description'] = description
 
         try:
             use_all = api.portal.get_registry_record(
@@ -55,8 +93,15 @@ class DublinCoreViewlet(common.DublinCoreViewlet):
             except Exception:
                 use_all = False
 
+        meta_dict = dict(self.metatags)
+        description = self._get_mls_description()
+
         if use_all:
             meta_dict['DC.description'] = description
+            meta_dict.update(self._get_dc_tags())
+        else:
+            meta_dict['description'] = description
+
         self.metatags = meta_dict.items()
 
 
