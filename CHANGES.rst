@@ -5,7 +5,7 @@ Changelog
 0.6 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- Fix manifest.
 
 
 0.5 (2016-10-17)
