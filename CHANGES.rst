@@ -10,6 +10,7 @@ Changelog
 - Bugfix: Developments on second page of a collection (and beyond) cannot be shown.
 - Bugfix: Allow print-listing view on listings within a development.
 - Check for valid development listings.
+- Remove Google Maps API from portal_javascripts.
 
 
 0.4 (2016-05-20)

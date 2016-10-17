@@ -52,3 +52,17 @@ def migrate_to_1007(context):
     """
     setup = api.portal.get_tool(name='portal_setup')
     setup.runImportStepFromProfile(config.INSTALL_PROFILE, 'viewlets')
+
+
+def migrate_to_1008(context):
+    """"Migrate from 1007 to 1008
+
+    * Update JS registry.
+    """
+    try:
+        js = api.portal.get_tool(name='portal_javascripts')
+    except AttributeError:
+        pass
+    else:
+        js.unregisterResource('http://maps.google.com/maps/api/js?sensor=false')
+        js.unregisterResource('https://maps-api-ssl.google.com/maps/api/js?sensor=false')

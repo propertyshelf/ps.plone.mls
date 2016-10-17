@@ -111,4 +111,14 @@
       profile="ps.plone.mls:default"
       />
 
+  <genericsetup:upgradeStep
+      title="Upgrade ps.plone.mls"
+      description="Update JS settings"
+      source="1007"
+      destination="1008"
+      handler=".migration.migrate_to_1008"
+      sortkey="1"
+      profile="ps.plone.mls:default"
+      />
+
 </configure>
