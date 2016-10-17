@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-0.5 (unreleased)
+0.5 (2016-10-17)
 ----------------
 
 - Modify the TitleViewlet to create a custom title for ListingDetail views.
