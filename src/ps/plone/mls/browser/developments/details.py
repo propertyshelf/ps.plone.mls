@@ -380,7 +380,7 @@ class DevelopmentDetails(BrowserView):
 
         if self.registry is not None:
             try:
-                settings = self.registry.forInterface(IMLSUISettings)
+                settings = self.registry.forInterface(IMLSUISettings)  # noqa
             except Exception:
                 logger.warning('MLS UI settings not available.')
             else:
@@ -393,7 +393,7 @@ class DevelopmentDetails(BrowserView):
 
         if self.registry is not None:
             try:
-                settings = self.registry.forInterface(IMLSUISettings)
+                settings = self.registry.forInterface(IMLSUISettings)  # noqa
             except Exception:
                 logger.warning('MLS UI settings not available.')
             else:
