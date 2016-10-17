@@ -81,6 +81,26 @@ window.addEventListener('touchmove', function MoveDetector(){{
     map = initializeMap();
 }});
 
+function loadScript(src, callback) {{
+  var script = document.createElement("script");
+  script.type = "text/javascript";
+  if (callback) {{
+    script.onload = callback;
+  }}
+  document.getElementsByTagName("head")[0].appendChild(script);
+  script.src = src;
+}}
+
+
+function loadGoogleMaps(callback) {{
+    if (typeof google === 'object' && typeof google.maps === 'object') {{
+        callback();
+    }} else {{
+        loadScript('https://maps.googleapis.com/maps/api/js?key={apikey}', callback);
+    }}
+}}
+
+
 function initializeMap() {{
     var center = new google.maps.LatLng({lat}, {lng})
 
@@ -110,15 +130,17 @@ function initializeMap() {{
             icon: {icon}
         }});
     }}
+
+    google.maps.event.addDomListener(window, "resize", function() {{
+        var center = map.getCenter();
+        google.maps.event.trigger(map, "resize");
+        map.setCenter(center);
+    }});
+
     return map;
 }};
 
-map = initializeMap();
-google.maps.event.addDomListener(window, "resize", function() {{
-    var center = map.getCenter();
-    google.maps.event.trigger(map, "resize");
-    map.setCenter(center);
-}});
+loadGoogleMaps(initializeMap);
 
 """
 
@@ -372,7 +394,22 @@ class DevelopmentDetails(BrowserView):
             lng=lng,
             map_id=self.map_id,
             zoom=self.config.get('map_zoom_level', 7),
+            apikey=self.googleapi,
         )
+
+    @property
+    def googleapi(self):
+        if not HAS_UI_SETTINGS:
+            return ''
+
+        if self.registry is not None:
+            try:
+                settings = self.registry.forInterface(IMLSUISettings)  # noqa
+            except Exception:
+                logger.warning('MLS UI settings not available.')
+            else:
+                return getattr(settings, 'googleapi', '')
+        return ''
 
     def use_fotorama(self):
         if not HAS_UI_SETTINGS:
