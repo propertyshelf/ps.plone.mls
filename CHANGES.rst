@@ -5,7 +5,7 @@ Changelog
 0.6 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- Use correct limit for development collection traverser.
 
 
 0.5.1 (2016-11-07)
