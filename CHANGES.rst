@@ -2,8 +2,8 @@ Changelog
 =========
 
 
-0.6 (unreleased)
-----------------
+0.5.2 (2016-11-07)
+------------------
 
 - Use correct limit for development collection traverser.
 
