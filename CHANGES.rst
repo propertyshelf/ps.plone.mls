@@ -6,6 +6,8 @@ Changelog
 ----------------
 
 - Fix manifest.
+- Fix CSS.
+- Remove extra colon after labels which is now added via CSS.
 
 
 0.5 (2016-10-17)
