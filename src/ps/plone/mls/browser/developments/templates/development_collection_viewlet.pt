@@ -47,32 +47,32 @@
           <section>
             <dl>
               <tal:field tal:define="field item/location | nothing" tal:condition="location">
-                <dt class="location row label"><span tal:replace="field/title">Label</span>:</dt>
+                <dt class="location row label"><span tal:replace="field/title">Label</span></dt>
                 <dd class="location full"><span tal:replace="structure location">Value</span></dd>
               </tal:field>
 
               <tal:field tal:define="field item/lot_size | nothing" tal:condition="field">
-                <dt class="lot_size row label"><span tal:replace="field/title">Label</span>:</dt>
+                <dt class="lot_size row label"><span tal:replace="field/title">Label</span></dt>
                 <dd class="lot_size full value"><span tal:replace="structure field/value">Value</span></dd>
               </tal:field>
 
               <tal:field tal:define="field item/location_type | nothing" tal:condition="field">
-                <dt class="location_type row label"><span tal:replace="field/title">Label</span>:</dt>
+                <dt class="location_type row label"><span tal:replace="field/title">Label</span></dt>
                 <dd class="location_type full value"><span tal:replace="structure field/value">Value</span></dd>
               </tal:field>
 
               <tal:field tal:define="field item/agency_name | nothing" tal:condition="field">
-                <dt class="agency_name row label"><span tal:replace="field/title">Label</span>:</dt>
+                <dt class="agency_name row label"><span tal:replace="field/title">Label</span></dt>
                 <dd class="agency_name full value"><span tal:replace="structure field/value">Value</span></dd>
               </tal:field>
 
               <tal:field tal:define="field item/number_of_listings | nothing" tal:condition="field">
-                <dt class="number_of_listings row label"><span tal:replace="field/title">Label</span>:</dt>
+                <dt class="number_of_listings row label"><span tal:replace="field/title">Label</span></dt>
                 <dd class="number_of_listings full value"><span tal:replace="structure field/value">Value</span></dd>
               </tal:field>
 
               <tal:field tal:define="field item/number_of_groups | nothing" tal:condition="field">
-                <dt class="number_of_groups row label"><span tal:replace="field/title">Label</span>:</dt>
+                <dt class="number_of_groups row label"><span tal:replace="field/title">Label</span></dt>
                 <dd class="number_of_groups full value"><span tal:replace="structure field/value">Value</span></dd>
               </tal:field>
 
