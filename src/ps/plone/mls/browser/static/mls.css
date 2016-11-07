@@ -727,6 +727,7 @@ body .development__header .development_location{
 .development__contact label span.horizontal:before,
 .development__contact #formfield-form-widgets-phone label:after{
   content:":";
+  display: inline;
 }
 
 .development__contact input[type="text"]{
