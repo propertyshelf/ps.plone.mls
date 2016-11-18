@@ -2,8 +2,8 @@ Changelog
 =========
 
 
-0.6 (unreleased)
-----------------
+0.5.3 (2016-11-18)
+------------------
 
 - Use fixed limit to check for valid development within collection.
 
