@@ -5,7 +5,7 @@ Changelog
 0.6 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- Use fixed limit to check for valid development within collection.
 
 
 0.5.2 (2016-11-07)
