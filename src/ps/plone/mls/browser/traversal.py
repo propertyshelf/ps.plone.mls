@@ -165,7 +165,8 @@ class DevelopmentTraverser(MLSItemTraverser):
         mlsapi = api.get_api(context=self.context, lang=lang)
         params = {'fields': u'id'}
         params.update(dcv.config)
-        params['limit'] = dcv.config.get('limit_developments', 5)
+        # params['limit'] = dcv.config.get('limit_developments', 5)
+        params['limit'] = 1000
         params = api.prepare_search_params(
             params,
             context=self.context,
