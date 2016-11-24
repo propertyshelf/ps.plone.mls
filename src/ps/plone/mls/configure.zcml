@@ -5,8 +5,6 @@
     xmlns:zcml="http://namespaces.zope.org/zcml"
     i18n_domain="ps.plone.mls">
 
-  <five:registerPackage package="." initialize=".initialize" />
-
   <!-- Register i18n support. -->
   <!-- ====================== -->
   <i18n:registerTranslations directory="locales" />
