@@ -1,6 +1,9 @@
 # -*- coding: utf-8 -*-
 """Test Layer for ps.plone.mls."""
 
+# python imports
+import pkg_resources
+
 # zope imports
 from plone.app.robotframework.testing import REMOTE_LIBRARY_BUNDLE_FIXTURE
 from plone.app.testing import (
@@ -24,6 +27,12 @@ class Fixture(PloneSandboxLayer):
 
     def setUpPloneSite(self, portal):
         """Set up a Plone site for testing."""
+        try:
+            pkg_resources.get_distribution('plone.app.contenttypes')
+        except pkg_resources.DistributionNotFound:
+            pass
+        else:
+            self.applyProfile(portal, 'plone.app.contenttypes:default')
         self.applyProfile(portal, 'ps.plone.mls:default')
         self.applyProfile(portal, 'ps.plone.mls:testfixture')
 
