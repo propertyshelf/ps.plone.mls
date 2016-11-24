@@ -17,21 +17,20 @@ Show how to activate the listing collection
     ...  description=This is the folder
     Go to  ${PLONE_URL}/${FOLDER_ID}
 
-    Page should contain element  css=#plone-contentmenu-actions dt a
-    Click link  css=#plone-contentmenu-actions dt a
-    Wait until element is visible
-    ...  css=#plone-contentmenu-actions dd.actionMenuContent
+    Page should contain element  ${LINK_CONTENTMENU_ACTIONS}
+    Click link  ${LINK_CONTENTMENU_ACTIONS}
+    Wait until element is visible  ${LIST_CONTENTMENU_ACTIONS}
 
     ${note1}  Add pointy note  ${LINK_LISTING_COLLECTION_ACTIVATE}
     ...  Click to activate the Listing Collection
-    ...  position=left
+    ...  position=${POSITION_CONTENTMENU_ACTIONS_NOTE}
     Mouse over  ${LINK_LISTING_COLLECTION_ACTIVATE}
     Update element style  portal-footer  display  none
 
     Capture and crop page screenshot
     ...  activate_listing_collection.png
-    ...  contentActionMenus
-    ...  css=#portal-column-content
+    ...  ${CONTENTMENU_ACTIONS}
+    ...  ${CONTENT}
     ...  ${note1}
     Remove elements  ${note1}
 
@@ -41,35 +40,34 @@ Show how to activate the listing collection
 
     Capture and crop page screenshot
     ...  activate_listing_collection_done.png
-    ...  css=#portal-column-content
+    ...  ${STATUS_MESSAGE}
+    ...  ${CONTENT}
 
-    Click Overlay Link  css=#contentview-listing-collection-config a
+    Click link  css=#contentview-listing-collection-config a
 
-    Wait until element is visible
-    ...  css=div.pb-ajax
+    Wait until element is visible  ${CONTENT}
 
     Capture and crop page screenshot
     ...  configure_listing_collection.png
-    ...  css=div.pb-ajax
+    ...  ${CONTENT}
 
     Click button  css=#form-buttons-cancel
 
     Go to  ${PLONE_URL}/${FOLDER_ID}
-    Page should contain element  css=#plone-contentmenu-actions dt a
-    Click link  css=#plone-contentmenu-actions dt a
-    Wait until element is visible
-    ...  css=#plone-contentmenu-actions dd.actionMenuContent
+    Page should contain element  ${LINK_CONTENTMENU_ACTIONS}
+    Click link  ${LINK_CONTENTMENU_ACTIONS}
+    Wait until element is visible  ${LIST_CONTENTMENU_ACTIONS}
 
     ${note1}  Add pointy note  ${LINK_LISTING_COLLECTION_DEACTIVATE}
     ...  Click to deactivate the Listing Collection
-    ...  position=left
+    ...  position=${POSITION_CONTENTMENU_ACTIONS_NOTE}
     Mouse over  ${LINK_LISTING_COLLECTION_DEACTIVATE}
     Update element style  portal-footer  display  none
 
     Capture and crop page screenshot
     ...  deactivate_listing_collection.png
-    ...  contentActionMenus
-    ...  css=#portal-column-content
+    ...  ${CONTENTMENU_ACTIONS}
+    ...  ${CONTENT}
     ...  ${note1}
     Remove elements  ${note1}
 
@@ -79,4 +77,5 @@ Show how to activate the listing collection
 
     Capture and crop page screenshot
     ...  deactivate_listing_collection_done.png
-    ...  css=#portal-column-content
+    ...  ${STATUS_MESSAGE}
+    ...  ${CONTENT}
