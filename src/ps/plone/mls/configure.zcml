@@ -21,12 +21,20 @@
   <include file="profiles.zcml" />
 
 
-  <class class="Products.Archetypes.BaseObject.BaseObject" zcml:condition="installed Products.Archetypes">
-    <implements interface="ps.plone.mls.interfaces.IPossibleDevelopmentCollection" />
-  </class>
+  <!-- Add local MLS settings marker interface. -->
+  <!-- ======================================== -->
+  <configure zcml:condition="installed Products.Archetypes">
+    <!-- Add marker interface to all Archetype content types. -->
+    <class class="Products.Archetypes.BaseObject.BaseObject">
+      <implements interface="ps.plone.mls.interfaces.IPossibleDevelopmentCollection" />
+    </class>
+  </configure>
 
-  <class class="plone.dexterity.content.DexterityContent" zcml:condition="installed plone.dexterity">
-    <implements interface="ps.plone.mls.interfaces.IPossibleDevelopmentCollection" />
-  </class>
+  <configure zcml:condition="installed plone.dexterity">
+    <!-- Add marker interface to all dexterity content types. -->
+    <class class="plone.dexterity.content.DexterityContent">
+      <implements interface="ps.plone.mls.interfaces.IPossibleDevelopmentCollection" />
+    </class>
+  </configure>
 
 </configure>
