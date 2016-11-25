@@ -12,10 +12,10 @@ Suite Teardown  Teardown
 Show how to activate the listing collection
     Enable autologin as  Site Administrator
     Create content  type=Folder
-    ...  id=${FOLDER_ID}
-    ...  title=A folder
+    ...  id=${FOLDER_ID}-1
+    ...  title=A Listing Collection
     ...  description=This is the folder
-    Go to  ${PLONE_URL}/${FOLDER_ID}
+    Go to  ${PLONE_URL}/${FOLDER_ID}-1
 
     Page should contain element  ${LINK_CONTENTMENU_ACTIONS}
     Click link  ${LINK_CONTENTMENU_ACTIONS}
@@ -53,7 +53,7 @@ Show how to activate the listing collection
 
     Click button  css=#form-buttons-cancel
 
-    Go to  ${PLONE_URL}/${FOLDER_ID}
+    Go to  ${PLONE_URL}/${FOLDER_ID}-1
     Page should contain element  ${LINK_CONTENTMENU_ACTIONS}
     Click link  ${LINK_CONTENTMENU_ACTIONS}
     Wait until element is visible  ${LIST_CONTENTMENU_ACTIONS}
@@ -84,10 +84,10 @@ Show how to activate the listing collection
 Show how to activate the recent listings
     Enable autologin as  Site Administrator
     Create content  type=Folder
-    ...  id=${FOLDER_ID}
-    ...  title=A folder
+    ...  id=${FOLDER_ID}-2
+    ...  title=Recent Listings
     ...  description=This is the folder
-    Go to  ${PLONE_URL}/${FOLDER_ID}
+    Go to  ${PLONE_URL}/${FOLDER_ID}-2
 
     Page should contain element  ${LINK_CONTENTMENU_ACTIONS}
     Click link  ${LINK_CONTENTMENU_ACTIONS}
@@ -125,7 +125,7 @@ Show how to activate the recent listings
 
     Click button  css=#form-buttons-cancel
 
-    Go to  ${PLONE_URL}/${FOLDER_ID}
+    Go to  ${PLONE_URL}/${FOLDER_ID}-2
     Page should contain element  ${LINK_CONTENTMENU_ACTIONS}
     Click link  ${LINK_CONTENTMENU_ACTIONS}
     Wait until element is visible  ${LIST_CONTENTMENU_ACTIONS}
