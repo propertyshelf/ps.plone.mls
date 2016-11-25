@@ -12,4 +12,3 @@ ${CONTENT}  css=#main-container
 ${STATUS_MESSAGE}  css=#global_statusmessage
 
 ${LINK_DEVELOPMENT_CONFIGURATION_TAB_FITER}  css=#autotoc-item-autotoc-1
-

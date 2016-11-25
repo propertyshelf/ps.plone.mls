@@ -9,3 +9,6 @@ ${LINK_DEVELOPMENT_CONFIGURATION_TAB_FITER}  css=div.pb-ajax #fieldsetlegend-0
 
 ${LINK_LISTING_COLLECTION_ACTIVATE}  css=#listing-collection-activate
 ${LINK_LISTING_COLLECTION_DEACTIVATE}  css=#listing-collection-deactivate
+
+${RECENT_LISTINGS_ACTIVATE}  css=#recent-listings-activate
+${RECENT_LISTINGS_DEACTIVATE}  css=#recent-listings-deactivate

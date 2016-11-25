@@ -18,3 +18,5 @@ ${LINK_DEVELOPMENT_CONFIGURATION_TAB_FITER}  css=#fieldsetlegend-filter
 ${LINK_LISTING_COLLECTION_ACTIVATE}  css=#plone-contentmenu-actions-listing-collection-activate
 ${LINK_LISTING_COLLECTION_DEACTIVATE}  css=#plone-contentmenu-actions-listing-collection-deactivate
 
+${RECENT_LISTINGS_ACTIVATE}  css=#plone-contentmenu-actions-recent-listings-activate
+${RECENT_LISTINGS_DEACTIVATE}  css=#plone-contentmenu-actions-recent-listings-deactivate
