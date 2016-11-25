@@ -24,8 +24,6 @@ matrix:
       env: PLONE_VERSION=5.0
     - python: 2.6
       env: PLONE_VERSION=5.1
-  allow_failures:
-    - env: PLONE_VERSION=4.2
   fast_finish: true
 addons:
   firefox: "39.0"
