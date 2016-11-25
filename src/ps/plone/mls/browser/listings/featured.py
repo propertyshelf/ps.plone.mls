@@ -2,9 +2,6 @@
 """Featured Listings Viewlet."""
 
 # zope imports
-from collective.z3cform.widgets.enhancedtextlines import (
-    EnhancedTextLinesFieldWidget,
-)
 from plone import api
 from plone.app.layout.viewlets.common import ViewletBase
 from plone.autoform import directives
@@ -23,8 +20,17 @@ from zope.publisher.browser import BrowserView
 from zope.traversing.browser.absoluteurl import absoluteURL
 
 # local imports
-from ps.plone.mls import _
+from ps.plone.mls import (
+    _,
+    PLONE_4,
+)
 from ps.plone.mls.interfaces import IListingTraversable
+
+
+if PLONE_4:
+    from collective.z3cform.widgets.enhancedtextlines import (
+        EnhancedTextLinesFieldWidget,
+    )
 
 
 CONFIGURATION_KEY = 'ps.plone.mls.listing.featuredlistings'
@@ -111,7 +117,8 @@ class FeaturedListingsViewlet(ViewletBase):
 class IFeaturedListingsConfiguration(model.Schema):
     """Featured Listings Configuration Form Schema."""
 
-    directives.widget(listing_ids=EnhancedTextLinesFieldWidget)
+    if PLONE_4:
+        directives.widget(listing_ids=EnhancedTextLinesFieldWidget)
     listing_ids = schema.List(
         description=_(u'Add one Listing ID for each entry to show up.'),
         title=_(u'MLS Listing IDs'),
