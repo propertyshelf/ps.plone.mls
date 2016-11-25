@@ -138,4 +138,12 @@
       profile="ps.plone.mls:default"
       />
 
+
+  <!-- GenericSetup utilities. -->
+  <!-- ======================= -->
+  <utility
+      factory=".setuphandlers.HiddenProfiles"
+      name="ps.plone.mls-hiddenprofiles"
+      />
+
 </configure>
