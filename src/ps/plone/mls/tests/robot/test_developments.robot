@@ -21,10 +21,10 @@ Show how to activate the development collection
     Click link  ${LINK_CONTENTMENU_ACTIONS}
     Wait until element is visible  ${LIST_CONTENTMENU_ACTIONS}
 
-    ${note1}  Add pointy note  ${LINK_DEVELOPMENT_COLLECTION_ACTIVATE}
+    ${note1}  Add pointy note  ${DEVELOPMENT_COLLECTION_ACTIVATE_LINK}
     ...  Click to activate the Development Collection
     ...  position=${POSITION_CONTENTMENU_ACTIONS_NOTE}
-    Mouse over  ${LINK_DEVELOPMENT_COLLECTION_ACTIVATE}
+    Mouse over  ${DEVELOPMENT_COLLECTION_ACTIVATE_LINK}
     Update element style  portal-footer  display  none
 
     Capture and crop page screenshot
@@ -35,7 +35,7 @@ Show how to activate the development collection
     Remove elements  ${note1}
 
     ${href} =  get element attribute
-    ...  ${LINK_DEVELOPMENT_COLLECTION_ACTIVATE}@href
+    ...  ${DEVELOPMENT_COLLECTION_ACTIVATE_LINK}@href
     go to  ${href}
 
     Capture and crop page screenshot
@@ -51,7 +51,7 @@ Show how to activate the development collection
     ...  configure_development_collection.png
     ...  ${CONTENT}
 
-    Click link  ${LINK_DEVELOPMENT_CONFIGURATION_TAB_FITER}
+    Click link  ${DEVELOPMENT_COLLECTION_CONFIG_TAB_FILTER}
 
     Capture and crop page screenshot
     ...  configure_development_collection_filter.png
@@ -64,10 +64,10 @@ Show how to activate the development collection
     Click link  ${LINK_CONTENTMENU_ACTIONS}
     Wait until element is visible  ${LIST_CONTENTMENU_ACTIONS}
 
-    ${note1}  Add pointy note  ${LINK_DEVELOPMENT_COLLECTION_DEACTIVATE}
+    ${note1}  Add pointy note  ${DEVELOPMENT_COLLECTION_DEACTIVATE_LINK}
     ...  Click to deactivate the Development Collection
     ...  position=${POSITION_CONTENTMENU_ACTIONS_NOTE}
-    Mouse over  ${LINK_DEVELOPMENT_COLLECTION_DEACTIVATE}
+    Mouse over  ${DEVELOPMENT_COLLECTION_DEACTIVATE_LINK}
     Update element style  portal-footer  display  none
 
     Capture and crop page screenshot
@@ -78,7 +78,7 @@ Show how to activate the development collection
     Remove elements  ${note1}
 
     ${href} =  get element attribute
-    ...  ${LINK_DEVELOPMENT_COLLECTION_DEACTIVATE}@href
+    ...  ${DEVELOPMENT_COLLECTION_DEACTIVATE_LINK}@href
     go to  ${href}
 
     Capture and crop page screenshot

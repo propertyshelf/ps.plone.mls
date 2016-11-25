@@ -11,12 +11,15 @@ ${LIST_CONTENTMENU_ACTIONS}  css=#plone-contentmenu-actions dd.actionMenuContent
 ${CONTENT}  css=#portal-column-content
 ${STATUS_MESSAGE}  css=dl.portalMessage
 
-${LINK_DEVELOPMENT_COLLECTION_ACTIVATE}  css=#plone-contentmenu-actions-development-collection-activate
-${LINK_DEVELOPMENT_COLLECTION_DEACTIVATE}  css=#plone-contentmenu-actions-development-collection-deactivate
-${LINK_DEVELOPMENT_CONFIGURATION_TAB_FITER}  css=#fieldsetlegend-filter
-
-${LINK_LISTING_COLLECTION_ACTIVATE}  css=#plone-contentmenu-actions-listing-collection-activate
+# "Listing Collection"
+${LISTING_COLLECTION_ACTIVATE_LINK}  css=#plone-contentmenu-actions-listing-collection-activate
 ${LINK_LISTING_COLLECTION_DEACTIVATE}  css=#plone-contentmenu-actions-listing-collection-deactivate
 
-${RECENT_LISTINGS_ACTIVATE}  css=#plone-contentmenu-actions-recent-listings-activate
-${RECENT_LISTINGS_DEACTIVATE}  css=#plone-contentmenu-actions-recent-listings-deactivate
+# "Recent Listings"
+${RECENT_LISTINGS_ACTIVATE_LINK}  css=#plone-contentmenu-actions-recent-listings-activate
+${RECENT_LISTINGS_DEACTIVATE_LINK}  css=#plone-contentmenu-actions-recent-listings-deactivate
+
+# "Development Collection"
+${DEVELOPMENT_COLLECTION_ACTIVATE_LINK}  css=#plone-contentmenu-actions-development-collection-activate
+${DEVELOPMENT_COLLECTION_DEACTIVATE_LINK}  css=#plone-contentmenu-actions-development-collection-deactivate
+${DEVELOPMENT_COLLECTION_CONFIG_TAB_FILTER}  css=#fieldsetlegend-filter

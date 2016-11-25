@@ -3,12 +3,15 @@
 # Variables specific for Plone 4.1.x.
 # See default.robot for all available variables.
 
-${LINK_DEVELOPMENT_COLLECTION_ACTIVATE}  css=#development-collection-activate
-${LINK_DEVELOPMENT_COLLECTION_DEACTIVATE}  css=#development-collection-deactivate
-${LINK_DEVELOPMENT_CONFIGURATION_TAB_FITER}  css=div.pb-ajax #fieldsetlegend-0
-
-${LINK_LISTING_COLLECTION_ACTIVATE}  css=#listing-collection-activate
+# "Listing Collection".
+${LISTING_COLLECTION_ACTIVATE_LINK}  css=#listing-collection-activate
 ${LINK_LISTING_COLLECTION_DEACTIVATE}  css=#listing-collection-deactivate
 
-${RECENT_LISTINGS_ACTIVATE}  css=#recent-listings-activate
-${RECENT_LISTINGS_DEACTIVATE}  css=#recent-listings-deactivate
+# "Recent Listings" collection.
+${RECENT_LISTINGS_ACTIVATE_LINK}  css=#recent-listings-activate
+${RECENT_LISTINGS_DEACTIVATE_LINK}  css=#recent-listings-deactivate
+
+# "Development Collection"
+${DEVELOPMENT_COLLECTION_ACTIVATE_LINK}  css=#development-collection-activate
+${DEVELOPMENT_COLLECTION_DEACTIVATE_LINK}  css=#development-collection-deactivate
+${DEVELOPMENT_COLLECTION_CONFIG_TAB_FILTER}  css=div.pb-ajax #fieldsetlegend-0

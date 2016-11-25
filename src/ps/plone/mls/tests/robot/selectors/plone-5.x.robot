@@ -11,4 +11,5 @@ ${LIST_CONTENTMENU_ACTIONS}  css=#plone-contentmenu-actions > ul
 ${CONTENT}  css=#main-container
 ${STATUS_MESSAGE}  css=#global_statusmessage
 
-${LINK_DEVELOPMENT_CONFIGURATION_TAB_FITER}  css=#autotoc-item-autotoc-1
+# "Development Collection"
+${DEVELOPMENT_COLLECTION_CONFIG_TAB_FILTER}  css=#autotoc-item-autotoc-1

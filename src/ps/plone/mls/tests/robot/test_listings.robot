@@ -21,10 +21,10 @@ Show how to activate the listing collection
     Click link  ${LINK_CONTENTMENU_ACTIONS}
     Wait until element is visible  ${LIST_CONTENTMENU_ACTIONS}
 
-    ${note1}  Add pointy note  ${LINK_LISTING_COLLECTION_ACTIVATE}
+    ${note1}  Add pointy note  ${LISTING_COLLECTION_ACTIVATE_LINK}
     ...  Click to activate the Listing Collection
     ...  position=${POSITION_CONTENTMENU_ACTIONS_NOTE}
-    Mouse over  ${LINK_LISTING_COLLECTION_ACTIVATE}
+    Mouse over  ${LISTING_COLLECTION_ACTIVATE_LINK}
     Update element style  portal-footer  display  none
 
     Capture and crop page screenshot
@@ -35,7 +35,7 @@ Show how to activate the listing collection
     Remove elements  ${note1}
 
     ${href} =  get element attribute
-    ...  ${LINK_LISTING_COLLECTION_ACTIVATE}@href
+    ...  ${LISTING_COLLECTION_ACTIVATE_LINK}@href
     go to  ${href}
 
     Capture and crop page screenshot
@@ -93,10 +93,10 @@ Show how to activate the recent listings
     Click link  ${LINK_CONTENTMENU_ACTIONS}
     Wait until element is visible  ${LIST_CONTENTMENU_ACTIONS}
 
-    ${note1}  Add pointy note  ${RECENT_LISTINGS_ACTIVATE}
+    ${note1}  Add pointy note  ${RECENT_LISTINGS_ACTIVATE_LINK}
     ...  Click to activate the Recent Listings
     ...  position=${POSITION_CONTENTMENU_ACTIONS_NOTE}
-    Mouse over  ${RECENT_LISTINGS_ACTIVATE}
+    Mouse over  ${RECENT_LISTINGS_ACTIVATE_LINK}
     Update element style  portal-footer  display  none
 
     Capture and crop page screenshot
@@ -107,7 +107,7 @@ Show how to activate the recent listings
     Remove elements  ${note1}
 
     ${href} =  get element attribute
-    ...  ${RECENT_LISTINGS_ACTIVATE}@href
+    ...  ${RECENT_LISTINGS_ACTIVATE_LINK}@href
     go to  ${href}
 
     Capture and crop page screenshot
@@ -130,10 +130,10 @@ Show how to activate the recent listings
     Click link  ${LINK_CONTENTMENU_ACTIONS}
     Wait until element is visible  ${LIST_CONTENTMENU_ACTIONS}
 
-    ${note1}  Add pointy note  ${RECENT_LISTINGS_DEACTIVATE}
+    ${note1}  Add pointy note  ${RECENT_LISTINGS_DEACTIVATE_LINK}
     ...  Click to deactivate the Recent Listings
     ...  position=${POSITION_CONTENTMENU_ACTIONS_NOTE}
-    Mouse over  ${RECENT_LISTINGS_DEACTIVATE}
+    Mouse over  ${RECENT_LISTINGS_DEACTIVATE_LINK}
     Update element style  portal-footer  display  none
 
     Capture and crop page screenshot
@@ -144,7 +144,7 @@ Show how to activate the recent listings
     Remove elements  ${note1}
 
     ${href} =  get element attribute
-    ...  ${RECENT_LISTINGS_DEACTIVATE}@href
+    ...  ${RECENT_LISTINGS_DEACTIVATE_LINK}@href
     go to  ${href}
 
     Capture and crop page screenshot
