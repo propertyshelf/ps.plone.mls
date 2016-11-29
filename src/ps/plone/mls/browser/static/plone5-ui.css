@@ -151,3 +151,16 @@ body#visual-portal-wrapper.pat-plone .outer-wrapper .contenttype-ps-plone-mls-fe
     width: 46%;
   }
 }
+
+
+/* Listing Details */
+.listing__detail .autotoc-section > header {
+  display: none;
+}
+
+
+.listing__detail .map__canvas {
+  height: 340px;
+  width: 100%;
+}
+
