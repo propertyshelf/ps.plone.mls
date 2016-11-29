@@ -52,3 +52,77 @@ body#visual-portal-wrapper.pat-plone .outer-wrapper .contenttype-ps-plone-mls-fe
 .icon-controlpanel-propertyshelf_ui_settings:before {
     content: '\e821';
 }
+
+
+/* Agent Information portlet. */
+.agent_avatar img,
+.agency_logo img {
+  max-width: 100%;
+  width: 100%;
+}
+
+
+/* Listing Quick Search portlet. */
+#formfield-form-widgets-baths select,
+#formfield-form-widgets-beds select,
+#formfield-form-widgets-interior_area select,
+#formfield-form-widgets-lot_size select {
+  display: block;
+  width: 100%;
+}
+
+.portletQuickSearch .form-rows {
+  clear: both;
+}
+
+.portletQuickSearch .option input {
+  clear: left;
+  float: left;
+}
+
+.portletQuickSearch .option label {
+  cursor: pointer;
+  float: left;
+  margin-left: 1ex;
+  max-width: 84%;
+}
+
+@media (min-width: 768px) {
+  #formfield-form-widgets-baths select,
+  #formfield-form-widgets-beds select,
+  #formfield-form-widgets-interior_area select,
+  #formfield-form-widgets-lot_size select {
+    display: block;
+    width: 100%;
+  }
+
+  .portletQuickSearch select[size] {
+    min-width: 0;
+  }
+}
+
+@media (min-width: 1052px) {
+  #formfield-form-widgets-baths select,
+  #formfield-form-widgets-beds select,
+  #formfield-form-widgets-interior_area select,
+  #formfield-form-widgets-lot_size select {
+    display: inline-block;
+    width: 45%;
+  }
+
+}
+
+@media (min-width: 1112px) {
+  .portletQuickSearch .option label {
+    max-width: 89%;
+  }
+}
+
+@media (min-width: 1320px) {
+  #formfield-form-widgets-baths select,
+  #formfield-form-widgets-beds select,
+  #formfield-form-widgets-interior_area select,
+  #formfield-form-widgets-lot_size select {
+    width: 46%;
+  }
+}
