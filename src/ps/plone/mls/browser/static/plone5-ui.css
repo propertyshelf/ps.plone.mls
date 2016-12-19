@@ -98,6 +98,17 @@ body#visual-portal-wrapper.pat-plone .outer-wrapper .contenttype-ps-plone-mls-fe
 
 .portletQuickSearch .form-rows {
   clear: both;
+  overflow: hidden;
+}
+
+.portletQuickSearch .form-rows .field {
+  clear: both;
+  overflow: hidden;
+}
+
+.portletQuickSearch .field > label {
+  clear: both;
+  display: block;
 }
 
 .portletQuickSearch .option input {
@@ -110,6 +121,11 @@ body#visual-portal-wrapper.pat-plone .outer-wrapper .contenttype-ps-plone-mls-fe
   float: left;
   margin-left: 1ex;
   max-width: 84%;
+}
+
+.portletQuickSearch input.radio-widget + span {
+  margin-left: 1ex;
+  margin-right: 2ex;
 }
 
 @media (min-width: 768px) {
@@ -151,6 +167,94 @@ body#visual-portal-wrapper.pat-plone .outer-wrapper .contenttype-ps-plone-mls-fe
     width: 46%;
   }
 }
+
+
+/* Listing Results List */
+
+/* Very small screen. */
+@media (max-width: 575px) {
+  .listing__results dl dt,
+  .listing__results dl dd {
+    line-height: 2em;
+    display: inline;
+  }
+  .listing__results dl dd {
+    border-bottom: none;
+    font-weight: normal;
+  }
+  .listing__results dl dd:after {
+    content: " ";
+    display: block;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+  }
+}
+
+@media (min-width: 576px) {
+  .listing__results dl dt {
+    float: left;
+  }
+
+  .listing__results dl dd {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+    text-align: right;
+  }
+}
+
+.listing__results figure {
+  margin-bottom: 20px;
+}
+
+.listing__results figure img {
+  max-width: 100%;
+  width: 100%;
+}
+
+.listing__results figcaption {
+  display: none;
+}
+
+.listing__results dl dt:after {
+  content: ":";
+}
+
+.listing__results .listing__object_type {
+  clear: both;
+}
+
+.listing__results .listing__description {
+  clear: both;
+}
+
+
+.listing__results .listing__beds,
+.listing__results .listing__baths {
+  display: none;
+}
+
+/* barceloneta CSS column fixes. */
+@media (min-width: 768px) {
+  #main-container > .col-sm-6 .listing__results .tileItem dl .col-sm-6 {
+    width: 100%
+  }
+}
+
+@media (min-width: 992px) {
+  #main-container > .col-sm-6 .listing__results .tileItem figure.col-md-3,
+  #main-container > .col-sm-6 .listing__results .tileItem section.col-md-9 {
+    width: 100%
+  }
+}
+
+@media (min-width: 1260px) {
+  #main-container > .col-sm-6 .listing__results .tileItem figure.col-md-3 {
+    width: 33.33333333%;
+  }
+
+  #main-container > .col-sm-6 .listing__results .tileItem section.col-md-9 {
+    width: 66.66666667%;
+  }
+}
+/* End: barceloneta CSS column fixes. */
 
 
 /* Listing Details */
