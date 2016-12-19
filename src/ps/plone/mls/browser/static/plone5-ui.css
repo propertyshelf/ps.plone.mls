@@ -207,6 +207,16 @@ body#visual-portal-wrapper.pat-plone .outer-wrapper .contenttype-ps-plone-mls-fe
 .listing__results figure img {
   max-width: 100%;
   width: 100%;
+  transition: all .5s linear;
+}
+
+.listing__results figure a {
+  overflow: hidden;
+  display: block;
+}
+
+.listing__results figure a:hover img {
+    transform: scale(1.1);
 }
 
 .listing__results figcaption {
