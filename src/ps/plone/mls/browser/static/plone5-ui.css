@@ -375,3 +375,8 @@ body#visual-portal-wrapper.pat-plone .outer-wrapper .contenttype-ps-plone-mls-fe
 .listing__results #search-form form .autotabs .option input {
   vertical-align: top;
 }
+
+.listing__results #search-form input.radio-widget + span {
+  margin-left: 1ex;
+  margin-right: 2ex;
+}
