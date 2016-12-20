@@ -14,7 +14,6 @@
       manager="plone.app.layout.viewlets.interfaces.IBelowContentBody"
       name="ps.plone.mls.listings.featured"
       permission="zope2.View"
-      template="templates/listing_results.pt"
       />
 
   <!-- Viewlet configuration form. -->

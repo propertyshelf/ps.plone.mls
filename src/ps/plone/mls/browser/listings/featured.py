@@ -2,6 +2,7 @@
 """Featured Listings Viewlet."""
 
 # zope imports
+from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from plone import api
 from plone.app.layout.viewlets.common import ViewletBase
 from plone.autoform import directives
@@ -23,6 +24,7 @@ from zope.traversing.browser.absoluteurl import absoluteURL
 from ps.plone.mls import (
     _,
     PLONE_4,
+    PLONE_5,
 )
 from ps.plone.mls.interfaces import IListingTraversable
 
@@ -46,6 +48,11 @@ class IFeaturedListings(IListingTraversable):
 
 class FeaturedListingsViewlet(ViewletBase):
     """Show featured MLS listings."""
+
+    if PLONE_5:
+        index = ViewPageTemplateFile('templates/p5_listing_results.pt')
+    elif PLONE_4:
+        index = ViewPageTemplateFile('templates/listing_results.pt')
 
     @property
     def available(self):
