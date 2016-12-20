@@ -272,6 +272,36 @@ body#visual-portal-wrapper.pat-plone .outer-wrapper .contenttype-ps-plone-mls-fe
   display: none;
 }
 
+.listing__detail dl dt,
+.listing__detail dl dd {
+  line-height: 2em;
+}
+
+.listing__detail dl dt:after {
+  content: ":";
+}
+
+.listing__detail dl dt {
+  float: left;
+}
+
+.listing__detail dl dd {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+  text-align: right;
+}
+
+.listing__detail .listing__beds,
+.listing__detail .listing__baths {
+  display: none;
+}
+
+.listing__detail .listing__summary,
+.listing__detail .listing__images,
+.listing__detail .listing__longdescription,
+.listing__detail .listing__map,
+.listing__detail .listing__video {
+  margin-bottom: 20px;
+}
 
 .listing__detail .map__canvas {
   height: 340px;
