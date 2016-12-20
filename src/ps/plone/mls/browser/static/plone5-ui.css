@@ -319,17 +319,16 @@ body#visual-portal-wrapper.pat-plone .outer-wrapper .contenttype-ps-plone-mls-fe
   width: 100%;
 }
 
-@media (min-width: 888px) {
-  #main-container > .col-sm-12 .listing__results #formfield-form-widgets-baths select,
-  #main-container > .col-sm-12 .listing__results #formfield-form-widgets-beds select,
-  #main-container > .col-sm-12 .listing__results #formfield-form-widgets-interior_area select,
-  #main-container > .col-sm-12 .listing__results #formfield-form-widgets-lot_size select {
-    display: inline-block;
-    width: 47%;
-  }
+.listing__results #formfield-form-widgets-baths .separator,
+.listing__results #formfield-form-widgets-beds .separator,
+.listing__results #formfield-form-widgets-interior_area .separator,
+.listing__results #formfield-form-widgets-lot_size .separator {
+  display: block;
+  text-align: center;
+  width: 100%;
 }
 
-@media (min-width: 992px) {
+@media (min-width: 888px) {
   .listing__results #formfield-form-widgets-baths select,
   .listing__results #formfield-form-widgets-beds select,
   .listing__results #formfield-form-widgets-interior_area select,
@@ -337,19 +336,14 @@ body#visual-portal-wrapper.pat-plone .outer-wrapper .contenttype-ps-plone-mls-fe
     display: inline-block;
     width: 47%;
   }
-  #main-container > .col-sm-6 .listing__results #formfield-form-widgets-baths select,
-  #main-container > .col-sm-6 .listing__results #formfield-form-widgets-beds select,
-  #main-container > .col-sm-6 .listing__results #formfield-form-widgets-interior_area select,
-  #main-container > .col-sm-6 .listing__results #formfield-form-widgets-lot_size select {
+  .listing__results #formfield-form-widgets-baths .separator,
+  .listing__results #formfield-form-widgets-beds .separator,
+  .listing__results #formfield-form-widgets-interior_area .separator,
+  .listing__results #formfield-form-widgets-lot_size .separator {
     display: inline-block;
-    width: 45%;
-  }
-  #main-container > .col-sm-12 .listing__results #formfield-form-widgets-baths select,
-  #main-container > .col-sm-12 .listing__results #formfield-form-widgets-beds select,
-  #main-container > .col-sm-12 .listing__results #formfield-form-widgets-interior_area select,
-  #main-container > .col-sm-12 .listing__results #formfield-form-widgets-lot_size select {
-    display: inline-block;
-    width: 48%;
+    width: 4%;
+    margin-left: -2px;
+    margin-right: -2px;
   }
 }
 
