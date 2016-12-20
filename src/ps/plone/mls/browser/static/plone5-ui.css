@@ -309,3 +309,75 @@ body#visual-portal-wrapper.pat-plone .outer-wrapper .contenttype-ps-plone-mls-fe
   width: 100%;
 }
 
+
+
+.listing__results #formfield-form-widgets-baths select,
+.listing__results #formfield-form-widgets-beds select,
+.listing__results #formfield-form-widgets-interior_area select,
+.listing__results #formfield-form-widgets-lot_size select {
+  display: block;
+  width: 100%;
+}
+
+@media (min-width: 888px) {
+  #main-container > .col-sm-12 .listing__results #formfield-form-widgets-baths select,
+  #main-container > .col-sm-12 .listing__results #formfield-form-widgets-beds select,
+  #main-container > .col-sm-12 .listing__results #formfield-form-widgets-interior_area select,
+  #main-container > .col-sm-12 .listing__results #formfield-form-widgets-lot_size select {
+    display: inline-block;
+    width: 47%;
+  }
+}
+
+@media (min-width: 992px) {
+  .listing__results #formfield-form-widgets-baths select,
+  .listing__results #formfield-form-widgets-beds select,
+  .listing__results #formfield-form-widgets-interior_area select,
+  .listing__results #formfield-form-widgets-lot_size select {
+    display: inline-block;
+    width: 47%;
+  }
+  #main-container > .col-sm-6 .listing__results #formfield-form-widgets-baths select,
+  #main-container > .col-sm-6 .listing__results #formfield-form-widgets-beds select,
+  #main-container > .col-sm-6 .listing__results #formfield-form-widgets-interior_area select,
+  #main-container > .col-sm-6 .listing__results #formfield-form-widgets-lot_size select {
+    display: inline-block;
+    width: 45%;
+  }
+  #main-container > .col-sm-12 .listing__results #formfield-form-widgets-baths select,
+  #main-container > .col-sm-12 .listing__results #formfield-form-widgets-beds select,
+  #main-container > .col-sm-12 .listing__results #formfield-form-widgets-interior_area select,
+  #main-container > .col-sm-12 .listing__results #formfield-form-widgets-lot_size select {
+    display: inline-block;
+    width: 48%;
+  }
+}
+
+.listing__results form .autotoc-section >  div > label {
+  display: none;
+}
+
+
+.listing__results #search-form form span.option {
+  display: inline-block;
+  margin-right: 2ex;
+  vertical-align: middle;
+}
+
+.listing__results #search-form form span.option input,
+.listing__results #search-form form span.option label {
+  cursor: pointer;
+  padding-left: 1ex;
+}
+
+.listing__results #search-form form .autotabs .option {
+  width: 30%;
+}
+
+.listing__results #search-form form .autotabs .option label {
+  max-width: 90%;
+}
+
+.listing__results #search-form form .autotabs .option input {
+  vertical-align: top;
+}
