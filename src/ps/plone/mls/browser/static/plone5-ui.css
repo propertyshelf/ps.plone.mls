@@ -298,6 +298,7 @@ body#visual-portal-wrapper.pat-plone .outer-wrapper .contenttype-ps-plone-mls-fe
 .listing__detail .listing__summary,
 .listing__detail .listing__images,
 .listing__detail .listing__longdescription,
+.listing__detail .listing__calendar,
 .listing__detail .listing__map,
 .listing__detail .listing__video {
   margin-bottom: 20px;
