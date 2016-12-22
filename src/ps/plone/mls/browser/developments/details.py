@@ -96,11 +96,11 @@ function loadScript(src, callback) {{
 
 
 function loadGoogleMaps(callback) {{
-    if (typeof google === 'object' && typeof google.maps === 'object') {{
-        callback();
-    }} else {{
-        loadScript('https://maps.googleapis.com/maps/api/js?key={apikey}', callback);
-    }}
+  if (typeof google === 'object' && typeof google.maps === 'object') {{
+    callback();
+  }} else {{
+    loadScript('https://maps.googleapis.com/maps/api/js?key={ak}', callback);
+  }}
 }}
 
 
@@ -408,7 +408,7 @@ class DevelopmentDetails(BrowserView):
             lng=lng,
             map_id=self.map_id,
             zoom=self.config.get('map_zoom_level', 7),
-            apikey=self.googleapi,
+            ak=self.googleapi,
         )
 
     @property
