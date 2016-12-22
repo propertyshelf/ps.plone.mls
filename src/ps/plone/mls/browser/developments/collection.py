@@ -2,6 +2,7 @@
 """MLS development collection."""
 
 # zope imports
+from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from plone.app.layout.viewlets.common import ViewletBase
 from plone.directives import form
 from plone.memoize.view import memoize
@@ -25,6 +26,8 @@ from plone.mls.listing.browser.interfaces import (
 )
 from ps.plone.mls import (
     _,
+    PLONE_4,
+    PLONE_5,
     api,
     config,
 )
@@ -66,6 +69,11 @@ class DevelopmentCollectionViewlet(ViewletBase):
     _items = None
     _batching = None
     limit = None
+
+    if PLONE_5:
+        index = ViewPageTemplateFile('templates/development_results_p5.pt')
+    elif PLONE_4:
+        index = ViewPageTemplateFile('templates/development_results.pt')
 
     @property
     def available(self):

@@ -12,7 +12,6 @@
       manager="plone.app.layout.viewlets.interfaces.IBelowContentBody"
       name="ps.plone.mls.development_collection"
       permission="zope2.View"
-      template="templates/development_results.pt"
       />
 
   <browser:viewlet
