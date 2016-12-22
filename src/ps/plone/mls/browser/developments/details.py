@@ -327,6 +327,10 @@ class DevelopmentDetails(BrowserView):
 
     def setup(self):
         self.registry = getUtility(IRegistry)  # noqa
+        if PLONE_5:
+            from Products.CMFPlone.resources import add_resource_on_request
+            if self.use_fotorama():
+                add_resource_on_request(self.request, 'psplonefotorama')
 
     @property
     def config(self):
