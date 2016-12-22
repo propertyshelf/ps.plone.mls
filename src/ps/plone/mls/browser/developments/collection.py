@@ -42,6 +42,7 @@ from ps.plone.mls.interfaces import (
 FIELDS = [
     'id',
     'title',
+    'description',
     'logo',
     'location',
     'lot_size',
