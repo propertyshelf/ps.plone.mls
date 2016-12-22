@@ -380,3 +380,65 @@ body#visual-portal-wrapper.pat-plone .outer-wrapper .contenttype-ps-plone-mls-fe
   margin-left: 1ex;
   margin-right: 2ex;
 }
+
+
+/* Development Results List */
+/* Very small screen. */
+@media (max-width: 575px) {
+  .development__results dl dt,
+  .development__results dl dd {
+    line-height: 2em;
+    display: inline;
+  }
+  .development__results dl dd {
+    border-bottom: none;
+    font-weight: normal;
+  }
+  .development__results dl dd:after {
+    content: " ";
+    display: block;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+  }
+}
+
+@media (min-width: 576px) {
+  .development__results dl dt {
+    float: left;
+  }
+
+  .development__results dl dd {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+    text-align: right;
+  }
+}
+
+.development__results figure {
+  margin-bottom: 20px;
+}
+
+.development__results figure img {
+  max-width: 100%;
+  width: 100%;
+  transition: all .5s linear;
+}
+
+.development__results figure a {
+  overflow: hidden;
+  display: block;
+}
+
+.development__results figure a:hover img {
+    transform: scale(1.1);
+}
+
+.development__results figcaption {
+  display: none;
+}
+
+.development__results dl dt:after {
+  content: ":";
+}
+
+.development__results .development__description {
+  clear: both;
+}
