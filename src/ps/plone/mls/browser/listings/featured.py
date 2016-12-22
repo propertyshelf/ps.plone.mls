@@ -50,7 +50,7 @@ class FeaturedListingsViewlet(ViewletBase):
     """Show featured MLS listings."""
 
     if PLONE_5:
-        index = ViewPageTemplateFile('templates/p5_listing_results.pt')
+        index = ViewPageTemplateFile('templates/listing_results_p5.pt')
     elif PLONE_4:
         index = ViewPageTemplateFile('templates/listing_results.pt')
 
