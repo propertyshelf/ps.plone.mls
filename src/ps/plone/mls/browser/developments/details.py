@@ -10,6 +10,7 @@ import logging
 from Acquisition import aq_inner
 from Products.CMFPlone import PloneMessageFactory as PMF
 from Products.Five import BrowserView
+from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from plone import api as plone_api
 from plone.app.layout.viewlets.common import ViewletBase
 from plone.directives import form
@@ -53,6 +54,8 @@ except ImportError:
 # local imports
 from ps.plone.mls import (
     _,
+    PLONE_4,
+    PLONE_5,
     api,
     config,
     utils,
@@ -310,8 +313,19 @@ class DevelopmentDetails(BrowserView):
     _contact_form = None
     _contact_info = None
 
-    def __init__(self, context, request):
-        super(DevelopmentDetails, self).__init__(context, request)
+    if PLONE_5:
+        index = ViewPageTemplateFile('templates/development_details_p5.pt')
+    elif PLONE_4:
+        index = ViewPageTemplateFile('templates/development_details_view.pt')
+
+    def __call__(self):
+        self.setup()
+        return self.render()
+
+    def render(self):
+        return self.index()
+
+    def setup(self):
         self.registry = getUtility(IRegistry)  # noqa
 
     @property

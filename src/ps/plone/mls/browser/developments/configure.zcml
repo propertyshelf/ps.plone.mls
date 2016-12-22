@@ -67,7 +67,6 @@
       layer="ps.plone.mls.browser.interfaces.IPloneMLSLayer"
       name="development-detail"
       permission="zope2.View"
-      template="templates/development_details_view.pt"
       />
 
   <browser:page
