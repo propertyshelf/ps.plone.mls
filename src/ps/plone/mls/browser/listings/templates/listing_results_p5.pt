@@ -16,7 +16,7 @@
                               batch view/batching | nothing;"
                   tal:condition="listings">
 
-      <div metal:use-macro="context/@@ps.plone.mls.macrosp5/listing_results">Show list of listings.</div>
+      <div metal:use-macro="context/@@ps.plone.mls.macros/listing_results">Show list of listings.</div>
 
     </tal:listings>
   </section>
