@@ -220,6 +220,8 @@ class FeaturedListingsToggle(object):
 class FeaturedListings(BrowserView):
     """Featured Listings view"""
 
+    limit = 25
+
     def __init__(self, context, request):
         super(FeaturedListings, self).__init__(context, request)
         self.portal_state = queryMultiAdapter(
@@ -254,3 +256,13 @@ class FeaturedListings(BrowserView):
     def listings(self):
         """Return listing results."""
         return self._get_listings()
+
+    @property
+    def batching(self):
+        return ListingBatch(
+            self.listings,
+            self.limit,
+            self.request.get('b_start', 0),
+            orphan=1,
+            batch_data=None,
+        )
