@@ -442,3 +442,9 @@ body#visual-portal-wrapper.pat-plone .outer-wrapper .contenttype-ps-plone-mls-fe
 .development__results .development__description {
   clear: both;
 }
+
+.development__details .development__banner {
+  max-width: 100%;
+  width: 100%;
+  margin-bottom: 20px;
+}

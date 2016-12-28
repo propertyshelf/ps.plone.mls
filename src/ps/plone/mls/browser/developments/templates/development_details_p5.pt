@@ -20,12 +20,7 @@
 
   <body>
     <metal:main fill-slot="main">
-      <div class="anchorlink"
-        tal:condition="view/contact_link | nothing">
-        <a id="contact-us"
-          href="#quick_form" i18n:translate="">Contact us</a>
-      </div>
-      <article class="mls detail development"
+      <article class="development__details mls detail development"
            metal:define-macro="main"
            tal:define="item view/item | nothing;
                        images item/pictures | nothing;
@@ -38,10 +33,27 @@
                        amenities_dict item/amenities_lookup/value | nothing;
                        amenities_count python:len(amenities) if amenities is not None else None;">
 
-        <div id="viewlet-above-content-title" tal:content="structure provider:plone.abovecontenttitle" tal:condition="not:ajax_load" />
-        <div id="viewlet-below-content-title" tal:content="structure provider:plone.belowcontenttitle" tal:condition="not:ajax_load" />
+        <img class="development__banner"
+            tal:define="img item/banner_image/value | nothing"
+            tal:condition="img"
+            tal:attributes="src img;
+                            title title;" />
 
-        <div id="viewlet-above-content-body" tal:content="structure provider:plone.abovecontentbody" tal:condition="not:ajax_load" />
+        <div tal:replace="structure provider:plone.abovecontenttitle" tal:condition="not:ajax_load" />
+
+        <h1 class="documentFirstHeading" tal:content="title | nothing">[Title]</h1>
+        <div class="documentDescription" tal:define="description item/description/value | nothing" tal:condition="description">
+          <tal:descriptionline tal:repeat="line python:description.splitlines()">
+            <p tal:content="line">[Description Line]</p>
+          </tal:descriptionline>
+        </div>
+
+        <div tal:replace="structure provider:plone.belowcontenttitle" tal:condition="not:ajax_load" />
+
+        <div tal:replace="structure provider:plone.abovecontentbody" tal:condition="not:ajax_load" />
+
+
+
 
         <div id="content-core" class="development_details" tal:condition="item">
           <section class="development__amenities" tal:condition="amenities">
@@ -57,16 +69,10 @@
           </section>
 
           <section class="development__overview"
-                  tal:define="description_text item/description/value | nothing;
-                              text item/long_description/value | nothing;
+                  tal:define="text item/long_description/value | nothing;
                               lead_image view/lead_image | nothing;"
-                  tal:condition="python: description_text or text or lead_image">
+                  tal:condition="python: text or lead_image">
             <h2 class="" i18n:translate="">Overview</h2>
-            <div class="documentDescription" tal:condition="description_text">
-              <tal:descriptionline tal:repeat="line python:description_text.splitlines()">
-                <p tal:content="line">[Description Line]</p>
-              </tal:descriptionline>
-            </div>
 
             <div class="overview__long_description">
               <!-- use lead image next to description-->
@@ -419,6 +425,11 @@
           </section>
         </div>
       </article>
+      <div class="anchorlink"
+        tal:condition="view/contact_link | nothing">
+        <a id="contact-us"
+          href="#quick_form" i18n:translate="">Contact us</a>
+      </div>
     </metal:main>
   </body>
 </html>
