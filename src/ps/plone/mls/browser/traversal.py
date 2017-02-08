@@ -230,7 +230,10 @@ class DevelopmentTraverser(MLSItemTraverser):
         # Check if the listing belongs to the development
         cache = IAnnotations(self.request)
         item = cache['ps.plone.mls.development.traversed']
-        results, batch = item.listings()
+        params = {
+            'listing_ids': listing_id,
+        }
+        results, batch = item.listings(params=params)
         available_listings = [
             listing.get('id', {}).get('value', None) for listing in results
         ]
