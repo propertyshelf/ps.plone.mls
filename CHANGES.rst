@@ -2,8 +2,8 @@ Changelog
 =========
 
 
-0.6 (unreleased)
-----------------
+0.5.4 (2017-02-08)
+------------------
 
 - Fix NotFound error for listing details when development has more than 25 listings.
 
