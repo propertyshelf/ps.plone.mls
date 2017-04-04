@@ -287,8 +287,7 @@ class ContactForm(form.Form):
         message = EMAIL_TEMPLATE.format(**data)
         message = message_from_string(message.encode(email_charset))
         message['To'] = rcp
-        message['From'] = from_address
-        message['Reply-to'] = sender
+        message['From'] = sender
         message['Subject'] = subject
         try:
             mailhost.send(message, immediate=True, charset=email_charset)
