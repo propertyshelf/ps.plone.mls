@@ -480,11 +480,7 @@ class DevelopmentDetails(BrowserView):
         show_info = self.contact_info() is not None
         return show_info or show_form
 
-    def contact_info(self):
-        """Get the contact information, if enabled."""
-        if not self.config.get('show_contact_info', False):
-            return
-
+    def _get_contact_info(self):
         if self._contact_info is not None:
             return self._contact_info
 
@@ -503,6 +499,12 @@ class DevelopmentDetails(BrowserView):
         }
         return self._contact_info
 
+    def contact_info(self):
+        """Get the contact information, if enabled."""
+        if not self.config.get('show_contact_info', False):
+            return
+        return self._get_contact_info()
+
     def contact_form(self):
         """Get the contact form, if enabled."""
         if not self.config.get('show_contact_form', False):
@@ -511,7 +513,7 @@ class DevelopmentDetails(BrowserView):
         if self._contact_form is not None:
             return self._contact_form
 
-        item_info = self.contact_info().get('agent')
+        item_info = self._get_contact_info().get('agent')
         z2.switch_on(self, request_layer=IFormLayer)
         self._contact_form = ContactForm(
             aq_inner(self.context),
