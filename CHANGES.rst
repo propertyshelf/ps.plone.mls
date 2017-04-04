@@ -5,7 +5,7 @@ Changelog
 0.6 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- In development contact form, use sender for email 'from', instead of 'reply-to'.
 
 
 0.5.4 (2017-02-08)
