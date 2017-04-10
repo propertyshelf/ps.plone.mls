@@ -5,7 +5,7 @@ Changelog
 0.6 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- Use plone.api.portal.send_email to send emails. Fixes utf-8 encoding issues.
 
 
 0.5.5 (2017-04-04)

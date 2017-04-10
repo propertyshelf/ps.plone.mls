@@ -3,6 +3,7 @@
 
 # python imports
 from email import message_from_string
+from email.utils import formataddr
 import json
 import logging
 
@@ -261,38 +262,40 @@ class ContactForm(form.Form):
         return
 
     def send_email(self, data):
-        mailhost = plone_api.portal.get_tool(name='MailHost')
+        """Construct and send an email message."""
         urltool = plone_api.portal.get_tool(name='portal_url')
         portal = urltool.getPortalObject()
-        email_charset = portal.getProperty('email_charset')
 
-        # Construct and send a message.
-        from_address = portal.getProperty('email_from_address')
-        from_name = portal.getProperty('email_from_name')
-        if from_name is not None:
-            from_address = '{0} <{1}>'.format(from_name, from_address)
+        try:
+            email_charset = plone_api.portal.get_registry_record('plone.email_charset')
+        except plone_api.exc.InvalidParameterError:
+            email_charset = portal.getProperty('email_charset', 'utf-8')
+
+        recipient = None
+        portal_address = portal.getProperty('email_from_address')
 
         try:
             agent = self.item_info
-            rcp = agent.email.value
+            recipient = agent.email.value
         except Exception:
-            rcp = from_address
+            recipient = portal_address
 
         if self.email_override is not None:
-            rcp = self.email_override
+            recipient = self.email_override
 
-        sender = u'{0} <{1}>'.format(data['name'], data['sender_from_address'])
+        sender = formataddr((data['name'], data['sender_from_address']))
+
         subject = u'Customer Contact Developments'
         data['url'] = self.request.getURL()
-        message = EMAIL_TEMPLATE.format(**data)
-        message = message_from_string(message.encode(email_charset))
-        message['To'] = rcp
-        message['From'] = sender
-        message['Subject'] = subject
-        try:
-            mailhost.send(message, immediate=True, charset=email_charset)
-        except Exception:
-            return False
+        body = EMAIL_TEMPLATE.format(**data)
+        email_msg = message_from_string(body.encode(email_charset))
+
+        plone_api.portal.send_email(
+            sender=sender,
+            recipient=recipient,
+            subject=subject,
+            body=email_msg,
+        )
         return True
 
 
