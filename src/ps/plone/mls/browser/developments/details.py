@@ -39,6 +39,7 @@ from zope.component import (
     getUtility,
     queryMultiAdapter,
 )
+from zope.i18n import translate
 from zope.interface import (
     alsoProvides,
     implementer,
@@ -63,13 +64,14 @@ from ps.plone.mls.interfaces import IDevelopmentDetails
 
 logger = logging.getLogger(config.PROJECT_NAME)
 
-EMAIL_TEMPLATE = u"""
-Enquiry from: {name} <{sender_from_address}>
-Development URL: {url}
-
-Message:
-{message}
-"""
+EMAIL_TEMPLATE = _(
+    u'development_contact_email',
+    default=u'Enquiry from: {name} <{sender_from_address}>\n'
+    u'Development URL: {url}\n'
+    u'\n'
+    u'Message:\n'
+    u'{message}'
+)
 
 
 MAP_JS = """
@@ -287,7 +289,10 @@ class ContactForm(form.Form):
 
         subject = u'Customer Contact Developments'
         data['url'] = self.request.getURL()
-        body = EMAIL_TEMPLATE.format(**data)
+        body = translate(
+            EMAIL_TEMPLATE,
+            context=self.request,
+        ).format(**data)
         email_msg = message_from_string(body.encode(email_charset))
 
         plone_api.portal.send_email(
