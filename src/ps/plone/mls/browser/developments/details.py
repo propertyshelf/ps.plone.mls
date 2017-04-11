@@ -3,7 +3,10 @@
 
 # python imports
 from email import message_from_string
-from email.utils import formataddr
+from email.utils import (
+    formataddr,
+    getaddresses,
+)
 import json
 import logging
 
@@ -280,6 +283,11 @@ class ContactForm(form.Form):
         except Exception:
             recipient = portal_address
 
+        recipients = [recipient]
+        bcc = self.config.get('contact_form_bcc', None)
+        if bcc is not None:
+            recipients += [formataddr(addr) for addr in getaddresses((bcc, ))]
+
         if self.email_override is not None:
             recipient = self.email_override
 
@@ -289,10 +297,11 @@ class ContactForm(form.Form):
         data['url'] = self.request.getURL()
         body = EMAIL_TEMPLATE.format(**data)
         email_msg = message_from_string(body.encode(email_charset))
+        email_msg['To'] = formataddr((recipient, recipient))
 
         plone_api.portal.send_email(
             sender=sender,
-            recipient=recipient,
+            recipient=recipients,
             subject=subject,
             body=email_msg,
         )
