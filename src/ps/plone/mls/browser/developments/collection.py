@@ -224,6 +224,15 @@ class IDevelopmentCollectionConfiguration(form.Schema):
         title=_(u'Alternative Email recipient'),
     )
 
+    contact_form_bcc = schema.TextLine(
+        description=_(
+            u'E-mail addresses which receive a blind carbon copy (comma '
+            u'separated).'
+        ),
+        required=False,
+        title=_(u'BCC Recipients'),
+    )
+
     show_contact_link = schema.Bool(
         default=False,
         description=_(
