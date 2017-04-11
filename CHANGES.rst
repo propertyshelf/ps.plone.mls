@@ -6,6 +6,8 @@ Changelog
 ----------------
 
 - Use plone.api.portal.send_email to send emails. Fixes utf-8 encoding issues.
+- Make development contact email message body translatable.
+- Use combination of portal title and development title for email subject.
 
 
 0.5.5 (2017-04-04)
