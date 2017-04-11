@@ -35,13 +35,14 @@ from z3c.form import (
     field,
     validator,
 )
-from z3c.form.interfaces import IFormLayer
+from z3c.form.interfaces import HIDDEN_MODE, IFormLayer
 from zope import schema
 from zope.annotation.interfaces import IAnnotations
 from zope.component import (
     getUtility,
     queryMultiAdapter,
 )
+from zope.i18n import translate
 from zope.interface import (
     alsoProvides,
     implementer,
@@ -66,13 +67,14 @@ from ps.plone.mls.interfaces import IDevelopmentDetails
 
 logger = logging.getLogger(config.PROJECT_NAME)
 
-EMAIL_TEMPLATE = u"""
-Enquiry from: {name} <{sender_from_address}>
-Development URL: {url}
-
-Message:
-{message}
-"""
+EMAIL_TEMPLATE = _(
+    u'development_contact_email',
+    default=u'Enquiry from: {name} <{sender_from_address}>\n'
+    u'Development URL: {url}\n'
+    u'\n'
+    u'Message:\n'
+    u'{message}'
+)
 
 
 MAP_JS = """
@@ -193,6 +195,11 @@ class IContactForm(form.Schema):
         title=_(u'Captcha'),
     )
 
+    subject = schema.TextLine(
+        required=False,
+        title=PMF(u'label_subject', default=u'Subject')
+    )
+
 
 class ContactForm(form.Form):
     """Contact Form."""
@@ -203,9 +210,10 @@ class ContactForm(form.Form):
     fields['captcha'].widgetFactory = CaptchaFieldWidget
     email_override = None
 
-    def __init__(self, context, request, info=None):
+    def __init__(self, context, request, info=None, development=None):
         super(ContactForm, self).__init__(context, request)
         self.item_info = info
+        self.development = development
 
     @property
     def config(self):
@@ -223,6 +231,17 @@ class ContactForm(form.Form):
             self.email_override = email_override
 
         super(ContactForm, self).update()
+
+    def updateWidgets(self):
+        super(ContactForm, self).updateWidgets()
+        urltool = plone_api.portal.get_tool(name='portal_url')
+        portal = urltool.getPortalObject()
+        subject = u'{portal_title}: {title}'.format(
+            portal_title=portal.getProperty('title').decode('utf-8'),
+            title=self.development.title.value,
+        )
+        self.widgets['subject'].mode = HIDDEN_MODE
+        self.widgets['subject'].value = subject
 
     @property
     def already_sent(self):
@@ -293,9 +312,12 @@ class ContactForm(form.Form):
 
         sender = formataddr((data['name'], data['sender_from_address']))
 
-        subject = u'Customer Contact Developments'
+        subject = data['subject']
         data['url'] = self.request.getURL()
-        body = EMAIL_TEMPLATE.format(**data)
+        body = translate(
+            EMAIL_TEMPLATE,
+            context=self.request,
+        ).format(**data)
         email_msg = message_from_string(body.encode(email_charset))
         email_msg['To'] = formataddr((recipient, recipient))
 
@@ -529,7 +551,8 @@ class DevelopmentDetails(BrowserView):
         self._contact_form = ContactForm(
             aq_inner(self.context),
             self.request,
-            item_info,
+            info=item_info,
+            development=self.item,
         )
         if HAS_WRAPPED_FORM:
             alsoProvides(self._contact_form, IWrappedForm)

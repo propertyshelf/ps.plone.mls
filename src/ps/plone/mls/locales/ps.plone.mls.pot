@@ -338,3 +338,8 @@ msgstr ""
 #: ps/plone/mls/browser/developments/collection.py:196
 msgid "Zoom level for maps"
 msgstr ""
+
+#. Default: "Enquiry from: {name} <{sender_from_address}>\nDevelopment URL: {url}\n\nMessage:\n{message}"
+#: ps/plone/mls/browser/developments/details.py:67
+msgid "development_contact_email"
+msgstr ""
