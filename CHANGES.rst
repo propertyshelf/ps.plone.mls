@@ -6,6 +6,7 @@ Changelog
 ----------------
 
 - Use plone.api.portal.send_email to send emails. Fixes utf-8 encoding issues.
+- Add BCC recipients to development contact email, if available.
 
 
 0.5.5 (2017-04-04)
