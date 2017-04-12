@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2017-04-11 09:22+0000\n"
+"POT-Creation-Date: 2017-04-12 10:41+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -99,7 +99,7 @@ msgstr ""
 msgid "Cancel"
 msgstr ""
 
-#: ps/plone/mls/browser/developments/details.py:193
+#: ps/plone/mls/browser/developments/details.py:195
 msgid "Captcha"
 msgstr ""
 
@@ -331,7 +331,7 @@ msgstr ""
 msgid "Video"
 msgstr ""
 
-#: ps/plone/mls/browser/developments/details.py:260
+#: ps/plone/mls/browser/developments/details.py:279
 msgid "Your contact request was sent successfully."
 msgstr ""
 
@@ -340,6 +340,6 @@ msgid "Zoom level for maps"
 msgstr ""
 
 #. Default: "Enquiry from: {name} <{sender_from_address}>\nDevelopment URL: {url}\n\nMessage:\n{message}"
-#: ps/plone/mls/browser/developments/details.py:67
+#: ps/plone/mls/browser/developments/details.py:70
 msgid "development_contact_email"
 msgstr ""
