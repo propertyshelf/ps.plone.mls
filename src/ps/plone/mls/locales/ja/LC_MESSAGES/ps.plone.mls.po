@@ -5,8 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: MLS Plone Components\n"
-"POT-Creation-Date: 2015-06-11 23:31+0000\n"
-"PO-Revision-Date: 2016-04-22 15:57+0000\n"
+"POT-Creation-Date: 2017-04-12 10:41+0000\n"
+"PO-Revision-Date: 2017-04-12 10:43+0000\n"
 "Last-Translator: Thomas Massmann <thomas.massmann@it-spir.it>\n"
 "Language-Team: Japanese (http://www.transifex.com/propertyshelf/MLS_Plone/language/ja/)\n"
 "MIME-Version: 1.0\n"
@@ -19,15 +19,15 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "Preferred-Encodings: utf-8 latin1\n"
 
-#: ps/plone/mls/browser/developments/collection.py:332
+#: ps/plone/mls/browser/developments/collection.py:365
 msgid "'Development Collection' Configuration"
 msgstr ""
 
-#: ps/plone/mls/browser/developments/collection.py:394
+#: ps/plone/mls/browser/developments/collection.py:427
 msgid "'Development Collection' viewlet activated."
 msgstr ""
 
-#: ps/plone/mls/browser/developments/collection.py:390
+#: ps/plone/mls/browser/developments/collection.py:423
 msgid "'Development Collection' viewlet deactivated."
 msgstr ""
 
@@ -72,7 +72,7 @@ msgstr ""
 msgid "Add one Listing ID for each entry to show up."
 msgstr ""
 
-#: ps/plone/mls/browser/developments/collection.py:333
+#: ps/plone/mls/browser/developments/collection.py:366
 msgid "Adjust the behaviour for this 'Development Collection' viewlet."
 msgstr ""
 
@@ -80,26 +80,30 @@ msgstr ""
 msgid "Adjust the behaviour for this 'Featured Listings' viewlet."
 msgstr ""
 
-#: ps/plone/mls/browser/developments/collection.py:258
+#: ps/plone/mls/browser/developments/collection.py:291
 msgid "Agency Developments"
 msgstr ""
 
-#: ps/plone/mls/browser/developments/collection.py:210
+#: ps/plone/mls/browser/developments/collection.py:224
 msgid "Alternative Email recipient"
 msgstr ""
 
-#: ps/plone/mls/api.py:98
+#: ps/plone/mls/api.py:97
 msgid ""
 "An error occured trying to connect to the configured MLS. Please check your "
 "settings or try again later."
 msgstr ""
 
-#: ps/plone/mls/browser/developments/collection.py:354
+#: ps/plone/mls/browser/developments/collection.py:233
+msgid "BCC Recipients"
+msgstr ""
+
+#: ps/plone/mls/browser/developments/collection.py:387
 #: ps/plone/mls/browser/listings/featured.py:151
 msgid "Cancel"
 msgstr ""
 
-#: ps/plone/mls/browser/developments/details.py:156
+#: ps/plone/mls/browser/developments/details.py:195
 msgid "Captcha"
 msgstr ""
 
@@ -119,7 +123,7 @@ msgstr ""
 msgid "Configure the Featured Listings viewlet."
 msgstr ""
 
-#: ps/plone/mls/browser/developments/templates/development_details_view.pt:381
+#: ps/plone/mls/browser/developments/templates/development_details_view.pt:371
 msgid "Contact"
 msgstr ""
 
@@ -147,7 +151,7 @@ msgstr ""
 msgid "Deactivate the Featured Listings viewlet."
 msgstr ""
 
-#: ps/plone/mls/browser/developments/collection.py:238
+#: ps/plone/mls/browser/developments/collection.py:271
 msgid "Developments per Page"
 msgstr ""
 
@@ -155,7 +159,11 @@ msgstr ""
 msgid "Download PDF"
 msgstr ""
 
-#: ps/plone/mls/browser/developments/collection.py:262
+#: ps/plone/mls/browser/developments/collection.py:228
+msgid "E-mail addresses which receive a blind carbon copy (comma separated)."
+msgstr ""
+
+#: ps/plone/mls/browser/developments/collection.py:295
 msgid "Enter a search term to filter the results."
 msgstr ""
 
@@ -163,7 +171,7 @@ msgstr ""
 msgid "Featured Listings"
 msgstr ""
 
-#: ps/plone/mls/browser/developments/collection.py:165
+#: ps/plone/mls/browser/developments/collection.py:179
 msgid "Filter Options"
 msgstr ""
 
@@ -171,15 +179,15 @@ msgstr ""
 msgid "Gallery"
 msgstr ""
 
-#: ps/plone/mls/browser/developments/collection.py:234
+#: ps/plone/mls/browser/developments/collection.py:267
 msgid "How many developments should be shown per page?"
 msgstr ""
 
-#: ps/plone/mls/browser/developments/collection.py:243
+#: ps/plone/mls/browser/developments/collection.py:276
 msgid "How many listings should be shown per devlopment listings page?"
 msgstr ""
 
-#: ps/plone/mls/browser/developments/collection.py:270
+#: ps/plone/mls/browser/developments/collection.py:303
 msgid ""
 "How should the results be sorted? If nothing is selected, the results are "
 "sorted by relevance."
@@ -190,29 +198,29 @@ msgstr ""
 msgid "ID"
 msgstr ""
 
-#: ps/plone/mls/browser/developments/collection.py:197
+#: ps/plone/mls/browser/developments/collection.py:211
 msgid ""
 "If enabled, a form to contact the responsible agent will be shown on the "
 "detail page for a development."
 msgstr ""
 
-#: ps/plone/mls/browser/developments/collection.py:253
+#: ps/plone/mls/browser/developments/collection.py:286
 msgid "If enabled, only developments for the configured agency will be shown."
 msgstr ""
 
-#: ps/plone/mls/browser/developments/collection.py:187
+#: ps/plone/mls/browser/developments/collection.py:201
 msgid ""
 "If enabled, the contact information for a development will be shown on the "
 "detail page for a development."
 msgstr ""
 
-#: ps/plone/mls/browser/developments/collection.py:215
+#: ps/plone/mls/browser/developments/collection.py:238
 msgid ""
 "If the contact form is enabled, an anchor link will show as quick navigation"
 " to the form."
 msgstr ""
 
-#: ps/plone/mls/utils.py:24
+#: ps/plone/mls/utils.py:26
 msgid "Invalid email address."
 msgstr ""
 
@@ -221,7 +229,7 @@ msgstr ""
 msgid "Listings"
 msgstr ""
 
-#: ps/plone/mls/browser/developments/collection.py:247
+#: ps/plone/mls/browser/developments/collection.py:280
 msgid "Listings per Page"
 msgstr ""
 
@@ -234,11 +242,21 @@ msgstr ""
 msgid "Map &amp; Distances"
 msgstr ""
 
-#: ps/plone/mls/browser/developments/templates/development_details_view.pt:347
+#: ps/plone/mls/browser/developments/templates/development_details_view.pt:337
 msgid "Meet the Developers"
 msgstr ""
 
-#: ps/plone/mls/utils.py:32
+#: ps/plone/mls/browser/developments/collection.py:262
+msgid "Modify URLs"
+msgstr ""
+
+#: ps/plone/mls/browser/developments/collection.py:257
+msgid ""
+"Modify the individual development URLs to show extra information, such as "
+"the Title and Location"
+msgstr ""
+
+#: ps/plone/mls/utils.py:34
 msgid "No URLs allowed."
 msgstr ""
 
@@ -262,24 +280,24 @@ msgstr ""
 msgid "Properties Available"
 msgstr ""
 
-#: ps/plone/mls/browser/developments/collection.py:282
+#: ps/plone/mls/browser/developments/collection.py:315
 msgid "Reverse sort order?"
 msgstr ""
 
-#: ps/plone/mls/browser/developments/collection.py:344
+#: ps/plone/mls/browser/developments/collection.py:377
 #: ps/plone/mls/browser/listings/featured.py:141
 msgid "Save"
 msgstr ""
 
-#: ps/plone/mls/browser/developments/collection.py:266
+#: ps/plone/mls/browser/developments/collection.py:299
 msgid "Searchable Text"
 msgstr ""
 
-#: ps/plone/mls/browser/developments/collection.py:206
+#: ps/plone/mls/browser/developments/collection.py:220
 msgid "Send the contact form to this email instead direct to the agent"
 msgstr ""
 
-#: ps/plone/mls/browser/developments/collection.py:172
+#: ps/plone/mls/browser/developments/collection.py:186
 msgid ""
 "Set the resolution for the map. 0 is the lowest zoom level, in which the "
 "entire world can be seen. The higher the zoom level, the more details can be"
@@ -287,31 +305,31 @@ msgid ""
 "can change over time, also depending on the used map provider."
 msgstr ""
 
-#: ps/plone/mls/browser/developments/collection.py:229
+#: ps/plone/mls/browser/developments/collection.py:252
 msgid "Show Captcha"
 msgstr ""
 
-#: ps/plone/mls/browser/developments/collection.py:202
+#: ps/plone/mls/browser/developments/collection.py:216
 msgid "Show Contact Form"
 msgstr ""
 
-#: ps/plone/mls/browser/developments/collection.py:192
+#: ps/plone/mls/browser/developments/collection.py:206
 msgid "Show Contact Information"
 msgstr ""
 
-#: ps/plone/mls/browser/developments/collection.py:220
+#: ps/plone/mls/browser/developments/collection.py:243
 msgid "Show Contact-Us anchor link"
 msgstr ""
 
-#: ps/plone/mls/browser/developments/collection.py:225
+#: ps/plone/mls/browser/developments/collection.py:248
 msgid "Show a captcha field within the contact form to prevent spam."
 msgstr ""
 
-#: ps/plone/mls/browser/developments/collection.py:275
+#: ps/plone/mls/browser/developments/collection.py:308
 msgid "Sort results by"
 msgstr ""
 
-#: ps/plone/mls/browser/developments/collection.py:396
+#: ps/plone/mls/browser/developments/collection.py:429
 msgid ""
 "The 'Development Collection' viewlet does't work with this content type. Add"
 " 'IPossibleDevelopmentCollection' to the provided interfaces to enable this "
@@ -325,7 +343,7 @@ msgid ""
 "feature."
 msgstr ""
 
-#: ps/plone/mls/api.py:109
+#: ps/plone/mls/api.py:108
 msgid "The requested development was not found."
 msgstr ""
 
@@ -337,10 +355,16 @@ msgstr ""
 msgid "Video"
 msgstr ""
 
-#: ps/plone/mls/browser/developments/details.py:223
+#: ps/plone/mls/browser/developments/details.py:279
 msgid "Your contact request was sent successfully."
 msgstr ""
 
-#: ps/plone/mls/browser/developments/collection.py:182
+#: ps/plone/mls/browser/developments/collection.py:196
 msgid "Zoom level for maps"
+msgstr ""
+
+#. Default: "Enquiry from: {name} <{sender_from_address}>\nDevelopment URL:
+#. {url}\n\nMessage:\n{message}"
+#: ps/plone/mls/browser/developments/details.py:70
+msgid "development_contact_email"
 msgstr ""
