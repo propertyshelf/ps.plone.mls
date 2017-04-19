@@ -1,10 +1,3 @@
-function resize_icons(icons){
-  // adjust height & width to make the icons fit in one line
-  icon_width = jQuery(icons[0]).width();
-  // square the icon
-  jQuery(icons).height(icon_width);
-}
-
 jQuery(function(jq) {
 
   if (jq('.mls .development__gallery .thumbnails').length > 0) {
