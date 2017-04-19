@@ -5,8 +5,6 @@
     xmlns:zcml="http://namespaces.zope.org/zcml"
     i18n_domain="ps.plone.mls">
 
-  <five:registerPackage package="." initialize=".initialize" />
-
   <!-- Register i18n support. -->
   <!-- ====================== -->
   <i18n:registerTranslations directory="locales" />
@@ -21,22 +19,20 @@
   <include file="profiles.zcml" />
 
 
-  <class class="Products.Archetypes.BaseObject.BaseObject" zcml:condition="installed Products.Archetypes">
-    <implements interface="plone.mls.listing.browser.listing_collection.IPossibleListingCollection" />
-    <implements interface="plone.mls.listing.browser.listing_search.IPossibleListingSearch" />
-    <implements interface="plone.mls.listing.browser.recent_listings.IPossibleRecentListings" />
-    <implements interface="plone.mls.listing.interfaces.IPossibleLocalAgencyInfo" />
+  <!-- Add local MLS settings marker interface. -->
+  <!-- ======================================== -->
+  <configure zcml:condition="installed Products.Archetypes">
+    <!-- Add marker interface to all Archetype content types. -->
+    <class class="Products.Archetypes.BaseObject.BaseObject">
+      <implements interface="ps.plone.mls.interfaces.IPossibleDevelopmentCollection" />
+    </class>
+  </configure>
 
-    <implements interface="ps.plone.mls.interfaces.IPossibleDevelopmentCollection" />
-  </class>
-
-  <class class="plone.dexterity.content.DexterityContent" zcml:condition="installed plone.dexterity">
-    <implements interface="plone.mls.listing.browser.listing_collection.IPossibleListingCollection" />
-    <implements interface="plone.mls.listing.browser.listing_search.IPossibleListingSearch" />
-    <implements interface="plone.mls.listing.browser.recent_listings.IPossibleRecentListings" />
-    <implements interface="plone.mls.listing.interfaces.IPossibleLocalAgencyInfo" />
-
-    <implements interface="ps.plone.mls.interfaces.IPossibleDevelopmentCollection" />
-  </class>
+  <configure zcml:condition="installed plone.dexterity">
+    <!-- Add marker interface to all dexterity content types. -->
+    <class class="plone.dexterity.content.DexterityContent">
+      <implements interface="ps.plone.mls.interfaces.IPossibleDevelopmentCollection" />
+    </class>
+  </configure>
 
 </configure>

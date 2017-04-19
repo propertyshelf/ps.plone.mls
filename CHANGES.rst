@@ -5,7 +5,7 @@ Changelog
 0.7 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- Add Plone 5 compatibility.
 
 
 0.6 (2017-04-12)

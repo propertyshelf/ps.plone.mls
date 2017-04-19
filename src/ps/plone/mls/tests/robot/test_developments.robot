@@ -17,72 +17,71 @@ Show how to activate the development collection
     ...  description=This is the folder
     Go to  ${PLONE_URL}/${FOLDER_ID}
 
-    Page should contain element  css=#plone-contentmenu-actions dt a
-    Click link  css=#plone-contentmenu-actions dt a
-    Wait until element is visible
-    ...  css=#plone-contentmenu-actions dd.actionMenuContent
+    Page should contain element  ${LINK_CONTENTMENU_ACTIONS}
+    Click link  ${LINK_CONTENTMENU_ACTIONS}
+    Wait until element is visible  ${LIST_CONTENTMENU_ACTIONS}
 
-    ${note1}  Add pointy note  ${LINK_DEVELOPMENT_COLLECTION_ACTIVATE}
+    ${note1}  Add pointy note  ${DEVELOPMENT_COLLECTION_ACTIVATE_LINK}
     ...  Click to activate the Development Collection
-    ...  position=left
-    Mouse over  ${LINK_DEVELOPMENT_COLLECTION_ACTIVATE}
+    ...  position=${POSITION_CONTENTMENU_ACTIONS_NOTE}
+    Mouse over  ${DEVELOPMENT_COLLECTION_ACTIVATE_LINK}
     Update element style  portal-footer  display  none
 
     Capture and crop page screenshot
     ...  activate_development_collection.png
-    ...  contentActionMenus
-    ...  css=#portal-column-content
+    ...  ${CONTENTMENU_ACTIONS}
+    ...  ${CONTENT}
     ...  ${note1}
     Remove elements  ${note1}
 
     ${href} =  get element attribute
-    ...  ${LINK_DEVELOPMENT_COLLECTION_ACTIVATE}@href
+    ...  ${DEVELOPMENT_COLLECTION_ACTIVATE_LINK}@href
     go to  ${href}
 
     Capture and crop page screenshot
     ...  activate_development_collection_done.png
-    ...  css=#portal-column-content
+    ...  ${STATUS_MESSAGE}
+    ...  ${CONTENT}
 
-    Click Overlay Link  css=#contentview-development-collection-config a
+    Click link  css=#contentview-development-collection-config a
 
-    Wait until element is visible
-    ...  css=div.pb-ajax
+    Wait until element is visible  ${CONTENT}
 
     Capture and crop page screenshot
     ...  configure_development_collection.png
-    ...  css=div.pb-ajax
+    ...  ${CONTENT}
 
-    Click link  ${LINK_DEVELOPMENT_CONFIGURATION_TAB_FITER}
+    Click link  ${DEVELOPMENT_COLLECTION_CONFIG_TAB_FILTER}
 
     Capture and crop page screenshot
     ...  configure_development_collection_filter.png
-    ...  css=div.pb-ajax
+    ...  ${CONTENT}
 
     Click button  css=#form-buttons-cancel
 
     Go to  ${PLONE_URL}/${FOLDER_ID}
-    Page should contain element  css=#plone-contentmenu-actions dt a
-    Click link  css=#plone-contentmenu-actions dt a
-    Wait until element is visible
-    ...  css=#plone-contentmenu-actions dd.actionMenuContent
+    Page should contain element  ${LINK_CONTENTMENU_ACTIONS}
+    Click link  ${LINK_CONTENTMENU_ACTIONS}
+    Wait until element is visible  ${LIST_CONTENTMENU_ACTIONS}
 
-    ${note1}  Add pointy note  ${LINK_DEVELOPMENT_COLLECTION_DEACTIVATE}
+    ${note1}  Add pointy note  ${DEVELOPMENT_COLLECTION_DEACTIVATE_LINK}
     ...  Click to deactivate the Development Collection
-    ...  position=left
-    Mouse over  ${LINK_DEVELOPMENT_COLLECTION_DEACTIVATE}
+    ...  position=${POSITION_CONTENTMENU_ACTIONS_NOTE}
+    Mouse over  ${DEVELOPMENT_COLLECTION_DEACTIVATE_LINK}
     Update element style  portal-footer  display  none
 
     Capture and crop page screenshot
     ...  deactivate_development_collection.png
-    ...  contentActionMenus
-    ...  css=#portal-column-content
+    ...  ${CONTENTMENU_ACTIONS}
+    ...  ${CONTENT}
     ...  ${note1}
     Remove elements  ${note1}
 
     ${href} =  get element attribute
-    ...  ${LINK_DEVELOPMENT_COLLECTION_DEACTIVATE}@href
+    ...  ${DEVELOPMENT_COLLECTION_DEACTIVATE_LINK}@href
     go to  ${href}
 
     Capture and crop page screenshot
     ...  deactivate_development_collection_done.png
-    ...  css=#portal-column-content
+    ...  ${STATUS_MESSAGE}
+    ...  ${CONTENT}
