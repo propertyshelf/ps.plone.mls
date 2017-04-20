@@ -27,7 +27,7 @@ matrix:
   fast_finish: true
 addons:
   artifacts:
-    s3_region: eu-central-1
+    s3_region: eu-west-1
     paths:
     - $(find parts/test -type f | tr "\n" ":")
   firefox: 45.8.0esr
