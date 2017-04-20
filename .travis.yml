@@ -32,7 +32,7 @@ install:
   - sed -ie "s#versions-$PLONE_VERSION.x#versions#" travis.cfg
   - mkdir -p buildout-cache/eggs
   - mkdir -p buildout-cache/downloads
-  - pip install zc.buildout
+  - pip install zc.buildout==2.5.0
   - buildout -c travis.cfg annotate
   - buildout -c travis.cfg -N -q
 before_script:
