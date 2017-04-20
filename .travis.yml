@@ -26,6 +26,10 @@ matrix:
       env: PLONE_VERSION=5.1
   fast_finish: true
 addons:
+  artifacts:
+    s3_region: eu-central-1
+    paths:
+    - $(find parts/test -type f | tr "\n" ":")
   firefox: 45.8.0esr
 install:
   - sed -ie "s#test-4.x.cfg#test-$PLONE_VERSION.x.cfg#" travis.cfg
