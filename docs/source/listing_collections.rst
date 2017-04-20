@@ -21,8 +21,7 @@ When the **Listing Collection** was activated, you will see a status message:
 
 .. image:: ../_images/activate_listing_collection_done.png
 
-To configure the **Listing Collection** click on the new link **Configure Listing Collection**.
-The configuration form opens in a nice overlay:
+To configure the **Listing Collection** click on the new link **Configure Listing Collection**:
 
 .. image:: ../_images/configure_listing_collection.png
 
@@ -39,6 +38,28 @@ When the **Listing Collection** was deactivated, you will see a status message:
 
 Activate Recent Listings
 ------------------------
+
+At first, open the **Actions**-menu and select **Activate Recent Listings**:
+
+.. image:: ../_images/activate_recent_listings.png
+
+When the **Recent Listings** collection was activated, you will see a status message:
+
+.. image:: ../_images/activate_recent_listings_done.png
+
+To configure the **Recent Listings** collection click on the new link **Configure Recent Listings**:
+
+.. image:: ../_images/configure_recent_listings.png
+
+Once all search criterias are entered click the **Save** button.
+
+To de-activate the **Recent Listings** collection again, open the **Actions**-menu and select **Deactivate Recent Listings**:
+
+.. image:: ../_images/deactivate_recent_listings.png
+
+When the **Recent Listings** collection was deactivated, you will see a status message:
+
+.. image:: ../_images/deactivate_recent_listings_done.png
 
 
 Activate Featured Listings

@@ -2,9 +2,7 @@
 """Featured Listings Viewlet."""
 
 # zope imports
-from collective.z3cform.widgets.enhancedtextlines import (
-    EnhancedTextLinesFieldWidget,
-)
+from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from plone import api
 from plone.app.layout.viewlets.common import ViewletBase
 from plone.autoform import directives
@@ -23,8 +21,18 @@ from zope.publisher.browser import BrowserView
 from zope.traversing.browser.absoluteurl import absoluteURL
 
 # local imports
-from ps.plone.mls import _
+from ps.plone.mls import (
+    _,
+    PLONE_4,
+    PLONE_5,
+)
 from ps.plone.mls.interfaces import IListingTraversable
+
+
+if PLONE_4:
+    from collective.z3cform.widgets.enhancedtextlines import (
+        EnhancedTextLinesFieldWidget,
+    )
 
 
 CONFIGURATION_KEY = 'ps.plone.mls.listing.featuredlistings'
@@ -40,6 +48,11 @@ class IFeaturedListings(IListingTraversable):
 
 class FeaturedListingsViewlet(ViewletBase):
     """Show featured MLS listings."""
+
+    if PLONE_5:
+        index = ViewPageTemplateFile('templates/listing_results_p5.pt')
+    elif PLONE_4:
+        index = ViewPageTemplateFile('templates/listing_results.pt')
 
     @property
     def available(self):
@@ -111,7 +124,8 @@ class FeaturedListingsViewlet(ViewletBase):
 class IFeaturedListingsConfiguration(model.Schema):
     """Featured Listings Configuration Form Schema."""
 
-    directives.widget(listing_ids=EnhancedTextLinesFieldWidget)
+    if PLONE_4:
+        directives.widget(listing_ids=EnhancedTextLinesFieldWidget)
     listing_ids = schema.List(
         description=_(u'Add one Listing ID for each entry to show up.'),
         title=_(u'MLS Listing IDs'),
@@ -206,6 +220,8 @@ class FeaturedListingsToggle(object):
 class FeaturedListings(BrowserView):
     """Featured Listings view"""
 
+    limit = 25
+
     def __init__(self, context, request):
         super(FeaturedListings, self).__init__(context, request)
         self.portal_state = queryMultiAdapter(
@@ -240,3 +256,13 @@ class FeaturedListings(BrowserView):
     def listings(self):
         """Return listing results."""
         return self._get_listings()
+
+    @property
+    def batching(self):
+        return ListingBatch(
+            self.listings,
+            self.limit,
+            self.request.get('b_start', 0),
+            orphan=1,
+            batch_data=None,
+        )

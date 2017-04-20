@@ -1,10 +1,3 @@
-function resize_icons(icons){
-  // adjust height & width to make the icons fit in one line
-  icon_width = jQuery(icons[0]).width();
-  // square the icon
-  jQuery(icons).height(icon_width);
-}
-
 jQuery(function(jq) {
 
   if (jq('.mls .development__gallery .thumbnails').length > 0) {
@@ -26,28 +19,6 @@ jQuery(function(jq) {
       transition: 'fade',
       transitionSpeed: 1000,
       autoplay: 5000
-    });
-  }
-
-  if (jq('#content-views #contentview-featured-listings-config').length > 0) {
-    // Show the featured listing configuration form with a nice overlay.
-    jq('#content-views #contentview-featured-listings-config > a').prepOverlay({
-      subtype: 'ajax',
-      filter: '#content>*',
-      formselector: '#content-core > form',
-      noform: 'reload',
-      closeselector: '[name="form.buttons.cancel"]'
-    });
-  }
-
-  if (jq('#content-views #contentview-development-collection-config').length > 0) {
-    // Show the development collection configuration form with a nice overlay.
-    jq('#content-views #contentview-development-collection-config > a').prepOverlay({
-      subtype: 'ajax',
-      filter: '#content>*',
-      formselector: '#content-core > form',
-      noform: 'reload',
-      closeselector: '[name="form.buttons.cancel"]'
     });
   }
 

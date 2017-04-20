@@ -12,6 +12,7 @@ from plone import api
 from plone.browserlayer.utils import registered_layers
 
 # local imports
+from ps.plone.mls import PLONE_4
 from ps.plone.mls.config import PROJECT_NAME
 from ps.plone.mls.testing import INTEGRATION_TESTING
 
@@ -46,25 +47,40 @@ class TestSetup(unittest.TestCase):
 
     def test_cssregistry(self):
         """Validate the CSS file registration."""
+        if not PLONE_4:
+            return
+
         resource_ids = self.portal.portal_css.getResourceIds()
         for id in CSS:
             self.assertIn(id, resource_ids, '{0} not installed'.format(id))
 
     def test_jsregistry(self):
         """Validate the JS file registration."""
+        if not PLONE_4:
+            return
+
         resource_ids = self.portal.portal_javascripts.getResourceIds()
         for id in JS:
             self.assertIn(id, resource_ids, '{0} not installed'.format(id))
 
     def test_collective_z3cform_widgets_installed(self):
         """Validate that collective.z3cform.widgets is installed."""
+        if not PLONE_4:
+            return
+
         qi = self.portal.portal_quickinstaller
         self.assertTrue(qi.isProductInstalled('collective.z3cform.widgets'))
 
     def test_plone_app_dexterity_installed(self):
         """Validate that plone.app.dexterity is installed."""
-        qi = self.portal.portal_quickinstaller
-        self.assertTrue(qi.isProductInstalled('plone.app.dexterity'))
+        portal = self.layer['portal']
+        qi = portal.portal_quickinstaller
+        if qi.isProductAvailable('plone.app.dexterity'):
+            self.assertTrue(qi.isProductInstalled('plone.app.dexterity'))
+        else:
+            self.assertTrue(
+                'plone.app.dexterity' in qi.listInstallableProfiles()
+            )
 
     def test_plone_mls_listing_installed(self):
         """Validate that plone.mls.listing is installed."""
@@ -96,6 +112,9 @@ class UninstallTestCase(unittest.TestCase):
 
     def test_cssregistry(self):
         """Validate the CSS file unregistration."""
+        if not PLONE_4:
+            return
+
         resource_ids = self.portal.portal_css.getResourceIds()
         for id in CSS:
             self.assertNotIn(
@@ -105,6 +124,9 @@ class UninstallTestCase(unittest.TestCase):
 
     def test_jsregistry(self):
         """Validate the JS file unregistration."""
+        if not PLONE_4:
+            return
+
         resource_ids = self.portal.portal_javascripts.getResourceIds()
         for id in JS:
             self.assertNotIn(
