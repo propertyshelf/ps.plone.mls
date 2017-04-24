@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-0.7 (unreleased)
+0.7 (2017-04-24)
 ----------------
 
 - Add Plone 5 compatibility.
