@@ -1,0 +1,15 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    i18n_domain="ps.plone.mls">
+
+  <!-- Viewlet configuration form. -->
+  <browser:page
+      class=".search_banner.SearchBannerConfiguration"
+      for="ps.plone.mls.interfaces.IListingSearchBanner"
+      layer="ps.plone.mls.browser.interfaces.IPloneMLSLayer"
+      name="listing-search-banner-config"
+      permission="cmf.ModifyPortalContent"
+      />
+
+</configure>
