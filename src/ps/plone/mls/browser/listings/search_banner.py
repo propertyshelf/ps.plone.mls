@@ -7,7 +7,10 @@ from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from plone import api
 from plone.app.layout.viewlets.common import ViewletBase
 from plone.directives import form
+from plone.formwidget.namedfile.converter import b64decode_file
 from plone.formwidget.namedfile.widget import NamedImageFieldWidget
+from plone.namedfile.browser import Download
+from plone.namedfile.file import NamedImage
 from plone.supermodel.directives import fieldset
 from z3c.form import button
 from zope import schema
@@ -405,3 +408,29 @@ class SearchBannerToggle(object):
             type=msg_type,
         )
         self.request.response.redirect(self.context.absolute_url())
+
+
+class BannerImage(Download):
+    """Banner image download view."""
+
+    def __init__(self, context, request):
+        super(BannerImage, self).__init__(context, request)
+        self.filename = None
+        self.data = None
+
+        image = self.config.get('image', None)
+        if image is not None:
+            filename, data = b64decode_file(image)
+            data = NamedImage(data=data, filename=filename)
+            self.data = data
+            self.filename = filename
+            # self.width, self.height = self.data.getImageSize()
+
+    @property
+    def config(self):
+        """Get the configuration data from annotations."""
+        annotations = IAnnotations(self.context)
+        return annotations.get(config.SETTINGS_LISTING_SEARCH_BANNER, {})
+
+    def _getFile(self):
+        return self.data
