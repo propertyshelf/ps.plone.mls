@@ -21,7 +21,7 @@ class AvailableListingSearches(object):
         items = []
         for brain in brains:
             title = '{0} ({1})'.format(brain.Title, brain.getPath())
-            items.append(SimpleTerm(brain.UID, title))
+            items.append(SimpleTerm(brain.UID, brain.UID, title))
         return SimpleVocabulary(items)
 
 AvailableListingSearchesFactory = AvailableListingSearches()
