@@ -2,9 +2,11 @@
 """Listing search banner."""
 
 # zope imports
-# from plone.app.z3cform.widget import RelatedItemsFieldWidget
+from Products.CMFPlone import PloneMessageFactory as PMF
+from plone import api
 from plone.directives import form
 from plone.supermodel.directives import fieldset
+from z3c.form import button
 from zope import schema
 from zope.annotation.interfaces import IAnnotations
 
@@ -270,4 +272,17 @@ class SearchBannerConfiguration(form.SchemaForm):
         return annotations.get(
             config.SETTINGS_LISTING_SEARCH_BANNER,
             annotations.setdefault(config.SETTINGS_LISTING_SEARCH_BANNER, {})
+        )
+
+    @button.buttonAndHandler(_(u'Save'))
+    def handle_save(self, action):
+        data, errors = self.extractData()
+        if errors:
+            self.status = self.formErrorsMessage
+            return
+        annotations = IAnnotations(self.context)
+        annotations[config.SETTINGS_LISTING_SEARCH_BANNER] = data
+        api.portal.show_message(
+            message=PMF(u'Changes saved.'),
+            request=self.request,
         )
