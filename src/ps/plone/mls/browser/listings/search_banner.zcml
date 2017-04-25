@@ -3,6 +3,16 @@
     xmlns:browser="http://namespaces.zope.org/browser"
     i18n_domain="ps.plone.mls">
 
+  <!-- Viewlet. -->
+  <browser:viewlet
+      class=".search_banner.SearchBanner"
+      for="ps.plone.mls.interfaces.IListingSearchBanner"
+      layer="ps.plone.mls.browser.interfaces.IPloneMLSLayer"
+      manager="plone.app.layout.viewlets.interfaces.IPortalTop"
+      name="ps.plone.mls.listing.search_banner"
+      permission="zope2.View"
+      />
+
   <!-- Viewlet configuration form. -->
   <browser:page
       class=".search_banner.SearchBannerConfiguration"

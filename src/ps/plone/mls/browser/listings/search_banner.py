@@ -3,7 +3,9 @@
 
 # zope imports
 from Products.CMFPlone import PloneMessageFactory as PMF
+from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from plone import api
+from plone.app.layout.viewlets.common import ViewletBase
 from plone.directives import form
 from plone.supermodel.directives import fieldset
 from z3c.form import button
@@ -95,6 +97,23 @@ DEFAULT_CATEGORIES_2 = (
     u'half_duplex\n'
     u'commercial:Commercial:listing_type=cl&object_type=\n'
 )
+
+
+class SearchBanner(ViewletBase):
+    """Listing Search Banner."""
+
+    index = ViewPageTemplateFile('templates/search_banner.pt')
+
+    @property
+    def available(self):
+        """Check if this viewlet is available for rendering."""
+        return IListingSearchBanner.providedBy(self.context)
+
+    @property
+    def config(self):
+        """Get the configuration data from annotations."""
+        annotations = IAnnotations(self.context)
+        return annotations.get(config.SETTINGS_LISTING_SEARCH_BANNER, {})
 
 
 class ISearchBannerConfiguration(form.Schema):
