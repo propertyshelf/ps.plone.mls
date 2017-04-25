@@ -6,5 +6,4 @@
       i18n:domain="ps.plone.mls"
       tal:omit-tag=""
       tal:condition="view/available | nothing">
-  <h1>Listing Search Banner</h1>
 </html>
