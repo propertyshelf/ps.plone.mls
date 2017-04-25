@@ -124,9 +124,23 @@ class SearchBanner(ViewletBase):
         annotations = IAnnotations(self.context)
         return annotations.get(config.SETTINGS_LISTING_SEARCH_BANNER, {})
 
+    @property
+    def image_url(self):
+        """Return the image URL for the background image."""
+        image = self.config.get('image', None)
+        if image is not None:
+            filename, data = b64decode_file(image)
+            return '{0}/@@listing-search-banner-image/{1}'.format(
+                self.context.absolute_url(),
+                filename,
+            )
+        image_url = self.config.get('image_url', None)
+        if image_url is not None and image_url != u'http://':
+            return image_url
+
 
 class ISearchBannerConfiguration(form.Schema):
-    """Listing Search Banner Configuration Form."""
+    """Listing Search Banner configuration form schema."""
 
     fieldset('section_1', label=_(u'Section 1'), fields=FIELDS_SECTION_1)
     fieldset('section_2', label=_(u'Section 2'), fields=FIELDS_SECTION_2)

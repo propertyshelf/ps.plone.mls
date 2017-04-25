@@ -5,5 +5,10 @@
       lang="en"
       i18n:domain="ps.plone.mls"
       tal:omit-tag=""
-      tal:condition="view/available | nothing">
+      tal:condition="view/available | nothing"
+      tal:define="image_url view/image_url">
+  <div class="listingsearchbanner" style=""
+      tal:attributes="style string: background-image: url(${image_url});">
+  </div>
+
 </html>
