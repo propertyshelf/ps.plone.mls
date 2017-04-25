@@ -12,4 +12,20 @@
       permission="cmf.ModifyPortalContent"
       />
 
+  <browser:page
+      class=".search_banner.SearchBannerStatus"
+      for="*"
+      layer="ps.plone.mls.browser.interfaces.IPloneMLSLayer"
+      name="listing-search-banner-status"
+      permission="cmf.ModifyPortalContent"
+      />
+
+  <browser:page
+      class=".search_banner.SearchBannerToggle"
+      for="*"
+      layer="ps.plone.mls.browser.interfaces.IPloneMLSLayer"
+      name="listing-search-banner-toggle"
+      permission="cmf.ModifyPortalContent"
+      />
+
 </configure>

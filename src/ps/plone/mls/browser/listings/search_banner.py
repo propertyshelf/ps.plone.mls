@@ -9,11 +9,19 @@ from plone.supermodel.directives import fieldset
 from z3c.form import button
 from zope import schema
 from zope.annotation.interfaces import IAnnotations
+from zope.interface import (
+    alsoProvides,
+    noLongerProvides,
+)
 
 # local imports
 from ps.plone.mls import (
     _,
     config,
+)
+from ps.plone.mls.interfaces import (
+    IListingSearchBanner,
+    IPossibleListingSearchBanner,
 )
 
 FIELDS_SECTION_1 = [
@@ -286,3 +294,55 @@ class SearchBannerConfiguration(form.SchemaForm):
             message=PMF(u'Changes saved.'),
             request=self.request,
         )
+
+
+class SearchBannerStatus(object):
+    """Return activation/deactivation status of the viewlet."""
+
+    def __init__(self, context, request):
+        self.context = context
+        self.request = request
+
+    @property
+    def can_activate(self):
+        return IPossibleListingSearchBanner.providedBy(self.context) and \
+            not IListingSearchBanner.providedBy(self.context)
+
+    @property
+    def active(self):
+        return IListingSearchBanner.providedBy(self.context)
+
+
+class SearchBannerToggle(object):
+    """Toggle listing search banner viewlet for the current context."""
+
+    def __init__(self, context, request):
+        self.context = context
+        self.request = request
+
+    def __call__(self):
+        msg_type = 'info'
+
+        if IListingSearchBanner.providedBy(self.context):
+            # Deactivate search banner viewlet.
+            noLongerProvides(self.context, IListingSearchBanner)
+            self.context.reindexObject(idxs=['object_provides', ])
+            msg = _(u'\'Listing Search Banner\' deactivated.')
+        elif IPossibleListingSearchBanner.providedBy(self.context):
+            alsoProvides(self.context, IListingSearchBanner)
+            self.context.reindexObject(idxs=['object_provides', ])
+            msg = _(u'\'Listing Search Banner\' activated.')
+        else:
+            msg = _(
+                u'The \'Listing Search Banner\' does\'t work with '
+                u'this content type. Add \'IPossibleListingSearchBanner\' '
+                u'to the provided interfaces to enable this feature.'
+            )
+            msg_type = 'error'
+
+        api.portal.show_message(
+            request=self.request,
+            message=msg,
+            type=msg_type,
+        )
+        self.request.response.redirect(self.context.absolute_url())
