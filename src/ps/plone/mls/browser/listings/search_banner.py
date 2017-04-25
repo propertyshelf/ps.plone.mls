@@ -119,7 +119,10 @@ class ISearchBannerConfiguration(form.Schema):
         title=LABEL_SECTION_TITLE,
     )
 
-    form.widget('section_1_categories', rows=6)
+    try:
+        form.widget('section_1_categories', rows=6)
+    except TypeError:
+        pass
     section_1_categories = schema.Text(
         default=DEFAULT_CATEGORIES_1,
         description=DESCRIPTION_SECTION_CATEGORIES,
@@ -160,7 +163,10 @@ class ISearchBannerConfiguration(form.Schema):
         title=LABEL_SECTION_TITLE,
     )
 
-    form.widget('section_2_categories', rows=6)
+    try:
+        form.widget('section_2_categories', rows=6)
+    except TypeError:
+        pass
     section_2_categories = schema.Text(
         default=DEFAULT_CATEGORIES_2,
         description=DESCRIPTION_SECTION_CATEGORIES,
@@ -200,7 +206,10 @@ class ISearchBannerConfiguration(form.Schema):
         title=LABEL_SECTION_TITLE,
     )
 
-    form.widget('section_3_categories', rows=6)
+    try:
+        form.widget('section_3_categories', rows=6)
+    except TypeError:
+        pass
     section_3_categories = schema.Text(
         description=DESCRIPTION_SECTION_CATEGORIES,
         required=False,
@@ -239,7 +248,10 @@ class ISearchBannerConfiguration(form.Schema):
         title=LABEL_SECTION_TITLE,
     )
 
-    form.widget('section_4_categories', rows=6)
+    try:
+        form.widget('section_4_categories', rows=6)
+    except TypeError:
+        pass
     section_4_categories = schema.Text(
         description=DESCRIPTION_SECTION_CATEGORIES,
         required=False,
