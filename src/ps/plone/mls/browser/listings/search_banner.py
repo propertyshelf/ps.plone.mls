@@ -67,7 +67,8 @@ LABEL_SECTION_HIDE_CATEGORY = _(u'Hide category')
 LABEL_SECTION_HIDE_SECTION = _(u'Hide section')
 
 DESCRIPTION_SECTION_SEARCH_PAGE = _(
-    u'Find the search page which will be used to show the results.'
+    u'Select the activated listing search page which will be used to show '
+    u'the results.'
 )
 DESCRIPTION_SECTION_TITLE = _(u'')
 DESCRIPTION_SECTION_CATEGORIES = _(u'')
