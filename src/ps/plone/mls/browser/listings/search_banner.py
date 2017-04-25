@@ -7,6 +7,7 @@ from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from plone import api
 from plone.app.layout.viewlets.common import ViewletBase
 from plone.directives import form
+from plone.formwidget.namedfile.widget import NamedImageFieldWidget
 from plone.supermodel.directives import fieldset
 from z3c.form import button
 from zope import schema
@@ -57,6 +58,10 @@ FIELDS_SECTION_4 = [
     'section_4_default_category',
     'section_4_hide_categories',
     'section_4_hide_section',
+]
+FIELDS_UI = [
+    'image',
+    'image_url',
 ]
 
 LABEL_SECTION_SEARCH_PAGE = _(u'Search Target Page')
@@ -124,6 +129,28 @@ class ISearchBannerConfiguration(form.Schema):
     fieldset('section_2', label=_(u'Section 2'), fields=FIELDS_SECTION_2)
     fieldset('section_3', label=_(u'Section 3'), fields=FIELDS_SECTION_3)
     fieldset('section_4', label=_(u'Section 4'), fields=FIELDS_SECTION_4)
+    fieldset('ui', label=_(u'UI'), fields=FIELDS_UI)
+
+    form.widget(image=NamedImageFieldWidget)
+    image = schema.ASCII(
+        description=_(
+            u'Upload an image file which will be used as a background for '
+            u'your listing banner search.'
+        ),
+        required=False,
+        title=_(u'Banner Image'),
+    )
+
+    image_url = schema.TextLine(
+        default=u'http://',
+        description=_(
+            u'Instead of uploading an image, you may enter the URL of an '
+            u'image hosted on another server.'
+        ),
+        max_length=511,
+        required=False,
+        title=_(u'Banner Image URL'),
+    )
 
     section_1_search_target = schema.Choice(
         description=DESCRIPTION_SECTION_SEARCH_PAGE,
