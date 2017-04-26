@@ -13,6 +13,10 @@ from plone.namedfile.browser import Download
 from plone.namedfile.file import NamedImage
 from plone.supermodel.directives import fieldset
 from z3c.form import button
+from z3c.form import (
+    button,
+    field,
+)
 from zope import schema
 from zope.annotation.interfaces import IAnnotations
 from zope.interface import (
@@ -114,6 +118,66 @@ DEFAULT_CATEGORIES_2 = (
     u'half_duplex\n'
     u'commercial:Commercial:listing_type=cl&object_type=\n'
 )
+
+
+class ISectionForm(form.Schema):
+    """Section Search Form schema."""
+
+    category = schema.Choice(
+        required=False,
+        title=_(u'Category'),
+        values=['one', 'two'],
+    )
+
+    q = schema.TextLine(
+        required=False,
+        title=_(u'Location, Keywords, Listing ID, ...'),
+    )
+
+    beds = schema.Choice(
+        required=False,
+        title=_(u'Bedrooms'),
+        source='plone.mls.listing.Rooms',
+    )
+
+    price_min = schema.Int(
+        required=False,
+        title=_(u'Price (Min)'),
+    )
+
+    price_max = schema.Int(
+        required=False,
+        title=_(u'Price (Max)'),
+    )
+
+
+class SectionForm(form.Form):
+    """Section Search Form."""
+
+    fields = field.Fields(ISectionForm)
+    ignoreContext = True
+    method = 'get'
+
+    def __init__(self, context, request, config=None):
+        super(SectionForm, self).__init__(context, request)
+        self.config = config
+
+    @button.buttonAndHandler(PMF(u'label_search', default=u'Search'),
+                             name='search')
+    def handle_search(self, action):
+        data, errors = self.extractData()
+        if errors:
+            self.status = self.formErrorsMessage
+            return
+
+    @property
+    def action(self):
+        """See interfaces.IInputForm."""
+        target_uid = self.config.get('search_target', None)
+        if not target_uid:
+            return
+        obj = api.content.get(UID=target_uid)
+        return obj.absolute_url()
 
 
 class SearchBanner(ViewletBase):
