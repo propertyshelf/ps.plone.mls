@@ -134,7 +134,7 @@ DEFAULT_CATEGORIES_2 = (
     u'all:All:\n'
     u'houses:Houses:listing_type=rl&object_type=house,mobile,multiplex,'
     u'townhouse,freestanding_villa\n'
-    u'condos:Condos:listing_type=rs&object_type=apartment,condominium,'
+    u'condos:Condos:listing_type=rl&object_type=apartment,condominium,'
     u'half_duplex\n'
     u'commercial:Commercial:listing_type=cl&object_type=\n'
 )
