@@ -36,6 +36,7 @@ FIELDS_SECTION_1 = [
     'section_1_categories',
     'section_1_default_category',
     'section_1_hide_categories',
+    'section_1_hide_beds',
     'section_1_hide_section',
 ]
 FIELDS_SECTION_2 = [
@@ -44,6 +45,7 @@ FIELDS_SECTION_2 = [
     'section_2_categories',
     'section_2_default_category',
     'section_2_hide_categories',
+    'section_2_hide_beds',
     'section_2_hide_section',
 ]
 FIELDS_SECTION_3 = [
@@ -52,6 +54,7 @@ FIELDS_SECTION_3 = [
     'section_3_categories',
     'section_3_default_category',
     'section_3_hide_categories',
+    'section_3_hide_beds',
     'section_3_hide_section',
 ]
 FIELDS_SECTION_4 = [
@@ -60,6 +63,7 @@ FIELDS_SECTION_4 = [
     'section_4_categories',
     'section_4_default_category',
     'section_4_hide_categories',
+    'section_4_hide_beds',
     'section_4_hide_section',
 ]
 FIELDS_UI = [
@@ -72,6 +76,7 @@ LABEL_SECTION_TITLE = _(u'Title')
 LABEL_SECTION_CATEGORIES = _(u'Categories')
 LABEL_SECTION_DEFAULT_CATEGORY = _(u'Default Category')
 LABEL_SECTION_HIDE_CATEGORY = _(u'Hide category')
+LABEL_SECTION_HIDE_BEDS = _(u'Hide bedrooms')
 LABEL_SECTION_HIDE_SECTION = _(u'Hide section')
 
 DESCRIPTION_SECTION_SEARCH_PAGE = _(
@@ -83,6 +88,9 @@ DESCRIPTION_SECTION_CATEGORIES = _(u'')
 DESCRIPTION_SECTION_DEFAULT_CATEGORY = _(u'')
 DESCRIPTION_SECTION_HIDE_CATEGORY = _(
     u'Hide the category field and use default setting.'
+)
+DESCRIPTION_SECTION_HIDE_BEDS = _(
+    u'Hide the bedrooms field.'
 )
 DESCRIPTION_SECTION_HIDE_SECTION = _(
     u'Don\'t show this section at all.'
@@ -207,6 +215,12 @@ class ISearchBannerConfiguration(form.Schema):
         title=LABEL_SECTION_HIDE_CATEGORY,
     )
 
+    section_1_hide_beds = schema.Bool(
+        description=DESCRIPTION_SECTION_HIDE_BEDS,
+        required=False,
+        title=LABEL_SECTION_HIDE_BEDS,
+    )
+
     section_1_hide_section = schema.Bool(
         description=DESCRIPTION_SECTION_HIDE_SECTION,
         required=False,
@@ -251,6 +265,12 @@ class ISearchBannerConfiguration(form.Schema):
         title=LABEL_SECTION_HIDE_CATEGORY,
     )
 
+    section_2_hide_beds = schema.Bool(
+        description=DESCRIPTION_SECTION_HIDE_BEDS,
+        required=False,
+        title=LABEL_SECTION_HIDE_BEDS,
+    )
+
     section_2_hide_section = schema.Bool(
         description=DESCRIPTION_SECTION_HIDE_SECTION,
         required=False,
@@ -290,6 +310,12 @@ class ISearchBannerConfiguration(form.Schema):
         description=DESCRIPTION_SECTION_HIDE_CATEGORY,
         required=False,
         title=LABEL_SECTION_HIDE_CATEGORY,
+    )
+
+    section_3_hide_beds = schema.Bool(
+        description=DESCRIPTION_SECTION_HIDE_BEDS,
+        required=False,
+        title=LABEL_SECTION_HIDE_BEDS,
     )
 
     section_3_hide_section = schema.Bool(
@@ -332,6 +358,12 @@ class ISearchBannerConfiguration(form.Schema):
         description=DESCRIPTION_SECTION_HIDE_CATEGORY,
         required=False,
         title=LABEL_SECTION_HIDE_CATEGORY,
+    )
+
+    section_4_hide_beds = schema.Bool(
+        description=DESCRIPTION_SECTION_HIDE_BEDS,
+        required=False,
+        title=LABEL_SECTION_HIDE_BEDS,
     )
 
     section_4_hide_section = schema.Bool(
