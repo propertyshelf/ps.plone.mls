@@ -293,11 +293,18 @@ class SearchBanner(ViewletBase):
 
     index = ViewPageTemplateFile('templates/search_banner.pt')
     config = None
+    section_1 = None
+    section_2 = None
+    section_3 = None
+    section_4 = None
 
     @property
     def available(self):
         """Check if this viewlet is available for rendering."""
-        return IListingSearchBanner.providedBy(self.context)
+        return IListingSearchBanner.providedBy(self.context) and (
+            self.section_1 or self.section_2 or
+            self.section_3 or self.section_4
+        )
 
     def get_config(self):
         """Get the configuration data from annotations."""
