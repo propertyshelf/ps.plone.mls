@@ -227,6 +227,8 @@ class SectionForm(form.Form):
             query[prefix + 'beds-min'] = beds
             query[prefix + 'beds-max'] = '--MAXVALUE--'
         category = data.pop('category', None)
+        if self.config.get('hide_categories', False):
+            category = self.config.get('default_category', None)
         if category:
             q = self.category_queries.get(category)
             category_query = self._prepare_category_search(q)
