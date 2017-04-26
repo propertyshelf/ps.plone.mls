@@ -173,11 +173,13 @@ class SectionForm(form.Form):
     ignoreContext = True
     method = 'get'
 
-    def __init__(self, context, request, config=None):
+    def __init__(self, context, request, config=None, prefix=None):
         super(SectionForm, self).__init__(context, request)
         self.config = config
         self.categories = None
         self.category_queries = {}
+        if prefix is not None and isinstance(prefix, basestring):
+            self.prefix = 'form.{0}.'.format(prefix)
 
     @button.buttonAndHandler(PMF(u'label_search', default=u'Search'),
                              name='search')
@@ -290,6 +292,7 @@ class SearchBanner(ViewletBase):
                 aq_inner(self.context),
                 self.request,
                 config=self.map_config('section_1'),
+                prefix='section_1',
             )
             if HAS_WRAPPED_FORM:
                 alsoProvides(self.section_1, IWrappedForm)
@@ -300,6 +303,7 @@ class SearchBanner(ViewletBase):
                 aq_inner(self.context),
                 self.request,
                 config=self.map_config('section_2'),
+                prefix='section_2',
             )
             if HAS_WRAPPED_FORM:
                 alsoProvides(self.section_2, IWrappedForm)
@@ -310,6 +314,7 @@ class SearchBanner(ViewletBase):
                 aq_inner(self.context),
                 self.request,
                 config=self.map_config('section_3'),
+                prefix='section_3',
             )
             if HAS_WRAPPED_FORM:
                 alsoProvides(self.section_3, IWrappedForm)
@@ -320,6 +325,7 @@ class SearchBanner(ViewletBase):
                 aq_inner(self.context),
                 self.request,
                 config=self.map_config('section_4'),
+                prefix='section_4',
             )
             if HAS_WRAPPED_FORM:
                 alsoProvides(self.section_4, IWrappedForm)
