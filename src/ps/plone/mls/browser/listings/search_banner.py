@@ -215,6 +215,19 @@ class SearchBanner(ViewletBase):
         if image_url is not None and image_url != u'http://':
             return image_url
 
+    def map_config(self, section=None):
+        """Return a config specific for a section."""
+        config = {}
+        if section is None:
+            return
+        if not isinstance(section, basestring):
+            return
+        for key in self.config.keys():
+            if key.startswith(section):
+                new_key = key[len(section) + 1:]
+                config[new_key] = self.config.get(key)
+        return config
+
     def update_config(self):
         if not self.config.get('section_1_title', None):
             self.config['section_1_title'] = u'Section 1'
