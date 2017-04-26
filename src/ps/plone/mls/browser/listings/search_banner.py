@@ -7,6 +7,7 @@ try:
 except ImportError:
     from urllib import urlencode
 import copy
+import urlparse
 
 # zope imports
 from Acquisition import aq_inner
@@ -198,6 +199,21 @@ class SectionForm(form.Form):
         ])
         self.request.response.redirect(url)
 
+    def _prepare_category_search(self, query):
+        result = []
+        prefix = 'form.widgets.'
+        params = dict(urlparse.parse_qsl(query))
+        for key, value in params.items():
+            values = value.split(',')
+            if len(values) > 1:
+                for item in values:
+                    result.append(urlencode({
+                        prefix + key + ':list': item,
+                    }))
+            else:
+                result.append(urlencode({prefix + key: value}))
+        return '&'.join(result)
+
     def prepare_query_string(self, data=None):
         prefix = 'form.widgets.'
         category_query = ''
@@ -206,6 +222,17 @@ class SectionForm(form.Form):
         }
         if not data:
             return ''
+        beds = data.pop('beds', None)
+        if beds:
+            query[prefix + 'beds-min'] = beds
+            query[prefix + 'beds-max'] = '--MAXVALUE--'
+        category = data.pop('category', None)
+        if category:
+            q = self.category_queries.get(category)
+            category_query = self._prepare_category_search(q)
+        for key, value in data.items():
+            if value is not None:
+                query[prefix + key] = value
         return '&'.join([
             urlencode(query),
             category_query,
