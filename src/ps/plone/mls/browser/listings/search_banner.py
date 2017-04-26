@@ -190,6 +190,16 @@ class SectionForm(form.Form):
         obj = api.content.get(UID=target_uid)
         return obj.absolute_url()
 
+    def update(self):
+        """Update form to match configuration."""
+        omitted = []
+        if self.config.get('hide_categories', False):
+            omitted.append('category')
+        if self.config.get('hide_beds', False):
+            omitted.append('beds')
+        self.fields = field.Fields(ISectionForm).omit(*omitted)
+        super(SectionForm, self).update()
+
 
 class SearchBanner(ViewletBase):
     """Listing Search Banner."""
