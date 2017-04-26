@@ -5,6 +5,7 @@
 import copy
 
 # zope imports
+from Acquisition import aq_inner
 from Products.CMFPlone import PloneMessageFactory as PMF
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from plone import api
@@ -15,11 +16,18 @@ from plone.formwidget.namedfile.widget import NamedImageFieldWidget
 from plone.namedfile.browser import Download
 from plone.namedfile.file import NamedImage
 from plone.supermodel.directives import fieldset
-from z3c.form import button
+from plone.z3cform import z2
+# starting from 0.6.0 version plone.z3cform has IWrappedForm interface
+try:
+    from plone.z3cform.interfaces import IWrappedForm
+    HAS_WRAPPED_FORM = True
+except ImportError:
+    HAS_WRAPPED_FORM = False
 from z3c.form import (
     button,
     field,
 )
+from z3c.form.interfaces import IFormLayer
 from zope import schema
 from zope.annotation.interfaces import IAnnotations
 from zope.interface import (
@@ -228,6 +236,50 @@ class SearchBanner(ViewletBase):
                 config[new_key] = self.config.get(key)
         return config
 
+    def setup_forms(self):
+        """Initialize the section forms."""
+        z2.switch_on(self, request_layer=IFormLayer)
+        if not self.config.get('section_1_hide_section', False) and \
+                self.config.get('section_1_search_target', None):
+            self.section_1 = SectionForm(
+                aq_inner(self.context),
+                self.request,
+                config=self.map_config('section_1'),
+            )
+            if HAS_WRAPPED_FORM:
+                alsoProvides(self.section_1, IWrappedForm)
+            self.section_1.update()
+        if not self.config.get('section_2_hide_section', False) and \
+                self.config.get('section_2_search_target', None):
+            self.section_2 = SectionForm(
+                aq_inner(self.context),
+                self.request,
+                config=self.map_config('section_2'),
+            )
+            if HAS_WRAPPED_FORM:
+                alsoProvides(self.section_2, IWrappedForm)
+            self.section_2.update()
+        if not self.config.get('section_3_hide_section', False) and \
+                self.config.get('section_3_search_target', None):
+            self.section_3 = SectionForm(
+                aq_inner(self.context),
+                self.request,
+                config=self.map_config('section_3'),
+            )
+            if HAS_WRAPPED_FORM:
+                alsoProvides(self.section_3, IWrappedForm)
+            self.section_3.update()
+        if not self.config.get('section_4_hide_section', False) and \
+                self.config.get('section_4_search_target', None):
+            self.section_4 = SectionForm(
+                aq_inner(self.context),
+                self.request,
+                config=self.map_config('section_4'),
+            )
+            if HAS_WRAPPED_FORM:
+                alsoProvides(self.section_4, IWrappedForm)
+            self.section_4.update()
+
     def update_config(self):
         if not self.config.get('section_1_title', None):
             self.config['section_1_title'] = u'Section 1'
@@ -243,6 +295,8 @@ class SearchBanner(ViewletBase):
         super(SearchBanner, self).update()
         self.get_config()
         self.update_config()
+        self.setup_forms()
+
 
 class ISearchBannerConfiguration(form.Schema):
     """Listing Search Banner configuration form schema."""
