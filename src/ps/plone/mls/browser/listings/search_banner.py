@@ -34,6 +34,10 @@ from zope.interface import (
     alsoProvides,
     noLongerProvides,
 )
+from zope.schema.vocabulary import (
+    SimpleTerm,
+    SimpleVocabulary,
+)
 
 # local imports
 from ps.plone.mls import (
@@ -135,7 +139,7 @@ class ISectionForm(form.Schema):
     """Section Search Form schema."""
 
     category = schema.Choice(
-        required=False,
+        required=True,
         title=_(u'Category'),
         values=['one', 'two'],
     )
@@ -172,6 +176,8 @@ class SectionForm(form.Form):
     def __init__(self, context, request, config=None):
         super(SectionForm, self).__init__(context, request)
         self.config = config
+        self.categories = None
+        self.category_queries = {}
 
     @button.buttonAndHandler(PMF(u'label_search', default=u'Search'),
                              name='search')
@@ -193,12 +199,41 @@ class SectionForm(form.Form):
     def update(self):
         """Update form to match configuration."""
         omitted = []
-        if self.config.get('hide_categories', False):
+        self._generate_categories()
+        if self.config.get('hide_categories', False) or not self.categories:
             omitted.append('category')
         if self.config.get('hide_beds', False):
             omitted.append('beds')
         self.fields = field.Fields(ISectionForm).omit(*omitted)
+        self.update_fields()
         super(SectionForm, self).update()
+
+    def update_fields(self):
+        """Update form field configurations."""
+        if 'category' in self.fields:
+            field = self.fields['category']
+            field.field.vocabulary = self.categories
+            default = self.config.get('default_category', None)
+            if default not in self.category_queries:
+                default = list(self.categories)[0].token
+            field.field.default = default
+
+    def _generate_categories(self):
+        """Return a new categories vocabulary."""
+        categories = self.config.get('categories', None)
+        if not categories:
+            return
+        terms = []
+        for category in categories.splitlines():
+            try:
+                key, title, query = category.split(':')
+            except ValueError:
+                continue
+            else:
+                terms.append(SimpleTerm(key, key, title))
+                self.category_queries[key] = query
+
+        self.categories = SimpleVocabulary(terms)
 
 
 class SearchBanner(ViewletBase):
