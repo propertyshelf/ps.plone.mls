@@ -215,10 +215,21 @@ class SearchBanner(ViewletBase):
         if image_url is not None and image_url != u'http://':
             return image_url
 
+    def update_config(self):
+        if not self.config.get('section_1_title', None):
+            self.config['section_1_title'] = u'Section 1'
+        if not self.config.get('section_2_title', None):
+            self.config['section_2_title'] = u'Section 2'
+        if not self.config.get('section_3_title', None):
+            self.config['section_3_title'] = u'Section 3'
+        if not self.config.get('section_4_title', None):
+            self.config['section_4_title'] = u'Section 4'
+
     def update(self):
         """Prepare view related data."""
         super(SearchBanner, self).update()
         self.get_config()
+        self.update_config()
 
 class ISearchBannerConfiguration(form.Schema):
     """Listing Search Banner configuration form schema."""
