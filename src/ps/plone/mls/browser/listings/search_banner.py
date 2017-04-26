@@ -1,6 +1,9 @@
 # -*- coding: utf-8 -*-
 """Listing search banner."""
 
+# python imports
+import copy
+
 # zope imports
 from Products.CMFPlone import PloneMessageFactory as PMF
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
@@ -184,17 +187,19 @@ class SearchBanner(ViewletBase):
     """Listing Search Banner."""
 
     index = ViewPageTemplateFile('templates/search_banner.pt')
+    config = None
 
     @property
     def available(self):
         """Check if this viewlet is available for rendering."""
         return IListingSearchBanner.providedBy(self.context)
 
-    @property
-    def config(self):
+    def get_config(self):
         """Get the configuration data from annotations."""
         annotations = IAnnotations(self.context)
-        return annotations.get(config.SETTINGS_LISTING_SEARCH_BANNER, {})
+        self.config = copy.deepcopy(
+            annotations.get(config.SETTINGS_LISTING_SEARCH_BANNER, {})
+        )
 
     @property
     def image_url(self):
@@ -210,6 +215,10 @@ class SearchBanner(ViewletBase):
         if image_url is not None and image_url != u'http://':
             return image_url
 
+    def update(self):
+        """Prepare view related data."""
+        super(SearchBanner, self).update()
+        self.get_config()
 
 class ISearchBannerConfiguration(form.Schema):
     """Listing Search Banner configuration form schema."""
