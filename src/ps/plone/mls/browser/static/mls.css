@@ -859,4 +859,64 @@ body .development__header .development_location{
 .listingsearchbanner {
   background-position: 50% 50%;
   background-size: cover;
+  padding: 2em;
+}
+
+.listingsearchbanner dl.enableFormTabbing dd {
+  background-color: rgba(255, 255, 255, 0.85);
+  border: 1px solid #ddd;
+  padding: 1em 0;
+  text-align: center;
+}
+
+.listingsearchbanner ul.formTabs li.firstFormTab a {
+  border-top-left-radius: 5px;
+}
+
+.listingsearchbanner ul.formTabs li.lastFormTab a {
+  border-top-right-radius: 5px;
+  border-right: none;
+}
+
+.listingsearchbanner ul.formTabs li a {
+  background-color: #ddd;
+  border-right: 1px solid #fff;
+  display: inline-block;
+  padding: 0.5em 1em;
+}
+
+.listingsearchbanner ul.formTabs li a.selected,
+.listingsearchbanner ul.formTabs li a:hover {
+  background-color: #205c90;
+  color: #fff;
+}
+
+.listingsearchbanner form {
+  overflow: hidden;
+  padding: 0 1em;
+}
+
+.listingsearchbanner form div.field {
+  margin: 1em 0.25em;
+}
+
+.listingsearchbanner form div.field,
+.listingsearchbanner form div.formControls {
+  display: inline-block;
+}
+
+.listingsearchbanner .field input,
+.listingsearchbanner .field select,
+.listingsearchbanner .formControls input {
+  font-size: 1em;
+  width: auto;
+}
+
+.listingsearchbanner input[type=submit] {
+  background-color: #205c90;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  cursor:pointer;
+  padding: 5px 15px;
 }
