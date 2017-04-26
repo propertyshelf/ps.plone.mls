@@ -171,7 +171,7 @@ class SectionForm(form.Form):
 
     fields = field.Fields(ISectionForm)
     ignoreContext = True
-    method = 'get'
+    method = 'post'
 
     def __init__(self, context, request, config=None, prefix=None):
         super(SectionForm, self).__init__(context, request)
