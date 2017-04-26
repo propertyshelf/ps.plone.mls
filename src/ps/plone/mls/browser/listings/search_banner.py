@@ -188,10 +188,27 @@ class SectionForm(form.Form):
         if errors:
             self.status = self.formErrorsMessage
             return
+        url = '?'.join([
+            self.search_target_url,
+            self.prepare_query_string(data),
+        ])
+        self.request.response.redirect(url)
+
+    def prepare_query_string(self, data=None):
+        prefix = 'form.widgets.'
+        category_query = ''
+        query = {
+            'form.buttons.search': '',
+        }
+        if not data:
+            return ''
+        return '&'.join([
+            urlencode(query),
+            category_query,
+        ])
 
     @property
-    def action(self):
-        """See interfaces.IInputForm."""
+    def search_target_url(self):
         target_uid = self.config.get('search_target', None)
         if not target_uid:
             return
