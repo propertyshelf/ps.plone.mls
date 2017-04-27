@@ -859,7 +859,7 @@ body .development__header .development_location{
 .listingsearchbanner {
   background-position: 50% 50%;
   background-size: cover;
-  padding: 2em;
+  padding: 8em;
 }
 
 .listingsearchbanner dl.enableFormTabbing dd {
@@ -910,6 +910,24 @@ body .development__header .development_location{
 .listingsearchbanner .formControls input {
   font-size: 1em;
   width: auto;
+}
+
+.listingsearchbanner #form-section_1-widgets-q,
+.listingsearchbanner #form-section_2-widgets-q,
+.listingsearchbanner #form-section_3-widgets-q,
+.listingsearchbanner #form-section_4-widgets-q {
+  width: 20em;
+}
+
+.listingsearchbanner #form-section_1-widgets-price_min,
+.listingsearchbanner #form-section_1-widgets-price_max,
+.listingsearchbanner #form-section_2-widgets-price_min,
+.listingsearchbanner #form-section_2-widgets-price_max,
+.listingsearchbanner #form-section_3-widgets-price_min,
+.listingsearchbanner #form-section_3-widgets-price_max,
+.listingsearchbanner #form-section_4-widgets-price_min,
+.listingsearchbanner #form-section_4-widgets-price_max {
+  width: 7em;
 }
 
 .listingsearchbanner input[type=submit] {
