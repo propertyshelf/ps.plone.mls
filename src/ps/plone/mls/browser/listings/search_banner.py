@@ -47,6 +47,8 @@ from zope.schema.vocabulary import (
 # local imports
 from ps.plone.mls import (
     _,
+    PLONE_4,
+    PLONE_5,
     config,
 )
 from ps.plone.mls.interfaces import (
@@ -291,7 +293,10 @@ class SectionForm(form.Form):
 class SearchBanner(ViewletBase):
     """Listing Search Banner."""
 
-    index = ViewPageTemplateFile('templates/search_banner.pt')
+    if PLONE_5:
+        index = ViewPageTemplateFile('templates/search_banner_p5.pt')
+    elif PLONE_4:
+        index = ViewPageTemplateFile('templates/search_banner.pt')
     config = None
     section_1 = None
     section_2 = None
