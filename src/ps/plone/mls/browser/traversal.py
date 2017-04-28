@@ -71,7 +71,6 @@ class MLSItemTraverser(DefaultPublishTraverse):
 
     def publishTraverse(self, request, name):
         """See zope.publisher.interfaces.IPublishTraverse"""
-
         # Try to deliver the default content views.
         try:
             return super(MLSItemTraverser, self).publishTraverse(
@@ -148,6 +147,7 @@ class DevelopmentTraverser(MLSItemTraverser):
 
     See ``MLSItemTraverser`` for details.
     """
+
     __used_for__ = IDevelopmentTraversable
     detail_view_name = 'development-detail'
     item_id = 'development_id'
@@ -260,6 +260,7 @@ class ListingTraverser(MLSItemTraverser):
 
     See ``MLSItemTraverser`` for details.
     """
+
     __used_for__ = IListingTraversable
     detail_view_name = 'listing-detail'
     item_id = 'listing_id'
@@ -274,8 +275,10 @@ class FeaturedListingsTraverser(ListingTraverser):
 
     It only allows listing ids which are defined in the context.
     """
+
     __used_for__ = featured.IFeaturedListings
 
     def check_item(self, item_id):
         """Check if the listing ID is available."""
-        return item_id in self.context.listing_ids
+        listing_ids = [lid.lower() for lid in self.context.listing_ids]
+        return item_id.lower() in listing_ids

@@ -73,12 +73,14 @@ class FeaturedListingsViewlet(ViewletBase):
         listing_ids = self.config.get('listing_ids', [])
         if len(listing_ids) == 0:
             return
+        listing_ids = [lid.lower() for lid in listing_ids]
         params = {
             'limit': 0,
             'offset': 0,
             'lang': self.portal_state.language(),
         }
         params.update(self.config)
+        params['listing_ids'] = listing_ids
         params = prepare_search_params(params)
         results = search(params, batching=False, context=self.context)
         if results is None or len(results) == 0:
@@ -226,6 +228,7 @@ class FeaturedListings(BrowserView):
         listing_ids = self.context.listing_ids
         if len(listing_ids) == 0:
             return
+        listing_ids = [lid.lower() for lid in listing_ids]
         params = {
             'limit': 0,
             'offset': 0,
