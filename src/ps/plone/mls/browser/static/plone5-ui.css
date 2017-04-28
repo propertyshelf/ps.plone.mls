@@ -509,4 +509,11 @@ body#visual-portal-wrapper.pat-plone .outer-wrapper .contenttype-ps-plone-mls-fe
   .listingsearchbanner #form-section_4-widgets-price_max {
     width: 7em;
   }
+
+  .listingsearchbanner #form-section_1-widgets-beds,
+  .listingsearchbanner #form-section_2-widgets-beds,
+  .listingsearchbanner #form-section_3-widgets-beds,
+  .listingsearchbanner #form-section_4-widgets-beds {
+    min-width: auto;
+  }
 }
