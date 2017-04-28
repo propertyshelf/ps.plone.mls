@@ -50,11 +50,18 @@
       permission="cmf.ModifyPortalContent"
       />
 
+  <!-- Banner image download page. -->
   <browser:page
       for="ps.plone.mls.interfaces.IListingSearchBanner"
       name="listing-search-banner-image"
       class=".search_banner.BannerImage"
       permission="zope.Public"
+      />
+
+  <!-- z3c.form adapter. -->
+  <adapter
+      factory=".search_banner.NoValueBedrooms"
+      name="noValueMessage"
       />
 
 </configure>

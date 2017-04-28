@@ -33,6 +33,7 @@ from z3c.form import (
     field,
 )
 from z3c.form.interfaces import IFormLayer
+from z3c.form.widget import StaticWidgetAttribute
 from zope import schema
 from zope.annotation.interfaces import IAnnotations
 from zope.interface import (
@@ -744,3 +745,9 @@ class BannerImage(Download):
 
     def _getFile(self):
         return self.data
+
+
+NoValueBedrooms = StaticWidgetAttribute(
+    _('Beds'),
+    field=ISectionForm['beds'],
+)
