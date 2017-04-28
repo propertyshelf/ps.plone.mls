@@ -8,6 +8,15 @@ from zope.schema.interfaces import IVocabularyFactory
 from zope.schema.vocabulary import SimpleTerm, SimpleVocabulary
 
 
+MIN_BEDROOM_VALUES = [
+    (1, '1'),
+    (2, '2'),
+    (3, '3'),
+    (4, '4'),
+    (5, '5+'),
+]
+
+
 @implementer(IVocabularyFactory)
 class AvailableListingSearches(object):
     """Vocabulary which returns all available listing searches."""
@@ -25,3 +34,16 @@ class AvailableListingSearches(object):
         return SimpleVocabulary(items)
 
 AvailableListingSearchesFactory = AvailableListingSearches()
+
+
+@implementer(IVocabularyFactory)
+class MinBedroomsVocabulary(object):
+    """Vocabulary which returns the values for the min bedrooms field."""
+
+    def __call__(self, context):
+        items = []
+        for item in MIN_BEDROOM_VALUES:
+            items.append(SimpleTerm(item[0], item[0], item[1]))
+        return SimpleVocabulary(items)
+
+MinBedroomsVocabularyFactory = MinBedroomsVocabulary()

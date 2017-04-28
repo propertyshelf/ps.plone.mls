@@ -12,4 +12,9 @@
       name="ps.plone.mls.listings.available_searches"
       />
 
+  <utility
+      component=".listings.MinBedroomsVocabularyFactory"
+      name="ps.plone.mls.listings.min_bedrooms"
+      />
+
 </configure>

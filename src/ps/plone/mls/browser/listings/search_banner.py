@@ -159,7 +159,7 @@ class ISectionForm(form.Schema):
     beds = schema.Choice(
         required=False,
         title=_(u'Bedrooms'),
-        source='plone.mls.listing.Rooms',
+        source='ps.plone.mls.listings.min_bedrooms',
     )
 
     price_min = schema.Int(
