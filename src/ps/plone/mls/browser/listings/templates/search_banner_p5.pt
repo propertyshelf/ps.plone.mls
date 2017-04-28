@@ -14,18 +14,30 @@
         <section tal:define="form view/section_1 | nothing" tal:condition="form">
           <header><span tal:replace="view/config/section_1_title">[title]</span></header>
           <div tal:replace="structure form"></div>
+          <p><a href=""
+              tal:attributes="href view/section_1/search_target_url"
+              i18n:translate="">Advanced Search</a></p>
         </section>
         <section tal:define="form view/section_2 | nothing" tal:condition="form">
           <header><span tal:replace="view/config/section_2_title">[title]</span></header>
           <div tal:replace="structure form"></div>
+          <p><a href=""
+              tal:attributes="href view/section_2/search_target_url"
+              i18n:translate="">Advanced Search</a></p>
         </section>
         <section tal:define="form view/section_3 | nothing" tal:condition="form">
           <header><span tal:replace="view/config/section_3_title">[title]</span></header>
           <div tal:replace="structure form"></div>
+          <p><a href=""
+              tal:attributes="href view/section_3/search_target_url"
+              i18n:translate="">Advanced Search</a></p>
         </section>
         <section tal:define="form view/section_4 | nothing" tal:condition="form">
           <header><span tal:replace="view/config/section_4_title">[title]</span></header>
           <div tal:replace="structure form"></div>
+          <p><a href=""
+              tal:attributes="href view/section_4/search_target_url"
+              i18n:translate="">Advanced Search</a></p>
         </section>
       </div>
     </div>
