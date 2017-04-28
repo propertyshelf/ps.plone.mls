@@ -859,6 +859,7 @@ body .development__header .development_location{
 .listingsearchbanner {
   background-position: 50% 50%;
   background-size: cover;
+  margin-bottom: 1em;
   padding: 8em;
 }
 
