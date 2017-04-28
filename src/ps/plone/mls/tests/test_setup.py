@@ -63,14 +63,6 @@ class TestSetup(unittest.TestCase):
         for id in JS:
             self.assertIn(id, resource_ids, '{0} not installed'.format(id))
 
-    def test_collective_z3cform_widgets_installed(self):
-        """Validate that collective.z3cform.widgets is installed."""
-        if not PLONE_4:
-            return
-
-        qi = self.portal.portal_quickinstaller
-        self.assertTrue(qi.isProductInstalled('collective.z3cform.widgets'))
-
     def test_plone_app_dexterity_installed(self):
         """Validate that plone.app.dexterity is installed."""
         portal = self.layer['portal']
@@ -89,6 +81,7 @@ class TestSetup(unittest.TestCase):
 
 
 class UninstallTestCase(unittest.TestCase):
+    """Validate uninstall process for ps.plone.mls."""
 
     layer = INTEGRATION_TESTING
 

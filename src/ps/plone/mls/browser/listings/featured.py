@@ -5,7 +5,6 @@
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from plone import api
 from plone.app.layout.viewlets.common import ViewletBase
-from plone.autoform import directives
 from plone.directives import form
 from plone.memoize.view import memoize
 from plone.mls.core.navigation import ListingBatch
@@ -27,12 +26,6 @@ from ps.plone.mls import (
     PLONE_5,
 )
 from ps.plone.mls.interfaces import IListingTraversable
-
-
-if PLONE_4:
-    from collective.z3cform.widgets.enhancedtextlines import (
-        EnhancedTextLinesFieldWidget,
-    )
 
 
 CONFIGURATION_KEY = 'ps.plone.mls.listing.featuredlistings'
@@ -124,10 +117,10 @@ class FeaturedListingsViewlet(ViewletBase):
 class IFeaturedListingsConfiguration(model.Schema):
     """Featured Listings Configuration Form Schema."""
 
-    if PLONE_4:
-        directives.widget(listing_ids=EnhancedTextLinesFieldWidget)
     listing_ids = schema.List(
-        description=_(u'Add one Listing ID for each entry to show up.'),
+        description=_(
+            u'Add one Listing ID per line for each entry to show up.'
+        ),
         title=_(u'MLS Listing IDs'),
         unique=True,
         value_type=schema.TextLine(

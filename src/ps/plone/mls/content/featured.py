@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+"""Featured Listings."""
 
 # zope imports
 from Products.ATContentTypes import ATCTMessageFactory as ATMF
@@ -18,19 +19,16 @@ from ps.plone.mls import (
 
 
 if PLONE_4:
-    from collective.z3cform.widgets.enhancedtextlines import (
-        EnhancedTextLinesFieldWidget,
-    )
     from plone.app.textfield.widget import RichTextFieldWidget
 
 
 class IFeaturedListings(model.Schema):
     """A list of featured MLS Listings."""
 
-    if PLONE_4:
-        directives.widget(listing_ids=EnhancedTextLinesFieldWidget)
     listing_ids = schema.List(
-        description=_(u'Add one Listing ID for each entry to show up.'),
+        description=_(
+            u'Add one Listing ID per line for each entry to show up.'
+        ),
         title=_(u'MLS Listing IDs'),
         unique=True,
         value_type=schema.TextLine(
