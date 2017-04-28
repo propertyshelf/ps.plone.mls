@@ -16,6 +16,9 @@
         </dt>
         <dd id="fieldset-section-1">
           <div tal:replace="structure form"></div>
+          <p><a href=""
+              tal:attributes="href view/section_1/search_target_url"
+              i18n:translate="">Advanced Search</a></p>
         </dd>
       </tal:section1>
       <tal:section2 tal:define="form view/section_2 | nothing" tal:condition="form">
@@ -24,6 +27,9 @@
         </dt>
         <dd id="fieldset-section-2">
           <div tal:replace="structure form"></div>
+          <p><a href=""
+              tal:attributes="href view/section_2/search_target_url"
+              i18n:translate="">Advanced Search</a></p>
         </dd>
       </tal:section2>
       <tal:section3 tal:define="form view/section_3 | nothing" tal:condition="form">
@@ -32,6 +38,9 @@
         </dt>
         <dd id="fieldset-section-3">
           <div tal:replace="structure form"></div>
+          <p><a href=""
+              tal:attributes="href view/section_3/search_target_url"
+              i18n:translate="">Advanced Search</a></p>
         </dd>
       </tal:section3>
       <tal:section4 tal:define="form view/section_4 | nothing" tal:condition="form">
@@ -40,6 +49,9 @@
         </dt>
         <dd id="fieldset-section-4">
           <div tal:replace="structure form"></div>
+          <p><a href=""
+              tal:attributes="href view/section_4/search_target_url"
+              i18n:translate="">Advanced Search</a></p>
         </dd>
       </tal:section4>
     </dl>

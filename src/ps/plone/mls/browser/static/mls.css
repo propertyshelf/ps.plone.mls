@@ -870,6 +870,10 @@ body .development__header .development_location{
   text-align: center;
 }
 
+.listingsearchbanner dd p {
+  font-size: 80%;
+}
+
 .listingsearchbanner ul.formTabs li.firstFormTab a {
   border-top-left-radius: 5px;
 }
