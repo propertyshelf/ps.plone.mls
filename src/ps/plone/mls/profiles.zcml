@@ -138,6 +138,16 @@
       profile="ps.plone.mls:default"
       />
 
+  <genericsetup:upgradeStep
+      title="Upgrade ps.plone.mls"
+      description="Update portal actions."
+      source="1008"
+      destination="1009"
+      handler=".migration.migrate_to_1009"
+      sortkey="1"
+      profile="ps.plone.mls:default"
+      />
+
 
   <!-- GenericSetup utilities. -->
   <!-- ======================= -->

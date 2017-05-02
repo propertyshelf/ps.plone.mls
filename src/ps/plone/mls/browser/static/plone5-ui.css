@@ -448,3 +448,72 @@ body#visual-portal-wrapper.pat-plone .outer-wrapper .contenttype-ps-plone-mls-fe
   width: 100%;
   margin-bottom: 20px;
 }
+
+.listingsearchbanner {
+  background-position: 50% 50%;
+  background-size: cover;
+  margin-top: -20px;
+  padding: 8em 0;
+}
+
+.listingsearchbanner .autotoc-section header {
+  display: none;
+}
+
+.listingsearchbanner input[type=submit] {
+  background-color: #205c90;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  cursor:pointer;
+  padding: 5px 15px;
+}
+
+.listingsearchbanner form .formControls,
+.listingsearchbanner .pat-autotoc.autotabs .formControls,
+.listingsearchbanner .autotabs .formControls {
+  background: none;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  margin: 0;
+}
+
+@media (min-width: 768px) {
+  .listingsearchbanner form .field,
+  .listingsearchbanner form .formControls {
+    display: inline-block;
+    margin-bottom: 0;
+    vertical-align: middle;
+    padding: 0.5em 0;
+  }
+
+  .listingsearchbanner section {
+    text-align: center;
+  }
+
+  .listingsearchbanner #form-section_1-widgets-q,
+  .listingsearchbanner #form-section_2-widgets-q,
+  .listingsearchbanner #form-section_3-widgets-q,
+  .listingsearchbanner #form-section_4-widgets-q {
+    width: 20em;
+  }
+
+  .listingsearchbanner #form-section_1-widgets-price_min,
+  .listingsearchbanner #form-section_1-widgets-price_max,
+  .listingsearchbanner #form-section_2-widgets-price_min,
+  .listingsearchbanner #form-section_2-widgets-price_max,
+  .listingsearchbanner #form-section_3-widgets-price_min,
+  .listingsearchbanner #form-section_3-widgets-price_max,
+  .listingsearchbanner #form-section_4-widgets-price_min,
+  .listingsearchbanner #form-section_4-widgets-price_max {
+    width: 7em;
+  }
+
+  .listingsearchbanner #form-section_1-widgets-beds,
+  .listingsearchbanner #form-section_2-widgets-beds,
+  .listingsearchbanner #form-section_3-widgets-beds,
+  .listingsearchbanner #form-section_4-widgets-beds {
+    min-width: auto;
+  }
+}

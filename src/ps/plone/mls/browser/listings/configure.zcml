@@ -3,6 +3,8 @@
     xmlns:browser="http://namespaces.zope.org/browser"
     i18n_domain="ps.plone.mls">
 
+  <include file="search_banner.zcml" />
+
   <!-- Featured Listings. -->
   <!-- ================== -->
 

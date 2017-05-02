@@ -37,6 +37,22 @@
       <property name="url_expr">string:${object_url}/@@featured-listings-config</property>
       <property name="visible">True</property>
     </object>
+
+    <!-- Listing Search Banner. -->
+    <!-- ====================== -->
+    <object name="listing-search-banner-config" meta_type="CMF Action">
+      <property name="available_expr">object/@@listing-search-banner-status/active</property>
+      <property name="description" i18n:translate="">Configure the Listing Search Banner.</property>
+      <property name="icon_expr"></property>
+      <property name="i18n_domain">ps.plone.mls</property>
+      <property name="link_target"></property>
+      <property name="permissions">
+        <element value="Modify portal content" />
+      </property>
+      <property name="title" i18n:translate="">Configure Listing Search Banner</property>
+      <property name="url_expr">string:${object_url}/@@listing-search-banner-config</property>
+      <property name="visible">True</property>
+    </object>
   </object>
 
   <object name="object_buttons" meta_type="CMF Action Category">
@@ -96,6 +112,35 @@
       </property>
       <property name="title" i18n:translate="">Deactivate Featured Listings</property>
       <property name="url_expr">string:${object_url}/@@featured-listings-toggle</property>
+      <property name="visible">True</property>
+    </object>
+
+    <!-- Listing Search Banner. -->
+    <!-- ====================== -->
+    <object name="listing-search-banner-activate" meta_type="CMF Action">
+      <property name="available_expr">object/@@listing-search-banner-status/can_activate</property>
+      <property name="description" i18n:translate="">Activate the Listing Search Banner.</property>
+      <property name="icon_expr"></property>
+      <property name="i18n_domain">ps.plone.mls</property>
+      <property name="link_target"></property>
+      <property name="permissions">
+        <element value="Modify portal content" />
+      </property>
+      <property name="title" i18n:translate="">Activate Listing Search Banner</property>
+      <property name="url_expr">string:${object_url}/@@listing-search-banner-toggle</property>
+      <property name="visible">True</property>
+    </object>
+    <object name="listing-search-banner-deactivate" meta_type="CMF Action">
+      <property name="available_expr">object/@@listing-search-banner-status/active</property>
+      <property name="description" i18n:translate="">Deactivate the Listing Search Banner.</property>
+      <property name="icon_expr"></property>
+      <property name="i18n_domain">ps.plone.mls</property>
+      <property name="link_target"></property>
+      <property name="permissions">
+        <element value="Modify portal content" />
+      </property>
+      <property name="title" i18n:translate="">Deactivate Listing Search Banner</property>
+      <property name="url_expr">string:${object_url}/@@listing-search-banner-toggle</property>
       <property name="visible">True</property>
     </object>
   </object>

@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+"""Interface definitions."""
 
 # zope imports
 from zope.interface import Interface
@@ -26,3 +27,11 @@ class IDevelopmentDetails(Interface):
 
 class IPossibleDevelopmentCollection(Interface):
     """Marker interface for possible DevelopmentCollection viewlet."""
+
+
+class IPossibleListingSearchBanner(Interface):
+    """Marker interface for possible Listing Search Banner viewlet."""
+
+
+class IListingSearchBanner(Interface):
+    """Marker interface for Listing Search Banner viewlet."""

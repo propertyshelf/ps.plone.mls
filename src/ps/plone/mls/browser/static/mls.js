@@ -22,4 +22,12 @@ jQuery(function(jq) {
     });
   }
 
+  jq('.listingsearchbanner input').each(function() {
+    var label = jq("label[for='" + jq(this).attr('id') + "']");
+    this.placeholder = jq.trim(label.text());
+  });
+
+  jq('.listingsearchbanner label').each(function() {
+    jq(this).hide();
+  });
 });

@@ -8,3 +8,6 @@ PROJECT_NAME = 'ps.plone.mls'
 
 #: Configuration key for development collection settings.
 SETTINGS_DEVELOPMENT_COLLECTION = 'ps.plone.mls.developmentcollection'
+
+#: Configuration key for listing search banner settings.
+SETTINGS_LISTING_SEARCH_BANNER = 'ps.plone.mls.listingsearchbanner'

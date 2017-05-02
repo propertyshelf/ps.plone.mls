@@ -25,6 +25,7 @@
     <!-- Add marker interface to all Archetype content types. -->
     <class class="Products.Archetypes.BaseObject.BaseObject">
       <implements interface="ps.plone.mls.interfaces.IPossibleDevelopmentCollection" />
+      <implements interface="ps.plone.mls.interfaces.IPossibleListingSearchBanner" />
     </class>
   </configure>
 
@@ -32,6 +33,7 @@
     <!-- Add marker interface to all dexterity content types. -->
     <class class="plone.dexterity.content.DexterityContent">
       <implements interface="ps.plone.mls.interfaces.IPossibleDevelopmentCollection" />
+      <implements interface="ps.plone.mls.interfaces.IPossibleListingSearchBanner" />
     </class>
   </configure>
 

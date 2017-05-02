@@ -66,3 +66,12 @@ def migrate_to_1008(context):
     else:
         js.unregisterResource('http://maps.google.com/maps/api/js?sensor=false')
         js.unregisterResource('https://maps-api-ssl.google.com/maps/api/js?sensor=false')
+
+
+def migrate_to_1009(context):
+    """"Migrate from 1008 to 1009.
+
+    * Update portal actions.
+    """
+    setup = api.portal.get_tool(name='portal_setup')
+    setup.runImportStepFromProfile(config.INSTALL_PROFILE, 'actions')
