@@ -2,15 +2,15 @@
 # SOME DESCRIPTIVE TITLE.
 # Translators:
 # Benjamin Berger <ben@propertyshelf.com>, 2015
-# Frank Robles <frank@propertyshelf.com>, 2016
-# Thomas Massmann <thomas.massmann@it-spir.it>, 2014
+# Frank Robles <frank@propertyshelf.com>, 2016-2017
+# Thomas Massmann <thomas.massmann@it-spir.it>, 2014,2017
 # Valeria Garcia <valeriassimsou@gmail.com>, 2014-2015
 # Zach Cashero <zcashero@gmail.com>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: MLS Plone Components\n"
 "POT-Creation-Date: 2017-04-12 10:41+0000\n"
-"PO-Revision-Date: 2017-04-12 10:43+0000\n"
+"PO-Revision-Date: 2017-05-02 13:10+0000\n"
 "Last-Translator: Thomas Massmann <thomas.massmann@it-spir.it>\n"
 "Language-Team: Spanish (http://www.transifex.com/propertyshelf/MLS_Plone/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -100,7 +100,7 @@ msgstr "Ocurrió un error cuando conectándose al MLS.  Revisa tu configuración
 
 #: ps/plone/mls/browser/developments/collection.py:233
 msgid "BCC Recipients"
-msgstr ""
+msgstr "Destinatarios en Copia Oculta"
 
 #: ps/plone/mls/browser/developments/collection.py:387
 #: ps/plone/mls/browser/listings/featured.py:151
@@ -165,7 +165,7 @@ msgstr "Descargar PDF"
 
 #: ps/plone/mls/browser/developments/collection.py:228
 msgid "E-mail addresses which receive a blind carbon copy (comma separated)."
-msgstr ""
+msgstr "Direcciones de E-mail que recibirán copia oculta (separadas por coma)."
 
 #: ps/plone/mls/browser/developments/collection.py:295
 msgid "Enter a search term to filter the results."
@@ -252,13 +252,13 @@ msgstr "Conozca el Equipo"
 
 #: ps/plone/mls/browser/developments/collection.py:262
 msgid "Modify URLs"
-msgstr ""
+msgstr "Modificar URLs"
 
 #: ps/plone/mls/browser/developments/collection.py:257
 msgid ""
 "Modify the individual development URLs to show extra information, such as "
 "the Title and Location"
-msgstr ""
+msgstr "Modificar las URLs individuales del proyecto para mostrar información adicional, tales como Título y Ubicación."
 
 #: ps/plone/mls/utils.py:34
 msgid "No URLs allowed."
