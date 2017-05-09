@@ -597,6 +597,9 @@ class DevelopmentDetails(BrowserView):
             text.append(distance)
         return u' - '.join(text)
 
+    def base_url(self):
+        return self.context.absolute_url()
+
 
 class HeaderViewlet(ViewletBase):
     """Header Image"""

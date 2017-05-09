@@ -11,9 +11,9 @@
     <metal:baseslot fill-slot="base"
         tal:define="item view/item | nothing;
                     id item/id/value | nothing;
-                    base_link string:${plone_view/renderBase};
+                    base_link string:${view/base_url};
                     seperator python: '' if base_link.endswith('/') else '/';
-                    self_link string:${plone_view/renderBase}${seperator}${id};">
+                    self_link string:${view/base_url}${seperator}${id};">
       <base tal:attributes="href self_link" /><!--[if lt IE 7]></base><![endif]-->
     </metal:baseslot>
   </head>
@@ -31,9 +31,9 @@
                        images item/pictures | nothing;
                        title item/title/value | nothing;
                        id item/id/value | nothing;
-                       base_link string:${plone_view/renderBase};
+                       base_link string:${view/base_url};
                        seperator python: '' if base_link.endswith('/') else '/';
-                       self_link string:${plone_view/renderBase}${seperator}${id};
+                       self_link string:${view/base_url}${seperator}${id};
                        amenities item/amenities_order/value | nothing;
                        amenities_dict item/amenities_lookup/value | nothing;
                        amenities_count python:len(amenities) if amenities is not None else None;">
