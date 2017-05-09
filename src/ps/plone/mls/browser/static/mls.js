@@ -30,4 +30,12 @@ jQuery(function(jq) {
   jq('.listingsearchbanner label').each(function() {
     jq(this).hide();
   });
+
+  // Plone 4:
+  jq('.portletQuickSearch .z3cformInlineValidation').removeClass('z3cformInlineValidation');
+  jq('.portletAgentContact .z3cformInlineValidation').removeClass('z3cformInlineValidation');
+  // Plone 5:
+  jq('.portletQuickSearch .pat-inlinevalidation').removeClass('pat-inlinevalidation');
+  jq('.portletAgentContact .pat-inlinevalidation').removeClass('pat-inlinevalidation');
+
 });
