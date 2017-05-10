@@ -35,9 +35,11 @@ jQuery(function(jq) {
   jq('.listingsearchbanner .z3cformInlineValidation').removeClass('z3cformInlineValidation');
   jq('.portletAgentContact .z3cformInlineValidation').removeClass('z3cformInlineValidation');
   jq('.portletQuickSearch .z3cformInlineValidation').removeClass('z3cformInlineValidation');
+  jq('.listing-search-tile .z3cformInlineValidation').removeClass('z3cformInlineValidation');
   // Plone 5:
   jq('.listingsearchbanner .pat-inlinevalidation').removeClass('pat-inlinevalidation');
   jq('.portletAgentContact .pat-inlinevalidation').removeClass('pat-inlinevalidation');
   jq('.portletQuickSearch .pat-inlinevalidation').removeClass('pat-inlinevalidation');
+  jq('.listing-search-tile .pat-inlinevalidation').removeClass('pat-inlinevalidation');
 
 });
