@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MLS Plone Components\n"
 "POT-Creation-Date: 2017-05-02 13:12+0000\n"
-"PO-Revision-Date: 2017-05-02 13:35+0000\n"
+"PO-Revision-Date: 2017-05-10 09:42+0000\n"
 "Last-Translator: Thomas Massmann <thomas.massmann@it-spir.it>\n"
 "Language-Team: German (http://www.transifex.com/propertyshelf/MLS_Plone/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -22,15 +22,15 @@ msgstr ""
 
 #: ps/plone/mls/browser/developments/collection.py:374
 msgid "'Development Collection' Configuration"
-msgstr "Konfiguration der 'Bauprojekte-Kollektion'"
+msgstr "Konfiguration der 'Erschließungs-Kollektion'"
 
 #: ps/plone/mls/browser/developments/collection.py:436
 msgid "'Development Collection' viewlet activated."
-msgstr "Die 'Bauprojekte-Kollektion' wurde aktiviert."
+msgstr "Die 'Erschließungs-Kollektion' wurde aktiviert."
 
 #: ps/plone/mls/browser/developments/collection.py:432
 msgid "'Development Collection' viewlet deactivated."
-msgstr "Die 'Bauprojekte-Kollektion' wurde deaktiviert."
+msgstr "Die 'Erschließungs-Kollektion' wurde deaktiviert."
 
 #: ps/plone/mls/browser/listings/featured.py:139
 msgid "'Featured Listings' Configuration"
@@ -69,7 +69,7 @@ msgstr "Über die Gegend"
 #: ps/plone/mls/profiles/plone4/actions.xml
 #: ps/plone/mls/profiles/plone5/actions.xml
 msgid "Activate Development Collection"
-msgstr "Bauprojekte-Kollektion aktivieren"
+msgstr "Erschließungs-Kollektion aktivieren"
 
 #: ps/plone/mls/profiles/plone4/actions.xml
 #: ps/plone/mls/profiles/plone5/actions.xml
@@ -84,7 +84,7 @@ msgstr "Immobilien-Suchbanner aktivieren"
 #: ps/plone/mls/profiles/plone4/actions.xml
 #: ps/plone/mls/profiles/plone5/actions.xml
 msgid "Activate the Development Collection viewlet."
-msgstr "Komponente für die Bauprojekte-Kollektion aktivieren."
+msgstr "Komponente für die Erschließungs-Kollektion aktivieren."
 
 #: ps/plone/mls/profiles/plone4/actions.xml
 #: ps/plone/mls/profiles/plone5/actions.xml
@@ -103,7 +103,7 @@ msgstr "Geben Sie genau eine Immobilien-ID für jeden anzuzeigenden Eintrag pro 
 
 #: ps/plone/mls/browser/developments/collection.py:375
 msgid "Adjust the behaviour for this 'Development Collection' viewlet."
-msgstr "Passen Sie die Einstellungen für die 'Bauprojekte-Kollektion' an."
+msgstr "Passen Sie die Einstellungen für die 'Erschließungs-Kollektion' an."
 
 #: ps/plone/mls/browser/listings/featured.py:140
 msgid "Adjust the behaviour for this 'Featured Listings' viewlet."
@@ -120,7 +120,7 @@ msgstr "Erweiterte Suche"
 
 #: ps/plone/mls/browser/developments/collection.py:300
 msgid "Agency Developments"
-msgstr "Bauprojekte der Agentur"
+msgstr "Erschließungen der Agentur"
 
 #: ps/plone/mls/browser/developments/collection.py:233
 msgid "Alternative Email recipient"
@@ -176,7 +176,7 @@ msgstr "Kategorie"
 #: ps/plone/mls/profiles/plone4/actions.xml
 #: ps/plone/mls/profiles/plone5/actions.xml
 msgid "Configure Development Collection"
-msgstr "Bauprojekte-Kollektion konfigurieren"
+msgstr "Erschließungs-Kollektion konfigurieren"
 
 #: ps/plone/mls/profiles/plone4/actions.xml
 #: ps/plone/mls/profiles/plone5/actions.xml
@@ -191,7 +191,7 @@ msgstr "Immobilien-Suchbanner konfigurieren"
 #: ps/plone/mls/profiles/plone4/actions.xml
 #: ps/plone/mls/profiles/plone5/actions.xml
 msgid "Configure the Development Collection viewlet."
-msgstr "Die Komponente für Bauprojekte-Kollektionen konfigurieren."
+msgstr "Die Komponente für Erschließungs-Kollektionen konfigurieren."
 
 #: ps/plone/mls/profiles/plone4/actions.xml
 #: ps/plone/mls/profiles/plone5/actions.xml
@@ -220,7 +220,7 @@ msgstr "Erstellungsdatum"
 #: ps/plone/mls/profiles/plone4/actions.xml
 #: ps/plone/mls/profiles/plone5/actions.xml
 msgid "Deactivate Development Collection"
-msgstr "Bauprojekte-Kollektion deaktivieren"
+msgstr "Erschließungs-Kollektion deaktivieren"
 
 #: ps/plone/mls/profiles/plone4/actions.xml
 #: ps/plone/mls/profiles/plone5/actions.xml
@@ -235,7 +235,7 @@ msgstr "Immobilien-Suchbanner deaktivieren"
 #: ps/plone/mls/profiles/plone4/actions.xml
 #: ps/plone/mls/profiles/plone5/actions.xml
 msgid "Deactivate the Development Collection viewlet."
-msgstr "Komponente für die Bauprojekte-Kollektion deaktivieren."
+msgstr "Komponente für die Erschließungs-Kollektion deaktivieren."
 
 #: ps/plone/mls/profiles/plone4/actions.xml
 #: ps/plone/mls/profiles/plone5/actions.xml
@@ -253,7 +253,7 @@ msgstr "Standard-Kategorie"
 
 #: ps/plone/mls/browser/developments/collection.py:280
 msgid "Developments per Page"
-msgstr "Bauprojekte pro Seite"
+msgstr "Erschließungen pro Seite"
 
 #: ps/plone/mls/browser/listings/search_banner.py:122
 msgid "Don't show this section at all."
@@ -308,7 +308,7 @@ msgstr "Das Kategorie-Feld ausblenden und den Standard-Wert verwenden."
 
 #: ps/plone/mls/browser/developments/collection.py:276
 msgid "How many developments should be shown per page?"
-msgstr "Wieviele Bauprojekte sollen pro Seite angezeigt werden?"
+msgstr "Wieviele Erschließungen sollen pro Seite angezeigt werden?"
 
 #: ps/plone/mls/browser/developments/collection.py:285
 msgid "How many listings should be shown per devlopment listings page?"
@@ -329,17 +329,17 @@ msgstr "ID"
 msgid ""
 "If enabled, a form to contact the responsible agent will be shown on the "
 "detail page for a development."
-msgstr "Wenn diese Option aktiviert ist, erscheint ein Kontaktformular des verantwortlichen Maklers auf der Detailansicht des Bauprojektes."
+msgstr "Wenn diese Option aktiviert ist, erscheint ein Kontaktformular des verantwortlichen Maklers auf der Detailansicht der Erschließung."
 
 #: ps/plone/mls/browser/developments/collection.py:295
 msgid "If enabled, only developments for the configured agency will be shown."
-msgstr "Wenn diese Option aktiviert ist, werden nur Bauprojekte der konfigurierten Agentur angezeigt."
+msgstr "Wenn diese Option aktiviert ist, werden nur Erschließungen der konfigurierten Agentur angezeigt."
 
 #: ps/plone/mls/browser/developments/collection.py:210
 msgid ""
 "If enabled, the contact information for a development will be shown on the "
 "detail page for a development."
-msgstr "Wenn diese Option aktiviert ist, werden die Kontaktinformationen auf der Detailansicht des Bauprojektes angezeigt."
+msgstr "Wenn diese Option aktiviert ist, werden die Kontaktinformationen auf der Detailansicht der Erschließung angezeigt."
 
 #: ps/plone/mls/browser/developments/collection.py:247
 msgid ""
@@ -393,7 +393,7 @@ msgstr "URLs anpassen"
 msgid ""
 "Modify the individual development URLs to show extra information, such as "
 "the Title and Location"
-msgstr "Aktivieren Sie die erweiterten Informationen in den Links zu den Bauprojekten, wie Titel und Standort."
+msgstr "Aktivieren Sie die erweiterten Informationen in den Links zu den Erschließungen, wie Titel und Standort."
 
 #: ps/plone/mls/utils.py:34
 msgid "No URLs allowed."
@@ -517,7 +517,7 @@ msgid ""
 "The 'Development Collection' viewlet does't work with this content type. Add"
 " 'IPossibleDevelopmentCollection' to the provided interfaces to enable this "
 "feature."
-msgstr "Die 'Bauprojekte-Kollektion\"' konnte für diesen Inhaltstyp nicht aktiviert werden. Fügen Sie 'IPossibleDevelopmentCollection' zu den unterstützten Interfaces hinzu, um dieses Feature zu aktivieren."
+msgstr "Die 'Erschließungs-Kollektion\"' konnte für diesen Inhaltstyp nicht aktiviert werden. Fügen Sie 'IPossibleDevelopmentCollection' zu den unterstützten Interfaces hinzu, um dieses Feature zu aktivieren."
 
 #: ps/plone/mls/browser/listings/featured.py:202
 msgid ""
@@ -535,7 +535,7 @@ msgstr "Der Immobilien-Suchbanner konnte für diesen Inhaltstyp nicht aktiviert 
 
 #: ps/plone/mls/api.py:108
 msgid "The requested development was not found."
-msgstr "Das gewünschte Bauprojekt wurde nicht gefunden."
+msgstr "Die gewünschte Erschließung wurde nicht gefunden."
 
 #: ps/plone/mls/browser/listings/search_banner.py:102
 #: ps/plone/mls/vocabularies/developments.py:19
@@ -569,4 +569,4 @@ msgstr "Zoom-Level für Karten"
 #. {url}\n\nMessage:\n{message}"
 #: ps/plone/mls/browser/developments/details.py:73
 msgid "development_contact_email"
-msgstr "Anfrage von: {name} <{sender_from_address}>\nBauprojekt: {url}\n\nNachricht:\n{message}"
+msgstr "Anfrage von: {name} <{sender_from_address}>\nErschließung: {url}\n\nNachricht:\n{message}"
