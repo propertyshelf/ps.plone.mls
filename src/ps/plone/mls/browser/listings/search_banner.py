@@ -204,7 +204,7 @@ class SectionForm(form.Form):
 
     def _prepare_category_search(self, query):
         result = []
-        prefix = 'form.widgets.'
+        prefix = 'form.{0}.widgets.'.format(self.search_target_id)
         params = dict(urlparse.parse_qsl(query))
         for key, value in params.items():
             values = value.split(',')
@@ -218,10 +218,10 @@ class SectionForm(form.Form):
         return '&'.join(result)
 
     def prepare_query_string(self, data=None):
-        prefix = 'form.widgets.'
+        prefix = 'form.{0}.widgets.'.format(self.search_target_id)
         category_query = ''
         query = {
-            'form.buttons.search': '',
+            'form.{0}.buttons.search'.format(self.search_target_id): '',
         }
         if not data:
             return ''
@@ -250,6 +250,14 @@ class SectionForm(form.Form):
             return
         obj = api.content.get(UID=target_uid)
         return obj.absolute_url()
+
+    @property
+    def search_target_id(self):
+        target_uid = self.config.get('search_target', None)
+        if not target_uid:
+            return
+        obj = api.content.get(UID=target_uid)
+        return obj.id
 
     def update(self):
         """Update form to match configuration."""
