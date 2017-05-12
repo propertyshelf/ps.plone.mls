@@ -9,10 +9,13 @@
     <!-- ======================= -->
     <object name="development-collection-config" remove="True"></object>
 
-
     <!-- Featured Listings. -->
     <!-- ================== -->
     <object name="featured-listings-config" remove="True"></object>
+
+    <!-- Listing Search Banner. -->
+    <!-- ====================== -->
+    <object name="listing-search-banner-config" remove="True"></object>
   </object>
 
   <object name="object_buttons" meta_type="CMF Action Category">
@@ -26,6 +29,11 @@
     <!-- ================== -->
     <object name="featured-listings-activate" remove="True"></object>
     <object name="featured-listings-deactivate" remove="True"></object>
+
+    <!-- Listing Search Banner. -->
+    <!-- ====================== -->
+    <object name="listing-search-banner-activate" remove="True"></object>
+    <object name="listing-search-banner-deactivate" remove="True"></object>
   </object>
 
 </object>
