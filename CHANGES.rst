@@ -5,7 +5,9 @@ Changelog
 0.8 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- Add configurable listing search banner.
+- Update translations.
+- Disable inline validation for MLS portlet forms, collective.cover tile forms and listing search banner forms.
 
 
 0.7 (2017-04-24)
