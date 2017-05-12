@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-0.8 (unreleased)
+0.8 (2017-05-12)
 ----------------
 
 - Add configurable listing search banner.
