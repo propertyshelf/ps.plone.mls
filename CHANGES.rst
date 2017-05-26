@@ -5,7 +5,8 @@ Changelog
 0.9 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- Sort available listing pages vocabulary by title.
+- I18N updates.
 
 
 0.8 (2017-05-12)
