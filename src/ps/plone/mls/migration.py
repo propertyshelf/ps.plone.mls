@@ -64,8 +64,10 @@ def migrate_to_1008(context):
     except AttributeError:
         pass
     else:
-        js.unregisterResource('http://maps.google.com/maps/api/js?sensor=false')
-        js.unregisterResource('https://maps-api-ssl.google.com/maps/api/js?sensor=false')
+        maps_url = 'http://maps.google.com/maps/api/js?sensor=false'
+        js.unregisterResource(maps_url)
+        maps_ssl = 'https://maps-api-ssl.google.com/maps/api/js?sensor=false'
+        js.unregisterResource(maps_ssl)
 
 
 def migrate_to_1009(context):
