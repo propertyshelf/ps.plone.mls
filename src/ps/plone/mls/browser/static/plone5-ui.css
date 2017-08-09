@@ -381,6 +381,38 @@ body#visual-portal-wrapper.pat-plone .outer-wrapper .contenttype-ps-plone-mls-fe
   margin-right: 2ex;
 }
 
+/* Listing Search Form */
+.listing__form .listing__form-wrapper {
+  background-color: #fff;
+  border-radius: 4px 4px 0 0;
+  border: 1px solid #edecec;
+}
+
+.listing__form .listing__form-wrapper form {
+  margin-bottom: 1em;
+  margin-top: 1em;
+}
+
+.listing__form .listing__form-toggle {
+  text-align: center;
+}
+
+.listing__form .listing__form-toggle a {
+  display: inline-block;
+  border-bottom-right-radius: 1em;
+  border-bottom-left-radius: 1em;
+  padding: 0.5em;
+  background-color: #edecec;
+  border: 1px solid #e5e5e5;
+  border-top: 0;
+  font-weight: normal;
+}
+
+.listing__form .listing__form-toggle a:focus,
+.listing__form .listing__form-toggle a:hover {
+  background-color: #fcfcfd;
+}
+
 
 /* Development Results List */
 /* Very small screen. */
