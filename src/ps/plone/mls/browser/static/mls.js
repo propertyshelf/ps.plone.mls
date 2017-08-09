@@ -42,4 +42,14 @@ jQuery(function(jq) {
   jq('.portletQuickSearch .pat-inlinevalidation').removeClass('pat-inlinevalidation');
   jq('.listing-search-tile .pat-inlinevalidation').removeClass('pat-inlinevalidation');
 
+  if (jq('.listing__results div.results').length > 0) {
+    // Hide the form when search was performed and show the edit form options link.
+    jq('div.results form').hide();
+    jq('div.results .listing__form-toggle').show();
+    jq('div.results .listing__form-toggle a').click(function(event) {
+      event.preventDefault();
+      jq('div.results form').slideToggle();
+    });
+  }
+
 });
