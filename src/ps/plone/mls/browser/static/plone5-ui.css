@@ -88,84 +88,25 @@ body#visual-portal-wrapper.pat-plone .outer-wrapper .contenttype-ps-plone-mls-fe
 
 
 /* Listing Quick Search portlet. */
-.portletQuickSearch #formfield-form-widgets-baths select,
-.portletQuickSearch #formfield-form-widgets-beds select,
-.portletQuickSearch #formfield-form-widgets-interior_area select,
-.portletQuickSearch #formfield-form-widgets-lot_size select {
+.portletQuickSearch select[multiple],
+.portletQuickSearch select[size] {
+  min-width: 0;
+}
+
+.portletQuickSearch .listing__form form span.option {
   display: block;
-  width: 100%;
+  margin-right: 0;
 }
 
-.portletQuickSearch .form-rows {
-  clear: both;
-  overflow: hidden;
+
+.portletQuickSearch span.option {
+  padding-left: 20px;
 }
 
-.portletQuickSearch .form-rows .field {
-  clear: both;
-  overflow: hidden;
-}
-
-.portletQuickSearch .field > label {
-  clear: both;
-  display: block;
-}
-
-.portletQuickSearch .option input {
-  clear: left;
-  float: left;
-}
-
-.portletQuickSearch .option label {
-  cursor: pointer;
-  float: left;
-  margin-left: 1ex;
-  max-width: 84%;
-}
-
-.portletQuickSearch input.radio-widget + span {
-  margin-left: 1ex;
-  margin-right: 2ex;
-}
-
-@media (min-width: 768px) {
-  .portletQuickSearch #formfield-form-widgets-baths select,
-  .portletQuickSearch #formfield-form-widgets-beds select,
-  .portletQuickSearch #formfield-form-widgets-interior_area select,
-  .portletQuickSearch #formfield-form-widgets-lot_size select {
-    display: block;
-    width: 100%;
-  }
-
-  .portletQuickSearch select[size] {
-    min-width: 0;
-  }
-}
-
-@media (min-width: 1052px) {
-  .portletQuickSearch #formfield-form-widgets-baths select,
-  .portletQuickSearch #formfield-form-widgets-beds select,
-  .portletQuickSearch #formfield-form-widgets-interior_area select,
-  .portletQuickSearch #formfield-form-widgets-lot_size select {
-    display: inline-block;
-    width: 45%;
-  }
-
-}
-
-@media (min-width: 1112px) {
-  .portletQuickSearch .option label {
-    max-width: 89%;
-  }
-}
-
-@media (min-width: 1320px) {
-  .portletQuickSearch #formfield-form-widgets-baths select,
-  .portletQuickSearch #formfield-form-widgets-beds select,
-  .portletQuickSearch #formfield-form-widgets-interior_area select,
-  .portletQuickSearch #formfield-form-widgets-lot_size select {
-    width: 46%;
-  }
+.portletQuickSearch input.checkbox-widget,
+.portletQuickSearch input.radio-widget {
+  position: absolute;
+  margin-left: -20px;
 }
 
 
@@ -324,7 +265,6 @@ body#visual-portal-wrapper.pat-plone .outer-wrapper .contenttype-ps-plone-mls-fe
 .listing__form form span.option input,
 .listing__form form span.option label {
   cursor: pointer;
-  padding-left: 1ex;
 }
 
 .listing__form form span.option label {
