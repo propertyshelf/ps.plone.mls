@@ -310,43 +310,6 @@ body#visual-portal-wrapper.pat-plone .outer-wrapper .contenttype-ps-plone-mls-fe
 }
 
 
-
-.listing__results #formfield-form-widgets-baths select,
-.listing__results #formfield-form-widgets-beds select,
-.listing__results #formfield-form-widgets-interior_area select,
-.listing__results #formfield-form-widgets-lot_size select {
-  display: block;
-  width: 100%;
-}
-
-.listing__results #formfield-form-widgets-baths .separator,
-.listing__results #formfield-form-widgets-beds .separator,
-.listing__results #formfield-form-widgets-interior_area .separator,
-.listing__results #formfield-form-widgets-lot_size .separator {
-  display: block;
-  text-align: center;
-  width: 100%;
-}
-
-@media (min-width: 888px) {
-  .listing__results #formfield-form-widgets-baths select,
-  .listing__results #formfield-form-widgets-beds select,
-  .listing__results #formfield-form-widgets-interior_area select,
-  .listing__results #formfield-form-widgets-lot_size select {
-    display: inline-block;
-    width: 47%;
-  }
-  .listing__results #formfield-form-widgets-baths .separator,
-  .listing__results #formfield-form-widgets-beds .separator,
-  .listing__results #formfield-form-widgets-interior_area .separator,
-  .listing__results #formfield-form-widgets-lot_size .separator {
-    display: inline-block;
-    width: 4%;
-    margin-left: -2px;
-    margin-right: -2px;
-  }
-}
-
 .listing__results form .autotoc-section >  div > label {
   display: none;
 }
@@ -417,16 +380,41 @@ body#visual-portal-wrapper.pat-plone .outer-wrapper .contenttype-ps-plone-mls-fe
   width: 100%;
 }
 
+.listing__form .value {
+  width: 100%;
+}
+
 .listing__form .value select {
-  float: left;
-  width: 48%;
+  width: 100%;
 }
 
 .listing__form .separator {
-  float: left;
+  display: block;
   text-align: center;
-  width: 4%;
-  overflow: hidden;
+}
+
+@media (min-width: 888px) {
+  .listing__form .separator {
+    display: none;
+  }
+
+  .listing__form .value {
+    width: 48%;
+  }
+
+  .listing__form .value-min {
+    float: left;
+  }
+
+  .listing__form .value-max {
+    float: right;
+  }
+
+  .listing__form .row .field:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
 }
 
 
