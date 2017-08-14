@@ -310,41 +310,40 @@ body#visual-portal-wrapper.pat-plone .outer-wrapper .contenttype-ps-plone-mls-fe
 }
 
 
-.listing__results form .autotoc-section >  div > label {
+/* Listing Search Form */
+.listing__form .autotoc-section >  div > label {
   display: none;
 }
 
-
-.listing__results .listing__form-wrapper form span.option {
+.listing__form form span.option {
   display: inline-block;
   margin-right: 2ex;
   vertical-align: middle;
 }
 
-.listing__results .listing__form-wrapper form span.option input,
-.listing__results .listing__form-wrapper form span.option label {
+.listing__form form span.option input,
+.listing__form form span.option label {
   cursor: pointer;
   padding-left: 1ex;
 }
 
-.listing__results .listing__form-wrapper form .autotabs .option {
+.listing__form form .autotabs .option {
   width: 30%;
 }
 
-.listing__results .listing__form-wrapper form .autotabs .option label {
+.listing__form form .autotabs .option label {
   max-width: 90%;
 }
 
-.listing__results .listing__form-wrapper form .autotabs .option input {
+.listing__form form .autotabs .option input {
   vertical-align: top;
 }
 
-.listing__results .listing__form-wrapper input.radio-widget + span {
+.listing__form input.radio-widget + span {
   margin-left: 1ex;
   margin-right: 2ex;
 }
 
-/* Listing Search Form */
 .listing__form .listing__form-wrapper {
   background-color: #fff;
   border-radius: 4px 4px 0 0;
