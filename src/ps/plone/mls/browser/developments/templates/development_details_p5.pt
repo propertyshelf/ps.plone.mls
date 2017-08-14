@@ -76,7 +76,7 @@
 
             <div class="overview__long_description">
               <!-- use lead image next to description-->
-              <picture class="lead_image"
+              <picture class="lead_image image-left"
                 tal:define="lead_href python: lead_image.get('preview') if lead_image is not None else None;
                             lead_title lead_image/title | nothing;
                             lead_alt lead_image/description| nothing;"
