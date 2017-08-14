@@ -540,7 +540,7 @@ class DevelopmentDetails(BrowserView):
         if shopping is not None:
             counter += 1
 
-        return 'count_' + str(counter)
+        return 'count_{0}'.format(counter)
 
     def show_section_contact(self):
         """Should the contact us section be shown at all?"""
