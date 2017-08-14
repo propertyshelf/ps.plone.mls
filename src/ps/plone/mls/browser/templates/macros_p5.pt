@@ -116,7 +116,7 @@
             </dl>
           </section>
 
-          <p class="listing__description col-sm-12"
+          <p class="listing__description col-xs-12"
               tal:condition="listing/description/value | nothing"
               tal:content="listing/description/value">
               [Description]
