@@ -443,6 +443,11 @@ body#visual-portal-wrapper.pat-plone .outer-wrapper .contenttype-ps-plone-mls-fe
   font-size: 4em;
 }
 
+.development__details .distanceicon span.icon {
+  font-size: 3.5em;
+  margin-top: 0.125em;
+}
+
 .listingsearchbanner {
   background-position: 50% 50%;
   background-size: cover;
