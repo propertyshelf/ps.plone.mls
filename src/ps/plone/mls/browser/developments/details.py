@@ -9,6 +9,7 @@ from email.utils import (
 )
 import json
 import logging
+import pkg_resources
 
 # zope imports
 from Acquisition import aq_inner
@@ -367,6 +368,19 @@ class DevelopmentDetails(BrowserView):
             from Products.CMFPlone.resources import add_resource_on_request
             if self.use_fotorama():
                 add_resource_on_request(self.request, 'psplonefotorama')
+            try:
+                pkg_resources.get_distribution('ps.plone.realestatefont')
+            except pkg_resources.DistributionNotFound:
+                pass
+            else:
+                from Products.GenericSetup.tool import UNKNOWN
+                setup = plone_api.portal.get_tool(name='portal_setup')
+                profile = 'profile-ps.plone.realestatefont:default'
+                if setup.getLastVersionForProfile(profile) != UNKNOWN:
+                    add_resource_on_request(
+                        self.request,
+                        'psplonerealestatefont',
+                    )
 
     @property
     def config(self):
