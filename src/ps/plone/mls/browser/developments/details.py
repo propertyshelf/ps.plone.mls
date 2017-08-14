@@ -206,6 +206,7 @@ class IContactForm(form.Schema):
 
 class ContactForm(form.Form):
     """Contact Form."""
+
     fields = field.Fields(IContactForm)
     ignoreContext = True
     method = 'post'
@@ -292,7 +293,9 @@ class ContactForm(form.Form):
         portal = urltool.getPortalObject()
 
         try:
-            email_charset = plone_api.portal.get_registry_record('plone.email_charset')
+            email_charset = plone_api.portal.get_registry_record(
+                'plone.email_charset',
+            )
         except plone_api.exc.InvalidParameterError:
             email_charset = portal.getProperty('email_charset', 'utf-8')
 
@@ -502,7 +505,7 @@ class DevelopmentDetails(BrowserView):
         return raw.get('response', {}).get('fields', {})
 
     def distance_class(self):
-        """count how many distances are set"""
+        """Count how many distances are set"""
         counter = 0
         # get all distances
         item = self.item
@@ -580,15 +583,19 @@ class DevelopmentDetails(BrowserView):
         return self.config.get('show_contact_link', False)
 
     def get_field_label(self, field_name):
-        """Get the field label for ``field_name`` even if the data may not
-        exist within the current development object.
+        """Get the field label for ``field_name``.
+
+        Do this even if the data may not exist within the current
+        development object.
         """
         field = api.Field(field_name, None, self.item)
         return field.title
 
     def format_distance(self, name, distance):
-        """Format the distance labels in the form of ``name - distance`` but
-        also correctly handle None values.
+        """Format the distance labels.
+
+        Do this in the form of ``name - distance`` but also correctly handle
+        None values.
         """
         text = []
         if name is not None:
@@ -663,7 +670,7 @@ class HeaderViewlet(ViewletBase):
             self._has_banner = False
 
     def _set_development_info(self):
-        """set all available data for the development header"""
+        """Set all available data for the development header"""
         cache = IAnnotations(self.request)
         item = cache.get('ps.plone.mls.development.traversed', None)
 
@@ -694,9 +701,11 @@ class HeaderViewlet(ViewletBase):
 
 
 class DevelopmentCanonicalURL(ViewletBase):
-    """Defines a canonical link relation viewlet to be displayed across the
-    site. A canonical page is the preferred version of a set of pages with
-    highly similar content. For more information, see:
+    """Defines a canonical link relation viewlet.
+
+    This needs to be displayed across the site. A canonical page is
+    the preferred version of a set of pages with highly similar
+    content. For more information, see:
     https://tools.ietf.org/html/rfc6596
     https://support.google.com/webmasters/answer/139394?hl=en
     """
