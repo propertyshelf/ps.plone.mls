@@ -413,6 +413,22 @@ body#visual-portal-wrapper.pat-plone .outer-wrapper .contenttype-ps-plone-mls-fe
   background-color: #fcfcfd;
 }
 
+.listing__form select {
+  width: 100%;
+}
+
+.listing__form .value select {
+  float: left;
+  width: 48%;
+}
+
+.listing__form .separator {
+  float: left;
+  text-align: center;
+  width: 4%;
+  overflow: hidden;
+}
+
 
 /* Development Results List */
 /* Very small screen. */
