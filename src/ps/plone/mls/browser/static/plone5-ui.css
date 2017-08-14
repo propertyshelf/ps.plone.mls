@@ -436,6 +436,13 @@ body#visual-portal-wrapper.pat-plone .outer-wrapper .contenttype-ps-plone-mls-fe
   display: block;
 }
 
+.development__amenities {
+  text-align: center;
+}
+.development__amenities span {
+  font-size: 4em;
+}
+
 .listingsearchbanner {
   background-position: 50% 50%;
   background-size: cover;
