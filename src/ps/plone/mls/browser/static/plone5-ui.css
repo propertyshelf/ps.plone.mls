@@ -327,6 +327,10 @@ body#visual-portal-wrapper.pat-plone .outer-wrapper .contenttype-ps-plone-mls-fe
   padding-left: 1ex;
 }
 
+.listing__form form span.option label {
+  display: inline;
+}
+
 .listing__form form .autotabs .option {
   width: 30%;
 }
@@ -342,6 +346,10 @@ body#visual-portal-wrapper.pat-plone .outer-wrapper .contenttype-ps-plone-mls-fe
 .listing__form input.radio-widget + span {
   margin-left: 1ex;
   margin-right: 2ex;
+}
+
+.listing__form form span.option input.checkbox-widget + label {
+  display: inline-block;
 }
 
 .listing__form .listing__form-wrapper {
