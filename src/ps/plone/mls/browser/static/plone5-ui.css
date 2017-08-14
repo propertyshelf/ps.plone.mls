@@ -443,9 +443,34 @@ body#visual-portal-wrapper.pat-plone .outer-wrapper .contenttype-ps-plone-mls-fe
   font-size: 4em;
 }
 
+@media(max-width: 767px) {
+  .development__details .distanceicon {
+    margin-top: 1em;
+    text-align: center;
+  }
+
+  .development__details .distanceicon span.icon {
+    line-height: 1em;
+  }
+}
+
 .development__details .distanceicon span.icon {
-  font-size: 3.5em;
-  margin-top: 0.125em;
+  font-size: 4em;
+  margin-top: 0;
+}
+
+@media(min-width: 768px) {
+  .development__details .distanceicon span.icon {
+    font-size: 3em;
+    margin-top: 0.2em;
+  }
+}
+
+@media(min-width: 1052px) {
+  .development__details .distanceicon span.icon {
+    font-size: 3.5em;
+    margin-top: 0.125em;
+  }
 }
 
 .listingsearchbanner {
