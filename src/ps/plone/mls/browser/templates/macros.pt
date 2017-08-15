@@ -14,6 +14,8 @@
     @param page_url: Base URL for listing details.
     -->
     <metal:listing_results metal:define-macro="listing_results">
+      <p tal:condition="not:batch" i18n:translate="">We are sorry, but we couldn't find any listings.</p>
+
       <tal:listings tal:condition="batch | nothing">
 
         <div metal:use-macro="context/batch_macros/macros/navigation" />
