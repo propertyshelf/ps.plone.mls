@@ -7,6 +7,7 @@ from email.utils import (
     formataddr,
     getaddresses,
 )
+from mls.apiclient import exceptions
 import json
 import logging
 import pkg_resources
@@ -25,6 +26,7 @@ from plone.formwidget.captcha.validator import (
     WrongCaptchaCode,
 )
 from plone.memoize.view import memoize
+from plone.mls.core.navigation import ListingBatch
 try:
     from plone.mls.listing.interfaces import IMLSUISettings
     HAS_UI_SETTINGS = True
@@ -620,6 +622,28 @@ class DevelopmentDetails(BrowserView):
 
     def base_url(self):
         return self.context.absolute_url()
+
+    def group_listings(self, group=None):
+        """Return the property group listings."""
+        try:
+            group_id = group.id.value
+        except Exception:
+            return
+        try:
+            item = api.PropertyGroup.get(self.item._api, group_id)
+        except exceptions.ResourceNotFound:
+            return
+
+        params = {
+            'sort_on': 'last_activated_date',
+            'reverse': '1',
+        }
+        try:
+            results, batching = item.listings(params=params)
+        except exceptions.MLSError, e:
+            logger.warn(e)
+        # return results
+        return ListingBatch(results, 0, batch_data=batching)
 
 
 class HeaderViewlet(ViewletBase):

@@ -98,42 +98,17 @@
           <section class="development__groups row"
               tal:define="groups item/groups | nothing"
               tal:condition="groups">
-            <ul id="group-listings">
-              <tal:groups tal:repeat="group groups">
-                <tal:group tal:define="group_id group/id/value | nothing;
-                                  group_listings_link string:${self_link}/listings?group=${group_id}">
-                  <li tal:attributes="id string:fieldsetlegend-${group_id};">
-                    <a class="tab_link"
-                        tal:content="group/title/value | string:-"
-                        tal:attributes="href group_listings_link" />
-                  </li>
-                </tal:group>
-              </tal:groups>
-            </ul>
-            <div class="tab_content">
-              <tal:groups tal:repeat="group groups">
-                <div></div>
-              </tal:groups>
             <h2 class="col-xs-12" i18n:translate="">Properties Available</h2>
+            <div id="development_listings" class="col-xs-12 pat-autotoc autotabs" data-pat-autotoc="section:section.tab_pane;levels:header.tab_header;">
+              <section class="tab_pane listing__results" tal:repeat="group groups">
+                <header class="tab_header" tal:content="group/title/value | string:-"></header>
+                <tal:listings
+                    tal:define="batch python:view.group_listings(group=group);
+                                page_url self_link | nothing;">
+                  <div metal:use-macro="context/@@ps.plone.mls.macros/listing_results">Show list of listings.</div>
+                </tal:listings>
+              </section>
             </div>
-            <script>
-              $(function() {
-                $("#group-listings").tabs("div.tab_content > div", {
-                  effect: 'fade',
-                  onBeforeClick: function(event, i) {
-                  // get the pane to be opened
-                  var pane = this.getPanes().eq(i);
-                    // only load once.
-                    if (pane.is(":empty")) {
-                    // load it with a page specified in the tab's href
-                    content_raw = this.getTabs().eq(i).attr('href') + '&ajax_load=1';
-                    content_selected= content_raw.concat(" #content .listing-summary")
-                    pane.load(content_selected);
-                    }
-                  }
-                });
-              });
-             </script>
           </section>
 
           <section class="development__projectmap row"
