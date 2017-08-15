@@ -154,39 +154,50 @@ class Field(object):
 
 class CacheMixin(object):
     """Extend API resources to handle some caching."""
+
     _field_titles = None
 
     def _get_field_titles(self):
         """Get the translated field titles from the API endpoint."""
         return self.__class__.get_field_titles(self._api)
 
-    def field_titles(self):
-        """Get the translated field titles for that resource."""
-        if self._field_titles is not None:
-            return self._field_titles
-
-        request = getRequest()
+    @property
+    def key(self):
         key = 'cache-{0}-{1}-{2}'.format(
             self.__class__.__name__,
             self._api.base_url,
             self._api.lang,
         )
+        return key
+
+    def _default_cache(self):
+        request = getRequest()
         cache = IAnnotations(request)
-        data = cache.get(key, None)
+        return cache
+
+    def field_titles(self):
+        """Get the translated field titles for that resource."""
+        if self._field_titles is not None:
+            return self._field_titles
+
+        cache = None
+        if cache is None:
+            cache = self._default_cache()
+        data = cache.get(self.key, None)
         if not data:
             try:
                 data = self._get_field_titles()
             except exceptions.ResourceNotFound:
                 data = {}
             else:
-                cache[key] = data
+                cache[self.key] = data
                 self._field_titles = data
         else:
             self._field_titles = data
         return data
 
     def __getattr__(self, name):
-        """Returns a data attribute or raises AttributeError.
+        """Return a data attribute or raises AttributeError.
 
         This version wraps the return value into a Field class for better
         access in Plone.
