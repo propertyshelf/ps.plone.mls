@@ -223,7 +223,8 @@
                   tal:condition="video">
             <h2 class="col-xs-12" i18n:translate="">Video</h2>
             <div class="video col-xs-12">
-                  tal:content="structure video/value"></div>
+              <div class="embed-responsive embed-responsive-16by9" tal:content="structure video/value"></div>
+            </div>
           </section>
 
           <section class="development__area row"
