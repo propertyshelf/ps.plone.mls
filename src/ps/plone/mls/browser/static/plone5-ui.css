@@ -436,6 +436,12 @@ body#visual-portal-wrapper.pat-plone .outer-wrapper .contenttype-ps-plone-mls-fe
   display: block;
 }
 
+.development__details .map__canvas {
+  height: 340px;
+  width: 100%;
+  margin-bottom: 1em;
+}
+
 .development__amenities {
   text-align: center;
 }
