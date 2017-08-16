@@ -7,9 +7,11 @@ from mls.apiclient import (
     exceptions,
     resources,
 )
+from time import time
 
 # zope imports
 from plone import api as plone_api
+from plone.memoize import ram
 from plone.mls.core.api import get_settings
 from plone.mls.listing.api import get_agency_info
 from zope.annotation.interfaces import IAnnotations
@@ -18,6 +20,7 @@ from zope.globalrequest import getRequest
 # local imports
 from ps.plone.mls import (
     _,
+    config,
     utils,
 )
 
@@ -27,6 +30,27 @@ MIN_MAX_FIELDS = [
     'lot_size',
     'interior_area',
 ]
+
+
+def development_cachekey(fun, *args, **kwargs):
+    """Create cache key for plone.memoize.
+
+    Include the name of the viewlet, as the underlying cache key only
+    takes the module and function name into account, but not the class.
+    """
+    item_id = kwargs.get('item_id')
+    if item_id is None:
+        raise ram.DontCache
+
+    context = kwargs.get('context', plone_api.portal.get())
+    lang = kwargs.get('lang', plone_api.portal.get_current_language())
+    key = u'{0}-{1}-{2}-{3}'.format(
+        '__'.join(context.getPhysicalPath()),
+        lang,
+        item_id,
+        time() // config.RAM_CACHE_TIME,
+    )
+    return key
 
 
 def _remove_omitted(params, omit):
@@ -87,9 +111,11 @@ def get_api(context=None, lang=None):
     return mls
 
 
+@ram.cache(development_cachekey)
 def get_development(item_id=None, context=None, request=None, lang=None):
     """Get a single development."""
     mlsapi = get_api(context=context, lang=lang)
+    # load from cache if possible
     try:
         item = Development.get(mlsapi, item_id)
     except exceptions.ServerError:
