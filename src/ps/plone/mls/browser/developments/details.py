@@ -160,11 +160,7 @@ loadGoogleMaps(initializeMap);
 
 
 def groups_cachekey(fun, self, *args, **kwargs):
-    """Create cache key for plone.memoize.
-
-    Include the name of the viewlet, as the underlying cache key only
-    takes the module and function name into account, but not the class.
-    """
+    """Create cache key for plone.memoize."""
     try:
         item_id = args[0]
     except IndexError:
@@ -647,20 +643,11 @@ class DevelopmentDetails(BrowserView):
         return self.context.absolute_url()
 
     @ram.cache(groups_cachekey)
-    def _get_group(self, group_id):
-        """Return property group using the api."""
+    def _get_group_listings(self, group_id):
+        """Return listings for a property group using the api."""
         try:
             item = api.PropertyGroup.get(self.item._api, group_id)
         except exceptions.ResourceNotFound:
-            item = None
-            raise ram.DontCache
-        return item
-
-    @ram.cache(groups_cachekey)
-    def _get_group_listings(self, group_id):
-        """Return listings for a property group using the api."""
-        item = self._get_group(group_id)
-        if item is None:
             return None, None
 
         params = {
