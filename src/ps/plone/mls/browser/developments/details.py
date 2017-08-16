@@ -8,7 +8,6 @@ from email.utils import (
     getaddresses,
 )
 from mls.apiclient import exceptions
-from time import time
 import json
 import logging
 import pkg_resources
@@ -26,7 +25,6 @@ from plone.formwidget.captcha.validator import (
     CaptchaValidator,
     WrongCaptchaCode,
 )
-from plone.memoize import ram
 from plone.memoize.view import memoize
 from plone.mls.core.navigation import ListingBatch
 try:
@@ -157,23 +155,6 @@ function initializeMap() {{
 loadGoogleMaps(initializeMap);
 
 """
-
-
-def groups_cachekey(fun, self, *args, **kwargs):
-    """Create cache key for plone.memoize."""
-    try:
-        item_id = args[0]
-    except IndexError:
-        raise ram.DontCache
-
-    key = u'{0}-{1}-{2}-{3}-{4}'.format(
-        '__'.join(self.context.getPhysicalPath()),
-        plone_api.portal.get_current_language(),
-        item_id,
-        fun.func_name,
-        time() // config.RAM_CACHE_TIME,
-    )
-    return key
 
 
 class IContactForm(form.Schema):
@@ -642,13 +623,17 @@ class DevelopmentDetails(BrowserView):
     def base_url(self):
         return self.context.absolute_url()
 
-    @ram.cache(groups_cachekey)
-    def _get_group_listings(self, group_id):
-        """Return listings for a property group using the api."""
+    def group_listings(self, group=None):
+        """Return the property group listings."""
+        try:
+            group_id = group.id.value
+        except Exception:
+            return
+
         try:
             item = api.PropertyGroup.get(self.item._api, group_id)
         except exceptions.ResourceNotFound:
-            return None, None
+            return None
 
         params = {
             'sort_on': 'last_activated_date',
@@ -658,17 +643,7 @@ class DevelopmentDetails(BrowserView):
             results, batching = item.listings(params=params)
         except exceptions.MLSError, e:
             logger.warn(e)
-            raise ram.DontCache
-        return results, batching
 
-    def group_listings(self, group=None):
-        """Return the property group listings."""
-        try:
-            group_id = group.id.value
-        except Exception:
-            return
-
-        results, batching = self._get_group_listings(group_id)
         if results is None:
             return
         return ListingBatch(results, 0, batch_data=batching)
