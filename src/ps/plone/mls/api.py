@@ -317,15 +317,27 @@ class Development(CacheMixin, resources.Development):
 
     @ram.cache(api_cachekey)
     def groups(self, params=None):
+        """Search for property groups within that development."""
         return super(Development, self).groups(params=params)
 
     @ram.cache(api_cachekey)
     def phases(self, params=None):
+        """Search for development phases within that development."""
         return super(Development, self).phases(params=params)
+
+    @ram.cache(api_cachekey)
+    def listings(self, params=None):
+        """Search for listings assigned to that development project."""
+        return super(Development, self).listings(params=params)
 
 
 class DevelopmentPhase(CacheMixin, resources.DevelopmentPhase):
     """'Development Phase' entity resource class with caching support."""
+
+    @ram.cache(api_cachekey)
+    def listings(self, params=None):
+        """Search for listings assigned to that development phase."""
+        return super(DevelopmentPhase, self).listings(params=params)
 
 
 class Listing(CacheMixin, resources.Listing):
@@ -334,3 +346,8 @@ class Listing(CacheMixin, resources.Listing):
 
 class PropertyGroup(CacheMixin, resources.PropertyGroup):
     """'Property Group' entity resource class with caching support."""
+
+    @ram.cache(api_cachekey)
+    def listings(self, params=None):
+        """Search for listings assigned to that property group."""
+        return super(PropertyGroup, self).listings(params=params)
