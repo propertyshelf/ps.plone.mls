@@ -177,7 +177,6 @@ def groups_cachekey(fun, self, *args, **kwargs):
         fun.func_name,
         time() // config.RAM_CACHE_TIME,
     )
-    logger.info(key)
     return key
 
 
