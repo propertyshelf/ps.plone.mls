@@ -85,9 +85,9 @@
                     tal:attributes="src lead_href;
                                   alt lead_alt;
                                   title lead_title" />
-                  <span class="caption"
-                    tal:condition="lead_title"
-                    tal:content="lead_title" />
+                  <figcaption
+                      tal:condition="lead_title"
+                      tal:content="lead_title">[caption]</figcaption>
               </picture>
               <tal:descriptionline tal:repeat="line python:text.splitlines()" tal:condition="text">
                 <p tal:content="line">[Description Line]</p>

@@ -432,8 +432,18 @@ body#visual-portal-wrapper.pat-plone .outer-wrapper .contenttype-ps-plone-mls-fe
   margin-bottom: 20px;
 }
 
-.development__details .lead_image .caption {
-  display: block;
+.development__details .lead_image {
+  width: 100%;
+}
+
+.development__details .lead_image img {
+  width: 100%;
+}
+
+@media(min-width: 992px) {
+  .development__details .lead_image {
+    max-width: 35%;
+  }
 }
 
 .development__details .autotoc-section > header {
