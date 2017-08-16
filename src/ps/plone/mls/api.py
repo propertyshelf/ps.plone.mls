@@ -30,39 +30,40 @@ MIN_MAX_FIELDS = [
 ]
 
 
-def development_cachekey(fun, *args, **kwargs):
-    """Create cache key for plone.memoize.
-
-    Include the name of the viewlet, as the underlying cache key only
-    takes the module and function name into account, but not the class.
-    """
-    item_id = kwargs.get('item_id')
-    if item_id is None:
-        raise ram.DontCache
-
-    context = kwargs.get('context', plone_api.portal.get())
-    lang = kwargs.get('lang', plone_api.portal.get_current_language())
-    key = u'{0}-{1}-{2}-{3}'.format(
-        '__'.join(context.getPhysicalPath()),
-        lang,
-        item_id,
-        time() // config.RAM_CACHE_TIME,
-    )
-    return key
-
-
 def api_cachekey(fun, self, *args, **kwargs):
     """Create cache key for plone.memoize."""
-    api = self._api
-    if api is None:
+    try:
+        api_ = args[0]
+    except IndexError:
+        try:
+            api_ = self._api
+        except AttributeError:
+            raise ram.DontCache
+    if not isinstance(api_, api.API):
         raise ram.DontCache
 
-    key = u'{0}_{1}_{2}_{3}_{4}{5}'.format(
-        type(self).__name__,
+    try:
+        item_id = self.get_id()
+    except TypeError:
+        item_id = '-'
+
+    args_ = '__'.join(
+        [value for value in args if not isinstance(value, api.API)],
+    )
+
+    kwargs_ = '__'.join(
+        ['{0}_{1}'.format(key, value) for key, value in kwargs.iteritems()],
+    )
+
+    key = u'{0}_{1}_{2}_{3}_{4}_{5}_{6}_{7}_{8}'.format(
+        self.endpoint,
+        item_id,
         fun.func_name,
-        api.base_url,
-        api.lang,
-        api.api_key,
+        args_,
+        kwargs_,
+        api_.base_url,
+        api_.lang,
+        api_.api_key,
         time() // config.RAM_CACHE_TIME,
     )
     return key
@@ -126,7 +127,6 @@ def get_api(context=None, lang=None):
     return mls
 
 
-@ram.cache(development_cachekey)
 def get_development(item_id=None, context=None, request=None, lang=None):
     """Get a single development."""
     mlsapi = get_api(context=context, lang=lang)
@@ -172,7 +172,7 @@ class Field(object):
             return
 
         # Try to get the correct label for the field.
-        titles = resource.field_titles().get('response', {})
+        titles = resource.get_field_titles(resource._api).get('response', {})
 
         try:
             self.title = titles['fields'][name]
@@ -196,10 +196,20 @@ class Field(object):
 class CacheMixin(object):
     """Extend API resources to handle some caching."""
 
+    @classmethod
     @ram.cache(api_cachekey)
-    def field_titles(self):
-        """Get the translated field titles for that resource."""
-        return self.__class__.get_field_titles(self._api)
+    def get_field_titles(cls, api):
+        return super(CacheMixin, cls).get_field_titles(api)
+
+    @classmethod
+    @ram.cache(api_cachekey)
+    def get_field_order(cls, api):
+        return super(CacheMixin, cls).get_field_order(api)
+
+    @classmethod
+    @ram.cache(api_cachekey)
+    def get(cls, api, resource_id):
+        return super(CacheMixin, cls).get(api, resource_id)
 
     def __getattr__(self, name):
         """Return a data attribute or raises AttributeError.
@@ -299,6 +309,14 @@ class Development(CacheMixin, resources.Development):
         self.__class_agent__ = Agent
         self.__class_group__ = PropertyGroup
         self.__class_phase__ = DevelopmentPhase
+
+    @ram.cache(api_cachekey)
+    def groups(self, params=None):
+        return super(Development, self).groups(params=params)
+
+    @ram.cache(api_cachekey)
+    def phases(self, params=None):
+        return super(Development, self).phases(params=params)
 
 
 class DevelopmentPhase(CacheMixin, resources.DevelopmentPhase):
