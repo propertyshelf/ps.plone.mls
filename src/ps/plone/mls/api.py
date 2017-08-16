@@ -198,8 +198,8 @@ class CacheMixin(object):
 
     @classmethod
     @ram.cache(api_cachekey)
-    def get_field_titles(cls, api):
-        return super(CacheMixin, cls).get_field_titles(api)
+    def get(cls, api, resource_id):
+        return super(CacheMixin, cls).get(api, resource_id)
 
     @classmethod
     @ram.cache(api_cachekey)
@@ -208,8 +208,13 @@ class CacheMixin(object):
 
     @classmethod
     @ram.cache(api_cachekey)
-    def get(cls, api, resource_id):
-        return super(CacheMixin, cls).get(api, resource_id)
+    def get_field_titles(cls, api):
+        return super(CacheMixin, cls).get_field_titles(api)
+
+    @classmethod
+    @ram.cache(api_cachekey)
+    def search(cls, api, params=None):
+        return super(CacheMixin, cls).search(api, params=params)
 
     def __getattr__(self, name):
         """Return a data attribute or raises AttributeError.
