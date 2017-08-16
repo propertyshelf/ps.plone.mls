@@ -175,7 +175,7 @@ def groups_cachekey(fun, self, *args, **kwargs):
         plone_api.portal.get_current_language(),
         item_id,
         fun.func_name,
-        time() // (60 * 10),  # Cache for 10 minutes
+        time() // config.RAM_CACHE_TIME,
     )
     logger.info(key)
     return key
