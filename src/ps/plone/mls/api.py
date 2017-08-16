@@ -14,8 +14,6 @@ from plone import api as plone_api
 from plone.memoize import ram
 from plone.mls.core.api import get_settings
 from plone.mls.listing.api import get_agency_info
-from zope.annotation.interfaces import IAnnotations
-from zope.globalrequest import getRequest
 
 # local imports
 from ps.plone.mls import (
@@ -48,6 +46,23 @@ def development_cachekey(fun, *args, **kwargs):
         '__'.join(context.getPhysicalPath()),
         lang,
         item_id,
+        time() // config.RAM_CACHE_TIME,
+    )
+    return key
+
+
+def api_cachekey(fun, self, *args, **kwargs):
+    """Create cache key for plone.memoize."""
+    api = self._api
+    if api is None:
+        raise ram.DontCache
+
+    key = u'{0}_{1}_{2}_{3}_{4}{5}'.format(
+        type(self).__name__,
+        fun.func_name,
+        api.base_url,
+        api.lang,
+        api.api_key,
         time() // config.RAM_CACHE_TIME,
     )
     return key
@@ -181,46 +196,10 @@ class Field(object):
 class CacheMixin(object):
     """Extend API resources to handle some caching."""
 
-    _field_titles = None
-
-    def _get_field_titles(self):
-        """Get the translated field titles from the API endpoint."""
-        return self.__class__.get_field_titles(self._api)
-
-    @property
-    def key(self):
-        key = 'cache-{0}-{1}-{2}'.format(
-            self.__class__.__name__,
-            self._api.base_url,
-            self._api.lang,
-        )
-        return key
-
-    def _default_cache(self):
-        request = getRequest()
-        cache = IAnnotations(request)
-        return cache
-
+    @ram.cache(api_cachekey)
     def field_titles(self):
         """Get the translated field titles for that resource."""
-        if self._field_titles is not None:
-            return self._field_titles
-
-        cache = None
-        if cache is None:
-            cache = self._default_cache()
-        data = cache.get(self.key, None)
-        if not data:
-            try:
-                data = self._get_field_titles()
-            except exceptions.ResourceNotFound:
-                data = {}
-            else:
-                cache[self.key] = data
-                self._field_titles = data
-        else:
-            self._field_titles = data
-        return data
+        return self.__class__.get_field_titles(self._api)
 
     def __getattr__(self, name):
         """Return a data attribute or raises AttributeError.
