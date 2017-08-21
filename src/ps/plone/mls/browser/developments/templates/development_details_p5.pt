@@ -111,7 +111,7 @@
                 <header class="tab_header" tal:content="group/title/value | string:-"></header>
                 <tal:listings
                     tal:define="batch python:view.group_listings(group=group);
-                                page_url self_link | nothing;">
+                                page_url string:${self_link}/">
                   <div metal:use-macro="context/@@ps.plone.mls.macros/listing_results">Show list of listings.</div>
                 </tal:listings>
               </section>
