@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-0.9 (unreleased)
+0.9 (2017-08-21)
 ----------------
 
 - Rerun GS profiles for Plone 5 when doing upgrade from 4 to 5.
