@@ -206,14 +206,14 @@
               tal:define="text item/area_description/value | nothing"
               tal:condition="text">
             <h2 class="col-xs-12" i18n:translate="">About the Area</h2>
-            <figure class="area__picture col-xs-12"
+            <figure class="area__picture col-xs-12 col-sm-4"
                 tal:define="image item/area_picture | nothing"
                 tal:condition="image"><a href="" rel="prettyPhoto[item]"
                 tal:attributes="href image/value"><img src="" title="" alt=""
                 tal:attributes="src image/value;
                                 title title;
                                 alt title;" /></a></figure>
-            <div class="area__description col-xs-12">
+            <div class="area__description col-xs-12 col-sm-8">
               <tal:descriptionline tal:repeat="line python:text.splitlines()">
                     <p tal:content="line">[Description Line]</p>
               </tal:descriptionline>
@@ -328,37 +328,39 @@
             </div>
           </section>
 
-          <section class="development__representatives"
+          <section class="development__representatives row"
               tal:define="representatives item/representatives | nothing"
               tal:condition="representatives">
-            <h2 i18n:translate="">Meet the Developers</h2>
-            <div class="representatives__item"
+            <h2 class="col-xs-12" i18n:translate="">Meet the Developers</h2>
+            <div class="representatives__item col-xs-12"
                 tal:repeat="agent representatives">
 
-              <tal:agent
+              <div class="row"
                   tal:define="avatar agent/avatar | nothing;
                               name agent/name | nothing;"
                   tal:condition="name">
-                <figure class="representative__avatar"
+                <figure class="representative__avatar col-xs-12 col-sm-4"
                     tal:condition="avatar"><a href="" rel="prettyPhoto[item]"
                     tal:attributes="href avatar/value"><img src="" title="" alt=""
                     tal:attributes="src avatar/value;
                                     title name/value;
                                     alt name/value;" /></a></figure>
-                <h3 class="representative__name"
-                    tal:content="name/value">[Developer Name]</h3>
-                <p class="representative__user_title"
-                    tal:define="user_title agent/user_title/value | nothing"
-                    tal:condition="user_title"
-                    tal:content="user_title">[Developer Title]</p>
-                <div class="representative__personal_description"
-                      tal:define="text agent/personal_description/value | nothing"
-                      tal:condition="text">
-                  <tal:descriptionline tal:repeat="line python:text.splitlines()">
-                    <p tal:content="line">[Description Line]</p>
-                  </tal:descriptionline>
+                <div class="col-xs-12 col-sm-8">
+                  <h3 class="representative__name"
+                      tal:content="name/value">[Developer Name]</h3>
+                  <p class="representative__user_title"
+                      tal:define="user_title agent/user_title/value | nothing"
+                      tal:condition="user_title"
+                      tal:content="user_title">[Developer Title]</p>
+                  <div class="representative__personal_description"
+                        tal:define="text agent/personal_description/value | nothing"
+                        tal:condition="text">
+                    <tal:descriptionline tal:repeat="line python:text.splitlines()">
+                      <p tal:content="line">[Description Line]</p>
+                    </tal:descriptionline>
+                  </div>
                 </div>
-              </tal:agent>
+              </div>
             </div>
           </section>
 

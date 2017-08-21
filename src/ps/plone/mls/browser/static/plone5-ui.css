@@ -436,7 +436,10 @@ body#visual-portal-wrapper.pat-plone .outer-wrapper .contenttype-ps-plone-mls-fe
   width: 100%;
 }
 
-.development__details .lead_image img {
+.development__details .lead_image img,
+.development__details .area__picture img,
+.development__details .representative__avatar img {
+  max-width: 100%;
   width: 100%;
 }
 
@@ -491,6 +494,10 @@ body#visual-portal-wrapper.pat-plone .outer-wrapper .contenttype-ps-plone-mls-fe
     font-size: 3.5em;
     margin-top: 0.125em;
   }
+}
+
+.development__details .representatives__item {
+  margin-bottom: 2em;
 }
 
 .listingsearchbanner {
