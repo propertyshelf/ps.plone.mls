@@ -332,7 +332,7 @@
               tal:define="representatives item/representatives | nothing"
               tal:condition="representatives">
             <h2 i18n:translate="">Meet the Developers</h2>
-            <div class="visualClear representatives__item"
+            <div class="representatives__item"
                 tal:repeat="agent representatives">
 
               <tal:agent
