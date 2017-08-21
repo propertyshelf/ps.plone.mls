@@ -5,7 +5,9 @@ Changelog
 0.9 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- Rerun GS profiles for Plone 5 when doing upgrade from 4 to 5.
+- Update Plone 5 experience for listings and developments.
+- Use low level api caching using plone.memoize.ram.
 
 
 0.8.1 (2017-05-26)
