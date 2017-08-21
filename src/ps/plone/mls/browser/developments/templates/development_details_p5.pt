@@ -76,7 +76,7 @@
 
             <div class="overview__long_description col-xs-12">
               <!-- use lead image next to description-->
-              <picture class="lead_image image-left"
+              <figure class="lead_image image-left"
                 tal:define="lead_href python: lead_image.get('preview') if lead_image is not None else None;
                             lead_title lead_image/title | nothing;
                             lead_alt lead_image/description| nothing;"
@@ -88,7 +88,7 @@
                   <figcaption
                       tal:condition="lead_title"
                       tal:content="lead_title">[caption]</figcaption>
-              </picture>
+              </figure>
               <tal:descriptionline tal:repeat="line python:text.splitlines()" tal:condition="text">
                 <p tal:content="line">[Description Line]</p>
               </tal:descriptionline>
