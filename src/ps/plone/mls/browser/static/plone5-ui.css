@@ -500,6 +500,16 @@ body#visual-portal-wrapper.pat-plone .outer-wrapper .contenttype-ps-plone-mls-fe
   margin-bottom: 2em;
 }
 
+.development__details .development__anchorlink {
+  position: fixed;
+  right: 0;
+  top: 40%;
+  transform: rotate(90deg);
+  transform-origin: right top 0;
+  z-index: 99;
+}
+
+
 .listingsearchbanner {
   background-position: 50% 50%;
   background-size: cover;
