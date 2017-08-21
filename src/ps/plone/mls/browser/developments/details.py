@@ -510,14 +510,12 @@ class DevelopmentDetails(BrowserView):
 
     def titles_for_phases(self):
         """Get the titles for the Development Phase fields."""
-        fake = api.DevelopmentPhase(self.item._api, {})
-        raw = fake.field_titles()
+        raw = api.DevelopmentPhase.get_field_titles(self.item._api)
         return raw.get('response', {}).get('fields', {})
 
     def titles_for_groups(self):
         """Get the titles for the Property Group fields."""
-        fake = api.PropertyGroup(self.item._api, {})
-        raw = fake.field_titles()
+        raw = api.PropertyGroup.get_field_titles(self.item._api)
         return raw.get('response', {}).get('fields', {})
 
     def distance_class(self):
