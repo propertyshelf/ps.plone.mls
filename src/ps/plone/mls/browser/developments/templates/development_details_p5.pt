@@ -206,13 +206,13 @@
               tal:define="text item/area_description/value | nothing"
               tal:condition="text">
             <h2 class="col-xs-12" i18n:translate="">About the Area</h2>
-            <picture class="area__picture col-xs-12"
+            <figure class="area__picture col-xs-12"
                 tal:define="image item/area_picture | nothing"
                 tal:condition="image"><a href="" rel="prettyPhoto[item]"
                 tal:attributes="href image/value"><img src="" title="" alt=""
                 tal:attributes="src image/value;
                                 title title;
-                                alt title;" /></a></picture>
+                                alt title;" /></a></figure>
             <div class="area__description col-xs-12">
               <tal:descriptionline tal:repeat="line python:text.splitlines()">
                     <p tal:content="line">[Description Line]</p>
@@ -339,12 +339,12 @@
                   tal:define="avatar agent/avatar | nothing;
                               name agent/name | nothing;"
                   tal:condition="name">
-                <picture class="representative__avatar"
+                <figure class="representative__avatar"
                     tal:condition="avatar"><a href="" rel="prettyPhoto[item]"
                     tal:attributes="href avatar/value"><img src="" title="" alt=""
                     tal:attributes="src avatar/value;
                                     title name/value;
-                                    alt name/value;" /></a></picture>
+                                    alt name/value;" /></a></figure>
                 <h3 class="representative__name"
                     tal:content="name/value">[Developer Name]</h3>
                 <p class="representative__user_title"
