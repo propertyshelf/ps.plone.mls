@@ -31,7 +31,9 @@
                        self_link context/@@plone_context_state/current_page_url;
                        amenities item/amenities_order/value | nothing;
                        amenities_dict item/amenities_lookup/value | nothing;
-                       amenities_count python:len(amenities) if amenities is not None else None;">
+                       amenities_count python:len(amenities) if amenities is not None else None;
+                       contact_form view/contact_form | nothing;
+                       contact_link view/contact_link | nothing">
 
         <img class="development__banner col-xs-12"
             tal:define="img item/banner_image/value | nothing"
@@ -69,7 +71,7 @@
           </section>
 
           <div class="development__anchorlink"
-            tal:condition="view/contact_link | nothing">
+            tal:condition="python: contact_form and contact_link">
             <a class="context" href="#development-contact-form" i18n:translate="">Contact us</a>
           </div>
 
@@ -375,11 +377,10 @@
               tal:condition="view/show_section_contact | nothing">
             <h2 class="col-xs-12" i18n:translate="">Contact</h2>
             <div id="development-contact-form" class="col-xs-12 col-sm-6"
-                tal:define="form view/contact_form"
-                tal:condition="form">
+                tal:condition="contact_form">
               <form action=""
-                  tal:condition="not: form/already_sent"
-                  tal:replace="structure form/render"></form>
+                  tal:condition="not: contact_form/already_sent"
+                  tal:replace="structure contact_form/render"></form>
             </div>
             <div class="development__vcard col-xs-12 col-sm-6"
                 tal:define="contact_info view/contact_info | nothing;
