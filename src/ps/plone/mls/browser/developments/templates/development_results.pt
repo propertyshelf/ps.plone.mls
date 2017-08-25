@@ -32,9 +32,17 @@
 
           <p tal:content="item/description/value | nothing"></p>
 
-          <figure tal:define="image item/logo | nothing">
+          <figure class="banner" tal:define="image item/banner_image | nothing" tal:condition="image">
             <a href="" tal:attributes="href item_url;
-                                       title item/title/value"><img src="" alt=""
+                                       title item/title/value"><img src="" alt="" class="banner"
+                tal:attributes="src image/value" /></a>
+            <figcaption>
+              <small tal:content="item/title/value">[Caption]</small>
+            </figcaption>
+          </figure>
+          <figure class="logo" tal:define="image item/logo | nothing">
+            <a href="" tal:attributes="href item_url;
+                                       title item/title/value"><img src="" alt="" class="logo"
                        tal:condition="image"
                        tal:attributes="src image/value" /><img
                        tal:condition="not:image" alt="" title=""

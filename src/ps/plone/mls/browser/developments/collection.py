@@ -1,6 +1,9 @@
 # -*- coding: utf-8 -*-
 """MLS development collection."""
 
+# python imports
+import copy
+
 # zope imports
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from plone.app.layout.viewlets.common import ViewletBase
@@ -53,6 +56,7 @@ FIELDS = [
 
 EXCLUDED_SEARCH_FIELDS = [
     'map_zoom_level',
+    'show_banner_image',
     'show_contact_form',
     'contact_override',
     'show_contact_link',
@@ -112,9 +116,12 @@ class DevelopmentCollectionViewlet(ViewletBase):
         """Get the collection items from the MLS."""
         lang = self.portal_state.language()
         mlsapi = api.get_api(context=self.context, lang=lang)
+        fields = copy.copy(FIELDS)
+        if self.config.get('show_banner_image', False):
+            fields.append('banner_image')
         params = {
             # 'summary': '1',
-            'fields': u','.join(FIELDS),
+            'fields': u','.join(fields),
             'limit': self.limit,
             'offset': self.request.get('b_start', 0),
         }
@@ -203,6 +210,16 @@ class IDevelopmentCollectionConfiguration(form.Schema):
         max=21,
         required=True,
         title=_(u'Zoom level for maps'),
+    )
+
+    show_banner_image = schema.Bool(
+        default=False,
+        description=_(
+            u'If enabled, show the development banner in the collection '
+            u'results.'
+        ),
+        required=False,
+        title=_(u'Show Banner Image'),
     )
 
     show_contact_info = schema.Bool(
