@@ -3,6 +3,11 @@
     i18n_domain="ps.plone.mls">
 
   <utility
+      component=".developments.AvailableDevelopmentCollectionsFactory"
+      name="ps.plone.mls.developments.available_collections"
+      />
+
+  <utility
       component=".developments.SortOptionsVocabularyFactory"
       name="ps.plone.mls.developments.sort_options"
       />
