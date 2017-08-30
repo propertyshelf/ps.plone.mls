@@ -156,10 +156,6 @@ body#visual-portal-wrapper.pat-plone .outer-wrapper .contenttype-ps-plone-mls-fe
   display: block;
 }
 
-.listing__results figure a:hover img {
-    transform: scale(1.1);
-}
-
 .listing__results figcaption {
   display: none;
 }
@@ -408,10 +404,6 @@ body#visual-portal-wrapper.pat-plone .outer-wrapper .contenttype-ps-plone-mls-fe
 .development__results figure a {
   overflow: hidden;
   display: block;
-}
-
-.development__results figure a:hover img {
-    transform: scale(1.1);
 }
 
 .development__results figcaption {
