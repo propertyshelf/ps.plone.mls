@@ -319,6 +319,10 @@ body#visual-portal-wrapper.pat-plone .outer-wrapper .contenttype-ps-plone-mls-fe
   background-color: #fcfcfd;
 }
 
+.listing__form .pat-select2 {
+  width: 100%;
+}
+
 .listing__form select {
   width: 100%;
 }
