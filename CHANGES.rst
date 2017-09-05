@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-0.10 (unreleased)
+0.10 (2017-09-05)
 -----------------
 
 - Show banner image for development collection, if enabled and available.
