@@ -5,7 +5,9 @@ Changelog
 0.10 (unreleased)
 -----------------
 
-- Nothing changed yet.
+- Show banner image for development collection, if enabled and available.
+- Show better title for development listings results.
+- Make select2 dropdowns take full width for listing search (Plone 5 only).
 
 
 0.9 (2017-08-21)
