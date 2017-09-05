@@ -20,9 +20,10 @@ from ps.plone.mls import (
     config,
     logger,
 )
+from ps.plone.mls.interfaces import IDevelopmentListings
 
 
-@implementer(IBaseListingItems)
+@implementer(IBaseListingItems, IDevelopmentListings)
 class DevelopmentListings(BrowserView):
     """Show listings for a specific development."""
 

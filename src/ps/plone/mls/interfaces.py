@@ -25,6 +25,10 @@ class IDevelopmentDetails(Interface):
     """Marker interface for DevelopmentDetails view."""
 
 
+class IDevelopmentListings(Interface):
+    """Marker interface for DevelopmentListings view."""
+
+
 class IPossibleDevelopmentCollection(Interface):
     """Marker interface for possible DevelopmentCollection viewlet."""
 

@@ -8,8 +8,14 @@ from plone.app.layout.viewlets import common
 from plone.mls.listing.browser.interfaces import IListingDetails
 
 # local imports
-from ps.plone.mls.interfaces import IDevelopmentDetails
-from ps.plone.mls import utils
+from ps.plone.mls.interfaces import (
+    IDevelopmentDetails,
+    IDevelopmentListings,
+)
+from ps.plone.mls import (
+    _,
+    utils,
+)
 
 
 class DublinCoreViewlet(common.DublinCoreViewlet):
@@ -37,7 +43,6 @@ class DublinCoreViewlet(common.DublinCoreViewlet):
 
     def _get_mls_creator(self):
         """Get the creator/author from an embedded item."""
-
         if IListingDetails.providedBy(self.view):
             try:
                 contact = self.view.contact
@@ -122,6 +127,16 @@ class TitleViewlet(common.TitleViewlet):
                 title = self.view.title
             except AttributeError:
                 title = getattr(self.request, 'listing_id', None)
+        elif IDevelopmentListings.providedBy(self.view):
+            try:
+                title = self.view.item.title.value
+            except AttributeError:
+                title = getattr(self.request, 'development_id', None)
+            if title is not None:
+                title = u'{0} &mdash; {1}'.format(
+                    _(u'Listings'),
+                    title,
+                )
 
         if title is not None:
             self.site_title = u'{0} &mdash; {1}'.format(title, self.site_title)
