@@ -35,6 +35,10 @@ class HiddenProfiles(object):
 @adapter(IProfileImportedEvent)
 def handle_profile_imported_event(event):
     """Update 'last version for profile' after a full import."""
+    qi = api.portal.get_tool(name='portal_quickinstaller')
+    if not qi.isProductInstalled(config.PROJECT_NAME):
+        return
+
     if event.profile_id == 'profile-plone.app.upgrade.v50:to50alpha3':
         setup = api.portal.get_tool(name='portal_setup')
         setup.runAllImportStepsFromProfile(config.INSTALL_PROFILE)

@@ -6,6 +6,7 @@ Changelog
 -----------------
 
 - Remove Archetypes dependency.
+- Don't run event handler when add-on is not installed.
 
 
 0.10 (2017-09-05)
