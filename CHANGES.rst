@@ -5,7 +5,7 @@ Changelog
 0.11 (unreleased)
 -----------------
 
-- Nothing changed yet.
+- Remove Archetypes dependency.
 
 
 0.10 (2017-09-05)

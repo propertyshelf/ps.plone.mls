@@ -2,7 +2,6 @@
 """Featured Listings."""
 
 # zope imports
-from Products.ATContentTypes import ATCTMessageFactory as ATMF
 from plone.app.textfield import RichText
 from plone.autoform import directives
 from plone.dexterity.content import Item
@@ -40,7 +39,7 @@ class IFeaturedListings(model.Schema):
         directives.widget(body_text=RichTextFieldWidget)
     body_text = RichText(
         required=False,
-        title=ATMF(u'label_body_text', default=u'Body Text'),
+        title=_('Body Text'),
     )
 
 
