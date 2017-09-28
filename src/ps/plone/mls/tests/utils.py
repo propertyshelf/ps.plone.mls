@@ -3,6 +3,7 @@
 
 # python imports
 from mls.apiclient import testing
+from mls.apiclient.tests import utils
 import os
 
 
@@ -22,6 +23,7 @@ def _register(endpoint, content=None, fixture=None, params=None):
 
 def setup_plone_mls_fixtures():
     """Setup the test fixtures for integration tests."""
+    utils.setup_listing_api_fixtures()
 
     # register all the field endpoints
     testing._register(
