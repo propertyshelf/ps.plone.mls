@@ -31,32 +31,32 @@ def setup_plone_mls_fixtures():
     testing._register(
         'field_titles/developments',
         params=base_params,
-        fixture='development_fields_en.json',
+        fixture='field_titles-developments.json',
     )
     testing._register(
         'field_order/developments',
         params=base_params,
-        fixture='development_fields_order.json',
+        fixture='field_order-developments.json',
     )
     testing._register(
-        'field_titles/development_groups',
+        'field_titles/property_groups',
         params=base_params,
-        fixture='group_fields_en.json',
+        fixture='field_titles-property_groups.json',
     )
     testing._register(
-        'field_order/development_groups',
+        'field_order/property_groups',
         params=base_params,
-        fixture='group_fields_order.json',
+        fixture='field_order-property_groups.json',
     )
     testing._register(
         'field_titles/development_phases',
         params=base_params,
-        fixture='phase_fields_en.json',
+        fixture='field_titles-development_phases.json',
     )
     testing._register(
         'field_order/development_phases',
         params=base_params,
-        fixture='phase_fields_order.json',
+        fixture='field_order-development_phases.json',
     )
 
     # register the development endpoints
