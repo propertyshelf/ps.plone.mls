@@ -89,8 +89,15 @@ FUNCTIONAL_TESTING = FunctionalTesting(
     name='ps.plone.mls:Functional',
 )
 
-ACCEPTANCE_TESTING = FunctionalTesting(
-    bases=(FIXTURE, REMOTE_LIBRARY_BUNDLE_FIXTURE, z2.ZSERVER_FIXTURE),
+
+class FunctionalMLSAPIMockLayer(MLSAPIMockLayer):
+
+    defaultBases = (
+        FIXTURE, REMOTE_LIBRARY_BUNDLE_FIXTURE, z2.ZSERVER_FIXTURE,
+    )
+
+
+ACCEPTANCE_TESTING = FunctionalMLSAPIMockLayer(
     name='ps.plone.mls:Acceptance')
 
 ROBOT_TESTING = MLSAPIMockLayer(name='ps.plone.mls:Robot')
