@@ -16,6 +16,7 @@ Resource  ${PSPLONEMLS_DEFAULT_SELECTORS}
 Setup
     Setup Plone site  ps.plone.mls.testing.ACCEPTANCE_TESTING
     Import library  Remote  ${PLONE_URL}/RobotRemote
+    Run keyword and ignore error  Set window size  @{DIMENSIONS}
 
 Teardown
     Teardown Plone Site
@@ -25,3 +26,4 @@ Teardown
 
 ${FOLDER_ID}  a-folder
 ${DOCUMENT_ID}  a-document
+@{DIMENSIONS}  992  900
