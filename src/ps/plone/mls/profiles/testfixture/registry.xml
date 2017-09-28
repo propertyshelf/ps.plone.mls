@@ -12,7 +12,7 @@
   <record name="plone.mls.core.interfaces.IMLSSettings.mls_key"
       field="mls_key"
       interface="plone.mls.core.interfaces.IMLSSettings">
-    <value>SAMPLE_API_KEY</value>
+    <value>YOUR_API_KEY</value>
   </record>
 
   <record name="plone.mls.core.interfaces.IMLSSettings.mls_site"
