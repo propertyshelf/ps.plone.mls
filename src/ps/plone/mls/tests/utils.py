@@ -74,3 +74,20 @@ def setup_plone_mls_fixtures():
             **base_params),
         fixture='developments.json',
     )
+    _register(
+        'developments',
+        params=dict(
+            {
+                'fields': ''.join([
+                    'id,title,description,logo,location,lot_size,'
+                    'location_type,number_of_listings,number_of_groups,'
+                    'banner_image'
+                ]),
+                'reverse': False,
+                'modify_url': True,
+                'limit': 5,
+                'offset': 0,
+            },
+            **base_params),
+        fixture='developments_banner.json',
+    )
