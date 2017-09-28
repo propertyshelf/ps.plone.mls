@@ -3,6 +3,7 @@
 
 # python imports
 import pkg_resources
+import responses
 
 # zope imports
 from plone.app.robotframework.testing import REMOTE_LIBRARY_BUNDLE_FIXTURE
@@ -14,6 +15,8 @@ from plone.app.testing import (
 )
 from plone.testing import Layer, z2
 
+# local imports
+from ps.plone.mls.tests import utils
 
 try:
     pkg_resources.get_distribution('plone.app.contenttypes')
@@ -23,8 +26,24 @@ else:
     HAS_PA_CONTENTTYPES = True
 
 
+class MLSAPIMockLayer(Layer):
+    """Load test fixtures using responses to mock API requests."""
+
+    def testSetUp(self):
+        responses.start()
+        utils.setup_plone_mls_fixtures()
+
+    def testTearDown(self):
+        responses.stop()
+        responses.reset()
+
+
+MLSAPIMOCK = MLSAPIMockLayer()
+
+
 class Fixture(PloneSandboxLayer):
     """Custom Test Layer for ps.plone.mls."""
+
     defaultBases = (PLONE_FIXTURE, )
 
     def setUpZope(self, app, configurationContext):
@@ -57,12 +76,12 @@ class Fixture(PloneSandboxLayer):
 
 FIXTURE = Fixture()
 INTEGRATION_TESTING = IntegrationTesting(
-    bases=(FIXTURE, ),
+    bases=(MLSAPIMOCK, FIXTURE, ),
     name='ps.plone.mls:Integration',
 )
 
 FUNCTIONAL_TESTING = FunctionalTesting(
-    bases=(FIXTURE, z2.ZSERVER_FIXTURE),
+    bases=(MLSAPIMOCK, FIXTURE, z2.ZSERVER_FIXTURE),
     name='ps.plone.mls:Functional',
 )
 
@@ -70,4 +89,4 @@ ACCEPTANCE_TESTING = FunctionalTesting(
     bases=(FIXTURE, REMOTE_LIBRARY_BUNDLE_FIXTURE, z2.ZSERVER_FIXTURE),
     name='ps.plone.mls:Acceptance')
 
-ROBOT_TESTING = Layer(name='ps.plone.mls:Robot')
+ROBOT_TESTING = MLSAPIMockLayer(name='ps.plone.mls:Robot')
