@@ -24,40 +24,9 @@ def _register(endpoint, content=None, fixture=None, params=None):
 def setup_plone_mls_fixtures():
     """Setup the test fixtures for integration tests."""
     utils.setup_listing_api_fixtures()
+    utils.setup_fixtures()
 
-    # register all the field endpoints
-    testing._register(
-        'field_titles/developments',
-        params=testing.BASE_PARAMS,
-        fixture='field_titles-developments.json',
-    )
-    testing._register(
-        'field_order/developments',
-        params=testing.BASE_PARAMS,
-        fixture='field_order-developments.json',
-    )
-    testing._register(
-        'field_titles/property_groups',
-        params=testing.BASE_PARAMS,
-        fixture='field_titles-property_groups.json',
-    )
-    testing._register(
-        'field_order/property_groups',
-        params=testing.BASE_PARAMS,
-        fixture='field_order-property_groups.json',
-    )
-    testing._register(
-        'field_titles/development_phases',
-        params=testing.BASE_PARAMS,
-        fixture='field_titles-development_phases.json',
-    )
-    testing._register(
-        'field_order/development_phases',
-        params=testing.BASE_PARAMS,
-        fixture='field_order-development_phases.json',
-    )
-
-    # register the development endpoints
+    # Register Plone specific development endpoints
     _register(
         'developments',
         params=dict(
