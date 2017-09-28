@@ -34,8 +34,12 @@ class MLSAPIMockLayer(Layer):
         utils.setup_plone_mls_fixtures()
 
     def testTearDown(self):
-        responses.stop()
-        responses.reset()
+        try:
+            responses.stop()
+        except RuntimeError:
+            pass
+        finally:
+            responses.reset()
 
 
 MLSAPIMOCK = MLSAPIMockLayer()
