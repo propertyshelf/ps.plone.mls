@@ -9,109 +9,109 @@
     "links": [],
     "collection": [
       {
-        "phases": "https://mls.re.cr/api/rest/v1/developments/axiom__the-sierra-collection/phases?lang=en&apikey=MeH5bdAo4GC6B8kgsWT8sRZiq1LtxqQJxwALz4aVuZc",
-        "number_of_listings": 2,
+        "phases": "http://demomls.com/api/rest/v1/developments/developer_agency__development-1/phases?lang=en&apikey=YOUR_API_KEY",
+        "number_of_listings": 20,
         "links": [
           {
-            "href": "https://mls.re.cr/api/rest/v1/developments/axiom__the-sierra-collection?lang=en&apikey=MeH5bdAo4GC6B8kgsWT8sRZiq1LtxqQJxwALz4aVuZc",
+            "href": "http://demomls.com/api/rest/v1/developments/developer_agency__development-1?lang=en&apikey=YOUR_API_KEY",
             "method": "GET",
             "rel": "self"
           }
         ],
-        "title": "The Sierra Collection",
-        "listing_url": "https://mls.re.cr/api/listings/search?lang=en&apikey=MeH5bdAo4GC6B8kgsWT8sRZiq1LtxqQJxwALz4aVuZc&development_listings=axiom__the-sierra-collection",
-        "number_of_groups": 1,
+        "title": "Example Development 1",
+        "listing_url": "http://demomls.com/api/listings/search?lang=en&apikey=YOUR_API_KEY&development_listings=developer_agency__development-1",
+        "number_of_groups": 5,
         "location_type": "Mountain, Ocean-Vicinity",
-        "lot_size": null,
-        "location": "Playa Uvita, Bahía Ballena, Osa, Puntarenas, Costa Rica",
-        "groups": "https://mls.re.cr/api/rest/v1/developments/axiom__the-sierra-collection/groups?lang=en&apikey=MeH5bdAo4GC6B8kgsWT8sRZiq1LtxqQJxwALz4aVuZc",
-        "logo": "https://mls.re.cr/agencies/axiom/developments/the-sierra-collection/@@scaling/9530eae9-9a22-4843-926d-c2b7beb2919a.jpeg",
-        "id": "axiom__the-sierra-collection",
-        "description": "This is a private, upscale, gated community located on the highest ridge of the Costeña mountain, with stunning panoramic ocean views in Costa Rica's south Pacific region. This secure development offers the finest construction, unique floor plans, and spectacular design in their luxury homes set in the heart of the Costa Rica jungle overlooking the Pacific Ocean."
-      },
-      {
-        "phases": "https://mls.re.cr/api/rest/v1/developments/axiom__the-terraces-at-st-martin/phases?lang=en&apikey=MeH5bdAo4GC6B8kgsWT8sRZiq1LtxqQJxwALz4aVuZc",
-        "number_of_listings": 0,
-        "links": [
-          {
-            "href": "https://mls.re.cr/api/rest/v1/developments/axiom__the-terraces-at-st-martin?lang=en&apikey=MeH5bdAo4GC6B8kgsWT8sRZiq1LtxqQJxwALz4aVuZc",
-            "method": "GET",
-            "rel": "self"
-          }
-        ],
-        "title": "The Terraces at St. Martin",
-        "listing_url": "https://mls.re.cr/api/listings/search?lang=en&apikey=MeH5bdAo4GC6B8kgsWT8sRZiq1LtxqQJxwALz4aVuZc&development_listings=axiom__the-terraces-at-st-martin",
-        "number_of_groups": 2,
-        "location_type": "Mountain, Ocean-Vicinity",
-        "lot_size": null,
-        "location": "Playa Uvita, Bahía Ballena, Osa, Puntarenas, Costa Rica",
-        "groups": "https://mls.re.cr/api/rest/v1/developments/axiom__the-terraces-at-st-martin/groups?lang=en&apikey=MeH5bdAo4GC6B8kgsWT8sRZiq1LtxqQJxwALz4aVuZc",
-        "logo": "https://mls.re.cr/agencies/axiom/developments/the-terraces-at-st-martin/@@scaling/22c94fc3-386c-4df4-91ae-a28b591cb452.jpeg",
-        "id": "axiom__the-terraces-at-st-martin",
-        "description": "Affordable luxury meets modern design in this Costa Rican, ocean view paradise. Gated, safe and secure, this development sits nestled on the side of the coastal mountains, just south of Uvita in Costa Rica's south Pacific region, providing absolutely stunning, panoramic, sunset views each and every day. These villas offer outstanding construction quality in a contemporary modern design that naturally melds into the surrounding rain forest creating a luxurious oasis in the heart of Costa Rica's tropical paradise."
-      },
-      {
-        "phases": "https://mls.re.cr/api/rest/v1/developments/catalinas__las-catalinas/phases?lang=en&apikey=MeH5bdAo4GC6B8kgsWT8sRZiq1LtxqQJxwALz4aVuZc",
-        "number_of_listings": 52,
-        "links": [
-          {
-            "href": "https://mls.re.cr/api/rest/v1/developments/catalinas__las-catalinas?lang=en&apikey=MeH5bdAo4GC6B8kgsWT8sRZiq1LtxqQJxwALz4aVuZc",
-            "method": "GET",
-            "rel": "self"
-          }
-        ],
-        "title": "Las Catalinas",
-        "listing_url": "https://mls.re.cr/api/listings/search?lang=en&apikey=MeH5bdAo4GC6B8kgsWT8sRZiq1LtxqQJxwALz4aVuZc&development_listings=catalinas__las-catalinas",
-        "number_of_groups": 4,
-        "location_type": "Oceanfront",
         "lot_size": "4.72 km² (1.82 sq mi)",
-        "location": "Playa Danta, Tempate, Santa Cruz, Guanacaste, Costa Rica",
-        "groups": "https://mls.re.cr/api/rest/v1/developments/catalinas__las-catalinas/groups?lang=en&apikey=MeH5bdAo4GC6B8kgsWT8sRZiq1LtxqQJxwALz4aVuZc",
-        "logo": "https://mls.re.cr/agencies/catalinas/developments/las-catalinas/@@scaling/46f9d32f-bc43-48b7-b1fc-397575963b3b.png",
-        "id": "catalinas__las-catalinas",
-        "description": "Las Catalinas is a new beach town located on the Guanacaste Coast of Costa Rica. Its purpose is to create a way of life that is healthy, sustainable, fulfilling, and fun. It is a place where it is easy to connect with other people, and with nature itself. We think it is one of the most important and beautiful new towns in the world"
+        "location": "Playa Flamingo, Guanacaste, Costa Rica",
+        "groups": "http://demomls.com/api/rest/v1/developments/developer_agency__development-1/groups?lang=en&apikey=YOUR_API_KEY",
+        "logo": "http://via.placeholder.com/500x500/007bb1/ffffff?text=Logo",
+        "id": "developer_agency__development-1",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vel augue massa. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed sapien lorem, venenatis in bibendum ut, semper et ipsum. Morbi fermentum sollicitudin ligula, in egestas felis sagittis egestas."
       },
       {
-        "phases": "https://mls.re.cr/api/rest/v1/developments/crlakeproperties__arenal-lake-properties/phases?lang=en&apikey=MeH5bdAo4GC6B8kgsWT8sRZiq1LtxqQJxwALz4aVuZc",
-        "number_of_listings": 9,
+        "phases": "http://demomls.com/api/rest/v1/developments/developer_agency__development-2/phases?lang=en&apikey=YOUR_API_KEY",
+        "number_of_listings": 20,
         "links": [
           {
-            "href": "https://mls.re.cr/api/rest/v1/developments/crlakeproperties__arenal-lake-properties?lang=en&apikey=MeH5bdAo4GC6B8kgsWT8sRZiq1LtxqQJxwALz4aVuZc",
+            "href": "http://demomls.com/api/rest/v1/developments/developer_agency__development-2?lang=en&apikey=YOUR_API_KEY",
             "method": "GET",
             "rel": "self"
           }
         ],
-        "title": "Los Suenos de Arenal - Lake Properties",
-        "listing_url": "https://mls.re.cr/api/listings/search?lang=en&apikey=MeH5bdAo4GC6B8kgsWT8sRZiq1LtxqQJxwALz4aVuZc&development_listings=crlakeproperties__arenal-lake-properties",
-        "number_of_groups": 3,
-        "location_type": "Countryside, Mountain",
-        "lot_size": null,
-        "location": "Puerto San Luis, Tilarán, Tilarán, Guanacaste, Costa Rica",
-        "groups": "https://mls.re.cr/api/rest/v1/developments/crlakeproperties__arenal-lake-properties/groups?lang=en&apikey=MeH5bdAo4GC6B8kgsWT8sRZiq1LtxqQJxwALz4aVuZc",
-        "logo": "https://mls.re.cr/agencies/crlakeproperties/@@scaling/2542dcb4-530c-4a6e-a077-b23087cfe01c.png",
-        "id": "crlakeproperties__arenal-lake-properties",
-        "description": "Lake View, Volcano and Valley View Properties on the Arenal Lake\r\n\r\nOur properties were acquired through foreclosure.\r\n\r\nOur buying and development expertise allows us to pass on significant savings to our customers -properties here offered at up to 70% below comparable property values. "
+        "title": "Example Development 2",
+        "listing_url": "http://demomls.com/api/listings/search?lang=en&apikey=YOUR_API_KEY&development_listings=developer_agency__development-2",
+        "number_of_groups": 5,
+        "location_type": "Mountain, Ocean-Vicinity",
+        "lot_size": "4.72 km² (1.82 sq mi)",
+        "location": "Playa Flamingo, Guanacaste, Costa Rica",
+        "groups": "http://demomls.com/api/rest/v1/developments/developer_agency__development-2/groups?lang=en&apikey=YOUR_API_KEY",
+        "logo": "http://via.placeholder.com/500x500/007bb1/ffffff?text=Logo",
+        "id": "developer_agency__development-2",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vel augue massa. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed sapien lorem, venenatis in bibendum ut, semper et ipsum. Morbi fermentum sollicitudin ligula, in egestas felis sagittis egestas."
       },
       {
-        "phases": "https://mls.re.cr/api/rest/v1/developments/lomasdesantarosa__loma-verde/phases?lang=en&apikey=MeH5bdAo4GC6B8kgsWT8sRZiq1LtxqQJxwALz4aVuZc",
-        "number_of_listings": 9,
+        "phases": "http://demomls.com/api/rest/v1/developments/developer_agency__development-3/phases?lang=en&apikey=YOUR_API_KEY",
+        "number_of_listings": 20,
         "links": [
           {
-            "href": "https://mls.re.cr/api/rest/v1/developments/lomasdesantarosa__loma-verde?lang=en&apikey=MeH5bdAo4GC6B8kgsWT8sRZiq1LtxqQJxwALz4aVuZc",
+            "href": "http://demomls.com/api/rest/v1/developments/developer_agency__development-3?lang=en&apikey=YOUR_API_KEY",
             "method": "GET",
             "rel": "self"
           }
         ],
-        "title": "Loma Verde",
-        "listing_url": "https://mls.re.cr/api/listings/search?lang=en&apikey=MeH5bdAo4GC6B8kgsWT8sRZiq1LtxqQJxwALz4aVuZc&development_listings=lomasdesantarosa__loma-verde",
-        "number_of_groups": 3,
-        "location_type": "Countryside, Ocean-Vicinity",
-        "lot_size": null,
-        "location": "Santa Rosa, Tamarindo, Santa Cruz, Guanacaste, Costa Rica",
-        "groups": "https://mls.re.cr/api/rest/v1/developments/lomasdesantarosa__loma-verde/groups?lang=en&apikey=MeH5bdAo4GC6B8kgsWT8sRZiq1LtxqQJxwALz4aVuZc",
-        "logo": "https://mls.re.cr/agencies/lomasdesantarosa/developments/loma-verde/@@scaling/54a8cc0b-498c-4bd9-acc6-eba7099e5021.png",
-        "id": "lomasdesantarosa__loma-verde",
-        "description": "Beautiful, well built homes for sale at pre-construction prices in Loma Verde, a gated community, just 5 minutes from the fabulous beaches of Tamarindo, Costa Rica. These brand new homes in this perfect location, at this incredible price point make for secure and very affordable family homes, or a beautiful vacation home, and/or a rental income property. The development has all infrastructure in place like cobblestone internal roads, a gated entrance and all needed utilities ready to hook up. Plus, there's a community pool, gym, BBQ rancho & soccer field for the exclusive use of the residents of this quaint, secure community."
+        "title": "Example Development 3",
+        "listing_url": "http://demomls.com/api/listings/search?lang=en&apikey=YOUR_API_KEY&development_listings=developer_agency__development-3",
+        "number_of_groups": 5,
+        "location_type": "Mountain, Ocean-Vicinity",
+        "lot_size": "4.72 km² (1.82 sq mi)",
+        "location": "Playa Flamingo, Guanacaste, Costa Rica",
+        "groups": "http://demomls.com/api/rest/v1/developments/developer_agency__development-3/groups?lang=en&apikey=YOUR_API_KEY",
+        "logo": "http://via.placeholder.com/500x500/007bb1/ffffff?text=Logo",
+        "id": "developer_agency__development-3",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vel augue massa. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed sapien lorem, venenatis in bibendum ut, semper et ipsum. Morbi fermentum sollicitudin ligula, in egestas felis sagittis egestas."
+      },
+      {
+        "phases": "http://demomls.com/api/rest/v1/developments/developer_agency__development-4/phases?lang=en&apikey=YOUR_API_KEY",
+        "number_of_listings": 20,
+        "links": [
+          {
+            "href": "http://demomls.com/api/rest/v1/developments/developer_agency__development-4?lang=en&apikey=YOUR_API_KEY",
+            "method": "GET",
+            "rel": "self"
+          }
+        ],
+        "title": "Example Development 4",
+        "listing_url": "http://demomls.com/api/listings/search?lang=en&apikey=YOUR_API_KEY&development_listings=developer_agency__development-4",
+        "number_of_groups": 5,
+        "location_type": "Mountain, Ocean-Vicinity",
+        "lot_size": "4.72 km² (1.82 sq mi)",
+        "location": "Playa Flamingo, Guanacaste, Costa Rica",
+        "groups": "http://demomls.com/api/rest/v1/developments/developer_agency__development-4/groups?lang=en&apikey=YOUR_API_KEY",
+        "logo": "http://via.placeholder.com/500x500/007bb1/ffffff?text=Logo",
+        "id": "developer_agency__development-4",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vel augue massa. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed sapien lorem, venenatis in bibendum ut, semper et ipsum. Morbi fermentum sollicitudin ligula, in egestas felis sagittis egestas."
+      },
+      {
+        "phases": "http://demomls.com/api/rest/v1/developments/developer_agency__development-5/phases?lang=en&apikey=YOUR_API_KEY",
+        "number_of_listings": 20,
+        "links": [
+          {
+            "href": "http://demomls.com/api/rest/v1/developments/developer_agency__development-5?lang=en&apikey=YOUR_API_KEY",
+            "method": "GET",
+            "rel": "self"
+          }
+        ],
+        "title": "Example Development 5",
+        "listing_url": "http://demomls.com/api/listings/search?lang=en&apikey=YOUR_API_KEY&development_listings=developer_agency__development-5",
+        "number_of_groups": 5,
+        "location_type": "Mountain, Ocean-Vicinity",
+        "lot_size": "4.72 km² (1.82 sq mi)",
+        "location": "Playa Flamingo, Guanacaste, Costa Rica",
+        "groups": "http://demomls.com/api/rest/v1/developments/developer_agency__development-5/groups?lang=en&apikey=YOUR_API_KEY",
+        "logo": "http://via.placeholder.com/500x500/007bb1/ffffff?text=Logo",
+        "id": "developer_agency__development-5",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vel augue massa. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed sapien lorem, venenatis in bibendum ut, semper et ipsum. Morbi fermentum sollicitudin ligula, in egestas felis sagittis egestas."
       }
     ]
   }
