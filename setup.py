@@ -56,10 +56,10 @@ setup(
     zip_safe=False,
     extras_require=dict(
         test=[
-            'httpretty',
             'plone.app.robotframework',
             'plone.app.testing',
             'plone.mls.listing[fotorama]',
+            'responses',
             'robotframework-selenium2screenshots',
         ],
     ),
