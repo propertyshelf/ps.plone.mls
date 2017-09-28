@@ -28,9 +28,8 @@ Show how to activate the development collection
     Update element style  portal-footer  display  none
 
     Capture and crop page screenshot
-    ...  activate_development_collection.png
+    ...  development_collection_activate.png
     ...  ${CONTENTMENU_ACTIONS}
-    ...  ${CONTENT}
     ...  ${note1}
     Remove elements  ${note1}
 
@@ -39,8 +38,11 @@ Show how to activate the development collection
     go to  ${href}
 
     Capture and crop page screenshot
-    ...  activate_development_collection_done.png
+    ...  development_collection_activate_done.png
     ...  ${STATUS_MESSAGE}
+
+    Capture and crop page screenshot
+    ...  development_collection_default.png
     ...  ${CONTENT}
 
     Click link  css=#contentview-development-collection-config a
@@ -48,16 +50,25 @@ Show how to activate the development collection
     Wait until element is visible  ${CONTENT}
 
     Capture and crop page screenshot
-    ...  configure_development_collection.png
+    ...  development_collection_configuration.png
     ...  ${CONTENT}
 
     Click link  ${DEVELOPMENT_COLLECTION_CONFIG_TAB_FILTER}
 
     Capture and crop page screenshot
-    ...  configure_development_collection_filter.png
+    ...  development_collection_configuration_filter.png
     ...  ${CONTENT}
 
     Click button  css=#form-buttons-cancel
+
+    Click link  css=#contentview-development-collection-config a
+    Wait until element is visible  ${CONTENT}
+    Select Checkbox  css=#form-widgets-show_banner_image-0
+    Click button  css=#form-buttons-save
+
+    Capture and crop page screenshot
+    ...  development_collection_with_banner.png
+    ...  ${CONTENT}
 
     Go to  ${PLONE_URL}/${FOLDER_ID}
     Page should contain element  ${LINK_CONTENTMENU_ACTIONS}
@@ -71,9 +82,8 @@ Show how to activate the development collection
     Update element style  portal-footer  display  none
 
     Capture and crop page screenshot
-    ...  deactivate_development_collection.png
+    ...  development_collection_deactivate.png
     ...  ${CONTENTMENU_ACTIONS}
-    ...  ${CONTENT}
     ...  ${note1}
     Remove elements  ${note1}
 
@@ -82,6 +92,5 @@ Show how to activate the development collection
     go to  ${href}
 
     Capture and crop page screenshot
-    ...  deactivate_development_collection_done.png
+    ...  development_collection_deactivate_done.png
     ...  ${STATUS_MESSAGE}
-    ...  ${CONTENT}

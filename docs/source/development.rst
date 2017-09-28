@@ -7,13 +7,16 @@ Enable the Embedding for Development Projects
 To show development projects within your site, go to the place in your Plone site where you want to have the development projects available and open the **Actions**-menu.
 Select **Activate Development Collection** from the available options:
 
-.. image:: ../_images/activate_development_collection.png
+.. image:: ../_images/development_collection_activate.png
 
 When the **Development Collection** was activated, you will see a status message:
 
-.. image:: ../_images/activate_development_collection_done.png
+.. image:: ../_images/development_collection_activate_done.png
 
 This will by default show you all available development projects from your connected MLS.
+
+.. image:: ../_images/development_collection_default.png
+
 To change the settings for this embedding, click on the link **Configure Development Collection**.
 
 The configuration is split into two parts:
@@ -26,12 +29,15 @@ Basic Settings
 
 With the basic settings, available under the **Default** tab, you can adjust the visual representations of the developments:
 
-.. image:: ../_images/configure_development_collection.png
+.. image:: ../_images/development_collection_configuration.png
 
 Zoom level for maps
     This is the default level of detail for the maps within the community page of a development.
     You can choose a value between *0* and *21*, where *0* shows the entire world and *21* is at street level.
     Please note that not all zoom levels are available for all areas.
+
+Show Banner Image
+    Enable this setting to show a development banner in the collection.
 
 Show Contact Information
     Enable this setting to show the contact information for this development.
@@ -42,8 +48,21 @@ Show Contact Form
     When the contact form is submitted, an email will be sent to the responsible agent about that request.
     If the **customized contact information** is enabled (either globally in the Plone site or locally for your embedding), the email will be sent to the therein set email address of the responsible agent.
 
+Alternative Email recipient
+    Adjust the recipient for the email sent from the contact form.
+    By default the responsible agent will receive the email.
+
+BCC Recipients
+    Add additional email addresses (comma separated) which should a receive a copy of the contact form.
+
+Show Contact-Us anchor link
+    Enable this setting to show an link to the contact form on the top of the page.
+
 Show Captcha
     Enable this setting to show a spam preventing captcha within the contact form.
+
+Modify URLs
+    Enable this setting to add extra information to the generated URLs, like title and location.
 
 Developments per Page
     How many developments should be visible per page?
@@ -58,7 +77,7 @@ Filter Options
 
 To refine the search results for the develoments, use the options provided at the **Filter Options** tab:
 
-.. image:: ../_images/configure_development_collection_filter.png
+.. image:: ../_images/development_collection_configuration_filter.png
 
 Agency Developments
     Enable this option to only show developments from the configured agency.
@@ -110,6 +129,10 @@ Reverse sort order?
 
 Once all configuration options are entered click the **Save** button.
 
+If the *Show Banner Image* option is selected, the collection results will show the development project banner too:
+
+.. image:: ../_images/development_collection_with_banner.png
+
 
 Disable the Embedding for Development Projects
 ----------------------------------------------
@@ -120,9 +143,9 @@ So if you later decide to enable the embedding again, you don't have to start fr
 
 To deactivate the **Development Collection**, open the **Actions**-menu and select **Deactivate Development Collection**:
 
-.. image:: ../_images/deactivate_development_collection.png
+.. image:: ../_images/development_collection_deactivate.png
 
 When the **Development Collection** was deactivated, you will see a status message:
 
-.. image:: ../_images/deactivate_development_collection_done.png
+.. image:: ../_images/development_collection_deactivate_done.png
 
