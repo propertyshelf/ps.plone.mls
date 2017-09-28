@@ -26,4 +26,4 @@ Teardown
 
 ${FOLDER_ID}  a-folder
 ${DOCUMENT_ID}  a-document
-@{DIMENSIONS}  992  900
+@{DIMENSIONS}  1024  800
