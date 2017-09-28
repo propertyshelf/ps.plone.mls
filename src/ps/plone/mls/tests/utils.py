@@ -22,40 +22,36 @@ def _register(endpoint, content=None, fixture=None, params=None):
 
 def setup_plone_mls_fixtures():
     """Setup the test fixtures for integration tests."""
-    base_params = {
-        'apikey': 'YOUR_API_KEY',
-        'lang': 'en',
-    }
 
     # register all the field endpoints
     testing._register(
         'field_titles/developments',
-        params=base_params,
+        params=testing.BASE_PARAMS,
         fixture='field_titles-developments.json',
     )
     testing._register(
         'field_order/developments',
-        params=base_params,
+        params=testing.BASE_PARAMS,
         fixture='field_order-developments.json',
     )
     testing._register(
         'field_titles/property_groups',
-        params=base_params,
+        params=testing.BASE_PARAMS,
         fixture='field_titles-property_groups.json',
     )
     testing._register(
         'field_order/property_groups',
-        params=base_params,
+        params=testing.BASE_PARAMS,
         fixture='field_order-property_groups.json',
     )
     testing._register(
         'field_titles/development_phases',
-        params=base_params,
+        params=testing.BASE_PARAMS,
         fixture='field_titles-development_phases.json',
     )
     testing._register(
         'field_order/development_phases',
-        params=base_params,
+        params=testing.BASE_PARAMS,
         fixture='field_order-development_phases.json',
     )
 
@@ -71,7 +67,7 @@ def setup_plone_mls_fixtures():
                 'limit': 5,
                 'offset': 0,
             },
-            **base_params),
+            **testing.BASE_PARAMS),
         fixture='developments.json',
     )
     _register(
@@ -88,6 +84,6 @@ def setup_plone_mls_fixtures():
                 'limit': 5,
                 'offset': 0,
             },
-            **base_params),
+            **testing.BASE_PARAMS),
         fixture='developments_banner.json',
     )
