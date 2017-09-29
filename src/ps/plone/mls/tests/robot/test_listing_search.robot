@@ -9,7 +9,7 @@ Suite Teardown  Teardown
 *** Test cases ***
 
 
-Show how to activate the listing search
+Show how to work with the listing search
     Enable autologin as  Site Administrator
     Create content  type=Folder
     ...  id=${FOLDER_ID}-3
@@ -28,9 +28,8 @@ Show how to activate the listing search
     Update element style  portal-footer  display  none
 
     Capture and crop page screenshot
-    ...  activate_listing_search.png
+    ...  listing_search_activate.png
     ...  ${CONTENTMENU_ACTIONS}
-    ...  ${CONTENT}
     ...  ${note1}
     Remove elements  ${note1}
 
@@ -39,16 +38,20 @@ Show how to activate the listing search
     go to  ${href}
 
     Capture and crop page screenshot
-    ...  activate_listing_search_done.png
+    ...  listing_search_activate_done.png
     ...  ${STATUS_MESSAGE}
-    ...  ${CONTENT}
+
+    Capture and crop page screenshot
+    ...  listing_search_default.png
+    ...  css=.documentFirstHeading
+    ...  css=.listing__form
 
     Click link  css=#contentview-listing-search-config a
 
     Wait until element is visible  ${CONTENT}
 
     Capture and crop page screenshot
-    ...  configure_listing_search.png
+    ...  listing_search_configuration.png
     ...  ${CONTENT}
 
     Click button  css=#form-config-buttons-cancel
@@ -65,9 +68,8 @@ Show how to activate the listing search
     Update element style  portal-footer  display  none
 
     Capture and crop page screenshot
-    ...  deactivate_listing_search.png
+    ...  listing_search_deactivate.png
     ...  ${CONTENTMENU_ACTIONS}
-    ...  ${CONTENT}
     ...  ${note1}
     Remove elements  ${note1}
 
@@ -76,6 +78,6 @@ Show how to activate the listing search
     go to  ${href}
 
     Capture and crop page screenshot
-    ...  deactivate_listing_search_done.png
+    ...  listing_search_deactivate_done.png
     ...  ${STATUS_MESSAGE}
     ...  ${CONTENT}
