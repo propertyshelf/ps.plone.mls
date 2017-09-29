@@ -2,8 +2,10 @@
 Development Collection
 ======================
 
+
 Working With Development Collections
 ====================================
+
 
 Activate A Development Collection
 ---------------------------------
@@ -19,7 +21,7 @@ When the **Development Collection** was activated, you will see a status message
 
 .. figure:: ../../_images/development_collection_activate_done.png
 
-   Confirmation that development collection has been activated
+   Confirmation that the development collection has been activated
 
 This will by default show you all available development projects from your connected MLS.
 
@@ -45,7 +47,7 @@ When the **Development Collection** was deactivated, you will see a status messa
 
 .. figure:: ../../_images/development_collection_deactivate_done.png
 
-   Confirmation that development collection has been deactivated
+   Confirmation that the development collection has been deactivated
 
 
 Configuration Options
@@ -66,7 +68,7 @@ With the basic settings, available under the **Default** tab, you can adjust the
 
 .. figure:: ../../_images/development_collection_configuration.png
 
-    Basic configuration options for a development collection
+   Basic configuration options for a development collection
 
 Zoom level for maps
     This is the default level of detail for the maps within the community page of a development.

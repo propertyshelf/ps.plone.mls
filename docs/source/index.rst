@@ -11,13 +11,11 @@ It activates the embedding of real estate listings from the `Propertyshelf`_ MLS
   ========
 
 .. toctree::
-   :maxdepth: 3
+   :maxdepth: 1
 
    configuration
    listings/index
    developments/index
-   listing_collections
-   listing_search
 
 
 .. only:: html
