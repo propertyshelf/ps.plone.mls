@@ -8,8 +8,11 @@ There following different types of listing embeddings are available:
 - The :doc:`Recent Listings <recent>`
 - The :doc:`Featured Listings <featured>`
 - The :doc:`Listing Search <search>`
+- The :doc:`Listing Search Banner <search-banner>`
 
 In the next sections we will show you how you can enable and configure those embeddings.
+
+We will also take a look at the :doc:`representation of a single listing <detail>`.
 
 
 .. toctree::
@@ -20,4 +23,5 @@ In the next sections we will show you how you can enable and configure those emb
    recent
    featured
    search
+   search-banner
    details
