@@ -1,21 +1,55 @@
-Embedding Development Projects
-==============================
+======================
+Development Collection
+======================
 
-Enable the Embedding for Development Projects
----------------------------------------------
+Working With Development Collections
+====================================
+
+Activate A Development Collection
+---------------------------------
 
 To show development projects within your site, go to the place in your Plone site where you want to have the development projects available and open the **Actions**-menu.
 Select **Activate Development Collection** from the available options:
 
-.. image:: ../_images/development_collection_activate.png
+.. figure:: ../../_images/development_collection_activate.png
+
+   Activate a development collection
 
 When the **Development Collection** was activated, you will see a status message:
 
-.. image:: ../_images/development_collection_activate_done.png
+.. figure:: ../../_images/development_collection_activate_done.png
+
+   Confirmation that development collection has been activated
 
 This will by default show you all available development projects from your connected MLS.
 
-.. image:: ../_images/development_collection_default.png
+.. figure:: ../../_images/development_collection_default.png
+
+   List of development projects after collection has been activated
+
+
+Deactivate A Development Collection
+-----------------------------------
+
+You can disable the embedding of development projects at any time.
+When you deactivate the embedding, your configuration will not be removed.
+So if you later decide to enable the embedding again, you don't have to start from the beginning.
+
+To deactivate the **Development Collection**, open the **Actions**-menu and select **Deactivate Development Collection**:
+
+.. figure:: ../../_images/development_collection_deactivate.png
+
+   Deactivate a development collection
+
+When the **Development Collection** was deactivated, you will see a status message:
+
+.. figure:: ../../_images/development_collection_deactivate_done.png
+
+   Confirmation that development collection has been deactivated
+
+
+Configuration Options
+=====================
 
 To change the settings for this embedding, click on the link **Configure Development Collection**.
 
@@ -24,12 +58,15 @@ The configuration is split into two parts:
 - Basic Settings (define the representation of the developments)
 - Filter Options (set pre-defined search criterias)
 
+
 Basic Settings
-##############
+--------------
 
 With the basic settings, available under the **Default** tab, you can adjust the visual representations of the developments:
 
-.. image:: ../_images/development_collection_configuration.png
+.. figure:: ../../_images/development_collection_configuration.png
+
+    Basic configuration options for a development collection
 
 Zoom level for maps
     This is the default level of detail for the maps within the community page of a development.
@@ -72,12 +109,15 @@ Listings per Page
     How many listings should be visible per devlopment listings page?
     If more listings are available, users can use the provided links to navigate through the search results.
 
+
 Filter Options
-##############
+--------------
 
 To refine the search results for the develoments, use the options provided at the **Filter Options** tab:
 
-.. image:: ../_images/development_collection_configuration_filter.png
+.. figure:: ../../_images/development_collection_configuration_filter.png
+
+   Filter options for a development collection
 
 Agency Developments
     Enable this option to only show developments from the configured agency.
@@ -124,28 +164,31 @@ Sort results by
 Reverse sort order?
     Enable this setting to reverse the sort order.
 
-    .. note::
+    .. hint::
+
         To build e.g. a *Recent Developments* collection, where the newest developments will show up first, select **Created** from the **Sort results by** selection and enable the **Reverse sort order?** option.
 
 Once all configuration options are entered click the **Save** button.
 
+
+Available Layouts
+=================
+
+Developments As Rows
+--------------------
+
+The collection results by default show as rows:
+
+.. figure:: ../../_images/development_collection_default.png
+
+   Development collection results as rows.
+
+
+Developments As Rows With Development Banner
+--------------------------------------------
+
 If the *Show Banner Image* option is selected, the collection results will show the development project banner too:
 
-.. image:: ../_images/development_collection_with_banner.png
+.. figure:: ../../_images/development_collection_with_banner.png
 
-
-Disable the Embedding for Development Projects
-----------------------------------------------
-
-You can disable the embedding of development projects at any time.
-When you deactivate the embedding, your configuration will not be removed.
-So if you later decide to enable the embedding again, you don't have to start from the beginning.
-
-To deactivate the **Development Collection**, open the **Actions**-menu and select **Deactivate Development Collection**:
-
-.. image:: ../_images/development_collection_deactivate.png
-
-When the **Development Collection** was deactivated, you will see a status message:
-
-.. image:: ../_images/development_collection_deactivate_done.png
-
+   Development collection results as rows with development project banner.

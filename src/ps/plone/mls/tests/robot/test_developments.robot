@@ -43,7 +43,8 @@ Show how to activate the development collection
 
     Capture and crop page screenshot
     ...  development_collection_default.png
-    ...  ${CONTENT}
+    ...  css=.documentFirstHeading
+    ...  css=.development__results .tileItem:nth-child(3)
 
     Click link  css=#contentview-development-collection-config a
 
@@ -68,7 +69,8 @@ Show how to activate the development collection
 
     Capture and crop page screenshot
     ...  development_collection_with_banner.png
-    ...  ${CONTENT}
+    ...  css=.documentFirstHeading
+    ...  css=.development__results .tileItem:nth-child(3)
 
     Go to  ${PLONE_URL}/${FOLDER_ID}
     Page should contain element  ${LINK_CONTENTMENU_ACTIONS}

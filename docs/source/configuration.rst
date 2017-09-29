@@ -1,8 +1,9 @@
+==============================
 Installation and Configuration
 ==============================
 
 Install the Plone Embedding Add-On
-----------------------------------
+==================================
 
 You can install the Add-On like any other Plone Add-On: click on your username in the *personal tools menu* and select **Site Setup**.
 Next, click the **Add-Ons** item in the *Plone Configuration* section.
@@ -12,7 +13,7 @@ You should see an item called **Propertyshelf MLS**.
 
 
 Change the default MLS Configuration
-------------------------------------
+====================================
 
 Before you can start embedding listings into your Plone site you have to connect to the MLS.
 But don't worry, this only needs to be done once.
@@ -25,12 +26,13 @@ In the form, enter your MLS connection settings.
 
 
 Changing the MLS configuration for a particular folder
-------------------------------------------------------
+======================================================
+
 
 
 Overriding the point of contact
--------------------------------
+===============================
 
 
 Overriding the contact information for a particular folder
-----------------------------------------------------------
+==========================================================
