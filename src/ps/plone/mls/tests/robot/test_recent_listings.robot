@@ -9,73 +9,74 @@ Suite Teardown  Teardown
 *** Test cases ***
 
 
-Show how to activate the listing search
+Show how to work with recent listings
     Enable autologin as  Site Administrator
     Create content  type=Folder
-    ...  id=${FOLDER_ID}-3
-    ...  title=A Listing Search
+    ...  id=${FOLDER_ID}-2
+    ...  title=Recent Listings
     ...  description=This is the folder
-    Go to  ${PLONE_URL}/${FOLDER_ID}-3
+    Go to  ${PLONE_URL}/${FOLDER_ID}-2
 
     Page should contain element  ${LINK_CONTENTMENU_ACTIONS}
     Click link  ${LINK_CONTENTMENU_ACTIONS}
     Wait until element is visible  ${LIST_CONTENTMENU_ACTIONS}
 
-    ${note1}  Add pointy note  ${LISTING_SEARCH_ACTIVATE_LINK}
-    ...  Click to activate the Listing Search
+    ${note1}  Add pointy note  ${RECENT_LISTINGS_ACTIVATE_LINK}
+    ...  Click to activate the Recent Listings
     ...  position=${POSITION_CONTENTMENU_ACTIONS_NOTE}
-    Mouse over  ${LISTING_SEARCH_ACTIVATE_LINK}
+    Mouse over  ${RECENT_LISTINGS_ACTIVATE_LINK}
     Update element style  portal-footer  display  none
 
     Capture and crop page screenshot
-    ...  activate_listing_search.png
+    ...  recent_listings_activate.png
     ...  ${CONTENTMENU_ACTIONS}
-    ...  ${CONTENT}
     ...  ${note1}
     Remove elements  ${note1}
 
     ${href} =  get element attribute
-    ...  ${LISTING_SEARCH_ACTIVATE_LINK}@href
+    ...  ${RECENT_LISTINGS_ACTIVATE_LINK}@href
     go to  ${href}
 
     Capture and crop page screenshot
-    ...  activate_listing_search_done.png
+    ...  recent_listings_activate_done.png
     ...  ${STATUS_MESSAGE}
-    ...  ${CONTENT}
 
-    Click link  css=#contentview-listing-search-config a
+    Capture and crop page screenshot
+    ...  recent_listings_default.png
+    ...  css=.documentFirstHeading
+    ...  css=.listing__results .tileItem:nth-child(3)
+
+    Click link  css=#contentview-recent-listings-config a
 
     Wait until element is visible  ${CONTENT}
 
     Capture and crop page screenshot
-    ...  configure_listing_search.png
+    ...  recent_listings_configuration.png
     ...  ${CONTENT}
 
-    Click button  css=#form-config-buttons-cancel
+    Click button  css=#form-buttons-cancel
 
-    Go to  ${PLONE_URL}/${FOLDER_ID}-3
+    Go to  ${PLONE_URL}/${FOLDER_ID}-2
     Page should contain element  ${LINK_CONTENTMENU_ACTIONS}
     Click link  ${LINK_CONTENTMENU_ACTIONS}
     Wait until element is visible  ${LIST_CONTENTMENU_ACTIONS}
 
-    ${note1}  Add pointy note  ${LISTING_SEARCH_DEACTIVATE_LINK}
-    ...  Click to deactivate the Listing Search
+    ${note1}  Add pointy note  ${RECENT_LISTINGS_DEACTIVATE_LINK}
+    ...  Click to deactivate the Recent Listings
     ...  position=${POSITION_CONTENTMENU_ACTIONS_NOTE}
-    Mouse over  ${LISTING_SEARCH_DEACTIVATE_LINK}
+    Mouse over  ${RECENT_LISTINGS_DEACTIVATE_LINK}
     Update element style  portal-footer  display  none
 
     Capture and crop page screenshot
-    ...  deactivate_listing_search.png
+    ...  recent_listings_deactivate.png
     ...  ${CONTENTMENU_ACTIONS}
-    ...  ${CONTENT}
     ...  ${note1}
     Remove elements  ${note1}
 
     ${href} =  get element attribute
-    ...  ${LISTING_SEARCH_DEACTIVATE_LINK}@href
+    ...  ${RECENT_LISTINGS_DEACTIVATE_LINK}@href
     go to  ${href}
 
     Capture and crop page screenshot
-    ...  deactivate_listing_search_done.png
+    ...  recent_listings_deactivate_done.png
     ...  ${STATUS_MESSAGE}
-    ...  ${CONTENT}

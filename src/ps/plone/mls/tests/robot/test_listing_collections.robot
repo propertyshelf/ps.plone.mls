@@ -80,4 +80,3 @@ Show how to work with listing collections
     Capture and crop page screenshot
     ...  listing_collection_deactivate_done.png
     ...  ${STATUS_MESSAGE}
-
