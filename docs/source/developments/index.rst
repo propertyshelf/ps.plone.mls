@@ -8,7 +8,7 @@ There following different types of development embeddings are available:
 
 In the next sections we will show you how you can enable and configure those embeddings.
 
-We will also take a look at the :doc:`representation of a single development <detail>`.
+We will also take a look at the :doc:`representation of a single development <details>`.
 
 
 .. toctree::

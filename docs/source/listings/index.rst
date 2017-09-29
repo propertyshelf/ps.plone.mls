@@ -12,7 +12,7 @@ There following different types of listing embeddings are available:
 
 In the next sections we will show you how you can enable and configure those embeddings.
 
-We will also take a look at the :doc:`representation of a single listing <detail>`.
+We will also take a look at the :doc:`representation of a single listing <details>`.
 
 
 .. toctree::

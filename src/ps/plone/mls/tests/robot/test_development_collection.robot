@@ -9,7 +9,7 @@ Suite Teardown  Teardown
 *** Test cases ***
 
 
-Show how to activate the development collection
+Show how to work with development collections
     Enable autologin as  Site Administrator
     Create content  type=Folder
     ...  id=${FOLDER_ID}
