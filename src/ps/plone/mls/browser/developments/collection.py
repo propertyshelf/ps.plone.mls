@@ -57,10 +57,11 @@ FIELDS = [
 EXCLUDED_SEARCH_FIELDS = [
     'map_zoom_level',
     'show_banner_image',
+    'show_contact_info',
     'show_contact_form',
     'contact_override',
+    'contact_form_bcc',
     'show_contact_link',
-    'show_contact_info',
     'show_captcha',
     'modify_urls',
     'limit_developments',
