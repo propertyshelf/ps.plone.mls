@@ -311,13 +311,13 @@ class ContactForm(form.Form):
         except Exception:
             recipient = portal_address
 
+        if self.email_override is not None:
+            recipient = self.email_override
+
         recipients = [recipient]
         bcc = self.config.get('contact_form_bcc', None)
         if bcc is not None:
             recipients += [formataddr(addr) for addr in getaddresses((bcc, ))]
-
-        if self.email_override is not None:
-            recipient = self.email_override
 
         sender = formataddr((data['name'], data['sender_from_address']))
 
