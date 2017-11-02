@@ -44,7 +44,7 @@ Show how to work with development collections
     Capture and crop page screenshot
     ...  development_collection_default.png
     ...  css=.documentFirstHeading
-    ...  css=.development__results .tileItem:nth-child(3)
+    ...  ${DEVELOPMENT_COLLECTION_N_ITEMS}
 
     Click link  css=#contentview-development-collection-config a
 
@@ -70,7 +70,7 @@ Show how to work with development collections
     Capture and crop page screenshot
     ...  development_collection_with_banner.png
     ...  css=.documentFirstHeading
-    ...  css=.development__results .tileItem:nth-child(3)
+    ...  ${DEVELOPMENT_COLLECTION_N_ITEMS}
 
     Go to  ${PLONE_URL}/${FOLDER_ID}
     Page should contain element  ${LINK_CONTENTMENU_ACTIONS}
