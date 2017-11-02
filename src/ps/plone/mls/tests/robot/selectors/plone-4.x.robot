@@ -10,4 +10,4 @@ ${LISTING_COLLECTION_N_ITEMS}  css=#listing-collection .tileItem:nth-child(3)
 ${RECENT_LISTINGS_N_ITEMS}  css=#recent-listings .tileItem:nth-child(3)
 
 # "Development Collection"
-${DEVELOPMENT_COLLECTION_N_ITEMS}  css=.development__results .tileItem:nth-child(3)
+${DEVELOPMENT_COLLECTION_N_ITEMS}  css=.development-summary .tileItem:nth-child(3)
