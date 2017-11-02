@@ -14,10 +14,12 @@ ${STATUS_MESSAGE}  css=dl.portalMessage
 # "Listing Collection"
 ${LISTING_COLLECTION_ACTIVATE_LINK}  css=#plone-contentmenu-actions-listing-collection-activate
 ${LISTING_COLLECTION_DEACTIVATE_LINK}  css=#plone-contentmenu-actions-listing-collection-deactivate
+${LISTING_COLLECTION_N_ITEMS}  css=.listing__results .tileItem:nth-child(3)
 
 # "Recent Listings"
 ${RECENT_LISTINGS_ACTIVATE_LINK}  css=#plone-contentmenu-actions-recent-listings-activate
 ${RECENT_LISTINGS_DEACTIVATE_LINK}  css=#plone-contentmenu-actions-recent-listings-deactivate
+${RECENT_LISTINGS_N_ITEMS}  css=.listing__results .tileItem:nth-child(3)
 
 # "Listing Search"
 ${LISTING_SEARCH_ACTIVATE_LINK}  css=#plone-contentmenu-actions-listing-search-activate

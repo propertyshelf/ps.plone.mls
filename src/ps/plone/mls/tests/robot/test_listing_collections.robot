@@ -44,7 +44,7 @@ Show how to work with listing collections
     Capture and crop page screenshot
     ...  listing_collection_default.png
     ...  css=.documentFirstHeading
-    ...  css=.listing__results .tileItem:nth-child(3)
+    ...  css=${LISTING_COLLECTION_N_ITEMS}
 
     Click link  css=#contentview-listing-collection-config a
 
