@@ -80,7 +80,7 @@ class Fixture(PloneSandboxLayer):
 
 FIXTURE = Fixture()
 INTEGRATION_TESTING = IntegrationTesting(
-    bases=(MLSAPIMOCK, FIXTURE, ),
+    bases=(FIXTURE, ),
     name='ps.plone.mls:Integration',
 )
 
