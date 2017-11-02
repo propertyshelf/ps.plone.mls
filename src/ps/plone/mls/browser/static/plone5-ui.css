@@ -509,21 +509,15 @@ body#visual-portal-wrapper.pat-plone .outer-wrapper .contenttype-ps-plone-mls-fe
 .listingsearchbanner {
   background-position: 50% 50%;
   background-size: cover;
-  margin-top: -20px;
   padding: 8em 0;
+}
+
+#portal-globalnav-wrapper + .listingsearchbanner {
+  margin-top: -20px;
 }
 
 .listingsearchbanner .autotoc-section header {
   display: none;
-}
-
-.listingsearchbanner input[type=submit] {
-  background-color: #205c90;
-  border: none;
-  border-radius: 5px;
-  color: #fff;
-  cursor:pointer;
-  padding: 5px 15px;
 }
 
 .listingsearchbanner form .formControls,
