@@ -44,7 +44,7 @@ Show how to work with recent listings
     Capture and crop page screenshot
     ...  recent_listings_default.png
     ...  css=.documentFirstHeading
-    ...  css=${RECENT_LISTINGS_N_ITEMS}
+    ...  ${RECENT_LISTINGS_N_ITEMS}
 
     Click link  css=#contentview-recent-listings-config a
 
