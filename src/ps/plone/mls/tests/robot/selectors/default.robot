@@ -24,6 +24,7 @@ ${RECENT_LISTINGS_N_ITEMS}  css=.listing__results .tileItem:nth-child(3)
 # "Listing Search"
 ${LISTING_SEARCH_ACTIVATE_LINK}  css=#plone-contentmenu-actions-listing-search-activate
 ${LISTING_SEARCH_DEACTIVATE_LINK}  css=#plone-contentmenu-actions-listing-search-deactivate
+${LISTING_SEARCH_FORM}  css=.listing__form
 
 # "Development Collection"
 ${DEVELOPMENT_COLLECTION_ACTIVATE_LINK}  css=#plone-contentmenu-actions-development-collection-activate

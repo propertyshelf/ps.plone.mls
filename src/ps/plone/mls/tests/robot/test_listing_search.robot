@@ -44,7 +44,7 @@ Show how to work with the listing search
     Capture and crop page screenshot
     ...  listing_search_default.png
     ...  css=.documentFirstHeading
-    ...  css=.listing__form
+    ...  ${LISTING_SEARCH_FORM}
 
     Click link  css=#contentview-listing-search-config a
 
