@@ -2,8 +2,8 @@ Changelog
 =========
 
 
-0.13 (unreleased)
------------------
+0.12.1 (2017-11-03)
+-------------------
 
 - Show development headline and location in development details view.
 
