@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-0.12 (unreleased)
+0.12 (2017-11-03)
 -----------------
 
 - Fix override recipient for development projects.
