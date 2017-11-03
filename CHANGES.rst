@@ -5,7 +5,7 @@ Changelog
 0.13 (unreleased)
 -----------------
 
-- Nothing changed yet.
+- Show development headline and location in development details view.
 
 
 0.12 (2017-11-03)

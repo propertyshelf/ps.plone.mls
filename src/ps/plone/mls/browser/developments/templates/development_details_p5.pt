@@ -44,6 +44,8 @@
         <div tal:replace="structure provider:plone.abovecontenttitle" tal:condition="not:ajax_load" />
 
         <h1 class="documentFirstHeading col-xs-12" tal:content="title | nothing">[Title]</h1>
+        <h2 class="development_headline col-xs-12" tal:condition="item/headline" tal:content="item/headline/value"></h2>
+        <p class="development_location col-xs-12" tal:condition="item/location" tal:content="item/location/value"></p>
         <div class="documentDescription col-xs-12" tal:define="description item/description/value | nothing" tal:condition="description">
           <tal:descriptionline tal:repeat="line python:description.splitlines()">
             <p tal:content="line">[Description Line]</p>
@@ -51,10 +53,7 @@
         </div>
 
         <div tal:replace="structure provider:plone.belowcontenttitle" tal:condition="not:ajax_load" />
-
         <div tal:replace="structure provider:plone.abovecontentbody" tal:condition="not:ajax_load" />
-
-
 
 
         <div class="development_details col-xs-12" tal:condition="item">
