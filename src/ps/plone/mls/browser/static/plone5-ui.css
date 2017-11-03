@@ -530,6 +530,28 @@ body#visual-portal-wrapper.pat-plone .outer-wrapper .contenttype-ps-plone-mls-fe
   margin: 0;
 }
 
+.listingsearchbanner .formControls input,
+.listingsearchbanner input[type="text"] {
+  font-size: 1.25em;
+}
+
+.listingsearchbanner .formControls input {
+  line-height: 20px;
+}
+
+.listingsearchbanner .pat-select2 {
+  font-size: 1.25em;
+  height: 34px;
+  margin-bottom: 0;
+  width: 100%;
+}
+
+.listingsearchbanner .pat-select2 a {
+  height: auto;
+  padding: 3px 0 3px 8px;
+  text-align: left;
+}
+
 @media (min-width: 768px) {
   .listingsearchbanner form .field,
   .listingsearchbanner form .formControls {
@@ -541,6 +563,13 @@ body#visual-portal-wrapper.pat-plone .outer-wrapper .contenttype-ps-plone-mls-fe
 
   .listingsearchbanner section {
     text-align: center;
+  }
+
+  .listingsearchbanner #formfield-form-section_1-widgets-category,
+  .listingsearchbanner #formfield-form-section_2-widgets-category,
+  .listingsearchbanner #formfield-form-section_3-widgets-category,
+  .listingsearchbanner #formfield-form-section_4-widgets-category {
+    width: 10em;
   }
 
   .listingsearchbanner #form-section_1-widgets-q,
@@ -559,6 +588,13 @@ body#visual-portal-wrapper.pat-plone .outer-wrapper .contenttype-ps-plone-mls-fe
   .listingsearchbanner #form-section_4-widgets-price_min,
   .listingsearchbanner #form-section_4-widgets-price_max {
     width: 7em;
+  }
+
+  .listingsearchbanner #formfield-form-section_1-widgets-beds,
+  .listingsearchbanner #formfield-form-section_2-widgets-beds,
+  .listingsearchbanner #formfield-form-section_3-widgets-beds,
+  .listingsearchbanner #formfield-form-section_4-widgets-beds {
+    width: 6em;
   }
 
   .listingsearchbanner #form-section_1-widgets-beds,
