@@ -270,6 +270,15 @@ class SectionForm(form.Form):
         self.fields = field.Fields(ISectionForm).omit(*omitted)
         self.update_fields()
         super(SectionForm, self).update()
+        if PLONE_5:
+            if 'category' in self.widgets:
+                self.widgets['category'].pattern_options = {
+                    'placeholder': _(u'Select a Category'),
+                }
+            if 'beds' in self.widgets:
+                self.widgets['beds'].pattern_options = {
+                    'placeholder': _(u'Beds'),
+                }
 
     def update_fields(self):
         """Update form field configurations."""
@@ -280,6 +289,14 @@ class SectionForm(form.Form):
             if default not in self.category_queries:
                 default = list(self.categories)[0].token
             field.field.default = default
+
+        if PLONE_5:
+            from plone.app.z3cform.widget import SelectFieldWidget
+
+            if 'category' in self.fields:
+                self.fields['category'].widgetFactory = SelectFieldWidget
+            if 'beds' in self.fields:
+                self.fields['beds'].widgetFactory = SelectFieldWidget
 
     def _generate_categories(self):
         """Return a new categories vocabulary."""
