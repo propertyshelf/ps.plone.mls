@@ -6,6 +6,9 @@ Changelog
 -----------------
 
 - Fix override recipient for development projects.
+- Use select2 based widget for listing search banner selects in Plone 5.
+- Add missing fields to excluded search fields.
+- Update tests and docs.
 
 
 0.11 (2017-09-12)
