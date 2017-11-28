@@ -1,15 +1,11 @@
 # -*- coding: utf-8 -*-
 """Propertyshelf MLS Plone Embedding."""
 
-# python imports
-import logging
-
-# zope imports
 from plone import api as ploneapi
+from ps.plone.mls import config
 from zope.i18nmessageid import MessageFactory
 
-# local imports
-from ps.plone.mls import config
+import logging
 
 
 PLONE_4 = '4' <= ploneapi.env.plone_version() < '5'

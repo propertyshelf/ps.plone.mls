@@ -1,26 +1,18 @@
 # -*- coding: utf-8 -*-
 """MLS integration api."""
 
-# python imports
-from mls.apiclient import (
-    api,
-    exceptions,
-    resources,
-)
-from time import time
-
-# zope imports
+from mls.apiclient import api
+from mls.apiclient import exceptions
+from mls.apiclient import resources
 from plone import api as plone_api
 from plone.memoize import ram
 from plone.mls.core.api import get_settings
 from plone.mls.listing.api import get_agency_info
+from ps.plone.mls import _
+from ps.plone.mls import config
+from ps.plone.mls import utils
+from time import time
 
-# local imports
-from ps.plone.mls import (
-    _,
-    config,
-    utils,
-)
 
 MIN_MAX_FIELDS = [
     'baths',

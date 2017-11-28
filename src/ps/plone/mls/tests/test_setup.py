@@ -1,20 +1,18 @@
 # -*- coding: utf-8 -*-
 """Test Setup of ps.plone.mls."""
 
-# python imports
+# zope imports
+from plone import api
+from plone.browserlayer.utils import registered_layers
+from ps.plone.mls import PLONE_4
+from ps.plone.mls.config import PROJECT_NAME
+from ps.plone.mls.testing import INTEGRATION_TESTING
+
+
 try:
     import unittest2 as unittest
 except ImportError:
     import unittest
-
-# zope imports
-from plone import api
-from plone.browserlayer.utils import registered_layers
-
-# local imports
-from ps.plone.mls import PLONE_4
-from ps.plone.mls.config import PROJECT_NAME
-from ps.plone.mls.testing import INTEGRATION_TESTING
 
 
 CSS = [

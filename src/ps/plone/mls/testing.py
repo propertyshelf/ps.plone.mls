@@ -1,22 +1,18 @@
 # -*- coding: utf-8 -*-
 """Test Layer for ps.plone.mls."""
 
-# python imports
+from plone.app.robotframework.testing import REMOTE_LIBRARY_BUNDLE_FIXTURE
+from plone.app.testing import FunctionalTesting
+from plone.app.testing import IntegrationTesting
+from plone.app.testing import PLONE_FIXTURE
+from plone.app.testing import PloneSandboxLayer
+from plone.testing import Layer
+from plone.testing import z2
+from ps.plone.mls.tests import utils
+
 import pkg_resources
 import responses
 
-# zope imports
-from plone.app.robotframework.testing import REMOTE_LIBRARY_BUNDLE_FIXTURE
-from plone.app.testing import (
-    FunctionalTesting,
-    IntegrationTesting,
-    PloneSandboxLayer,
-    PLONE_FIXTURE,
-)
-from plone.testing import Layer, z2
-
-# local imports
-from ps.plone.mls.tests import utils
 
 try:
     pkg_resources.get_distribution('plone.app.contenttypes')

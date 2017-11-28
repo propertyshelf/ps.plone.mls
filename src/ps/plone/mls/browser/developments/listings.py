@@ -1,26 +1,19 @@
 # -*- coding: utf-8 -*-
 """Show Listings for developments."""
 
-# python imports
 from mls.apiclient import exceptions
-
-# zope imports
-from Products.Five import BrowserView
 from plone.memoize.view import memoize
 from plone.mls.core.navigation import ListingBatch
 from plone.mls.listing.browser.interfaces import IBaseListingItems
+from Products.Five import BrowserView
+from ps.plone.mls import api
+from ps.plone.mls import config
+from ps.plone.mls import logger
+from ps.plone.mls.interfaces import IDevelopmentListings
 from zope.annotation.interfaces import IAnnotations
 from zope.component import queryMultiAdapter
 from zope.interface import implementer
 from zope.traversing.browser.absoluteurl import absoluteURL
-
-# local imports
-from ps.plone.mls import (
-    api,
-    config,
-    logger,
-)
-from ps.plone.mls.interfaces import IDevelopmentListings
 
 
 @implementer(IBaseListingItems, IDevelopmentListings)

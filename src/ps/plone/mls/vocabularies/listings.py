@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
 """Vocabularies for listings."""
 
-# zope imports
 from plone import api
 from plone.mls.listing.browser.listing_search import IListingSearch
 from zope.interface import implementer
 from zope.schema.interfaces import IVocabularyFactory
-from zope.schema.vocabulary import SimpleTerm, SimpleVocabulary
+from zope.schema.vocabulary import SimpleTerm
+from zope.schema.vocabulary import SimpleVocabulary
 
 
 MIN_BEDROOM_VALUES = [

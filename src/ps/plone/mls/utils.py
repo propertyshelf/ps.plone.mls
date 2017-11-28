@@ -1,16 +1,12 @@
 # -*- coding: utf-8 -*-
 """Different shared utilities."""
 
-# python imports
-import re
-
-# zope imports
 from plone import api
 from plone.api.exc import InvalidParameterError
+from ps.plone.mls import _
 from zope.interface import Invalid
 
-# local imports
-from ps.plone.mls import _
+import re
 
 
 check_email = re.compile(

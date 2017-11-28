@@ -1,15 +1,10 @@
 # -*- coding: utf-8 -*-
 """Navigation Breadcrumb customizations."""
 
-# zope imports
-from Products.CMFPlone.browser.navigation import (
-    PhysicalNavigationBreadcrumbs,
-    get_view_url,
-)
-from zope.annotation.interfaces import IAnnotations
-
-# local imports
+from Products.CMFPlone.browser.navigation import get_view_url
+from Products.CMFPlone.browser.navigation import PhysicalNavigationBreadcrumbs
 from ps.plone.mls import _
+from zope.annotation.interfaces import IAnnotations
 
 
 TRAVERSE_TITLES = {

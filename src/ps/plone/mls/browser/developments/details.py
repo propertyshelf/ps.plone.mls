@@ -1,56 +1,54 @@
 # -*- coding: utf-8 -*-
 """MLS development detail view."""
 
-# python imports
+from Acquisition import aq_inner
 from email import message_from_string
-from email.utils import (
-    formataddr,
-    getaddresses,
-)
+from email.utils import formataddr
+from email.utils import getaddresses
 from mls.apiclient import exceptions
+from plone import api as plone_api
+from plone.app.layout.viewlets.common import ViewletBase
+from plone.directives import form
+from plone.formwidget.captcha.validator import CaptchaValidator
+from plone.formwidget.captcha.validator import WrongCaptchaCode
+from plone.formwidget.captcha.widget import CaptchaFieldWidget
+from plone.memoize.view import memoize
+from plone.mls.core.navigation import ListingBatch
+from plone.registry.interfaces import IRegistry  # noqa
+from plone.z3cform import z2
+from Products.CMFPlone import PloneMessageFactory as PMF
+from Products.Five import BrowserView
+from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
+from ps.plone.mls import _
+from ps.plone.mls import api
+from ps.plone.mls import config
+from ps.plone.mls import PLONE_4
+from ps.plone.mls import PLONE_5
+from ps.plone.mls import utils
+from ps.plone.mls.interfaces import IDevelopmentDetails
+from z3c.form import button
+from z3c.form import field
+from z3c.form import validator
+from z3c.form.interfaces import HIDDEN_MODE
+from z3c.form.interfaces import IFormLayer
+from zope import schema
+from zope.annotation.interfaces import IAnnotations
+from zope.component import getUtility
+from zope.component import queryMultiAdapter
+from zope.i18n import translate
+from zope.interface import alsoProvides
+from zope.interface import implementer
+
 import json
 import logging
 import pkg_resources
 
-# zope imports
-from Acquisition import aq_inner
-from Products.CMFPlone import PloneMessageFactory as PMF
-from Products.Five import BrowserView
-from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
-from plone import api as plone_api
-from plone.app.layout.viewlets.common import ViewletBase
-from plone.directives import form
-from plone.formwidget.captcha.widget import CaptchaFieldWidget
-from plone.formwidget.captcha.validator import (
-    CaptchaValidator,
-    WrongCaptchaCode,
-)
-from plone.memoize.view import memoize
-from plone.mls.core.navigation import ListingBatch
+
 try:
     from plone.mls.listing.interfaces import IMLSUISettings
     HAS_UI_SETTINGS = True
 except ImportError:
     HAS_UI_SETTINGS = False
-from plone.registry.interfaces import IRegistry  # noqa
-from plone.z3cform import z2
-from z3c.form import (
-    button,
-    field,
-    validator,
-)
-from z3c.form.interfaces import HIDDEN_MODE, IFormLayer
-from zope import schema
-from zope.annotation.interfaces import IAnnotations
-from zope.component import (
-    getUtility,
-    queryMultiAdapter,
-)
-from zope.i18n import translate
-from zope.interface import (
-    alsoProvides,
-    implementer,
-)
 
 # starting from 0.6.0 version plone.z3cform has IWrappedForm interface
 try:
@@ -58,17 +56,6 @@ try:
     HAS_WRAPPED_FORM = True
 except ImportError:
     HAS_WRAPPED_FORM = False
-
-# local imports
-from ps.plone.mls import (
-    _,
-    PLONE_4,
-    PLONE_5,
-    api,
-    config,
-    utils,
-)
-from ps.plone.mls.interfaces import IDevelopmentDetails
 
 
 logger = logging.getLogger(config.PROJECT_NAME)
@@ -176,7 +163,7 @@ class IContactForm(form.Schema):
             default=u'',
         ),
         required=True,
-        title=PMF(u'label_name', default=u"Name"),
+        title=PMF(u'label_name', default=u'Name'),
     )
 
     phone = schema.TextLine(

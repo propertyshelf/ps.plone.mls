@@ -1,32 +1,22 @@
 # -*- coding: utf-8 -*-
 """Custom traversers for MLS Embedding items."""
 
-# python imports
-import copy
-
-# zope imports
-from ZPublisher.BaseRequest import DefaultPublishTraverse
 from plone.memoize.view import memoize
+from ps.plone.mls import api
+from ps.plone.mls.browser.developments import collection
+from ps.plone.mls.content import featured
+from ps.plone.mls.interfaces import IDevelopmentTraversable
+from ps.plone.mls.interfaces import IListingTraversable
 from zope.annotation.interfaces import IAnnotations
-from zope.component import adapter, queryMultiAdapter
+from zope.component import adapter
+from zope.component import queryMultiAdapter
 from zope.interface import implementer
 from zope.publisher.interfaces import NotFound
-from zope.publisher.interfaces.browser import (
-    IBrowserPublisher,
-    IBrowserRequest,
-)
+from zope.publisher.interfaces.browser import IBrowserPublisher
+from zope.publisher.interfaces.browser import IBrowserRequest
+from ZPublisher.BaseRequest import DefaultPublishTraverse
 
-# local imports
-from ps.plone.mls import api
-from ps.plone.mls.browser.developments.collection import (
-    DevelopmentCollectionViewlet,
-    EXCLUDED_SEARCH_FIELDS,
-)
-from ps.plone.mls.content import featured
-from ps.plone.mls.interfaces import (
-    IDevelopmentTraversable,
-    IListingTraversable,
-)
+import copy
 
 
 @implementer(IBrowserPublisher)
@@ -156,7 +146,11 @@ class DevelopmentTraverser(MLSItemTraverser):
     @memoize
     def check_item(self, item_id):
         """Check if the development ID is available."""
-        dcv = DevelopmentCollectionViewlet(self.context, self.request, None)
+        dcv = collection.DevelopmentCollectionViewlet(
+            self.context,
+            self.request,
+            None,
+        )
         portal_state = queryMultiAdapter(
             (self.context, self.request),
             name='plone_portal_state',
@@ -170,7 +164,7 @@ class DevelopmentTraverser(MLSItemTraverser):
         params = api.prepare_search_params(
             params,
             context=self.context,
-            omit=EXCLUDED_SEARCH_FIELDS,
+            omit=collection.EXCLUDED_SEARCH_FIELDS,
         )
         try:
             result = api.Development.search(mlsapi, params=params)

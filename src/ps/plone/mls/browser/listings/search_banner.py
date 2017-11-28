@@ -1,18 +1,7 @@
 # -*- coding: utf-8 -*-
 """Listing search banner."""
 
-# python imports
-try:
-    from urllib.parse import urlencode
-except ImportError:
-    from urllib import urlencode
-import copy
-import urlparse
-
-# zope imports
 from Acquisition import aq_inner
-from Products.CMFPlone import PloneMessageFactory as PMF
-from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from plone import api
 from plone.app.layout.viewlets.common import ViewletBase
 from plone.directives import form
@@ -22,40 +11,41 @@ from plone.namedfile.browser import Download
 from plone.namedfile.file import NamedImage
 from plone.supermodel.directives import fieldset
 from plone.z3cform import z2
+from Products.CMFPlone import PloneMessageFactory as PMF
+from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
+from ps.plone.mls import _
+from ps.plone.mls import config
+from ps.plone.mls import PLONE_4
+from ps.plone.mls import PLONE_5
+from ps.plone.mls.interfaces import IListingSearchBanner
+from ps.plone.mls.interfaces import IPossibleListingSearchBanner
+from z3c.form import button
+from z3c.form import field
+from z3c.form.interfaces import IFormLayer
+from z3c.form.widget import StaticWidgetAttribute
+from zope import schema
+from zope.annotation.interfaces import IAnnotations
+from zope.interface import alsoProvides
+from zope.interface import noLongerProvides
+from zope.schema.vocabulary import SimpleTerm
+from zope.schema.vocabulary import SimpleVocabulary
+
+import copy
+import urlparse
+
+
+try:
+    from urllib.parse import urlencode
+except ImportError:
+    from urllib import urlencode
+
 # starting from 0.6.0 version plone.z3cform has IWrappedForm interface
 try:
     from plone.z3cform.interfaces import IWrappedForm
     HAS_WRAPPED_FORM = True
 except ImportError:
     HAS_WRAPPED_FORM = False
-from z3c.form import (
-    button,
-    field,
-)
-from z3c.form.interfaces import IFormLayer
-from z3c.form.widget import StaticWidgetAttribute
-from zope import schema
-from zope.annotation.interfaces import IAnnotations
-from zope.interface import (
-    alsoProvides,
-    noLongerProvides,
-)
-from zope.schema.vocabulary import (
-    SimpleTerm,
-    SimpleVocabulary,
-)
 
-# local imports
-from ps.plone.mls import (
-    _,
-    PLONE_4,
-    PLONE_5,
-    config,
-)
-from ps.plone.mls.interfaces import (
-    IListingSearchBanner,
-    IPossibleListingSearchBanner,
-)
 
 FIELDS_SECTION_1 = [
     'section_1_search_target',

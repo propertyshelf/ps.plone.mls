@@ -1,44 +1,31 @@
 # -*- coding: utf-8 -*-
 """MLS development collection."""
 
-# python imports
-import copy
-
-# zope imports
-from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from plone.app.layout.viewlets.common import ViewletBase
 from plone.directives import form
 from plone.memoize.view import memoize
 from plone.mls.core.navigation import ListingBatch
-from z3c.form import button
+from plone.mls.listing.browser.interfaces import IBaseListingItems
+from plone.mls.listing.browser.interfaces import IListingDetails
 from plone.supermodel.directives import fieldset
-# from z3c.form.browser import checkbox
+from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
+from ps.plone.mls import _
+from ps.plone.mls import api
+from ps.plone.mls import config
+from ps.plone.mls import PLONE_4
+from ps.plone.mls import PLONE_5
+from ps.plone.mls.interfaces import IDevelopmentCollection
+from ps.plone.mls.interfaces import IDevelopmentDetails
+from ps.plone.mls.interfaces import IPossibleDevelopmentCollection
+from z3c.form import button
 from zope import schema
 from zope.annotation.interfaces import IAnnotations
 from zope.component import queryMultiAdapter
-from zope.interface import (
-    alsoProvides,
-    noLongerProvides,
-)
+from zope.interface import alsoProvides
+from zope.interface import noLongerProvides
 from zope.traversing.browser.absoluteurl import absoluteURL
 
-# local imports
-from plone.mls.listing.browser.interfaces import (
-    IBaseListingItems,
-    IListingDetails,
-)
-from ps.plone.mls import (
-    _,
-    PLONE_4,
-    PLONE_5,
-    api,
-    config,
-)
-from ps.plone.mls.interfaces import (
-    IDevelopmentCollection,
-    IDevelopmentDetails,
-    IPossibleDevelopmentCollection,
-)
+import copy
 
 
 #: Reduce the API load by defining the fields we need.

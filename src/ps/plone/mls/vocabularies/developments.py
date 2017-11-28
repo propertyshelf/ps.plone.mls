@@ -1,15 +1,13 @@
 # -*- coding: utf-8 -*-
 """Vocabularies for development projects."""
 
-# zope imports
 from plone import api
-from zope.interface import implementer
-from zope.schema.interfaces import IVocabularyFactory
-from zope.schema.vocabulary import SimpleTerm, SimpleVocabulary
-
-# local imports
 from ps.plone.mls import _
 from ps.plone.mls.interfaces import IDevelopmentCollection
+from zope.interface import implementer
+from zope.schema.interfaces import IVocabularyFactory
+from zope.schema.vocabulary import SimpleTerm
+from zope.schema.vocabulary import SimpleVocabulary
 
 
 @implementer(IVocabularyFactory)

@@ -1,21 +1,14 @@
 # -*- coding: utf-8 -*-
 """Customized plone viewlets."""
 
-# zope imports
 from plone import api
 from plone.api.exc import InvalidParameterError
 from plone.app.layout.viewlets import common
 from plone.mls.listing.browser.interfaces import IListingDetails
-
-# local imports
-from ps.plone.mls.interfaces import (
-    IDevelopmentDetails,
-    IDevelopmentListings,
-)
-from ps.plone.mls import (
-    _,
-    utils,
-)
+from ps.plone.mls import _
+from ps.plone.mls import utils
+from ps.plone.mls.interfaces import IDevelopmentDetails
+from ps.plone.mls.interfaces import IDevelopmentListings
 
 
 class DublinCoreViewlet(common.DublinCoreViewlet):

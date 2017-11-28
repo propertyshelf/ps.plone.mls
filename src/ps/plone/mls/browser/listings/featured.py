@@ -1,31 +1,29 @@
 # -*- coding: utf-8 -*-
 """Featured Listings Viewlet."""
 
-# zope imports
-from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from plone import api
 from plone.app.layout.viewlets.common import ViewletBase
 from plone.directives import form
 from plone.memoize.view import memoize
 from plone.mls.core.navigation import ListingBatch
-from plone.mls.listing.api import prepare_search_params, search
+from plone.mls.listing.api import prepare_search_params
+from plone.mls.listing.api import search
 from plone.mls.listing.browser.interfaces import IListingDetails
 from plone.supermodel import model
+from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
+from ps.plone.mls import _
+from ps.plone.mls import PLONE_4
+from ps.plone.mls import PLONE_5
+from ps.plone.mls.interfaces import IListingTraversable
 from z3c.form import button
 from zope import schema
 from zope.annotation.interfaces import IAnnotations
 from zope.component import queryMultiAdapter
-from zope.interface import Interface, alsoProvides, noLongerProvides
+from zope.interface import alsoProvides
+from zope.interface import Interface
+from zope.interface import noLongerProvides
 from zope.publisher.browser import BrowserView
 from zope.traversing.browser.absoluteurl import absoluteURL
-
-# local imports
-from ps.plone.mls import (
-    _,
-    PLONE_4,
-    PLONE_5,
-)
-from ps.plone.mls.interfaces import IListingTraversable
 
 
 CONFIGURATION_KEY = 'ps.plone.mls.listing.featuredlistings'

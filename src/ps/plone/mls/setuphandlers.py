@@ -1,18 +1,14 @@
 # -*- coding: utf-8 -*-
 """Post install import steps for ps.plone.mls."""
 
-# python imports
-import pkg_resources
-
-# zope imports
+from plone import api
 from Products.CMFPlone.interfaces import INonInstallable
 from Products.GenericSetup.interfaces import IProfileImportedEvent
-from plone import api
+from ps.plone.mls import config
 from zope.component import adapter
 from zope.interface import implementer
 
-# local imports
-from ps.plone.mls import config
+import pkg_resources
 
 
 ADD_ONS = [

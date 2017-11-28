@@ -1,20 +1,15 @@
 # -*- coding: utf-8 -*-
 """Featured Listings."""
 
-# zope imports
 from plone.app.textfield import RichText
 from plone.autoform import directives
 from plone.dexterity.content import Item
 from plone.supermodel import model
+from ps.plone.mls import _
+from ps.plone.mls import interfaces
+from ps.plone.mls import PLONE_4
 from zope import schema
 from zope.interface import implementer
-
-# local import
-from ps.plone.mls import (
-    _,
-    PLONE_4,
-    interfaces,
-)
 
 
 if PLONE_4:

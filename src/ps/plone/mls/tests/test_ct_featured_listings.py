@@ -1,22 +1,20 @@
 # -*- coding: utf-8 -*-
 """Test 'Featured Listings' Content Type."""
 
-# python imports
-import unittest2 as unittest
-
-# zope imports
 from plone import api
 from plone.app.content.interfaces import INameFromTitle
 from plone.app.dexterity.behaviors.exclfromnav import IExcludeFromNavigation
 from plone.dexterity.interfaces import IDexterityFTI
-from zope.component import (
-    createObject,  # noqa
-    queryUtility,
-)
-
-# local imports
 from ps.plone.mls.content.featured import IFeaturedListings
 from ps.plone.mls.testing import INTEGRATION_TESTING
+from zope.component import createObject
+from zope.component import queryUtility
+
+
+try:
+    import unittest2 as unittest
+except ImportError:
+    import unittest
 
 
 CT = 'ps.plone.mls.featured'
@@ -24,6 +22,7 @@ CT = 'ps.plone.mls.featured'
 
 class FeaturedListingsIntegrationTestCase(unittest.TestCase):
     """Test Case for the 'ps.plone.mls.featured' content type."""
+
     layer = INTEGRATION_TESTING
 
     def setUp(self):
