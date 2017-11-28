@@ -1,10 +1,6 @@
 [report]
+include =
+    src/*
 omit =
-    /home/*/.buildout/eggs/*
-    /usr/*
-    bin/test
-    buildout-cache/eggs/*
-    checkouts/*
-    docs/*
-    eggs/*
-    parts/*
+    */test*
+    */upgrades/*
