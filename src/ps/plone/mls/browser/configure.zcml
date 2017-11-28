@@ -97,4 +97,13 @@
       permission="zope2.View"
       />
 
+
+  <browser:page
+    allowed_interface=".utilities.IUtilities"
+    class=".utilities.Utilities"
+    for="*"
+    name="psplonemls-utils"
+    permission="zope2.View"
+    />
+
 </configure>

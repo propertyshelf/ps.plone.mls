@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 """Test Setup of ps.plone.mls."""
 
-# zope imports
 from plone import api
 from plone.browserlayer.utils import registered_layers
 from ps.plone.mls import PLONE_4
