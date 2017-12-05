@@ -101,6 +101,16 @@
             </section>
           </section>
 
+          <section class="portlet" tal:define="items view/get_listing_search_banners | nothing">
+            <header class="portletHeader" i18n:translate="">Listing Search Banners</header>
+            <section class="portletContent">
+              <p tal:condition="not: items" i18n:translate="">There are currently no listing search banners activated in this site.</p>
+              <ol class="configlets" tal:condition="items">
+                <li tal:repeat="item items"><a href="${item/getPath}"><span tal:replace="item/Title">[Title]</span> (<span tal:replace="item/getPath">[URL]</span>)</a></li>
+              </ol>
+            </section>
+          </section>
+
           <section class="portlet" tal:define="items view/get_development_collections | nothing">
             <header class="portletHeader" i18n:translate="">Development Collections</header>
             <section class="portletContent">

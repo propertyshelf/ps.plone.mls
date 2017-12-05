@@ -10,6 +10,7 @@ from plone.mls.listing.interfaces import ILocalAgencyInfo
 from Products.Five.browser import BrowserView
 from ps.plone.mls.browser.listings.featured import IFeaturedListings
 from ps.plone.mls.interfaces import IDevelopmentCollection
+from ps.plone.mls.interfaces import IListingSearchBanner
 
 
 class UsageControlPanel(BrowserView):
@@ -26,6 +27,13 @@ class UsageControlPanel(BrowserView):
         """Get all activated listing searches."""
         return api.content.find(
             object_provides=IListingSearch,
+            sort_on='sortable_title',
+        )
+
+    def get_listing_search_banners(self):
+        """Get all activated listing search banners."""
+        return api.content.find(
+            object_provides=IListingSearchBanner,
             sort_on='sortable_title',
         )
 
