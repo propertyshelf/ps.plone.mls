@@ -39,3 +39,17 @@ class IPossibleListingSearchBanner(Interface):
 
 class IListingSearchBanner(Interface):
     """Marker interface for Listing Search Banner viewlet."""
+
+
+class IMLSCachingSettings(form.Schema):
+    """MLS Caching Settings Schema."""
+
+    timeout = schema.Int(
+        default=3600,
+        description=_(
+            u'Enter the maximum time, in seconds, that items may remain in '
+            u'the cache before being requested again from the MLS.'
+        ),
+        required=True,
+        title=_(u'Maximum age of entries in the cache'),
+    )
