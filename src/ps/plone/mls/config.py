@@ -11,7 +11,3 @@ SETTINGS_DEVELOPMENT_COLLECTION = 'ps.plone.mls.developmentcollection'
 
 #: Configuration key for listing search banner settings.
 SETTINGS_LISTING_SEARCH_BANNER = 'ps.plone.mls.listingsearchbanner'
-
-
-#: Time items should be cached in ram.
-RAM_CACHE_TIME = 60 * 10

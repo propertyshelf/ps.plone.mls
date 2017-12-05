@@ -9,7 +9,6 @@ from plone.memoize import ram
 from plone.mls.core.api import get_settings
 from plone.mls.listing.api import get_agency_info
 from ps.plone.mls import _
-from ps.plone.mls import config
 from ps.plone.mls import utils
 from time import time
 
@@ -47,6 +46,10 @@ def api_cachekey(fun, self, *args, **kwargs):
         ['{0}_{1}'.format(key, value) for key, value in kwargs.iteritems()],
     )
 
+    timeout = plone_api.portal.get_registry_record(
+        name='ps.plone.mls.interfaces.IMLSCachingSettings.timeout',
+        default=3600,
+    )
     key = u'{0}_{1}_{2}_{3}_{4}_{5}_{6}_{7}_{8}'.format(
         self.endpoint,
         item_id,
@@ -56,7 +59,7 @@ def api_cachekey(fun, self, *args, **kwargs):
         api_.base_url,
         api_.lang,
         api_.api_key,
-        time() // config.RAM_CACHE_TIME,
+        time() // timeout,
     )
     return key
 
