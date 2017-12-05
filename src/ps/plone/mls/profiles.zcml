@@ -159,6 +159,16 @@
       profile="ps.plone.mls:default"
       />
 
+  <genericsetup:upgradeStep
+      title="Upgrade ps.plone.mls"
+      description="Update controlpanels."
+      source="1009"
+      destination="1010"
+      handler=".migration.migrate_to_1010"
+      sortkey="1"
+      profile="ps.plone.mls:default"
+      />
+
 
   <!-- GenericSetup utilities. -->
   <!-- ======================= -->

@@ -74,3 +74,12 @@ def migrate_to_1009(context):
     """
     setup = api.portal.get_tool(name='portal_setup')
     setup.runImportStepFromProfile(config.INSTALL_PROFILE, 'actions')
+
+
+def migrate_to_1010(context):
+    """"Migrate from 1009 to 1010.
+
+    * Update controlpanels.
+    """
+    setup = api.portal.get_tool(name='portal_setup')
+    setup.runImportStepFromProfile(config.INSTALL_PROFILE, 'controlpanel')
