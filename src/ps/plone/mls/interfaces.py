@@ -1,8 +1,18 @@
 # -*- coding: utf-8 -*-
 """Interface definitions."""
 
-# zope imports
+from plone.directives import form
+from plone.mls.core.interfaces import IMLSSettings as IMLSBaseSettings
+from plone.mls.listing import interfaces
+from ps.plone.mls import _
+from zope import schema
 from zope.interface import Interface
+
+
+assert(IMLSBaseSettings)
+IGlobalContactSettingsForm = interfaces.IMLSAgencyContactInfoSettingsEditForm
+IMLSContactInfoSettings = interfaces.IMLSAgencyContactInformation
+IMLSUISettings = interfaces.IMLSUISettings
 
 
 class IListingTraversable(Interface):
