@@ -57,9 +57,12 @@ class IMLSCachingSettings(form.Schema):
     timeout = schema.Int(
         default=3600,
         description=_(
-            u'Enter the maximum time, in seconds, that items may remain in '
-            u'the cache before being requested again from the MLS.'
+            u'Enter the maximum time, in full seconds, that items may remain '
+            u'in the cache before being requested again from the MLS. '
+            u'A minimum of 60 seconds is required, a good value is 3,600 '
+            u'seconds (1 hour).'
         ),
+        min=60,
         required=True,
         title=_(u'Maximum age of entries in the cache'),
     )
