@@ -16,7 +16,8 @@
     <metal:listing_results metal:define-macro="listing_results">
       <p tal:condition="not:batch" i18n:translate="">We are sorry, but we couldn't find any listings.</p>
 
-      <tal:listings tal:condition="batch | nothing">
+      <tal:listings tal:condition="batch | nothing"
+          tal:define="utils context/@@psplonemls-utils">
 
         <div metal:use-macro="context/batch_macros/macros/navigation" />
 
@@ -120,7 +121,7 @@
 
           <p class="listing__description col-xs-12"
               tal:condition="listing/description/value | nothing"
-              tal:content="listing/description/value">
+              tal:content="python: utils.smart_truncate(listing.get('description', {}).get('value'))">
               [Description]
           </p>
 
