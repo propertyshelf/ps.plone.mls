@@ -17,7 +17,8 @@ install_requires = [
     'mls.apiclient',
     'plone.api',
     'plone.app.dexterity',
-    'plone.mls.listing >= 0.9.11',
+    'plone.mls.core >= 0.7.dev0',
+    'plone.mls.listing >= 1.16.dev0',
     'ps.plone.realestatefont',
 ]
 
