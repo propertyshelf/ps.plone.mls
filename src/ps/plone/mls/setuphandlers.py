@@ -20,6 +20,11 @@ ADD_ONS = [
 class HiddenProfiles(object):
     """Define hidden GenericSetup profiles."""
 
+    def getNonInstallableProducts(self):
+        return [
+            'ps.plone.mls.upgrades',
+        ]
+
     def getNonInstallableProfiles(self):
         """Hide uninstall profile from site-creation and quickinstaller."""
         return [
