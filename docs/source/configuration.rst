@@ -2,28 +2,65 @@
 Configure the Propertyshelf MLS Embedding
 =========================================
 
-
-Base MLS Configuration
-======================
-
-Before you can start embedding listings into your Plone site you have to connect to the MLS.
+Before you can start embedding properties and developments into your Plone site you have to connect to the MLS.
 But don't worry, this only needs to be done once.
-Please ask your MLS Administrator for your API Key.
 
-To change the settings for your MLS embedding go to the **Site Setup** and select the Add-On configuration **Propertyshelf Base Settings**.
-In the form, enter your MLS connection settings.
+To change the global embedding settings:
 
-.. image:: ../_images/configure_base_settings.png
+#. Click on your username in the *personal tools menu* and select **Site Setup**
+#. Click the **Propertyshelf MLS Embedding** item in the *Add-on Configuration* section
 
+The configuration is split into 5 parts:
 
-Changing the MLS configuration for a particular folder
-======================================================
-
-
-
-Overriding the point of contact
-===============================
+- Base Settings
+- UI Settings
+- Contact Information
+- Caching Settings
+- Usage Overview
 
 
-Overriding the contact information for a particular folder
-==========================================================
+MLS Base Settings
+=================
+
+The base settings define the connection settings to your MLS.
+You need to add the *URL* to the MLS, as well as your *Agency ID* and your *API Key*.
+
+.. note::
+
+   If you don't have an API Key yet, please ask your MLS Administrator for one.
+
+.. figure:: ../_images/controlpanel_base.png
+
+   Propertyshelf MLS Embedding: Base Settings
+
+
+MLS UI Settings
+===============
+
+The ui settings define the look and feel of the MLS Embedding.
+
+.. figure:: ../_images/controlpanel_ui.png
+
+   Propertyshelf MLS Embedding: UI Settings
+
+
+
+MLS Contact Info Settings
+=========================
+
+Here you can customize the contact information for listings and developments.
+
+.. figure:: ../_images/controlpanel_contact_info_default.png
+
+   Propertyshelf MLS Embedding: Contact Information Settings
+
+
+.. figure:: ../_images/controlpanel_contact_info_agency.png
+
+   Propertyshelf MLS Embedding: Agency Contact Information Settings
+
+
+.. figure:: ../_images/controlpanel_contact_info_agent.png
+
+   Propertyshelf MLS Embedding: Agent Contact Information Settings
+
