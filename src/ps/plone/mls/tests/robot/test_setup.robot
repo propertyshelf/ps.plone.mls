@@ -17,7 +17,7 @@ Show how to activate the add-on
     ...  xpath=//*[@value='ps.plone.mls']/ancestor::li
     ...  addons-ps-plone-mls
     Assign id to element
-    ...  xpath=//*[@value='ps.plone.mls']/ancestor::ul/parent::*/parent::*
+    ...  xpath=//*[@value='ps.plone.mls']/ancestor::li
     ...  addons-enabled
 
     Highlight  addons-ps-plone-mls
@@ -33,7 +33,7 @@ Show how to activate the add-on
     ...  xpath=//*[@value='ps.plone.mls']/ancestor::li
     ...  addons-ps-plone-mls
     Assign id to element
-    ...  xpath=//*[@value='ps.plone.mls']/ancestor::ul/parent::*/parent::*
+    ...  xpath=//*[@value='ps.plone.mls']/ancestor::li
     ...  addons-enabled
 
     Highlight  addons-ps-plone-mls
