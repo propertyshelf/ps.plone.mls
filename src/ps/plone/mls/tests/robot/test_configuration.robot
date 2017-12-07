@@ -8,20 +8,56 @@ Suite Teardown  Teardown
 
 *** Test cases ***
 
-Show how to configure the base MLS settings
+Show how to configure the Propertyshelf MLS Embedding
+
     Enable autologin as  Manager
-    Go to  ${PLONE_URL}/@@mls-controlpanel
-    ${note1}  Add pointy note  css=#form-widgets-mls_key
-    ...  Enter your MLS API-Key
-    ...  position=right
-    ${note2}  Add pointy note  css=#form-widgets-mls_site
-    ...  Enter the URL for the MLS
-    ...  position=right
-    ${note3}  Add pointy note  css=#form-widgets-agency_id
-    ...  Enter your agency id
-    ...  position=right
+
+    # Show how to configure the base settings
+
+    Go to  ${PLONE_URL}/@@mls-controlpanel-base
+
     Capture and crop page screenshot
-    ...  configure_base_settings.png
+    ...  controlpanel_base.png
     ...  css=#content
-    ...  ${note1}  ${note2}  ${note3}
-    Remove elements  ${note1}  ${note2}  ${note3}
+
+    # Show how to configure the ui settings
+
+    Go to  ${PLONE_URL}/@@mls-controlpanel-ui
+
+    Capture and crop page screenshot
+    ...  controlpanel_ui.png
+    ...  css=#content
+
+    # Show how to configure the contact info settings
+
+    Go to  ${PLONE_URL}/@@mls-controlpanel-contact-info
+
+    Capture and crop page screenshot
+    ...  controlpanel_contact_info_default.png
+    ...  css=#content
+
+    Click link  css=#autotoc-item-autotoc-1
+    Capture and crop page screenshot
+    ...  controlpanel_contact_info_agency.png
+    ...  css=#content
+
+    Click link  css=#autotoc-item-autotoc-2
+    Capture and crop page screenshot
+    ...  controlpanel_contact_info_agent.png
+    ...  css=#content
+
+    # Show how to configure the caching settings
+
+    Go to  ${PLONE_URL}/@@mls-controlpanel-caching
+
+    Capture and crop page screenshot
+    ...  controlpanel_caching.png
+    ...  css=#content
+
+    # Show how to see the usage overview
+
+    Go to  ${PLONE_URL}/@@mls-controlpanel-usage
+
+    Capture and crop page screenshot
+    ...  controlpanel_usage.png
+    ...  css=#content
