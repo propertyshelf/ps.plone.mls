@@ -18,4 +18,6 @@
     <value key="compile">False</value>
     <value key="depends">plone</value>
   </records>
+
+  <records interface="ps.plone.mls.interfaces.IMLSCachingSettings" />
 </registry>
