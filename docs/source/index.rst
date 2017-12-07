@@ -1,6 +1,6 @@
-*********************************
+=================================
 Propertyshelf MLS Plone Embedding
-*********************************
+=================================
 
 `ps.plone.mls`_ is an add-on for the content management system `Plone`_.
 It activates the embedding of real estate listings from the `Propertyshelf`_ MLS.
@@ -13,9 +13,10 @@ It activates the embedding of real estate listings from the `Propertyshelf`_ MLS
 .. toctree::
    :maxdepth: 1
 
-   configuration
-   listings/index
-   developments/index
+   Installation <install>
+   Configuration <configuration>
+   Listings/Properties <listings/index>
+   Development Projects <developments/index>
 
 
 .. only:: html

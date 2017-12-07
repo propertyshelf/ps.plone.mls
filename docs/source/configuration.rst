@@ -1,19 +1,10 @@
-==============================
-Installation and Configuration
-==============================
-
-Install the Plone Embedding Add-On
-==================================
-
-You can install the Add-On like any other Plone Add-On: click on your username in the *personal tools menu* and select **Site Setup**.
-Next, click the **Add-Ons** item in the *Plone Configuration* section.
-You should see an item called **Propertyshelf MLS**.
-
-.. image:: ../_images/setup_select_add_on.png
+=========================================
+Configure the Propertyshelf MLS Embedding
+=========================================
 
 
-Change the default MLS Configuration
-====================================
+Base MLS Configuration
+======================
 
 Before you can start embedding listings into your Plone site you have to connect to the MLS.
 But don't worry, this only needs to be done once.
