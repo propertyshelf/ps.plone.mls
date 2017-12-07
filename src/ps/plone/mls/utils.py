@@ -65,15 +65,21 @@ def smart_truncate(content):
         return
 
     try:
-        length = api.portal.get_registry_record(
-            'plone.search_results_description_length'
+        enabled = api.portal.get_registry_record(
+            'plone.mls.listing.interfaces.IMLSUISettings.truncate_texts'
         )
     except InvalidParameterError:
-        try:
-            props = api.portal.get_tool(name='portal_properties')
-            length = props.site_properties.search_results_description_length
-        except Exception:
-            length = 160
+        return content
+
+    if not enabled:
+        return content
+
+    try:
+        length = api.portal.get_registry_record(
+            'plone.mls.listing.interfaces.IMLSUISettings.truncate_length'
+        )
+    except InvalidParameterError:
+        length = 320
 
     try:
         ellipsis = api.portal.get_registry_record('plone.ellipsis')
