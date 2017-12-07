@@ -13,3 +13,9 @@ ${STATUS_MESSAGE}  css=#global_statusmessage
 
 # "Development Collection"
 ${DEVELOPMENT_COLLECTION_CONFIG_TAB_FILTER}  css=#autotoc-item-autotoc-1
+
+
+# Settings
+${CONTACT_INFO_TAB_DEFAULT}  css=#autotoc-item-autotoc-1
+${CONTACT_INFO_TAB_AGENCY}  css=#autotoc-item-autotoc-1
+${CONTACT_INFO_TAB_AGENT}  css=#autotoc-item-autotoc-2

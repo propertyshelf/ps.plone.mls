@@ -31,3 +31,9 @@ ${DEVELOPMENT_COLLECTION_ACTIVATE_LINK}  css=#plone-contentmenu-actions-developm
 ${DEVELOPMENT_COLLECTION_DEACTIVATE_LINK}  css=#plone-contentmenu-actions-development-collection-deactivate
 ${DEVELOPMENT_COLLECTION_CONFIG_TAB_FILTER}  css=#fieldsetlegend-filter
 ${DEVELOPMENT_COLLECTION_N_ITEMS}  css=.development__results .tileItem:nth-child(3)
+
+
+# Settings
+${CONTACT_INFO_TAB_DEFAULT}  css=#fieldsetlegend-default
+${CONTACT_INFO_TAB_AGENCY}  css=#fieldsetlegend-agency
+${CONTACT_INFO_TAB_AGENT}  css=#fieldsetlegend-agent

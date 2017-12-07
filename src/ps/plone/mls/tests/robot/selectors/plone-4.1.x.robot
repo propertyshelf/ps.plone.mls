@@ -19,3 +19,9 @@ ${LISTING_SEARCH_DEACTIVATE_LINK}  css=#listing-search-deactivate
 ${DEVELOPMENT_COLLECTION_ACTIVATE_LINK}  css=#development-collection-activate
 ${DEVELOPMENT_COLLECTION_DEACTIVATE_LINK}  css=#development-collection-deactivate
 ${DEVELOPMENT_COLLECTION_CONFIG_TAB_FILTER}  css=div.pb-ajax #fieldsetlegend-0
+
+
+# Settings
+${CONTACT_INFO_TAB_DEFAULT}  css=#fieldsetlegend-default
+${CONTACT_INFO_TAB_AGENCY}  css=#fieldsetlegend-agency
+${CONTACT_INFO_TAB_AGENT}  css=#fieldsetlegend-agent

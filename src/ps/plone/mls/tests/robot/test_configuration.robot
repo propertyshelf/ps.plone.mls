@@ -36,12 +36,12 @@ Show how to configure the Propertyshelf MLS Embedding
     ...  controlpanel_contact_info_default.png
     ...  css=#content
 
-    Click link  css=#autotoc-item-autotoc-1
+    Click link  ${CONTACT_INFO_TAB_AGENCY}
     Capture and crop page screenshot
     ...  controlpanel_contact_info_agency.png
     ...  css=#content
 
-    Click link  css=#autotoc-item-autotoc-2
+    Click link  ${CONTACT_INFO_TAB_AGENT}
     Capture and crop page screenshot
     ...  controlpanel_contact_info_agent.png
     ...  css=#content

@@ -14,3 +14,9 @@ ${LISTING_SEARCH_FORM}  css=#search-form
 
 # "Development Collection"
 ${DEVELOPMENT_COLLECTION_N_ITEMS}  css=.development-summary .tileItem:nth-child(3)
+
+
+# Settings
+${CONTACT_INFO_TAB_DEFAULT}  css=#fieldsetlegend-default
+${CONTACT_INFO_TAB_AGENCY}  css=#fieldsetlegend-agency
+${CONTACT_INFO_TAB_AGENT}  css=#fieldsetlegend-agent
