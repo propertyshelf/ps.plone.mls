@@ -37,7 +37,7 @@ extensions = [
     'sphinx.ext.coverage',
     'sphinx.ext.ifconfig',
     'sphinx.ext.viewcode',
-    'sphinxcontrib_robotdoc',
+    # 'sphinxcontrib_robotdoc',
 ]
 
 # Add any paths that contain templates here, relative to this directory.
