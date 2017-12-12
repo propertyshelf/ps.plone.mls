@@ -64,3 +64,23 @@ Here you can customize the contact information for listings and developments.
 
    Propertyshelf MLS Embedding: Agent Contact Information Settings
 
+
+MLS Caching Settings
+====================
+
+With the caching settings you can define how often updates should be fetched from the configured MLS.
+
+.. figure:: ../_images/controlpanel_caching.png
+
+   Propertyshelf MLS Embedding: Caching Settings
+
+
+MLS Usage Overview
+==================
+
+The usage overview gives you an overview about the MLS embedding on your site.
+You can see all activated embedding items in one place.
+
+.. figure:: ../_images/controlpanel_usage.png
+
+   Propertyshelf MLS Embedding: Usage Overview
