@@ -8,7 +8,7 @@ Changelog
 - Add option to truncate description in collections.
 - Add MLS Caching settings.
 - Add new control panel which combines existing control panels into one.
-- Show ussage statistics in control panel.
+- Show usage statistics in control panel.
 
 
 0.12.1 (2017-11-03)
