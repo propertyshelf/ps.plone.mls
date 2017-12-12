@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-0.13 (unreleased)
+0.13 (2017-12-12)
 -----------------
 
 - Add option to truncate description in collections.
