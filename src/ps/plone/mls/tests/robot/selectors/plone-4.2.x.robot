@@ -18,6 +18,6 @@ ${DEVELOPMENT_COLLECTION_N_ITEMS}  css=.development-summary .tileItem:nth-child(
 
 
 # Settings
-${CONTACT_INFO_TAB_DEFAULT}  css=#fieldsetlegend-default
-${CONTACT_INFO_TAB_AGENCY}  css=#fieldsetlegend-agency
-${CONTACT_INFO_TAB_AGENT}  css=#fieldsetlegend-agent
+${CONTACT_INFO_TAB_DEFAULT}  css=#fieldsetlegend-0
+${CONTACT_INFO_TAB_AGENCY}  css=#fieldsetlegend-1
+${CONTACT_INFO_TAB_AGENT}  css=#fieldsetlegend-2
