@@ -23,15 +23,20 @@
 
         <div class="autotabs">
           <div class="autotoc-nav">
-            <a href="${portal_url}/@@mls-controlpanel-base" class="active"
+            <a href="" class="active"
+                tal:attributes="href string:${portal_url}/@@mls-controlpanel-base"
                 i18n:translate="">Settings</a>
-            <a href="${portal_url}/@@mls-controlpanel-ui"
+            <a href=""
+                tal:attributes="href string:${portal_url}/@@mls-controlpanel-ui"
                 i18n:translate="">UI</a>
-            <a href="${portal_url}/@@mls-controlpanel-contact-info"
+            <a href=""
+                tal:attributes="href string:${portal_url}/@@mls-controlpanel-contact-info"
                 i18n:translate="">Contact Information</a>
-            <a href="${portal_url}/@@mls-controlpanel-caching"
+            <a href=""
+                tal:attributes="href string:${portal_url}/@@mls-controlpanel-caching"
                 i18n:translate="">Caching</a>
-            <a href="${portal_url}/@@mls-controlpanel-usage"
+            <a href=""
+                tal:attributes="href string:${portal_url}/@@mls-controlpanel-usage"
                 i18n:translate="">Usage Overview</a>
           </div>
           <span tal:replace="structure view/contents" />
