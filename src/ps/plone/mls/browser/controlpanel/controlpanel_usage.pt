@@ -10,7 +10,7 @@
     <metal:main fill-slot="prefs_configlet_content">
       <article id="content">
         <a id="setup-link" class="link-parent"
-            tal:attributes="href string:$portal_url/@@overview-controlpanel"
+            tal:attributes="href string:${portal_url}/@@overview-controlpanel"
             i18n:translate=""
             i18n:domain="plone">Site Setup</a>
 
@@ -54,11 +54,11 @@
             <section class="portletContent">
               <p tal:condition="not: items" i18n:translate="">There are currently no local MLS settings activated in this site.</p>
               <ol class="configlets" tal:condition="items">
-                <li tal:repeat="item items"><a href="${item/getPath}">
+                <li tal:repeat="item items"><a href="" tal:attributes="href string:${item/getPath}">
                   <span tal:replace="item/Title">[Title]</span> (<span tal:replace="item/getPath">[URL]</span>)</a>
                   <div class="pull-right">
-                    <a href="${item/getPath}/@@mls-localconfig" class="context standalone" i18n:translate="">Edit</a>
-                    <a href="${item/getPath}/@@mls-localconfig-toggle" class="context destructive" i18n:translate="">Deactivate</a>
+                    <a href="" class="context standalone" i18n:translate="" tal:attributes="href string:${item/getPath}/@@mls-localconfig">Edit</a>
+                    <a href="" class="context destructive" i18n:translate="" tal:attributes="href string:${item/getPath}/@@mls-localconfig-toggle">Deactivate</a>
                   </div>
                 </li>
               </ol>
@@ -70,11 +70,11 @@
             <section class="portletContent">
               <p tal:condition="not: items" i18n:translate="">There are currently no local contact informations activated in this site.</p>
               <ol class="configlets" tal:condition="items">
-                <li tal:repeat="item items"><a href="${item/getPath}">
+                <li tal:repeat="item items"><a href="" tal:attributes="href string:${item/getPath}">
                   <span tal:replace="item/Title">[Title]</span> (<span tal:replace="item/getPath">[URL]</span>)</a>
                   <div class="pull-right">
-                    <a href="${item/getPath}/@@mls-localagencyinfo" class="context standalone" i18n:translate="">Edit</a>
-                    <a href="${item/getPath}/@@mls-localagencyinfo-toggle" class="context destructive" i18n:translate="">Deactivate</a>
+                    <a href="" class="context standalone" i18n:translate="" tal:attributes="href string:${item/getPath}/@@mls-localagencyinfo">Edit</a>
+                    <a href="" class="context destructive" i18n:translate="" tal:attributes="href string:${item/getPath}/@@mls-localagencyinfo-toggle">Deactivate</a>
                   </div>
                 </li>
               </ol>
@@ -86,11 +86,11 @@
             <section class="portletContent">
               <p tal:condition="not: items" i18n:translate="">There are currently no listing collections activated in this site.</p>
               <ol class="configlets" tal:condition="items">
-                <li tal:repeat="item items"><a href="${item/getPath}">
+                <li tal:repeat="item items"><a href="" tal:attributes="href string: ${item/getPath}">
                   <span tal:replace="item/Title">[Title]</span> (<span tal:replace="item/getPath">[URL]</span>)</a>
                   <div class="pull-right">
-                    <a href="${item/getPath}/@@listing-collection-config" class="context standalone" i18n:translate="">Edit</a>
-                    <a href="${item/getPath}/@@listing-collection-toggle" class="context destructive" i18n:translate="">Deactivate</a>
+                    <a href="" class="context standalone" i18n:translate="" tal:attributes="href string:${item/getPath}/@@listing-collection-config">Edit</a>
+                    <a href="" class="context destructive" i18n:translate="" tal:attributes="href string:${item/getPath}/@@listing-collection-toggle">Deactivate</a>
                   </div>
                 </li>
               </ol>
@@ -102,11 +102,11 @@
             <section class="portletContent">
               <p tal:condition="not: items" i18n:translate="">There are currently no recent listings activated in this site.</p>
               <ol class="configlets" tal:condition="items">
-                <li tal:repeat="item items"><a href="${item/getPath}">
+                <li tal:repeat="item items"><a href="" tal:attributes="href string:${item/getPath}">
                   <span tal:replace="item/Title">[Title]</span> (<span tal:replace="item/getPath">[URL]</span>)</a>
                   <div class="pull-right">
-                    <a href="${item/getPath}/@@recent-listings-config" class="context standalone" i18n:translate="">Edit</a>
-                    <a href="${item/getPath}/@@recent-listings-toggle" class="context destructive" i18n:translate="">Deactivate</a>
+                    <a href="" class="context standalone" i18n:translate="" tal:attributes="href string:${item/getPath}/@@recent-listings-config">Edit</a>
+                    <a href="" class="context destructive" i18n:translate="" tal:attributes="href string:${item/getPath}/@@recent-listings-toggle">Deactivate</a>
                   </div>
                 </li>
               </ol>
@@ -118,11 +118,11 @@
             <section class="portletContent">
               <p tal:condition="not: items" i18n:translate="">There are currently no featured listings activated in this site.</p>
               <ol class="configlets" tal:condition="items">
-                <li tal:repeat="item items"><a href="${item/getPath}">
+                <li tal:repeat="item items"><a href="" tal:attributes="href string:${item/getPath}">
                   <span tal:replace="item/Title">[Title]</span> (<span tal:replace="item/getPath">[URL]</span>)</a>
                   <div class="pull-right">
-                    <a href="${item/getPath}/@@featured-listings-config" class="context standalone" i18n:translate="">Edit</a>
-                    <a href="${item/getPath}/@@featured-listings-toggle" class="context destructive" i18n:translate="">Deactivate</a>
+                    <a href="" class="context standalone" i18n:translate="" tal:attributes="href string:${item/getPath}/@@featured-listings-config">Edit</a>
+                    <a href="" class="context destructive" i18n:translate="" tal:attributes="href string:${item/getPath}/@@featured-listings-toggle">Deactivate</a>
                   </div>
                 </li>
               </ol>
@@ -134,11 +134,11 @@
             <section class="portletContent">
               <p tal:condition="not: items" i18n:translate="">There are currently no listing searches activated in this site.</p>
               <ol class="configlets" tal:condition="items">
-                <li tal:repeat="item items"><a href="${item/getPath}">
+                <li tal:repeat="item items"><a href="" tal:attributes="href string:${item/getPath}">
                   <span tal:replace="item/Title">[Title]</span> (<span tal:replace="item/getPath">[URL]</span>)</a>
                   <div class="pull-right">
-                    <a href="${item/getPath}/@@listing-search-config" class="context standalone" i18n:translate="">Edit</a>
-                    <a href="${item/getPath}/@@listing-search-toggle" class="context destructive" i18n:translate="">Deactivate</a>
+                    <a href="" class="context standalone" i18n:translate="" tal:attributes="href string:${item/getPath}/@@listing-search-config">Edit</a>
+                    <a href="" class="context destructive" i18n:translate="" tal:attributes="href string:${item/getPath}/@@listing-search-toggle">Deactivate</a>
                   </div>
                 </li>
               </ol>
@@ -150,11 +150,11 @@
             <section class="portletContent">
               <p tal:condition="not: items" i18n:translate="">There are currently no listing search banners activated in this site.</p>
               <ol class="configlets" tal:condition="items">
-                <li tal:repeat="item items"><a href="${item/getPath}">
+                <li tal:repeat="item items"><a href="" tal:attributes="href string:${item/getPath}">
                   <span tal:replace="item/Title">[Title]</span> (<span tal:replace="item/getPath">[URL]</span>)</a>
                   <div class="pull-right">
-                    <a href="${item/getPath}/@@listing-search-banner-config" class="context standalone" i18n:translate="">Edit</a>
-                    <a href="${item/getPath}/@@listing-search-banner-toggle" class="context destructive" i18n:translate="">Deactivate</a>
+                    <a href="" class="context standalone" i18n:translate="" tal:attributes="href string:${item/getPath}/@@listing-search-banner-config">Edit</a>
+                    <a href="" class="context destructive" i18n:translate="" tal:attributes="href string:${item/getPath}/@@listing-search-banner-toggle">Deactivate</a>
                   </div>
                 </li>
               </ol>
@@ -166,11 +166,11 @@
             <section class="portletContent">
               <p tal:condition="not: items" i18n:translate="">There are currently no development collections activated in this site.</p>
               <ol class="configlets" tal:condition="items">
-                <li tal:repeat="item items"><a href="${item/getPath}">
+                <li tal:repeat="item items"><a href="" tal:attributes="href string:${item/getPath}">
                   <span tal:replace="item/Title">[Title]</span> (<span tal:replace="item/getPath">[URL]</span>)</a>
                   <div class="pull-right">
-                    <a href="${item/getPath}/@@development-collection-config" class="context standalone" i18n:translate="">Edit</a>
-                    <a href="${item/getPath}/@@development-collection-toggle" class="context destructive" i18n:translate="">Deactivate</a>
+                    <a href="" class="context standalone" i18n:translate="" tal:attributes="href string:${item/getPath}/@@development-collection-config">Edit</a>
+                    <a href="" class="context destructive" i18n:translate="" tal:attributes="href string:${item/getPath}/@@development-collection-toggle">Deactivate</a>
                   </div>
                 </li>
               </ol>
