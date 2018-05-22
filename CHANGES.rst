@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-0.14 (unreleased)
+0.14 (2018-05-22)
 -----------------
 
 - Make controlpanel templates Plone 4.x compatible.
