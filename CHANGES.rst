@@ -5,7 +5,7 @@ Changelog
 0.14 (unreleased)
 -----------------
 
-- Nothing changed yet.
+- Make controlpanel templates Plone 4.x compatible.
 
 
 0.13 (2017-12-12)
