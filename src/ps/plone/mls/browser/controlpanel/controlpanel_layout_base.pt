@@ -11,7 +11,7 @@
     <div metal:fill-slot="prefs_configlet_main">
 
       <a id="setup-link" class="link-parent"
-          tal:attributes="href string:$portal_url/@@overview-controlpanel"
+          tal:attributes="href string:${portal_url}/@@overview-controlpanel"
           i18n:translate=""
           i18n:domain="plone">Site Setup</a>
 
