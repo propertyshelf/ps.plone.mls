@@ -84,7 +84,7 @@ def prepare_search_params(params, context=None, omit=None):
     for item in params:
         if item in MIN_MAX_FIELDS:
             min_max = params[item]
-            if isinstance(min_max, (list, tuple, )):
+            if isinstance(min_max, (list, tuple)):
                 if len(min_max) > 0 and min_max[0] != '--MINVALUE--':
                     result[item + '_min'] = min_max[0]
                 if len(min_max) > 1 and min_max[1] != '--MAXVALUE--':
@@ -92,7 +92,7 @@ def prepare_search_params(params, context=None, omit=None):
                 continue
 
         # Convert lists and tuples to comma separated lists.
-        if isinstance(params[item], (list, tuple, )):
+        if isinstance(params[item], (list, tuple)):
             if len(params.get(item, ())) > 0:
                 params[item] = ','.join(params[item])
             else:
@@ -133,7 +133,7 @@ def get_development(item_id=None, context=None, request=None, lang=None):
             message = _(
                 u'An error occured trying to connect to the '
                 u'configured MLS. Please check your settings or try '
-                u'again later.'
+                u'again later.',
             )
             plone_api.portal.show_message(
                 message=message,
@@ -142,7 +142,7 @@ def get_development(item_id=None, context=None, request=None, lang=None):
             )
     except exceptions.ResourceNotFound:
         message = _(
-            u'The requested development was not found.'
+            u'The requested development was not found.',
         )
         plone_api.portal.show_message(
             message=message,

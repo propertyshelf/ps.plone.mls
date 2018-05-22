@@ -66,7 +66,7 @@ def smart_truncate(content):
 
     try:
         enabled = api.portal.get_registry_record(
-            'plone.mls.listing.interfaces.IMLSUISettings.truncate_texts'
+            'plone.mls.listing.interfaces.IMLSUISettings.truncate_texts',
         )
     except InvalidParameterError:
         return content
@@ -76,7 +76,7 @@ def smart_truncate(content):
 
     try:
         length = api.portal.get_registry_record(
-            'plone.mls.listing.interfaces.IMLSUISettings.truncate_length'
+            'plone.mls.listing.interfaces.IMLSUISettings.truncate_length',
         )
     except InvalidParameterError:
         length = 320

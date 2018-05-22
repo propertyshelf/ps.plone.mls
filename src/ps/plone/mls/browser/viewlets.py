@@ -82,7 +82,7 @@ class DublinCoreViewlet(common.DublinCoreViewlet):
 
         try:
             use_all = api.portal.get_registry_record(
-                'plone.exposeDCMetaTags'
+                'plone.exposeDCMetaTags',
             )
         except InvalidParameterError:
             try:

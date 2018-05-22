@@ -66,7 +66,7 @@ EMAIL_TEMPLATE = _(
     u'Development URL: {url}\n'
     u'\n'
     u'Message:\n'
-    u'{message}'
+    u'{message}',
 )
 
 
@@ -168,7 +168,7 @@ class IContactForm(form.Schema):
 
     phone = schema.TextLine(
         required=False,
-        title=PMF(u'label_phone', default=u'Phone')
+        title=PMF(u'label_phone', default=u'Phone'),
     )
 
     message = schema.Text(
@@ -190,7 +190,7 @@ class IContactForm(form.Schema):
 
     subject = schema.TextLine(
         required=False,
-        title=PMF(u'label_subject', default=u'Subject')
+        title=PMF(u'label_subject', default=u'Subject'),
     )
 
 

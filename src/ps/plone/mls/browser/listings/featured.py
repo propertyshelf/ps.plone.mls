@@ -119,7 +119,7 @@ class IFeaturedListingsConfiguration(model.Schema):
 
     listing_ids = schema.List(
         description=_(
-            u'Add one Listing ID per line for each entry to show up.'
+            u'Add one Listing ID per line for each entry to show up.',
         ),
         title=_(u'MLS Listing IDs'),
         unique=True,
@@ -136,7 +136,7 @@ class FeaturedListingsConfiguration(form.SchemaForm):
 
     label = _(u'\'Featured Listings\' Configuration')
     description = _(
-        u'Adjust the behaviour for this \'Featured Listings\' viewlet.'
+        u'Adjust the behaviour for this \'Featured Listings\' viewlet.',
     )
 
     def getContent(self):
@@ -190,17 +190,17 @@ class FeaturedListingsToggle(object):
         if IFeaturedListings.providedBy(self.context):
             # Deactivate FeaturedListings viewlet.
             noLongerProvides(self.context, IFeaturedListings)
-            self.context.reindexObject(idxs=['object_provides', ])
+            self.context.reindexObject(idxs=['object_provides'])
             msg = _(u'\'Featured Listings\' viewlet deactivated.')
         elif IPossibleFeaturedListings.providedBy(self.context):
             alsoProvides(self.context, IFeaturedListings)
-            self.context.reindexObject(idxs=['object_provides', ])
+            self.context.reindexObject(idxs=['object_provides'])
             msg = _(u'\'Featured Listings\' viewlet activated.')
         else:
             msg = _(
                 u'The \'Featured Listings\' viewlet does\'t work with this '
                 u'content type. Add \'IPossibleFeaturedListings\' to the '
-                u'provided interfaces to enable this feature.'
+                u'provided interfaces to enable this feature.',
             )
             msg_type = 'error'
 

@@ -27,7 +27,7 @@ class SelfHealingRegistryEditForm(controlpanel.RegistryEditForm):
             self.fields = field.Fields()
             registry.registerInterface(self.schema)
             self.status = _(
-                u'Registry has been updated. Please reload this page.'
+                u'Registry has been updated. Please reload this page.',
             )
             return None
 
@@ -38,7 +38,7 @@ class MLSBaseSettingsControlPanel(SelfHealingRegistryEditForm):
     description = _(
         u'This MLS configuration will be used as the default for this '
         u'Plone site. You can add more MLS configurations by activating '
-        u'the local MLS settings on any content item within the site.'
+        u'the local MLS settings on any content item within the site.',
     )
 
 
@@ -58,7 +58,7 @@ class MLSUISettingsControlPanel(SelfHealingRegistryEditForm):
     schema = interfaces.IMLSUISettings
     label = _(u'Propertyshelf MLS UI Settings')
     description = _(
-        u'Adjust the UI settings for this Plone site.'
+        u'Adjust the UI settings for this Plone site.',
     )
 
 
@@ -82,7 +82,7 @@ class MLSContactInfoSettingsControlPanel(SelfHealingRegistryEditForm):
         u'The contact information provided will be used as the default for '
         u'this Plone site. You can add more specific MLS contact '
         u'information by activating the local MLS contact settings on any '
-        u'content item within the site.'
+        u'content item within the site.',
     )
 
 

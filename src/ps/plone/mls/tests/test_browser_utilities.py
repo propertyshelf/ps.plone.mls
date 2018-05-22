@@ -58,7 +58,7 @@ class TestUtilitiesView(unittest.TestCase):
             u'fringilla pretium velit, et elementum sapien. Pellentesque '
             u'habitant morbi tristique senectus et netus et malesuada fames '
             u'ac turpis egestas. Morbi neque quam, volutpat sed nulla non, '
-            u'placerat volutpat...'
+            u'placerat volutpat...',
         )
 
         api.portal.set_registry_record(
@@ -71,5 +71,5 @@ class TestUtilitiesView(unittest.TestCase):
 
         self.assertEqual(
             truncated,
-            u'Lorem ipsum...'
+            u'Lorem ipsum...',
         )

@@ -192,7 +192,7 @@ class IDevelopmentCollectionConfiguration(form.Schema):
             u'which the entire world can be seen. The higher the zoom level, '
             u'the more details can be seen. The available maximum zoom level '
             u'value differs from area to area and can change over time, also '
-            u'depending on the used map provider.'
+            u'depending on the used map provider.',
         ),
         min=0,
         max=21,
@@ -204,7 +204,7 @@ class IDevelopmentCollectionConfiguration(form.Schema):
         default=False,
         description=_(
             u'If enabled, show the development banner in the collection '
-            u'results.'
+            u'results.',
         ),
         required=False,
         title=_(u'Show Banner Image'),
@@ -214,7 +214,7 @@ class IDevelopmentCollectionConfiguration(form.Schema):
         default=False,
         description=_(
             u'If enabled, the contact information for a development will be '
-            u'shown on the detail page for a development.'
+            u'shown on the detail page for a development.',
         ),
         required=False,
         title=_(u'Show Contact Information'),
@@ -224,7 +224,7 @@ class IDevelopmentCollectionConfiguration(form.Schema):
         default=False,
         description=_(
             u'If enabled, a form to contact the responsible agent will be '
-            u'shown on the detail page for a development.'
+            u'shown on the detail page for a development.',
         ),
         required=False,
         title=_(u'Show Contact Form'),
@@ -232,7 +232,7 @@ class IDevelopmentCollectionConfiguration(form.Schema):
 
     contact_override = schema.TextLine(
         description=_(
-            u'Send the contact form to this email instead direct to the agent'
+            u'Send the contact form to this email instead direct to the agent',
         ),
         required=False,
         title=_(u'Alternative Email recipient'),
@@ -241,7 +241,7 @@ class IDevelopmentCollectionConfiguration(form.Schema):
     contact_form_bcc = schema.TextLine(
         description=_(
             u'E-mail addresses which receive a blind carbon copy (comma '
-            u'separated).'
+            u'separated).',
         ),
         required=False,
         title=_(u'BCC Recipients'),
@@ -251,7 +251,7 @@ class IDevelopmentCollectionConfiguration(form.Schema):
         default=False,
         description=_(
             u'If the contact form is enabled, an anchor link will show as '
-            u'quick navigation to the form.'
+            u'quick navigation to the form.',
         ),
         required=False,
         title=_(u'Show Contact-Us anchor link'),
@@ -260,7 +260,7 @@ class IDevelopmentCollectionConfiguration(form.Schema):
     show_captcha = schema.Bool(
         default=False,
         description=_(
-            u'Show a captcha field within the contact form to prevent spam.'
+            u'Show a captcha field within the contact form to prevent spam.',
         ),
         required=False,
         title=_(u'Show Captcha'),
@@ -270,7 +270,7 @@ class IDevelopmentCollectionConfiguration(form.Schema):
         default=True,
         description=_(
             u'Modify the individual development URLs to show extra '
-            u'information, such as the Title and Location'
+            u'information, such as the Title and Location',
         ),
         required=False,
         title=_(u'Modify URLs'),
@@ -279,7 +279,7 @@ class IDevelopmentCollectionConfiguration(form.Schema):
     limit_developments = schema.Int(
         default=5,
         description=_(
-            u'How many developments should be shown per page?'
+            u'How many developments should be shown per page?',
         ),
         required=True,
         title=_(u'Developments per Page'),
@@ -288,7 +288,7 @@ class IDevelopmentCollectionConfiguration(form.Schema):
     limit_listings = schema.Int(
         default=25,
         description=_(
-            u'How many listings should be shown per devlopment listings page?'
+            u'How many listings should be shown per devlopment listings page?',
         ),
         required=True,
         title=_(u'Listings per Page'),
@@ -299,7 +299,7 @@ class IDevelopmentCollectionConfiguration(form.Schema):
         default=False,
         description=_(
             u'If enabled, only developments for the configured agency '
-            u'will be shown.'
+            u'will be shown.',
         ),
         required=False,
         title=_(u'Agency Developments'),
@@ -307,7 +307,7 @@ class IDevelopmentCollectionConfiguration(form.Schema):
 
     q = schema.TextLine(
         description=_(
-            u'Enter a search term to filter the results.'
+            u'Enter a search term to filter the results.',
         ),
         required=False,
         title=_(u'Searchable Text'),
@@ -316,7 +316,7 @@ class IDevelopmentCollectionConfiguration(form.Schema):
     sort_on = schema.Choice(
         description=_(
             u'How should the results be sorted? If nothing is selected, the '
-            u'results are sorted by relevance.'
+            u'results are sorted by relevance.',
         ),
         required=False,
         title=_('Sort results by'),
@@ -378,14 +378,14 @@ class DevelopmentCollectionConfiguration(form.SchemaForm):
     schema = IDevelopmentCollectionConfiguration
     label = _(u'\'Development Collection\' Configuration')
     description = _(
-        u'Adjust the behaviour for this \'Development Collection\' viewlet.'
+        u'Adjust the behaviour for this \'Development Collection\' viewlet.',
     )
 
     def getContent(self):
         annotations = IAnnotations(self.context)
         return annotations.get(
             config.SETTINGS_DEVELOPMENT_COLLECTION,
-            annotations.setdefault(config.SETTINGS_DEVELOPMENT_COLLECTION, {})
+            annotations.setdefault(config.SETTINGS_DEVELOPMENT_COLLECTION, {}),
         )
 
     @button.buttonAndHandler(_(u'Save'))
@@ -433,17 +433,17 @@ class DevelopmentCollectionToggle(object):
         if IDevelopmentCollection.providedBy(self.context):
             # Deactivate DevelopmentCollection viewlet.
             noLongerProvides(self.context, IDevelopmentCollection)
-            self.context.reindexObject(idxs=['object_provides', ])
+            self.context.reindexObject(idxs=['object_provides'])
             msg = _(u'\'Development Collection\' viewlet deactivated.')
         elif IPossibleDevelopmentCollection.providedBy(self.context):
             alsoProvides(self.context, IDevelopmentCollection)
-            self.context.reindexObject(idxs=['object_provides', ])
+            self.context.reindexObject(idxs=['object_provides'])
             msg = _(u'\'Development Collection\' viewlet activated.')
         else:
             msg = _(
                 u'The \'Development Collection\' viewlet does\'t work with '
                 u'this content type. Add \'IPossibleDevelopmentCollection\' '
-                u'to the provided interfaces to enable this feature.'
+                u'to the provided interfaces to enable this feature.',
             )
             msg_type = 'error'
 

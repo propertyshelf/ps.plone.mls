@@ -98,19 +98,19 @@ LABEL_SECTION_HIDE_SECTION = _(u'Hide section')
 
 DESCRIPTION_SECTION_SEARCH_PAGE = _(
     u'Select the activated listing search page which will be used to show '
-    u'the results.'
+    u'the results.',
 )
 DESCRIPTION_SECTION_TITLE = _(u'')
 DESCRIPTION_SECTION_CATEGORIES = _(u'')
 DESCRIPTION_SECTION_DEFAULT_CATEGORY = _(u'')
 DESCRIPTION_SECTION_HIDE_CATEGORY = _(
-    u'Hide the category field and use default setting.'
+    u'Hide the category field and use default setting.',
 )
 DESCRIPTION_SECTION_HIDE_BEDS = _(
-    u'Hide the bedrooms field.'
+    u'Hide the bedrooms field.',
 )
 DESCRIPTION_SECTION_HIDE_SECTION = _(
-    u'Don\'t show this section at all.'
+    u'Don\'t show this section at all.',
 )
 
 DEFAULT_CATEGORIES_1 = (
@@ -331,7 +331,7 @@ class SearchBanner(ViewletBase):
         """Get the configuration data from annotations."""
         annotations = IAnnotations(self.context)
         self.config = copy.deepcopy(
-            annotations.get(config.SETTINGS_LISTING_SEARCH_BANNER, {})
+            annotations.get(config.SETTINGS_LISTING_SEARCH_BANNER, {}),
         )
 
     @property
@@ -440,7 +440,7 @@ class ISearchBannerConfiguration(form.Schema):
     image = schema.ASCII(
         description=_(
             u'Upload an image file which will be used as a background for '
-            u'your listing banner search.'
+            u'your listing banner search.',
         ),
         required=False,
         title=_(u'Banner Image'),
@@ -450,7 +450,7 @@ class ISearchBannerConfiguration(form.Schema):
         default=u'http://',
         description=_(
             u'Instead of uploading an image, you may enter the URL of an '
-            u'image hosted on another server.'
+            u'image hosted on another server.',
         ),
         max_length=511,
         required=False,
@@ -660,14 +660,14 @@ class SearchBannerConfiguration(form.SchemaForm):
     schema = ISearchBannerConfiguration
     label = _(u'\'Listing Search Banner\' Configuration')
     description = _(
-        u'Adjust the behaviour for this \'Listing Search Banner\'.'
+        u'Adjust the behaviour for this \'Listing Search Banner\'.',
     )
 
     def getContent(self):
         annotations = IAnnotations(self.context)
         return annotations.get(
             config.SETTINGS_LISTING_SEARCH_BANNER,
-            annotations.setdefault(config.SETTINGS_LISTING_SEARCH_BANNER, {})
+            annotations.setdefault(config.SETTINGS_LISTING_SEARCH_BANNER, {}),
         )
 
     @button.buttonAndHandler(_(u'Save'))
@@ -714,17 +714,17 @@ class SearchBannerToggle(object):
         if IListingSearchBanner.providedBy(self.context):
             # Deactivate search banner viewlet.
             noLongerProvides(self.context, IListingSearchBanner)
-            self.context.reindexObject(idxs=['object_provides', ])
+            self.context.reindexObject(idxs=['object_provides'])
             msg = _(u'\'Listing Search Banner\' deactivated.')
         elif IPossibleListingSearchBanner.providedBy(self.context):
             alsoProvides(self.context, IListingSearchBanner)
-            self.context.reindexObject(idxs=['object_provides', ])
+            self.context.reindexObject(idxs=['object_provides'])
             msg = _(u'\'Listing Search Banner\' activated.')
         else:
             msg = _(
                 u'The \'Listing Search Banner\' does\'t work with '
                 u'this content type. Add \'IPossibleListingSearchBanner\' '
-                u'to the provided interfaces to enable this feature.'
+                u'to the provided interfaces to enable this feature.',
             )
             msg_type = 'error'
 

@@ -34,7 +34,7 @@ def setup_plone_mls_fixtures():
             {
                 'fields': ''.join([
                     'id,title,description,logo,location,lot_size,'
-                    'location_type,number_of_listings,number_of_groups'
+                    'location_type,number_of_listings,number_of_groups',
                 ]),
                 'limit': 5,
                 'offset': 0,
@@ -49,7 +49,7 @@ def setup_plone_mls_fixtures():
                 'fields': ''.join([
                     'id,title,description,logo,location,lot_size,'
                     'location_type,number_of_listings,number_of_groups,'
-                    'banner_image'
+                    'banner_image',
                 ]),
                 'reverse': False,
                 'modify_url': True,

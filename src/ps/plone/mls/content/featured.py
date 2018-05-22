@@ -21,7 +21,7 @@ class IFeaturedListings(model.Schema):
 
     listing_ids = schema.List(
         description=_(
-            u'Add one Listing ID per line for each entry to show up.'
+            u'Add one Listing ID per line for each entry to show up.',
         ),
         title=_(u'MLS Listing IDs'),
         unique=True,
