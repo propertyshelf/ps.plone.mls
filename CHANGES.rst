@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-0.15 (unreleased)
+0.15 (2019-04-02)
 -----------------
 
 - Add live chat embedding option to development details.
