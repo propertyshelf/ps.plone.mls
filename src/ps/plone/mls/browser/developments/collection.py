@@ -50,7 +50,7 @@ EXCLUDED_SEARCH_FIELDS = [
     'contact_form_bcc',
     'show_contact_link',
     'show_captcha',
-    'modify_urls',
+    'modify_url',
     'limit_developments',
     'limit_listings',
 ]
