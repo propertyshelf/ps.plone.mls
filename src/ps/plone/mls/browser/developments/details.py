@@ -65,8 +65,18 @@ EMAIL_TEMPLATE = _(
     default=u'Enquiry from: {name} <{sender_from_address}>\n'
     u'Development URL: {url}\n'
     u'\n'
+    u'Phone Number: {phone}\n'
+    u'\n'
     u'Message:\n'
-    u'{message}',
+    u'{message}\n',
+)
+
+EMAIL_TEMPLATE_AGENT = _(
+    u'development_contact_email_agent',
+    default=u'The responsible agent for this development is '
+    u'{agent_name}.\n'
+    u'\n'
+    u'Please contact {agent_name} at {agent_email}',
 )
 
 
@@ -298,8 +308,24 @@ class ContactForm(form.Form):
         except Exception:
             recipient = portal_address
 
+        agent_contact_info = u''
         if self.email_override is not None:
             recipient = self.email_override
+
+            if agent is not None:
+                agent_name = getattr(agent, 'name')
+                if agent_name is not None:
+                    agent_name = agent_name.value
+                agent_email = getattr(agent, 'email')
+                if agent_email is not None:
+                    agent_email = agent_email.value
+                agent_contact_info = translate(
+                    EMAIL_TEMPLATE_AGENT,
+                    context=self.request,
+                ).format(
+                    agent_name=agent_name,
+                    agent_email=agent_email,
+                )
 
         recipients = [recipient]
         bcc = self.config.get('contact_form_bcc', None)
@@ -310,10 +336,13 @@ class ContactForm(form.Form):
 
         subject = data['subject']
         data['url'] = self.request.getURL()
+        if data['phone'] is None:
+            data['phone'] = u''
         body = translate(
             EMAIL_TEMPLATE,
             context=self.request,
         ).format(**data)
+        body = u'\n'.join([body, agent_contact_info])
         email_msg = message_from_string(body.encode(email_charset))
         email_msg['To'] = formataddr((recipient, recipient))
 
