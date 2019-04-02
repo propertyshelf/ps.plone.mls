@@ -468,6 +468,15 @@ class DevelopmentDetails(BrowserView):
                 return getattr(settings, 'googleapi', '')
         return ''
 
+    def live_chat_embedding(self):
+        """Return embedding code for live chat widget if it is enabled."""
+        if not self.config.get('enable_live_chat', False):
+            return
+        embedding_code = getattr(self.item, 'live_chat_embedding', None)
+        if embedding_code is not None:
+            embedding_code = embedding_code.value
+        return embedding_code
+
     def use_fotorama(self):
         if not HAS_UI_SETTINGS:
             return False

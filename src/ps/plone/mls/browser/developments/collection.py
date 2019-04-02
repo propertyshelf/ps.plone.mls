@@ -266,6 +266,16 @@ class IDevelopmentCollectionConfiguration(form.Schema):
         title=_(u'Show Captcha'),
     )
 
+    enable_live_chat = schema.Bool(
+        default=False,
+        description=_(
+            u'Enable live chat embedding for developments with embedding '
+            u'code.',
+        ),
+        required=False,
+        title=_(u'Enable Live Chat Embedding'),
+    )
+
     modify_url = schema.Bool(
         default=True,
         description=_(
