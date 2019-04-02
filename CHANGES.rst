@@ -6,6 +6,7 @@ Changelog
 -----------------
 
 - Add live chat embedding option to development details.
+- Enhance developer contact message.
 
 
 0.14 (2018-05-22)
