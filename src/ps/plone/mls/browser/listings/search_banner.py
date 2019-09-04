@@ -153,6 +153,12 @@ class ISectionForm(form.Schema):
         source='ps.plone.mls.listings.min_bedrooms',
     )
 
+    baths = schema.Choice(
+        required=False,
+        title=_(u'Baths'),
+        source='ps.plone.mls.listings.min_bedrooms',
+    )
+
     price_min = schema.Int(
         required=False,
         title=_(u'Price (Min)'),
@@ -219,6 +225,10 @@ class SectionForm(form.Form):
         if beds:
             query[prefix + 'beds-min'] = beds
             query[prefix + 'beds-max'] = '--MAXVALUE--'
+        baths = data.pop('baths', None)
+        if baths:
+            query[prefix + 'baths-min'] = baths
+            query[prefix + 'baths-max'] = '--MAXVALUE--'
         category = data.pop('category', None)
         if self.config.get('hide_categories', False):
             category = self.config.get('default_category', None)
@@ -269,6 +279,10 @@ class SectionForm(form.Form):
                 self.widgets['beds'].pattern_options = {
                     'placeholder': _(u'Beds'),
                 }
+            if 'baths' in self.widgets:
+                self.widgets['baths'].pattern_options = {
+                    'placeholder': _(u'Baths'),
+                }
 
     def update_fields(self):
         """Update form field configurations."""
@@ -287,6 +301,8 @@ class SectionForm(form.Form):
                 self.fields['category'].widgetFactory = SelectFieldWidget
             if 'beds' in self.fields:
                 self.fields['beds'].widgetFactory = SelectFieldWidget
+            if 'baths' in self.fields:
+                self.fields['baths'].widgetFactory = SelectFieldWidget
 
     def _generate_categories(self):
         """Return a new categories vocabulary."""
@@ -765,4 +781,9 @@ class BannerImage(Download):
 NoValueBedrooms = StaticWidgetAttribute(
     _('Beds'),
     field=ISectionForm['beds'],
+)
+
+NoValueBathrooms = StaticWidgetAttribute(
+    _('Baths'),
+    field=ISectionForm['baths'],
 )
