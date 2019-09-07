@@ -528,6 +528,10 @@ body#visual-portal-wrapper.pat-plone .outer-wrapper .contenttype-ps-plone-mls-fe
   background: rgba(255, 255, 255, 0.2);
 }
 
+.listingsearchbanner .pat-autotoc.autotabs .autotoc-nav a {
+  background: #eeeeee;
+}
+
 .listingsearchbanner .autotoc-section header {
   display: none;
 }
