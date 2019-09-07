@@ -546,13 +546,16 @@ body#visual-portal-wrapper.pat-plone .outer-wrapper .contenttype-ps-plone-mls-fe
   margin: 0;
 }
 
-.listingsearchbanner .formControls input,
 .listingsearchbanner input[type="text"] {
   font-size: 1.25em;
 }
 
 .listingsearchbanner .formControls input {
   line-height: 20px;
+  background: #e5e5e5;
+  border-radius: 3px;
+  max-height: 33px;
+  padding: 5px 20px;
 }
 
 .listingsearchbanner .pat-select2 {
