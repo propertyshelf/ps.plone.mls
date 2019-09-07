@@ -526,6 +526,8 @@ body#visual-portal-wrapper.pat-plone .outer-wrapper .contenttype-ps-plone-mls-fe
 
 .listingsearchbanner .pat-autotoc.autotabs .autotoc-nav {
   background: rgba(255, 255, 255, 0.2);
+  overflow-x: auto;
+  max-height: 60px;
 }
 
 .listingsearchbanner .pat-autotoc.autotabs .autotoc-nav a {
@@ -574,6 +576,17 @@ body#visual-portal-wrapper.pat-plone .outer-wrapper .contenttype-ps-plone-mls-fe
 }
 
 @media (min-width: 768px) {
+  .listingsearchbanner .pat-autotoc.autotabs .autotoc-nav {
+    background: rgba(255, 255, 255, 0.2);
+    overflow-x: unset;
+    max-height: 40px;
+  }
+
+  .listingsearchbanner .pat-autotoc.autotabs .autotoc-nav a {
+    max-height: 32px;
+    padding: 5px 12px;
+  }
+
   .listingsearchbanner form .field,
   .listingsearchbanner form .formControls {
     display: inline-block;
