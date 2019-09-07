@@ -512,6 +512,10 @@ body#visual-portal-wrapper.pat-plone .outer-wrapper .contenttype-ps-plone-mls-fe
   padding: 8em 0;
 }
 
+.listingsearchbanner .container{
+  max-width: 690px;
+}
+
 #portal-globalnav-wrapper + .listingsearchbanner {
   margin-top: -20px;
 }
