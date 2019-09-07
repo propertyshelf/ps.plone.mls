@@ -46,6 +46,31 @@
         jq('.listingsearchbanner label').each(function() {
           jq(this).hide();
         });
+
+        // Rearrange Search Button
+        // Section 1
+        var elem = jq('.listingsearchbanner #form-section_1 .formControls');
+        if(elem.length > 0) {
+          elem.appendTo('.listingsearchbanner #formfield-form-section_1-widgets-q');
+        }
+
+        // Section 2
+        elem = jq('.listingsearchbanner #form-section_2 .formControls');
+        if(elem.length > 0) {
+          elem.appendTo('.listingsearchbanner #formfield-form-section_2-widgets-q');
+        }
+
+        // Section 3
+        elem = jq('.listingsearchbanner #form-section_3 .formControls');
+        if(elem.length > 0) {
+          elem.appendTo('.listingsearchbanner #formfield-form-section_3-widgets-q');
+        }
+
+        // Section 4
+        elem = jq('.listingsearchbanner #form-section_4 .formControls');
+        if(elem.length > 0) {
+          elem.appendTo('.listingsearchbanner #formfield-form-section_4-widgets-q');
+        }
       }
     });
   </script>
