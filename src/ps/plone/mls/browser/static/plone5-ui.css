@@ -520,6 +520,14 @@ body#visual-portal-wrapper.pat-plone .outer-wrapper .contenttype-ps-plone-mls-fe
   margin-top: -20px;
 }
 
+.listingsearchbanner .pat-autotoc.autotabs {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.listingsearchbanner .pat-autotoc.autotabs .autotoc-nav {
+  background: rgba(255, 255, 255, 0.2);
+}
+
 .listingsearchbanner .autotoc-section header {
   display: none;
 }
