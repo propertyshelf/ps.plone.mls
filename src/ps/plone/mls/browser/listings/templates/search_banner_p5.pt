@@ -47,6 +47,16 @@
           jq(this).hide();
         });
 
+        // Change search button into to use search icon
+        jq('.listingsearchbanner .formControls input').each(function() {
+          jq(this).attr({
+            src: '++resource++ps.plone.mls/icons/search-icon-1.png',
+            type: 'image',
+            alt: jq(this).attr('value'),
+          });
+          jq(this).removeAttr('value');
+        });
+
         // Rearrange Search Button
         // Section 1
         var elem = jq('.listingsearchbanner #form-section_1 .formControls');
