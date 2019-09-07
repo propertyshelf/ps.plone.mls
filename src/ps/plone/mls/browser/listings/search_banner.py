@@ -136,15 +136,15 @@ DEFAULT_CATEGORIES_2 = (
 class ISectionForm(form.Schema):
     """Section Search Form schema."""
 
+    q = schema.TextLine(
+        required=False,
+        title=_(u'Location, Keywords, Listing ID, ...'),
+    )
+
     category = schema.Choice(
         required=True,
         title=_(u'Category'),
         values=['one', 'two'],
-    )
-
-    q = schema.TextLine(
-        required=False,
-        title=_(u'Location, Keywords, Listing ID, ...'),
     )
 
     beds = schema.Choice(
