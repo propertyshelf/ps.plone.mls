@@ -549,6 +549,12 @@ body#visual-portal-wrapper.pat-plone .outer-wrapper .contenttype-ps-plone-mls-fe
   margin: 0;
 }
 
+.listingsearchbanner .advancedsearch {
+  float: right;
+  padding: 0.5em;
+  font-weight: bold;
+}
+
 .listingsearchbanner input[type="text"] {
   font-size: 1.2em;
 }

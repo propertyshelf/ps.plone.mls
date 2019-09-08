@@ -10,7 +10,7 @@
   <div class="listingsearchbanner" style=""
       tal:attributes="style string: background-image: url(${image_url});">
     <div class="container">
-      <p align="right" tal:define="url view/section_1/search_target_url | nothing"
+      <p class="advancedsearch" tal:define="url view/section_1/search_target_url | nothing"
           style="float: right; padding: 0.5em; font-weight: bold;"
           tal:condition="url"><a href=""
           tal:attributes="href url"
