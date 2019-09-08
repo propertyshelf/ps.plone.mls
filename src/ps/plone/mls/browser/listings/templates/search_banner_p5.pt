@@ -49,11 +49,10 @@
         // Change search button into to use search icon
         jq('.listingsearchbanner .formControls input').each(function() {
           jq(this).attr({
-            src: '++resource++ps.plone.mls/icons/search-icon-1.png',
-            type: 'image',
+            type: 'hidden',
             alt: jq(this).attr('value'),
           });
-          jq(this).removeAttr('value');
+          jq(this).after('<input type="image" src="++resource++ps.plone.mls/icons/search-icon-1.png" alt=' + jq(this).attr('value') + '>');
         });
 
         // Rearrange Search Button
