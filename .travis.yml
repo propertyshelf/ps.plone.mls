@@ -43,8 +43,10 @@ install:
   - buildout -c travis.cfg -N -q
 before_script:
   - "export DISPLAY=:99.0"
-  - "sh -e /etc/init.d/xvfb start"
   - firefox -v
+dist: xenial
+services:
+  - xvfb
 script:
   - bin/code-analysis
   - bin/test
