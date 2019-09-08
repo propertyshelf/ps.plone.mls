@@ -532,6 +532,7 @@ body#visual-portal-wrapper.pat-plone .outer-wrapper .contenttype-ps-plone-mls-fe
 
 .listingsearchbanner .pat-autotoc.autotabs .autotoc-nav a {
   background: #eeeeee;
+  font-size: 1.1em;
 }
 
 .listingsearchbanner .autotoc-section header {
@@ -549,7 +550,7 @@ body#visual-portal-wrapper.pat-plone .outer-wrapper .contenttype-ps-plone-mls-fe
 }
 
 .listingsearchbanner input[type="text"] {
-  font-size: 1.25em;
+  font-size: 1.2em;
 }
 
 .listingsearchbanner .formControls input {
@@ -577,8 +578,8 @@ body#visual-portal-wrapper.pat-plone .outer-wrapper .contenttype-ps-plone-mls-fe
 
 @media (min-width: 768px) {
   .plone-toolbar-left-expanded .listingsearchbanner .container{
-    max-width: 690px;
-    width: 690px;
+    max-width: 680px;
+    width: 680px;
   }
 
   .listingsearchbanner .pat-autotoc.autotabs .autotoc-nav {
