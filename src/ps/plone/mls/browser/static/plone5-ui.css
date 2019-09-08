@@ -513,7 +513,7 @@ body#visual-portal-wrapper.pat-plone .outer-wrapper .contenttype-ps-plone-mls-fe
 }
 
 .listingsearchbanner .container{
-  max-width: 690px;
+  max-width: 480px;
 }
 
 #portal-globalnav-wrapper + .listingsearchbanner {
@@ -576,6 +576,11 @@ body#visual-portal-wrapper.pat-plone .outer-wrapper .contenttype-ps-plone-mls-fe
 }
 
 @media (min-width: 768px) {
+  .plone-toolbar-left-expanded .listingsearchbanner .container{
+    max-width: 690px;
+    width: 690px;
+  }
+
   .listingsearchbanner .pat-autotoc.autotabs .autotoc-nav {
     background: rgba(255, 255, 255, 0.2);
     overflow-x: unset;
