@@ -131,7 +131,7 @@ DESCRIPTION_SECTION_HIDE_SECTION = _(
 
 DEFAULT_CATEGORIES_1 = (
     u'all:All:listing_type=rs,cs,ll\n'
-    u'houses:Houses:listing_type=rs&object_type=house,mobile,multiplex,'
+    u'houses:Homes:listing_type=rs&object_type=house,mobile,multiplex,'
     u'townhouse,freestanding_villa\n'
     u'condos:Condos:listing_type=rs&object_type=apartment,condominium,'
     u'half_duplex\n'
@@ -141,7 +141,7 @@ DEFAULT_CATEGORIES_1 = (
 
 DEFAULT_CATEGORIES_2 = (
     u'all:All:listing_type=rl,cl\n'
-    u'houses:Houses:listing_type=rl&object_type=house,mobile,multiplex,'
+    u'houses:Homes:listing_type=rl&object_type=house,mobile,multiplex,'
     u'townhouse,freestanding_villa\n'
     u'condos:Condos:listing_type=rl&object_type=apartment,condominium,'
     u'half_duplex\n'
