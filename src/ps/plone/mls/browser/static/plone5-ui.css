@@ -510,7 +510,7 @@ body#visual-portal-wrapper.pat-plone .outer-wrapper .contenttype-ps-plone-mls-fe
   background-position: 50% 50%;
   background-size: cover;
   padding: 8em 0;
-  margin: 1.5em 0;
+  margin: 0 0 1.5em 0;
   position: relative;
 }
 
