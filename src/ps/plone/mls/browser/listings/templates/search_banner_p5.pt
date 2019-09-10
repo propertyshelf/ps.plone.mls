@@ -6,9 +6,11 @@
       i18n:domain="ps.plone.mls"
       tal:omit-tag=""
       tal:condition="view/available | nothing"
-      tal:define="image_url view/image_url">
+      tal:define="image_url view/image_url;
+                  image_height view/config/image_height | nothing;
+                  height python: image_height or 450;">
   <div class="listingsearchbanner" style=""
-      tal:attributes="style string: background-image: url(${image_url});">
+      tal:attributes="style string: background-image: url(${image_url});; height: ${height}px;">
     <div class="container">
       <p class="advancedsearch" tal:define="url view/section_1/search_target_url | nothing"
           tal:condition="url"><a href=""

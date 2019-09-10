@@ -94,6 +94,7 @@ FIELDS_SECTION_4 = [
 FIELDS_UI = [
     'image',
     'image_url',
+    'image_height',
 ]
 
 LABEL_SECTION_SEARCH_PAGE = _(u'Search Target Page')
@@ -492,6 +493,18 @@ class ISearchBannerConfiguration(form.Schema):
         max_length=511,
         required=False,
         title=_(u'Banner Image URL'),
+    )
+
+    image_height = schema.Int(
+        default=450,
+        required=False,
+        description=_(
+            u'Enter the image height in pixels. The default is 450 and the '
+            u'recommended amount is between 350 and 600 pixels.',
+        ),
+        min=350,
+        max=1000,
+        title=_(u'Banner Image Height'),
     )
 
     section_1_search_target = schema.Choice(
