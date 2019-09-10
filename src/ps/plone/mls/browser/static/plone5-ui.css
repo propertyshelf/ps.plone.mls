@@ -566,13 +566,12 @@ body#visual-portal-wrapper.pat-plone .outer-wrapper .contenttype-ps-plone-mls-fe
 }
 
 .listingsearchbanner .formControls input {
-  line-height: 20px;
   background: #e5e5e5;
   border-radius: 4px 10px 10px 4px;
   border: 2px solid #999;
   margin: -2px 0 0 -4px;
-  max-height: 37px;
-  padding: 5px 20px;
+  max-height: 2.7em;
+  padding: 0.25em 2em;
 }
 
 .listingsearchbanner .pat-select2 {
