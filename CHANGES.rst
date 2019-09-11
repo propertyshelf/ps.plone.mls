@@ -5,7 +5,9 @@ Changelog
 0.16 (unreleased)
 -----------------
 
-- Nothing changed yet.
+- Design improvements of listing search banner.
+- Add bathrooms field to listing search banner.
+- Add configuration options to hide/show all extra fields on listing search banner.
 
 
 0.15 (2019-04-02)
