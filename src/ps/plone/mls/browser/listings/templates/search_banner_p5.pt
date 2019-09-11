@@ -6,42 +6,32 @@
       i18n:domain="ps.plone.mls"
       tal:omit-tag=""
       tal:condition="view/available | nothing"
-      tal:define="image_url view/image_url">
+      tal:define="image_url view/image_url;
+                  image_height view/config/image_height | nothing;
+                  height python: image_height or 450;">
   <div class="listingsearchbanner" style=""
-      tal:attributes="style string: background-image: url(${image_url});">
+      tal:attributes="style string: background-image: url(${image_url});; height: ${height}px;">
     <div class="container">
+      <p class="advancedsearch" tal:define="url view/section_1/search_target_url | nothing"
+          tal:condition="url"><a href=""
+          tal:attributes="href url"
+          i18n:translate="">Advanced Search</a></p>
       <div class="pat-autotoc autotabs" data-pat-autotoc="section:section;levels:header;">
         <section tal:define="form view/section_1 | nothing" tal:condition="form">
           <header><span tal:replace="view/config/section_1_title">[title]</span></header>
           <div tal:replace="structure form"></div>
-          <p tal:define="url view/section_1/search_target_url | nothing"
-              tal:condition="url"><a href=""
-              tal:attributes="href url"
-              i18n:translate="">Advanced Search</a></p>
         </section>
         <section tal:define="form view/section_2 | nothing" tal:condition="form">
           <header><span tal:replace="view/config/section_2_title">[title]</span></header>
           <div tal:replace="structure form"></div>
-          <p tal:define="url view/section_2/search_target_url | nothing"
-              tal:condition="url"><a href=""
-              tal:attributes="href url"
-              i18n:translate="">Advanced Search</a></p>
         </section>
         <section tal:define="form view/section_3 | nothing" tal:condition="form">
           <header><span tal:replace="view/config/section_3_title">[title]</span></header>
           <div tal:replace="structure form"></div>
-          <p tal:define="url view/section_3/search_target_url | nothing"
-              tal:condition="url"><a href=""
-              tal:attributes="href url"
-              i18n:translate="">Advanced Search</a></p>
         </section>
         <section tal:define="form view/section_4 | nothing" tal:condition="form">
           <header><span tal:replace="view/config/section_4_title">[title]</span></header>
           <div tal:replace="structure form"></div>
-          <p tal:define="url view/section_4/search_target_url | nothing"
-              tal:condition="url"><a href=""
-              tal:attributes="href url"
-              i18n:translate="">Advanced Search</a></p>
         </section>
       </div>
     </div>

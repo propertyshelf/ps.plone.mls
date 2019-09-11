@@ -54,6 +54,8 @@ FIELDS_SECTION_1 = [
     'section_1_default_category',
     'section_1_hide_categories',
     'section_1_hide_beds',
+    'section_1_hide_baths',
+    'section_1_hide_price',
     'section_1_hide_section',
 ]
 FIELDS_SECTION_2 = [
@@ -63,6 +65,8 @@ FIELDS_SECTION_2 = [
     'section_2_default_category',
     'section_2_hide_categories',
     'section_2_hide_beds',
+    'section_2_hide_baths',
+    'section_2_hide_price',
     'section_2_hide_section',
 ]
 FIELDS_SECTION_3 = [
@@ -72,6 +76,8 @@ FIELDS_SECTION_3 = [
     'section_3_default_category',
     'section_3_hide_categories',
     'section_3_hide_beds',
+    'section_3_hide_baths',
+    'section_3_hide_price',
     'section_3_hide_section',
 ]
 FIELDS_SECTION_4 = [
@@ -81,11 +87,14 @@ FIELDS_SECTION_4 = [
     'section_4_default_category',
     'section_4_hide_categories',
     'section_4_hide_beds',
+    'section_4_hide_baths',
+    'section_4_hide_price',
     'section_4_hide_section',
 ]
 FIELDS_UI = [
     'image',
     'image_url',
+    'image_height',
 ]
 
 LABEL_SECTION_SEARCH_PAGE = _(u'Search Target Page')
@@ -94,6 +103,8 @@ LABEL_SECTION_CATEGORIES = _(u'Categories')
 LABEL_SECTION_DEFAULT_CATEGORY = _(u'Default Category')
 LABEL_SECTION_HIDE_CATEGORY = _(u'Hide category')
 LABEL_SECTION_HIDE_BEDS = _(u'Hide bedrooms')
+LABEL_SECTION_HIDE_BATHS = _(u'Hide bathrooms')
+LABEL_SECTION_HIDE_PRICE = _(u'Hide price')
 LABEL_SECTION_HIDE_SECTION = _(u'Hide section')
 
 DESCRIPTION_SECTION_SEARCH_PAGE = _(
@@ -109,13 +120,19 @@ DESCRIPTION_SECTION_HIDE_CATEGORY = _(
 DESCRIPTION_SECTION_HIDE_BEDS = _(
     u'Hide the bedrooms field.',
 )
+DESCRIPTION_SECTION_HIDE_BATHS = _(
+    u'Hide the bathrooms field.',
+)
+DESCRIPTION_SECTION_HIDE_PRICE = _(
+    u'Hide the price min and price max field.',
+)
 DESCRIPTION_SECTION_HIDE_SECTION = _(
     u'Don\'t show this section at all.',
 )
 
 DEFAULT_CATEGORIES_1 = (
     u'all:All:listing_type=rs,cs,ll\n'
-    u'houses:Houses:listing_type=rs&object_type=house,mobile,multiplex,'
+    u'houses:Homes:listing_type=rs&object_type=house,mobile,multiplex,'
     u'townhouse,freestanding_villa\n'
     u'condos:Condos:listing_type=rs&object_type=apartment,condominium,'
     u'half_duplex\n'
@@ -125,7 +142,7 @@ DEFAULT_CATEGORIES_1 = (
 
 DEFAULT_CATEGORIES_2 = (
     u'all:All:listing_type=rl,cl\n'
-    u'houses:Houses:listing_type=rl&object_type=house,mobile,multiplex,'
+    u'houses:Homes:listing_type=rl&object_type=house,mobile,multiplex,'
     u'townhouse,freestanding_villa\n'
     u'condos:Condos:listing_type=rl&object_type=apartment,condominium,'
     u'half_duplex\n'
@@ -136,20 +153,26 @@ DEFAULT_CATEGORIES_2 = (
 class ISectionForm(form.Schema):
     """Section Search Form schema."""
 
+    q = schema.TextLine(
+        required=False,
+        title=_(u'Location, Keywords, Listing ID, ...'),
+    )
+
     category = schema.Choice(
         required=True,
         title=_(u'Category'),
         values=['one', 'two'],
     )
 
-    q = schema.TextLine(
-        required=False,
-        title=_(u'Location, Keywords, Listing ID, ...'),
-    )
-
     beds = schema.Choice(
         required=False,
         title=_(u'Bedrooms'),
+        source='ps.plone.mls.listings.min_bedrooms',
+    )
+
+    baths = schema.Choice(
+        required=False,
+        title=_(u'Baths'),
         source='ps.plone.mls.listings.min_bedrooms',
     )
 
@@ -219,6 +242,10 @@ class SectionForm(form.Form):
         if beds:
             query[prefix + 'beds-min'] = beds
             query[prefix + 'beds-max'] = '--MAXVALUE--'
+        baths = data.pop('baths', None)
+        if baths:
+            query[prefix + 'baths-min'] = baths
+            query[prefix + 'baths-max'] = '--MAXVALUE--'
         category = data.pop('category', None)
         if self.config.get('hide_categories', False):
             category = self.config.get('default_category', None)
@@ -257,6 +284,11 @@ class SectionForm(form.Form):
             omitted.append('category')
         if self.config.get('hide_beds', False):
             omitted.append('beds')
+        if self.config.get('hide_baths', False):
+            omitted.append('baths')
+        if self.config.get('hide_price', False):
+            omitted.append('price_min')
+            omitted.append('price_max')
         self.fields = field.Fields(ISectionForm).omit(*omitted)
         self.update_fields()
         super(SectionForm, self).update()
@@ -268,6 +300,10 @@ class SectionForm(form.Form):
             if 'beds' in self.widgets:
                 self.widgets['beds'].pattern_options = {
                     'placeholder': _(u'Beds'),
+                }
+            if 'baths' in self.widgets:
+                self.widgets['baths'].pattern_options = {
+                    'placeholder': _(u'Baths'),
                 }
 
     def update_fields(self):
@@ -287,6 +323,8 @@ class SectionForm(form.Form):
                 self.fields['category'].widgetFactory = SelectFieldWidget
             if 'beds' in self.fields:
                 self.fields['beds'].widgetFactory = SelectFieldWidget
+            if 'baths' in self.fields:
+                self.fields['baths'].widgetFactory = SelectFieldWidget
 
     def _generate_categories(self):
         """Return a new categories vocabulary."""
@@ -457,6 +495,18 @@ class ISearchBannerConfiguration(form.Schema):
         title=_(u'Banner Image URL'),
     )
 
+    image_height = schema.Int(
+        default=450,
+        required=False,
+        description=_(
+            u'Enter the image height in pixels. The default is 450 and the '
+            u'recommended amount is between 350 and 600 pixels.',
+        ),
+        min=350,
+        max=1000,
+        title=_(u'Banner Image Height'),
+    )
+
     section_1_search_target = schema.Choice(
         description=DESCRIPTION_SECTION_SEARCH_PAGE,
         required=False,
@@ -499,6 +549,18 @@ class ISearchBannerConfiguration(form.Schema):
         description=DESCRIPTION_SECTION_HIDE_BEDS,
         required=False,
         title=LABEL_SECTION_HIDE_BEDS,
+    )
+
+    section_1_hide_baths = schema.Bool(
+        description=DESCRIPTION_SECTION_HIDE_BATHS,
+        required=False,
+        title=LABEL_SECTION_HIDE_BATHS,
+    )
+
+    section_1_hide_price = schema.Bool(
+        description=DESCRIPTION_SECTION_HIDE_PRICE,
+        required=False,
+        title=LABEL_SECTION_HIDE_PRICE,
     )
 
     section_1_hide_section = schema.Bool(
@@ -551,6 +613,18 @@ class ISearchBannerConfiguration(form.Schema):
         title=LABEL_SECTION_HIDE_BEDS,
     )
 
+    section_2_hide_baths = schema.Bool(
+        description=DESCRIPTION_SECTION_HIDE_BATHS,
+        required=False,
+        title=LABEL_SECTION_HIDE_BATHS,
+    )
+
+    section_2_hide_price = schema.Bool(
+        description=DESCRIPTION_SECTION_HIDE_PRICE,
+        required=False,
+        title=LABEL_SECTION_HIDE_PRICE,
+    )
+
     section_2_hide_section = schema.Bool(
         description=DESCRIPTION_SECTION_HIDE_SECTION,
         required=False,
@@ -596,6 +670,18 @@ class ISearchBannerConfiguration(form.Schema):
         description=DESCRIPTION_SECTION_HIDE_BEDS,
         required=False,
         title=LABEL_SECTION_HIDE_BEDS,
+    )
+
+    section_3_hide_baths = schema.Bool(
+        description=DESCRIPTION_SECTION_HIDE_BATHS,
+        required=False,
+        title=LABEL_SECTION_HIDE_BATHS,
+    )
+
+    section_3_hide_price = schema.Bool(
+        description=DESCRIPTION_SECTION_HIDE_PRICE,
+        required=False,
+        title=LABEL_SECTION_HIDE_PRICE,
     )
 
     section_3_hide_section = schema.Bool(
@@ -644,6 +730,18 @@ class ISearchBannerConfiguration(form.Schema):
         description=DESCRIPTION_SECTION_HIDE_BEDS,
         required=False,
         title=LABEL_SECTION_HIDE_BEDS,
+    )
+
+    section_4_hide_baths = schema.Bool(
+        description=DESCRIPTION_SECTION_HIDE_BATHS,
+        required=False,
+        title=LABEL_SECTION_HIDE_BATHS,
+    )
+
+    section_4_hide_price = schema.Bool(
+        description=DESCRIPTION_SECTION_HIDE_PRICE,
+        required=False,
+        title=LABEL_SECTION_HIDE_PRICE,
     )
 
     section_4_hide_section = schema.Bool(
@@ -765,4 +863,9 @@ class BannerImage(Download):
 NoValueBedrooms = StaticWidgetAttribute(
     _('Beds'),
     field=ISectionForm['beds'],
+)
+
+NoValueBathrooms = StaticWidgetAttribute(
+    _('Baths'),
+    field=ISectionForm['baths'],
 )

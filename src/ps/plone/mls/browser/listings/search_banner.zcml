@@ -61,7 +61,12 @@
   <!-- z3c.form adapter. -->
   <adapter
       factory=".search_banner.NoValueBedrooms"
-      name="noValueMessage"
+      name="noValueMessageBedrooms"
+      />
+
+  <adapter
+      factory=".search_banner.NoValueBathrooms"
+      name="noValueMessageBathrooms"
       />
 
 </configure>
