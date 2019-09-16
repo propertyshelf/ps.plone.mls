@@ -5,7 +5,15 @@ from collective.jsonify.methods import _clean_dict
 from collective.jsonify.methods import get_catalog_results  # noqa: F401
 from collective.jsonify.methods import get_children  # noqa: F401
 from collective.jsonify.wrapper import Wrapper
+from plone.mls.core.interfaces import ILocalMLSSettings
+from plone.mls.listing.browser.listing_collection import IListingCollection
+from plone.mls.listing.browser.listing_search import IListingSearch
+from plone.mls.listing.browser.localconfig import ILocalAgencyInfo
+from plone.mls.listing.browser.recent_listings import IRecentListings
 from ps.plone.mls import config
+from ps.plone.mls.browser.listings.featured import IFeaturedListings
+from ps.plone.mls.interfaces import IDevelopmentCollection
+from ps.plone.mls.interfaces import IListingSearchBanner
 from zope.annotation.interfaces import IAnnotations
 
 import pprint
@@ -17,6 +25,17 @@ try:
     import simplejson as json
 except ImportError:
     import json
+
+MLS_IFACE_MAPPING = {
+    IDevelopmentCollection: config.SETTINGS_DEVELOPMENT_COLLECTION,
+    IListingCollection: config.SETTINGS_LISTING_COLLECTION,
+    IFeaturedListings: config.SETTINGS_LISTING_FEATURED,
+    IRecentListings: config.SETTINGS_LISTING_RECENT,
+    IListingSearch: config.SETTINGS_LISTING_SEARCH,
+    IListingSearchBanner: config.SETTINGS_LISTING_SEARCH_BANNER,
+    ILocalAgencyInfo: config.SETTINGS_LOCAL_AGENCY,
+    ILocalMLSSettings: config.SETTINGS_LOCAL_MLS,
+}
 
 
 def get_item(self):
@@ -83,3 +102,12 @@ class MLSWrapper(Wrapper):
             settings = annotations.get(item, {})
             if settings:
                 self['_mlsconfig'][item] = settings
+
+        # get active viewlets/integrations
+        active = []
+        for (iface, config_key) in MLS_IFACE_MAPPING.items():
+            if iface.providedBy(self.context):
+                active.append(config_key)
+
+        if active:
+            self['_mlsconfig']['active'] = active
