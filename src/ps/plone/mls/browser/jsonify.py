@@ -87,17 +87,7 @@ class MLSWrapper(Wrapper):
 
         self['_mlsconfig'] = {}
 
-        config_items = [
-            config.SETTINGS_DEVELOPMENT_COLLECTION,
-            config.SETTINGS_LISTING_COLLECTION,
-            config.SETTINGS_LISTING_FEATURED,
-            config.SETTINGS_LISTING_RECENT,
-            config.SETTINGS_LISTING_SEARCH,
-            config.SETTINGS_LISTING_SEARCH_BANNER,
-            config.SETTINGS_LOCAL_AGENCY,
-            config.SETTINGS_LOCAL_MLS,
-        ]
-
+        config_items = MLS_IFACE_MAPPING.values()
         for item in config_items:
             settings = annotations.get(item, {})
             if settings:
