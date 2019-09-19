@@ -85,13 +85,13 @@ class MLSWrapper(Wrapper):
         except Exception:
             return
 
-        self['_mlsconfig'] = {}
+        self['_mls_config'] = {}
 
         config_items = MLS_IFACE_MAPPING.values()
         for item in config_items:
             settings = annotations.get(item, {})
             if settings:
-                self['_mlsconfig'][item] = settings
+                self['_mls_config'][item] = settings
 
         # get active viewlets/integrations
         active = []
@@ -99,5 +99,4 @@ class MLSWrapper(Wrapper):
             if iface.providedBy(self.context):
                 active.append(config_key)
 
-        if active:
-            self['_mlsconfig']['active'] = active
+        self['_mls_activated'] = active
