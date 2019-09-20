@@ -12,6 +12,7 @@ from plone.mls.listing.browser.interfaces import IListingDetails
 from plone.supermodel import model
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from ps.plone.mls import _
+from ps.plone.mls import config
 from ps.plone.mls import PLONE_4
 from ps.plone.mls import PLONE_5
 from ps.plone.mls.interfaces import IListingTraversable
@@ -26,7 +27,7 @@ from zope.publisher.browser import BrowserView
 from zope.traversing.browser.absoluteurl import absoluteURL
 
 
-CONFIGURATION_KEY = 'ps.plone.mls.listing.featuredlistings'
+CONFIGURATION_KEY = config.SETTINGS_LISTING_FEATURED
 
 
 class IPossibleFeaturedListings(Interface):

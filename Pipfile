@@ -1,21 +1,14 @@
 [[source]]
-
-url = "https://pypi.python.org/simple"
-verify_ssl = true
 name = "pypi"
-
-
-[dev-packages]
-
-
+url = "https://pypi.org/simple"
+verify_ssl = true
 
 [packages]
+"zc.buildout" = "==2.12.2"
 
-setuptools = "==38.2.4"
-"zc.buildout" = "==2.11.3"
+[dev-packages]
 ipdb = "*"
-
+yapf = "*"
 
 [requires]
-
 python_version = "2.7"
