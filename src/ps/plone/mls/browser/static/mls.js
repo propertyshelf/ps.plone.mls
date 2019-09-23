@@ -41,7 +41,7 @@ jQuery(function(jq) {
       type: 'hidden',
       alt: jq(this).attr('value'),
     });
-    jq(this).after('<input type="image" src="++resource++ps.plone.mls/icons/search-icon-1.png" alt=' + jq(this).attr('value') + '>');
+    jq(this).after('<input type="image" src="++resource++ps.plone.mls/icons/search-icon-1.png" alt=' + jq(this).attr('value') + ' id=' + jq(this).attr('id') + '-icon >');
   });
 
   // Rearrange Search Button
