@@ -49,7 +49,7 @@ services:
   - xvfb
 script:
   - bin/code-analysis
-  - bin/test
+  - bin/testnorobot
 after_success:
   - bin/createcoverage
   - pip install coveralls
