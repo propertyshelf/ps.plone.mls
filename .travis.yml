@@ -51,7 +51,7 @@ script:
   - bin/code-analysis
   - bin/testnorobot
 after_success:
-  - bin/createcoverage
+  - travis_wait bin/createcoverage
   - pip install coveralls
   - coveralls
 notifications:
