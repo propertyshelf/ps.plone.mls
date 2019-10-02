@@ -5,7 +5,7 @@
       lang="en"
       i18n:domain="plone.mls.listing"
       tal:omit-tag="">
-  <section class="listing__results ${view/layout_css}"
+  <section class="listing__results ${view/layout_css | nothing}"
            tal:condition="view/available | nothing"
            tal:define="page_url view/view_url | nothing;
                        is_view_template context/@@plone_context_state/is_view_template;
