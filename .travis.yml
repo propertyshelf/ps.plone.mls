@@ -16,6 +16,7 @@ matrix:
   allow_failures:
     - env: PLONE_VERSION=4.1
     - env: PLONE_VERSION=4.2
+    - env: PLONE_VERSION=5.0
   exclude:
     - python: 2.7
       env: PLONE_VERSION=4.1
@@ -31,6 +32,7 @@ matrix:
 addons:
   firefox: 45.8.0esr
 before_install:
+  - pip freeze
   # FIXME: We have no idea how and why six==1.11.0 is being installed
   - pip uninstall -y six
 install:
