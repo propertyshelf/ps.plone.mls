@@ -232,7 +232,7 @@ class DevelopmentTraverser(MLSItemTraverser):
             listing.get('id', {}).get('value', None) for listing in results
         ]
         if listing_id not in available_listings:
-                raise NotFound(self.context, listing_id, self.request)
+            raise NotFound(self.context, listing_id, self.request)
 
         setattr(self.request, 'listing_id', listing_id)
 

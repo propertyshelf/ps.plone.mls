@@ -25,6 +25,7 @@ class AvailableDevelopmentCollections(object):
             items.append(SimpleTerm(brain.UID, brain.UID, title))
         return SimpleVocabulary(items)
 
+
 AvailableDevelopmentCollectionsFactory = AvailableDevelopmentCollections()
 
 
@@ -37,5 +38,6 @@ class SortOptionsVocabulary(object):
         items.append(SimpleTerm('created', _(u'Creation Date')))
         items.append(SimpleTerm('sortable_title', _(u'Title')))
         return SimpleVocabulary(items)
+
 
 SortOptionsVocabularyFactory = SortOptionsVocabulary()

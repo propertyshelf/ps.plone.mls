@@ -33,6 +33,7 @@ class AvailableListingSearches(object):
             items.append(SimpleTerm(brain.UID, brain.UID, title))
         return SimpleVocabulary(items)
 
+
 AvailableListingSearchesFactory = AvailableListingSearches()
 
 
@@ -45,5 +46,6 @@ class MinBedroomsVocabulary(object):
         for item in MIN_BEDROOM_VALUES:
             items.append(SimpleTerm(item[0], item[0], item[1]))
         return SimpleVocabulary(items)
+
 
 MinBedroomsVocabularyFactory = MinBedroomsVocabulary()
