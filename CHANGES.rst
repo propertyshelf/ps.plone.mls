@@ -8,6 +8,8 @@ Changelog
 - Design improvements of listing search banner.
 - Add bathrooms field to listing search banner.
 - Add configuration options to hide/show all extra fields on listing search banner.
+- MLS specific configurations on Plone content items can now be exported to JSON for use with a transmogrifier.
+- Add grid view to featured listings viewlet.
 
 
 0.15 (2019-04-02)
