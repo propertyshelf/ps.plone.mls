@@ -702,7 +702,8 @@ body#visual-portal-wrapper.pat-plone .outer-wrapper .contenttype-ps-plone-mls-fe
 .embed-responsive embed,
 .embed-responsive iframe,
 .embed-responsive object,
-.embed-responsive video {
+.embed-responsive video,
+.embed-responsive span {
   position: absolute;
   top: 0;
   bottom: 0;
