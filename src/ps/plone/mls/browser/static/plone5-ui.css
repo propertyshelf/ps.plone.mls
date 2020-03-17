@@ -555,10 +555,15 @@ body#visual-portal-wrapper.pat-plone .outer-wrapper .contenttype-ps-plone-mls-fe
   margin: 0;
 }
 
-.listingsearchbanner .advancedsearch {
-  float: right;
+.listingsearchbanner .advancedsearch-mobile {
+  display: block;
+  text-align: center;
   padding: 0.5em;
   font-weight: bold;
+}
+
+.listingsearchbanner .advancedsearch {
+  display: none;
 }
 
 .listingsearchbanner input[type="text"] {
@@ -633,6 +638,17 @@ body#visual-portal-wrapper.pat-plone .outer-wrapper .contenttype-ps-plone-mls-fe
   .listingsearchbanner .container{
     max-width: 680px;
     width: 680px;
+  }
+
+  .listingsearchbanner .advancedsearch-mobile {
+    display: none;
+  }
+
+  .listingsearchbanner .advancedsearch {
+    display: block;
+    float: right;
+    padding: 0.5em;
+    font-weight: bold;
   }
 
   .listingsearchbanner .pat-autotoc.autotabs .autotoc-nav {
