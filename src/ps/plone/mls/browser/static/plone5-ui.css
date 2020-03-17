@@ -515,9 +515,8 @@ body#visual-portal-wrapper.pat-plone .outer-wrapper .contenttype-ps-plone-mls-fe
 }
 
 .listingsearchbanner .container{
-  width: 480px;
   position: absolute;
-  top: 35%;
+  top: 15%;
   left: 50%;
   transform: translate(-50%, 0);
 }
@@ -636,6 +635,7 @@ body#visual-portal-wrapper.pat-plone .outer-wrapper .contenttype-ps-plone-mls-fe
 
 @media (min-width: 768px) {
   .listingsearchbanner .container{
+    top: 35%;
     max-width: 680px;
     width: 680px;
   }
