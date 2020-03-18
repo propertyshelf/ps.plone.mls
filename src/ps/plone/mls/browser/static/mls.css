@@ -901,13 +901,10 @@ body .development__header .development_location{
   padding: 0 1em;
 }
 
-.listingsearchbanner form div.field {
-  margin: 1em 0.25em;
-}
-
 .listingsearchbanner form div.field,
 .listingsearchbanner form div.formControls {
   display: inline-block;
+  margin: 0.5em 0.2em;
 }
 
 .listingsearchbanner .field input,
@@ -917,11 +914,19 @@ body .development__header .development_location{
   width: auto;
 }
 
+.listingsearchbanner #formfield-form-section_1-widgets-q,
+.listingsearchbanner #formfield-form-section_2-widgets-q,
+.listingsearchbanner #formfield-form-section_3-widgets-q,
+.listingsearchbanner #formfield-form-section_4-widgets-q {
+  display: flex;
+  padding: 0.5em 0.5em 0 0.5em;
+}
+
 .listingsearchbanner #form-section_1-widgets-q,
 .listingsearchbanner #form-section_2-widgets-q,
 .listingsearchbanner #form-section_3-widgets-q,
 .listingsearchbanner #form-section_4-widgets-q {
-  width: 20em;
+  flex: 1;
 }
 
 .listingsearchbanner #form-section_1-widgets-price_min,
