@@ -544,6 +544,10 @@ body#visual-portal-wrapper.pat-plone .outer-wrapper .contenttype-ps-plone-mls-fe
   display: none;
 }
 
+.listingsearchbanner form {
+  padding: 0.7em;
+}
+
 .listingsearchbanner form .formControls,
 .listingsearchbanner .pat-autotoc.autotabs .formControls,
 .listingsearchbanner .autotabs .formControls {
@@ -557,7 +561,7 @@ body#visual-portal-wrapper.pat-plone .outer-wrapper .contenttype-ps-plone-mls-fe
 .listingsearchbanner .advancedsearch-mobile {
   display: block;
   text-align: center;
-  padding: 0.5em;
+  padding: 0.2em;
   font-weight: bold;
 }
 
@@ -613,6 +617,7 @@ body#visual-portal-wrapper.pat-plone .outer-wrapper .contenttype-ps-plone-mls-fe
 .listingsearchbanner form div.field {
   display: inline-block;
   vertical-align: middle;
+  margin-bottom: 0.5em;
 }
 
 .listingsearchbanner #form-section_1-widgets-price_min,
@@ -630,7 +635,7 @@ body#visual-portal-wrapper.pat-plone .outer-wrapper .contenttype-ps-plone-mls-fe
 .listingsearchbanner #formfield-form-section_2-widgets-category,
 .listingsearchbanner #formfield-form-section_3-widgets-category,
 .listingsearchbanner #formfield-form-section_4-widgets-category {
-  width: 10em;
+  width: 9em;
 }
 
 @media (min-width: 768px) {
@@ -662,7 +667,7 @@ body#visual-portal-wrapper.pat-plone .outer-wrapper .contenttype-ps-plone-mls-fe
     padding: 5px 12px;
   }
 
-  .listingsearchbanner form .field,
+  .listingsearchbanner form div.field,
   .listingsearchbanner form .formControls {
     display: inline-block;
     margin-bottom: 0;
