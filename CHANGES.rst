@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-0.16 (unreleased)
+0.16 (2020-03-17)
 -----------------
 
 - Design improvements of listing search banner.
