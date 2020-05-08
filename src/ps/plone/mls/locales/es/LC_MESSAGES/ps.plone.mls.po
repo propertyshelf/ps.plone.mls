@@ -5,7 +5,7 @@
 # Propertyshelf <development@propertyshelf.com>, 2020
 # Thomas Massmann <thomas.massmann@it-spir.it>, 2014,2017
 # Valeria Garcia <valeriassimsou@gmail.com>, 2014-2015
-# Zach Cashero <zcashero@gmail.com>, 2015
+# Zach Cashero <zach@propertyshelf.com>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: MLS Plone Components\n"
