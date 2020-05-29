@@ -1,18 +1,19 @@
-# 
 # Translators:
-# Benjamin Berger <ben@propertyshelf.com>, 2015
-# Frank Robles <frank@propertyshelf.com>, 2016-2017
+# Translators:
+# Thomas Massmann <thomas.massmann@it-spir.it>, 2020
+# Benjamin Berger <ben@propertyshelf.com>, 2020
 # Propertyshelf <development@propertyshelf.com>, 2020
-# Thomas Massmann <thomas.massmann@it-spir.it>, 2014,2017
-# Valeria Garcia <valeriassimsou@gmail.com>, 2014-2015
-# Zach Cashero <zach@propertyshelf.com>, 2015
+# Valeria Garcia <valeriassimsou@gmail.com>, 2020
+# Frank Robles <frank@propertyshelf.com>, 2020
+# Zach Cashero <zach@propertyshelf.com>, 2020
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: MLS Plone Components\n"
 "POT-Creation-Date: 2020-03-18 00:57+0000\n"
-"PO-Revision-Date: 2020-03-18 01:38+0000\n"
-"Last-Translator: Propertyshelf <development@propertyshelf.com>\n"
-"Language-Team: Spanish (http://www.transifex.com/propertyshelf/MLS_Plone/language/es/)\n"
+"PO-Revision-Date: 2020-05-29 15:17+0000\n"
+"Last-Translator: Zach Cashero <zach@propertyshelf.com>, 2020\n"
+"Language-Team: Spanish (https://www.transifex.com/propertyshelf/teams/13797/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -145,7 +146,9 @@ msgstr "Email destinatario alternativo"
 msgid ""
 "An error occured trying to connect to the configured MLS. Please check your "
 "settings or try again later."
-msgstr "Ocurrió un error cuando conectándose al MLS.  Revisa tu configuración o intenta otra vez más tarde. "
+msgstr ""
+"Ocurrió un error cuando conectándose al MLS.  Revisa tu configuración o "
+"intenta otra vez más tarde. "
 
 #: ps/plone/mls/browser/developments/collection.py:248
 msgid "BCC Recipients"
@@ -187,7 +190,7 @@ msgstr "Comprar"
 #: ps/plone/mls/browser/controlpanel/controlpanel_layout_caching.pt:35
 #: ps/plone/mls/browser/controlpanel/controlpanel_layout_contact_info.pt:35
 msgid "Caching"
-msgstr ""
+msgstr "Almacenando en caché"
 
 #: ps/plone/mls/browser/developments/collection.py:412
 #: ps/plone/mls/browser/listings/featured.py:175
@@ -245,7 +248,7 @@ msgstr "Contacto"
 #: ps/plone/mls/browser/controlpanel/controlpanel_layout_caching.pt:32
 #: ps/plone/mls/browser/controlpanel/controlpanel_layout_contact_info.pt:32
 msgid "Contact Information"
-msgstr ""
+msgstr "Información de Contacto"
 
 #: ps/plone/mls/browser/developments/templates/development_details_p5.pt:74
 #: ps/plone/mls/browser/developments/templates/development_details_view.pt:25
@@ -313,11 +316,12 @@ msgstr "Descargar PDF"
 
 #: ps/plone/mls/browser/developments/collection.py:243
 msgid "E-mail addresses which receive a blind carbon copy (comma separated)."
-msgstr "Direcciones de E-mail que recibirán copia oculta (separadas por coma)."
+msgstr ""
+"Direcciones de E-mail que recibirán copia oculta (separadas por coma)."
 
 #: ps/plone/mls/browser/controlpanel/controlpanel_usage.pt:60
 msgid "Edit"
-msgstr ""
+msgstr "Editar"
 
 #: ps/plone/mls/browser/developments/collection.py:277
 msgid "Enable Live Chat Embedding"
@@ -411,7 +415,9 @@ msgstr "Cuantos listados mostrado en la pagina de listados?"
 msgid ""
 "How should the results be sorted? If nothing is selected, the results are "
 "sorted by relevance."
-msgstr "Como filtrar los resultados?  Si nada esta seleccionado, los resultados se organizan por relevancia.  "
+msgstr ""
+"Como filtrar los resultados?  Si nada esta seleccionado, los resultados se "
+"organizan por relevancia.  "
 
 #: ps/plone/mls/browser/listings/featured.py:134
 #: ps/plone/mls/content/featured.py:29
@@ -428,7 +434,9 @@ msgstr ""
 msgid ""
 "If enabled, a form to contact the responsible agent will be shown on the "
 "detail page for a development."
-msgstr "Si esta activado, un formulario para contactar el agente responsable será mostrado en la página de detalles del proyecto."
+msgstr ""
+"Si esta activado, un formulario para contactar el agente responsable será "
+"mostrado en la página de detalles del proyecto."
 
 #: ps/plone/mls/browser/developments/collection.py:311
 msgid "If enabled, only developments for the configured agency will be shown."
@@ -442,19 +450,25 @@ msgstr ""
 msgid ""
 "If enabled, the contact information for a development will be shown on the "
 "detail page for a development."
-msgstr "Si esta activado, la información será visible en la página de detalles del proyecto."
+msgstr ""
+"Si esta activado, la información será visible en la página de detalles del "
+"proyecto."
 
 #: ps/plone/mls/browser/developments/collection.py:253
 msgid ""
 "If the contact form is enabled, an anchor link will show as quick navigation"
 " to the form."
-msgstr "Si el formulario de contacto está activo, se mostrará un vínculo para navegación rápida hacia el formulario."
+msgstr ""
+"Si el formulario de contacto está activo, se mostrará un vínculo para "
+"navegación rápida hacia el formulario."
 
 #: ps/plone/mls/browser/listings/search_banner.py:489
 msgid ""
 "Instead of uploading an image, you may enter the URL of an image hosted on "
 "another server."
-msgstr "En lugar de subir una imagen, puede ingresar la dirección URL de una imagen almacenada en otro servidor."
+msgstr ""
+"En lugar de subir una imagen, puede ingresar la dirección URL de una imagen "
+"almacenada en otro servidor."
 
 #: ps/plone/mls/utils.py:22
 msgid "Invalid email address."
@@ -487,7 +501,7 @@ msgstr ""
 
 #: ps/plone/mls/browser/controlpanel/controlpanel_usage.pt:53
 msgid "Local MLS Settings"
-msgstr ""
+msgstr "Configuración Local del MLS"
 
 #: ps/plone/mls/browser/listings/search_banner.py:158
 msgid "Location, Keywords, Listing ID, ..."
@@ -495,11 +509,11 @@ msgstr "Ubicación, Palabra clave, Código de la Propiedad, ..."
 
 #: ps/plone/mls/profiles/to_1010/controlpanel.xml
 msgid "MLS Agency Contact Info"
-msgstr ""
+msgstr "MLS Información de Contacto de la Agencia"
 
 #: ps/plone/mls/profiles/to_1010/controlpanel.xml
 msgid "MLS Base Settings"
-msgstr ""
+msgstr "Configuración Basica del MLS"
 
 #: ps/plone/mls/browser/listings/featured.py:131
 #: ps/plone/mls/content/featured.py:26
@@ -508,7 +522,7 @@ msgstr "IDs de los listados del MLS"
 
 #: ps/plone/mls/profiles/to_1010/controlpanel.xml
 msgid "MLS UI Settings"
-msgstr ""
+msgstr "Configuración UI del MLS"
 
 #: ps/plone/mls/browser/developments/templates/development_details_p5.pt:233
 #: ps/plone/mls/browser/developments/templates/development_details_view.pt:246
@@ -532,7 +546,9 @@ msgstr "Modificar URLs"
 msgid ""
 "Modify the individual development URLs to show extra information, such as "
 "the Title and Location"
-msgstr "Modificar las URLs individuales del proyecto para mostrar información adicional, tales como Título y Ubicación."
+msgstr ""
+"Modificar las URLs individuales del proyecto para mostrar información "
+"adicional, tales como Título y Ubicación."
 
 #: ps/plone/mls/utils.py:30
 msgid "No URLs allowed."
@@ -603,11 +619,11 @@ msgstr ""
 
 #: ps/plone/mls/browser/controlpanel/controlpanel_usage.pt:101
 msgid "Recent Listings"
-msgstr ""
+msgstr "Listados Nuevos"
 
 #: ps/plone/mls/browser/controlpanel/settings.py:29
 msgid "Registry has been updated. Please reload this page."
-msgstr ""
+msgstr "Registro actualizado.  Reiniciar la página"
 
 #: ps/plone/mls/browser/listings/search_banner.py:580
 msgid "Rent"
@@ -659,11 +675,15 @@ msgstr "Seleccionar Tipo"
 msgid ""
 "Select the activated listing search page which will be used to show the "
 "results."
-msgstr "Seleccione la página de búsqueda de listado activo que se utilizará para mostrar los resultados."
+msgstr ""
+"Seleccione la página de búsqueda de listado activo que se utilizará para "
+"mostrar los resultados."
 
 #: ps/plone/mls/browser/developments/collection.py:235
 msgid "Send the contact form to this email instead direct to the agent"
-msgstr "Enviar el formulario de contacto a este e-mail en vez de enviarlo directamente al agente"
+msgstr ""
+"Enviar el formulario de contacto a este e-mail en vez de enviarlo "
+"directamente al agente"
 
 #: ps/plone/mls/browser/developments/collection.py:191
 msgid ""
@@ -671,7 +691,9 @@ msgid ""
 "entire world can be seen. The higher the zoom level, the more details can be"
 " seen. The available maximum zoom level value differs from area to area and "
 "can change over time, also depending on the used map provider."
-msgstr "Programar resolución del mapa.  0 es lo mas bajo donde puede ver todo el mundo, y lo más alto, los mas detalles estan visible."
+msgstr ""
+"Programar resolución del mapa.  0 es lo mas bajo donde puede ver todo el "
+"mundo, y lo más alto, los mas detalles estan visible."
 
 #: ps/plone/mls/browser/controlpanel/controlpanel_layout_base.pt:26
 #: ps/plone/mls/browser/controlpanel/controlpanel_layout_caching.pt:26
@@ -712,21 +734,30 @@ msgid ""
 "The 'Development Collection' viewlet does't work with this content type. Add"
 " 'IPossibleDevelopmentCollection' to the provided interfaces to enable this "
 "feature."
-msgstr "El viewlet de la Colección de Listados no trabaja con este tipo de contenido. Agregar 'IPossibleListingCollection' a la interface para permitir esta característica."
+msgstr ""
+"El viewlet de la Colección de Listados no trabaja con este tipo de "
+"contenido. Agregar 'IPossibleListingCollection' a la interface para permitir"
+" esta característica."
 
 #: ps/plone/mls/browser/listings/featured.py:217
 msgid ""
 "The 'Featured Listings' viewlet does't work with this content type. Add "
 "'IPossibleFeaturedListings' to the provided interfaces to enable this "
 "feature."
-msgstr "Viewlet de los 'Listados Destacados' no trabaja con este tipo de contenido. Añadir 'IPossibleFeaturedListings' a las interfaces proporcionadas para activar esta función."
+msgstr ""
+"Viewlet de los 'Listados Destacados' no trabaja con este tipo de contenido. "
+"Añadir 'IPossibleFeaturedListings' a las interfaces proporcionadas para "
+"activar esta función."
 
 #: ps/plone/mls/browser/listings/search_banner.py:822
 msgid ""
 "The 'Listing Search Banner' does't work with this content type. Add "
 "'IPossibleListingSearchBanner' to the provided interfaces to enable this "
 "feature."
-msgstr "El 'Banner búsqueda de listados' no funciona con este tipo de contenido. Agregue 'IPossibleListingSearchBanner' a las interfaces proporcionadas para habilitar esta característica."
+msgstr ""
+"El 'Banner búsqueda de listados' no funciona con este tipo de contenido. "
+"Agregue 'IPossibleListingSearchBanner' a las interfaces proporcionadas para "
+"habilitar esta característica."
 
 #: ps/plone/mls/browser/controlpanel/settings.py:81
 msgid ""
@@ -778,6 +809,9 @@ msgid ""
 "can add more MLS configurations by activating the local MLS settings on any "
 "content item within the site."
 msgstr ""
+"Esta configuración MLS se utilizará como valor predeterminado para este "
+"sitio Plone. Puede añadir más conjuntos MLS activando la configuración local"
+" del MLS en cualquier tema dentro del sitio."
 
 #: ps/plone/mls/profiles.zcml:50
 msgid "This fixture creates generic content to be used in tests."
@@ -786,7 +820,7 @@ msgstr ""
 #: ps/plone/mls/browser/listings/search_banner.py:101
 #: ps/plone/mls/vocabularies/developments.py:39
 msgid "Title"
-msgstr "Titulo"
+msgstr "Título"
 
 #: ps/plone/mls/browser/controlpanel/controlpanel_layout_base.pt:29
 #: ps/plone/mls/browser/controlpanel/controlpanel_layout_caching.pt:29
@@ -802,7 +836,9 @@ msgstr ""
 msgid ""
 "Upload an image file which will be used as a background for your listing "
 "banner search."
-msgstr "Cargue el archivo de imagen que se utilizará como fondo para el banner de búsqueda de su listado."
+msgstr ""
+"Cargue el archivo de imagen que se utilizará como fondo para el banner de "
+"búsqueda de su listado."
 
 #: ps/plone/mls/browser/controlpanel/controlpanel_layout_base.pt:38
 #: ps/plone/mls/browser/controlpanel/controlpanel_layout_caching.pt:38

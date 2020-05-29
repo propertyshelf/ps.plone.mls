@@ -1,13 +1,15 @@
-# 
 # Translators:
-# Olga Plavidal <oplavidal@gmail.com>, 2014
+# Translators:
+# Thomas Massmann <thomas.massmann@it-spir.it>, 2020
+# Olga Plavidal <oplavidal@gmail.com>, 2020
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: MLS Plone Components\n"
 "POT-Creation-Date: 2020-03-18 00:57+0000\n"
-"PO-Revision-Date: 2020-03-18 01:29+0000\n"
-"Last-Translator: Zach Cashero <zach@propertyshelf.com>\n"
-"Language-Team: Russian (http://www.transifex.com/propertyshelf/MLS_Plone/language/ru/)\n"
+"PO-Revision-Date: 2020-05-29 15:17+0000\n"
+"Last-Translator: Olga Plavidal <oplavidal@gmail.com>, 2020\n"
+"Language-Team: Russian (https://www.transifex.com/propertyshelf/teams/13797/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -66,7 +68,7 @@ msgstr "Статическая коллекция рекомендуемых л�
 #: ps/plone/mls/browser/developments/templates/development_details_p5.pt:215
 #: ps/plone/mls/browser/developments/templates/development_details_view.pt:228
 msgid "About the Area"
-msgstr ""
+msgstr "О местоположении"
 
 #: ps/plone/mls/profiles/plone4/actions.xml
 #: ps/plone/mls/profiles/plone5/actions.xml
@@ -144,7 +146,7 @@ msgstr ""
 
 #: ps/plone/mls/browser/developments/collection.py:248
 msgid "BCC Recipients"
-msgstr ""
+msgstr "Получатели BCC"
 
 #: ps/plone/mls/browser/listings/search_banner.py:484
 msgid "Banner Image"
@@ -164,7 +166,7 @@ msgstr ""
 
 #: ps/plone/mls/browser/listings/search_banner.py:169
 msgid "Bedrooms"
-msgstr ""
+msgstr "Спальни"
 
 #: ps/plone/mls/browser/listings/search_banner.py:302
 msgid "Beds"
@@ -191,7 +193,7 @@ msgstr "Отменить"
 
 #: ps/plone/mls/browser/developments/details.py:198
 msgid "Captcha"
-msgstr ""
+msgstr "Капча"
 
 #: ps/plone/mls/browser/listings/search_banner.py:102
 msgid "Categories"
@@ -234,13 +236,13 @@ msgstr ""
 #: ps/plone/mls/browser/developments/templates/development_details_p5.pt:377
 #: ps/plone/mls/browser/developments/templates/development_details_view.pt:372
 msgid "Contact"
-msgstr ""
+msgstr "Контакт"
 
 #: ps/plone/mls/browser/controlpanel/controlpanel_layout_base.pt:32
 #: ps/plone/mls/browser/controlpanel/controlpanel_layout_caching.pt:32
 #: ps/plone/mls/browser/controlpanel/controlpanel_layout_contact_info.pt:32
 msgid "Contact Information"
-msgstr ""
+msgstr "Контактная информация"
 
 #: ps/plone/mls/browser/developments/templates/development_details_p5.pt:74
 #: ps/plone/mls/browser/developments/templates/development_details_view.pt:25
@@ -304,15 +306,17 @@ msgstr ""
 #: ps/plone/mls/browser/developments/templates/development_details_p5.pt:131
 #: ps/plone/mls/browser/developments/templates/development_details_view.pt:146
 msgid "Download PDF"
-msgstr ""
+msgstr "Загрузить PDF"
 
 #: ps/plone/mls/browser/developments/collection.py:243
 msgid "E-mail addresses which receive a blind carbon copy (comma separated)."
 msgstr ""
+"Адреса электронной почты, которые получают скрытую копию (разделенные "
+"запятой)."
 
 #: ps/plone/mls/browser/controlpanel/controlpanel_usage.pt:60
 msgid "Edit"
-msgstr ""
+msgstr "Редактировать"
 
 #: ps/plone/mls/browser/developments/collection.py:277
 msgid "Enable Live Chat Embedding"
@@ -470,7 +474,7 @@ msgstr ""
 #: ps/plone/mls/browser/developments/templates/development_listings.pt:20
 #: ps/plone/mls/browser/navigation.py:11 ps/plone/mls/browser/viewlets.py:130
 msgid "Listings"
-msgstr ""
+msgstr "Объекты Недвижимости"
 
 #: ps/plone/mls/browser/developments/collection.py:305
 msgid "Listings per Page"
@@ -482,7 +486,7 @@ msgstr ""
 
 #: ps/plone/mls/browser/controlpanel/controlpanel_usage.pt:53
 msgid "Local MLS Settings"
-msgstr ""
+msgstr "Локальные настройки MLS"
 
 #: ps/plone/mls/browser/listings/search_banner.py:158
 msgid "Location, Keywords, Listing ID, ..."
@@ -490,11 +494,11 @@ msgstr ""
 
 #: ps/plone/mls/profiles/to_1010/controlpanel.xml
 msgid "MLS Agency Contact Info"
-msgstr ""
+msgstr "Контактная информация агентства MLS"
 
 #: ps/plone/mls/profiles/to_1010/controlpanel.xml
 msgid "MLS Base Settings"
-msgstr ""
+msgstr "Настройки базы MLS"
 
 #: ps/plone/mls/browser/listings/featured.py:131
 #: ps/plone/mls/content/featured.py:26
@@ -536,7 +540,7 @@ msgstr ""
 #: ps/plone/mls/browser/developments/templates/development_details_p5.pt:81
 #: ps/plone/mls/browser/developments/templates/development_details_view.pt:65
 msgid "Overview"
-msgstr ""
+msgstr "Обзор"
 
 #: ps/plone/mls/browser/developments/templates/development_details_p5.pt:311
 #: ps/plone/mls/browser/developments/templates/development_details_view.pt:311
@@ -558,11 +562,11 @@ msgstr ""
 
 #: ps/plone/mls/browser/listings/search_banner.py:186
 msgid "Price (Max)"
-msgstr ""
+msgstr "Стоимость (Макс.)"
 
 #: ps/plone/mls/browser/listings/search_banner.py:181
 msgid "Price (Min)"
-msgstr ""
+msgstr "Стоимость (Мин.)"
 
 #: ps/plone/mls/browser/developments/templates/development_details_p5.pt:123
 #: ps/plone/mls/browser/developments/templates/development_details_view.pt:138
@@ -572,7 +576,7 @@ msgstr ""
 #: ps/plone/mls/browser/developments/templates/development_details_p5.pt:107
 #: ps/plone/mls/browser/developments/templates/development_details_view.pt:97
 msgid "Properties Available"
-msgstr ""
+msgstr "Доступные объекты недвижимости"
 
 #: ps/plone/mls/browser/controlpanel/settings.py:37
 msgid "Propertyshelf MLS Base Settings"
@@ -714,7 +718,10 @@ msgid ""
 "The 'Featured Listings' viewlet does't work with this content type. Add "
 "'IPossibleFeaturedListings' to the provided interfaces to enable this "
 "feature."
-msgstr "Обзор 'Рекомендуемых листингов' не работает с этим типом контента. Добавьте \"IPossibleFeaturedListings\" в список предоставляемых интерфейсов для включения этой функции."
+msgstr ""
+"Обзор 'Рекомендуемых листингов' не работает с этим типом контента. Добавьте "
+"\"IPossibleFeaturedListings\" в список предоставляемых интерфейсов для "
+"включения этой функции."
 
 #: ps/plone/mls/browser/listings/search_banner.py:822
 msgid ""
@@ -773,6 +780,9 @@ msgid ""
 "can add more MLS configurations by activating the local MLS settings on any "
 "content item within the site."
 msgstr ""
+"Эта конфигурация MLS будет использоваться как дефолт для этого сайта Plone. "
+"Вы можете добавить несколько конфигураций MLS, активизируя локальные "
+"параметры MLS на любую тему в рамках сайта."
 
 #: ps/plone/mls/profiles.zcml:50
 msgid "This fixture creates generic content to be used in tests."
@@ -781,7 +791,7 @@ msgstr ""
 #: ps/plone/mls/browser/listings/search_banner.py:101
 #: ps/plone/mls/vocabularies/developments.py:39
 msgid "Title"
-msgstr ""
+msgstr "Название"
 
 #: ps/plone/mls/browser/controlpanel/controlpanel_layout_base.pt:29
 #: ps/plone/mls/browser/controlpanel/controlpanel_layout_caching.pt:29
