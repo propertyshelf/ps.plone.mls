@@ -39,7 +39,7 @@ class TestSetup(unittest.TestCase):
 
     def test_addon_layer(self):
         """Validate that the browserlayer for our product is installed."""
-        layers = [l.getName() for l in registered_layers()]
+        layers = [layer.getName() for layer in registered_layers()]
         self.assertIn('IPloneMLSLayer', layers)
 
     def test_cssregistry(self):
@@ -97,7 +97,7 @@ class UninstallTestCase(unittest.TestCase):
 
     def test_addon_layer_removed(self):
         """Validate that the browserlayer is removed."""
-        layers = [l.getName() for l in registered_layers()]
+        layers = [layer.getName() for layer in registered_layers()]
         self.assertNotIn('IPloneMLSLayer', layers)
 
     def test_cssregistry(self):
