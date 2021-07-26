@@ -34,9 +34,10 @@ jQuery(function(jq) {
   /*
   Begin section
   PLONE 5 - Search button changes
+  The pat-autotoc and autotabs classes are specific to the Plone 5 implementation
   */
   // Change search button into to use search icon
-  jq('.listingsearchbanner .container .formControls input').each(function() {
+  jq('.listingsearchbanner .container .pat-autotoc.autotabs .formControls input').each(function() {
     jq(this).attr({
       type: 'hidden',
       alt: jq(this).attr('value'),
@@ -46,27 +47,27 @@ jQuery(function(jq) {
 
   // Rearrange Search Button
   // Section 1
-  var elem = jq('.listingsearchbanner .container #form-section_1 .formControls');
+  var elem = jq('.listingsearchbanner .container .pat-autotoc.autotabs #form-section_1 .formControls');
   if(elem.length > 0) {
-    elem.appendTo('.listingsearchbanner .container #formfield-form-section_1-widgets-q');
+    elem.appendTo('.listingsearchbanner .container .pat-autotoc.autotabs #formfield-form-section_1-widgets-q');
   }
 
   // Section 2
-  elem = jq('.listingsearchbanner .container #form-section_2 .formControls');
+  elem = jq('.listingsearchbanner .container .pat-autotoc.autotabs #form-section_2 .formControls');
   if(elem.length > 0) {
-    elem.appendTo('.listingsearchbanner .container #formfield-form-section_2-widgets-q');
+    elem.appendTo('.listingsearchbanner .container .pat-autotoc.autotabs #formfield-form-section_2-widgets-q');
   }
 
   // Section 3
-  elem = jq('.listingsearchbanner .container #form-section_3 .formControls');
+  elem = jq('.listingsearchbanner .container .pat-autotoc.autotabs #form-section_3 .formControls');
   if(elem.length > 0) {
-    elem.appendTo('.listingsearchbanner .container #formfield-form-section_3-widgets-q');
+    elem.appendTo('.listingsearchbanner .container .pat-autotoc.autotabs #formfield-form-section_3-widgets-q');
   }
 
   // Section 4
-  elem = jq('.listingsearchbanner .container #form-section_4 .formControls');
+  elem = jq('.listingsearchbanner .container .pat-autotoc.autotabs #form-section_4 .formControls');
   if(elem.length > 0) {
-    elem.appendTo('.listingsearchbanner .container #formfield-form-section_4-widgets-q');
+    elem.appendTo('.listingsearchbanner .container .pat-autotoc.autotabs #formfield-form-section_4-widgets-q');
   }
   /*
   End section
