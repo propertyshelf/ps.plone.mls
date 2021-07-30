@@ -859,8 +859,27 @@ body .development__header .development_location{
 .listingsearchbanner {
   background-position: 50% 50%;
   background-size: cover;
-  margin-bottom: 1em;
-  padding: 8em;
+  padding: 0;
+  margin: 0 0 1.5em 0;
+  position: relative;
+}
+
+.listingsearchbanner .container{
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+@media (min-width: 768px) {
+  .listingsearchbanner .container{
+    top: 25%;
+  }
+
+  .listingsearchbanner .container, .listingsearchbanner .container .span12{
+    max-width: 815px;
+    width: 815px;;
+  }
 }
 
 .listingsearchbanner dl.enableFormTabbing dd {
