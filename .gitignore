@@ -4,6 +4,7 @@
 *.mo
 *.pyc
 *~
+*.code-workspace
 .coverage
 .installed.cfg
 .mr.developer.cfg
