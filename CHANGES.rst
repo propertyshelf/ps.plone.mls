@@ -5,7 +5,7 @@ Changelog
 0.17 (unreleased)
 -----------------
 
-- Nothing changed yet.
+- Bug fixes and optimizations to listing search banner for Plone 4.3
 
 
 0.16 (2020-03-17)
