@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-0.17 (unreleased)
+0.17 (2021-08-02)
 -----------------
 
 - Bug fixes and optimizations to listing search banner for Plone 4.3
