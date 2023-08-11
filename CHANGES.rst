@@ -5,7 +5,7 @@ Changelog
 0.18 (unreleased)
 -----------------
 
-- Nothing changed yet.
+- No longer sends inquiry emails as if from the client's email address. Send from email associated with domain.
 
 
 0.17 (2021-08-02)
