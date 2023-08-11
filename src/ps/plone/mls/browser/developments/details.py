@@ -296,12 +296,15 @@ class ContactForm(form.Form):
             email_charset = plone_api.portal.get_registry_record(
                 'plone.email_charset',
             )
+            portal_address = plone_api.portal.get_registry_record(
+                'plone.email_from_address',
+            )
         except plone_api.exc.InvalidParameterError:
+            # Before Plone 5.0b2 these were stored in portal_properties
             email_charset = portal.getProperty('email_charset', 'utf-8')
+            portal_address = portal.getProperty('email_from_address', '')
 
         recipient = None
-        portal_address = portal.getProperty('email_from_address')
-
         try:
             agent = self.item_info
             recipient = agent.email.value
