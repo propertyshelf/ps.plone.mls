@@ -4,11 +4,13 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 
 [packages]
-"zc.buildout" = "==2.12.2"
+setuptools = "==44.1.1"
+"zc.buildout" = "==2.13.8"
+ipdb = "*"
 
 [dev-packages]
 ipdb = "*"
-yapf = "*"
+yapf = "==0.32.0"
 
 [requires]
 python_version = "2.7"
