@@ -335,7 +335,7 @@ class ContactForm(form.Form):
         if bcc is not None:
             recipients += [formataddr(addr) for addr in getaddresses((bcc, ))]
 
-        sender = formataddr((data['name'], data['sender_from_address']))
+        sender = self.get_sender(portal, portal_address)
 
         subject = data['subject']
         data['url'] = self.request.getURL()
@@ -356,6 +356,27 @@ class ContactForm(form.Form):
             body=email_msg,
         )
         return True
+
+    def get_sender(self, portal, portal_address):
+        """
+        Construct the sender email address based on the configuration for this site.
+        First check the Propertyshelf MLS Embedding settings to see if an override
+        has been defined. If not, try constructing one using the same domain as the
+        SMTP Username. If not defined, use the From address defined in the Email settings.
+        """
+        mls_settings = api.get_settings(self.context)
+        sender_address = mls_settings.get('override_from_email', None)
+        if not sender_address and portal_address:
+            from_domain = portal_address.split('@')[-1]
+            sender_address = 'leads@{0}'.format(from_domain)
+
+        try:
+            from_name = plone_api.portal.get_registry_record('plone.email_from_name')
+        except plone_api.exc.InvalidParameterError:
+            # Before Plone 5.0b2 these were stored in portal_properties
+            from_name = portal.getProperty('email_from_name', '')
+
+        return formataddr((from_name, sender_address))
 
 
 # Register Captcha validator for the captcha field in the ICaptchaForm
