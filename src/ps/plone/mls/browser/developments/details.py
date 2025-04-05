@@ -39,8 +39,10 @@ from zope.i18n import translate
 from zope.interface import alsoProvides
 from zope.interface import implementer
 
+import copy
 import logging
 import pkg_resources
+import random
 
 
 try:
@@ -512,12 +514,21 @@ class DevelopmentDetails(BrowserView):
             return ''
 
         if self.registry is not None:
+            keys = []
             try:
                 settings = self.registry.forInterface(IMLSUISettings)  # noqa
             except Exception:
                 logger.warning('MLS UI settings not available.')
             else:
-                return getattr(settings, 'googleapi', '')
+                settings_keys = getattr(settings, 'googleapi_additional', []) or []
+                keys = copy.copy(settings_keys)
+                keys.append(getattr(settings, 'googleapi', ''))
+                keys = [
+                    key for key in keys if isinstance(key, basestring) and
+                    key.strip() != ''
+                ]
+                if keys:
+                    return random.choice(keys)
         return ''
 
     def live_chat_embedding(self):
