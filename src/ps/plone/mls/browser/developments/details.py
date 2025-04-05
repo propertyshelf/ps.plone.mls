@@ -39,7 +39,6 @@ from zope.i18n import translate
 from zope.interface import alsoProvides
 from zope.interface import implementer
 
-import json
 import logging
 import pkg_resources
 
