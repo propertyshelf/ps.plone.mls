@@ -123,7 +123,11 @@ function initializeMap() {{
         overviewMapControl: true,
         streetViewControl: true,
         scrollwheel: false,
-        draggable:!isTouch
+        draggable:!isTouch,
+        zoomControl: true,
+        zoomControlOptions: {{
+            position: google.maps.ControlPosition.LEFT_CENTER
+        }},
     }}
 
     var map = new google.maps.Map(
