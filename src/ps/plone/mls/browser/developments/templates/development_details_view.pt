@@ -241,14 +241,29 @@
           </section>
 
           <section class="development__map"
-               tal:define="js view/javascript_map | nothing"
+               tal:define="js view/javascript_map | nothing;
+                           provider view/map_provider | nothing"
                tal:condition="js">
             <h2 i18n:translate="">Map &amp; Distances</h2>
-            <div class="map__canvas" id="map"
-                i18n:translate=""
-                tal:attributes="id view/map_id">Please enable JavaScript to show the Map.</div>
-            <script type="text/javascript" tal:content="structure js"></script>
+            <tal:google tal:condition="python: provider=='google'">
+              <section class="listing-map listing-map-google">
+                <div class="map__canvas" id="map" tal:attributes="id view/map_id"></div>
+                <script type="text/javascript" tal:content="structure js"></script>
+                <noscript i18n:translate="">Please enable JavaScript to show the Map.</noscript>
+              </section>
+            </tal:google>
+            <tal:mapbox tal:condition="python: provider=='mapbox'">
+              <section class="listing-map listing-map-mapbox">
+                <div class="map__canvas" id="map" tal:attributes="id view/map_id"></div>
+                <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+                <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+     crossorigin=""></script>
+                <script type="text/javascript" tal:content="structure js"></script>
+                <noscript i18n:translate="">Please enable JavaScript to show the Map.</noscript>
+              </section>
+            </tal:mapbox>
           </section>
+          <p></p>
 
           <section class="development__distances"
             tal:define="distance_class view/distance_class;

@@ -158,6 +158,24 @@ loadGoogleMaps(initializeMap);
 """
 
 
+MAPBOX_JS = """
+// initialize the map
+var map = L.map('{map_id}', {{scrollWheelZoom: false}}).setView([{lat}, {lng}], {zoom});
+
+// load a tile layer
+L.tileLayer('https://api.mapbox.com/styles/v1/{{id}}/tiles/{{z}}/{{x}}/{{y}}@2x?access_token={api_key}', {{
+    attribution: '© <a href="https://www.mapbox.com/about/maps/">Mapbox</a> © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> <strong><a href="https://www.mapbox.com/map-feedback/" target="_blank">Improve this map</a></strong>',
+    maxZoom: 18,
+    tileSize: 512,
+    zoomOffset: -1,
+    id: 'mapbox/streets-v9'
+}}).addTo(map);
+
+var marker = L.marker([{lat}, {lng}]).addTo(map);
+marker._icon.style.filter = "hue-rotate(153deg)";
+"""
+
+
 class IContactForm(form.Schema):
     """Contact Form schema."""
 
@@ -503,6 +521,10 @@ class DevelopmentDetails(BrowserView):
         if provider == u'google':
             api_key = self.googleapi
             js = GOOGLE_MAP_JS
+        elif provider == u'mapbox':
+            api_key = self.mapbox_api
+            js = MAPBOX_JS
+
         if not api_key:
             return None
         return js.format(
@@ -547,6 +569,20 @@ class DevelopmentDetails(BrowserView):
                 if keys:
                     return random.choice(keys)
         return ''
+
+    @property
+    def mapbox_api(self):
+        if not HAS_UI_SETTINGS:
+            return ''
+
+        if self.registry is not None:
+            try:
+                settings = self.registry.forInterface(IMLSUISettings)  # noqa
+            except Exception:
+                logger.warning('MLS UI settings not available.')
+            else:
+                return getattr(settings, 'mapbox_api', u'') or u''
+        return u''
 
     def live_chat_embedding(self):
         """Return embedding code for live chat widget if it is enabled."""
