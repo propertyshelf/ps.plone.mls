@@ -262,6 +262,16 @@
                 <noscript i18n:translate="">Please enable JavaScript to show the Map.</noscript>
               </section>
             </tal:mapbox>
+            <tal:maptiler tal:condition="python: provider=='maptiler'">
+              <section class="listing-map listing-map-maptiler">
+                <div class="map__canvas" id="map" tal:attributes="id view/map_id"></div>
+                <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+                <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+     crossorigin=""></script>
+                <script type="text/javascript" tal:content="structure js"></script>
+                <noscript i18n:translate="">Please enable JavaScript to show the Map.</noscript>
+              </section>
+            </tal:maptiler>
           </section>
           <p></p>
 
