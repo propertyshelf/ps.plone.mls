@@ -141,7 +141,6 @@ function initializeMap() {{
         var marker = new google.maps.Marker({{
             position: myLatlng,
             map: map,
-            icon: {icon}
         }});
     }}
 
@@ -496,15 +495,9 @@ class DevelopmentDetails(BrowserView):
         if not hasattr(self.item, 'geolocation') or not self.item.geolocation:  # noqa
             return
 
-        icon = getattr(self.item, 'icon', None)
-        if icon is not None:
-            icon = icon.value
-        icon_url = json.dumps(icon)
-
         lat, lng = self.item.geolocation.value.split(',')
 
         return MAP_JS.format(
-            icon=icon_url,
             lat=lat,
             lng=lng,
             map_id=self.map_id,
