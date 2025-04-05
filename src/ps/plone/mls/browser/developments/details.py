@@ -81,7 +81,7 @@ EMAIL_TEMPLATE_AGENT = _(
 )
 
 
-MAP_JS = """
+GOOGLE_MAP_JS = """
 var isTouch = false;
 var map;
 
@@ -106,7 +106,7 @@ function loadGoogleMaps(callback) {{
   if (typeof google === 'object' && typeof google.maps === 'object') {{
     callback();
   }} else {{
-    loadScript('https://maps.googleapis.com/maps/api/js?key={ak}', callback);
+    loadScript('https://maps.googleapis.com/maps/api/js?key={api_key}', callback);
   }}
 }}
 
@@ -497,13 +497,33 @@ class DevelopmentDetails(BrowserView):
 
         lat, lng = self.item.geolocation.value.split(',')
 
-        return MAP_JS.format(
-            lat=lat,
-            lng=lng,
+        js = None
+        zoomlevel = self.config.get('map_zoom_level', 7)
+        provider = self.map_provider
+        if provider == u'google':
+            api_key = self.googleapi
+            js = GOOGLE_MAP_JS
+        if not api_key:
+            return None
+        return js.format(
+            lat=unicode(lat),
+            lng=unicode(lng),
             map_id=self.map_id,
-            zoom=self.config.get('map_zoom_level', 7),
-            ak=self.googleapi,
+            zoom=zoomlevel,
+            api_key=api_key,
         )
+
+    @property
+    def map_provider(self):
+        provider = u'google'
+        if self.registry is not None:
+            try:
+                settings = self.registry.forInterface(IMLSUISettings)  # noqa
+            except Exception:
+                logger.warning('MLS UI settings not available.')
+            else:
+                provider = getattr(settings, 'map_provider', u'') or u'google'
+        return provider
 
     @property
     def googleapi(self):
