@@ -39,9 +39,10 @@ from zope.i18n import translate
 from zope.interface import alsoProvides
 from zope.interface import implementer
 
-import json
+import copy
 import logging
 import pkg_resources
+import random
 
 
 try:
@@ -80,7 +81,7 @@ EMAIL_TEMPLATE_AGENT = _(
 )
 
 
-MAP_JS = """
+GOOGLE_MAP_JS = """
 var isTouch = false;
 var map;
 
@@ -105,7 +106,7 @@ function loadGoogleMaps(callback) {{
   if (typeof google === 'object' && typeof google.maps === 'object') {{
     callback();
   }} else {{
-    loadScript('https://maps.googleapis.com/maps/api/js?key={ak}', callback);
+    loadScript('https://maps.googleapis.com/maps/api/js?key={api_key}', callback);
   }}
 }}
 
@@ -122,7 +123,11 @@ function initializeMap() {{
         overviewMapControl: true,
         streetViewControl: true,
         scrollwheel: false,
-        draggable:!isTouch
+        draggable:!isTouch,
+        zoomControl: true,
+        zoomControlOptions: {{
+            position: google.maps.ControlPosition.LEFT_CENTER
+        }},
     }}
 
     var map = new google.maps.Map(
@@ -136,7 +141,6 @@ function initializeMap() {{
         var marker = new google.maps.Marker({{
             position: myLatlng,
             map: map,
-            icon: {icon}
         }});
     }}
 
@@ -151,6 +155,42 @@ function initializeMap() {{
 
 loadGoogleMaps(initializeMap);
 
+"""
+
+
+MAPBOX_JS = """
+// initialize the map
+var map = L.map('{map_id}', {{scrollWheelZoom: false}}).setView([{lat}, {lng}], {zoom});
+
+// load a tile layer
+L.tileLayer('https://api.mapbox.com/styles/v1/{{id}}/tiles/{{z}}/{{x}}/{{y}}@2x?access_token={api_key}', {{
+    attribution: '© <a href="https://www.mapbox.com/about/maps/">Mapbox</a> © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> <strong><a href="https://www.mapbox.com/map-feedback/" target="_blank">Improve this map</a></strong>',
+    maxZoom: 18,
+    tileSize: 512,
+    zoomOffset: -1,
+    id: 'mapbox/streets-v9'
+}}).addTo(map);
+
+var marker = L.marker([{lat}, {lng}]).addTo(map);
+marker._icon.style.filter = "hue-rotate(153deg)";
+"""
+
+
+MAPTILER_JS = """
+// initialize the map
+var map = L.map('{map_id}', {{scrollWheelZoom: false}}).setView([{lat}, {lng}], {zoom});
+
+// load a tile layer
+L.tileLayer('https://api.maptiler.com/maps/streets-v2/{{z}}/{{x}}/{{y}}@2x.png?key={api_key}',{{ //style URL
+    tileSize: 512,
+    zoomOffset: -1,
+    minZoom: 1,
+    attribution: '\u003ca href="https://www.maptiler.com/copyright/" target="_blank"\u003e\u0026copy; MapTiler\u003c/a\u003e \u003ca href="https://www.openstreetmap.org/copyright" target="_blank"\u003e\u0026copy; OpenStreetMap contributors\u003c/a\u003e',
+    crossOrigin: true
+}}).addTo(map);
+
+var marker = L.marker([{lat}, {lng}]).addTo(map);
+marker._icon.style.filter = "hue-rotate(153deg)";
 """
 
 
@@ -491,24 +531,68 @@ class DevelopmentDetails(BrowserView):
         if not hasattr(self.item, 'geolocation') or not self.item.geolocation:  # noqa
             return
 
-        icon = getattr(self.item, 'icon', None)
-        if icon is not None:
-            icon = icon.value
-        icon_url = json.dumps(icon)
-
         lat, lng = self.item.geolocation.value.split(',')
 
-        return MAP_JS.format(
-            icon=icon_url,
-            lat=lat,
-            lng=lng,
+        js = None
+        zoomlevel = self.config.get('map_zoom_level', 7)
+        provider = self.map_provider
+        if provider == u'google':
+            api_key = self.googleapi
+            js = GOOGLE_MAP_JS
+        elif provider == u'mapbox':
+            api_key = self.mapbox_api
+            js = MAPBOX_JS
+        elif provider == u'maptiler':
+            api_key = self.maptiler_api
+            js = MAPTILER_JS
+
+        if not api_key:
+            return None
+        return js.format(
+            lat=unicode(lat),
+            lng=unicode(lng),
             map_id=self.map_id,
-            zoom=self.config.get('map_zoom_level', 7),
-            ak=self.googleapi,
+            zoom=zoomlevel,
+            api_key=api_key,
         )
 
     @property
+    def map_provider(self):
+        provider = u'google'
+        if self.registry is not None:
+            try:
+                settings = self.registry.forInterface(IMLSUISettings)  # noqa
+            except Exception:
+                logger.warning('MLS UI settings not available.')
+            else:
+                provider = getattr(settings, 'map_provider', u'') or u'google'
+        return provider
+
+    @property
     def googleapi(self):
+        if not HAS_UI_SETTINGS:
+            return ''
+
+        if self.registry is not None:
+            keys = []
+            try:
+                settings = self.registry.forInterface(IMLSUISettings)  # noqa
+            except Exception:
+                logger.warning('MLS UI settings not available.')
+            else:
+                settings_keys = getattr(settings, 'googleapi_additional', []) or []
+                keys = copy.copy(settings_keys)
+                keys.append(getattr(settings, 'googleapi', ''))
+                keys = [
+                    key for key in keys if isinstance(key, basestring) and
+                    key.strip() != ''
+                ]
+                if keys:
+                    return random.choice(keys)
+        return ''
+
+    @property
+    def mapbox_api(self):
         if not HAS_UI_SETTINGS:
             return ''
 
@@ -518,8 +602,22 @@ class DevelopmentDetails(BrowserView):
             except Exception:
                 logger.warning('MLS UI settings not available.')
             else:
-                return getattr(settings, 'googleapi', '')
-        return ''
+                return getattr(settings, 'mapbox_api', u'') or u''
+        return u''
+
+    @property
+    def maptiler_api(self):
+        if not HAS_UI_SETTINGS:
+            return ''
+
+        if self.registry is not None:
+            try:
+                settings = self.registry.forInterface(IMLSUISettings)  # noqa
+            except Exception:
+                logger.warning('MLS UI settings not available.')
+            else:
+                return getattr(settings, 'maptiler_api', u'') or u''
+        return u''
 
     def live_chat_embedding(self):
         """Return embedding code for live chat widget if it is enabled."""
