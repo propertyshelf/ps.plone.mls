@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2020-03-18 00:57+0000\n"
+"POT-Creation-Date: 2025-04-22 15:38+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -119,7 +119,7 @@ msgstr ""
 msgid "Adjust the behaviour for this 'Listing Search Banner'."
 msgstr ""
 
-#: ps/plone/mls/browser/listings/templates/search_banner.pt:20
+#: ps/plone/mls/browser/listings/templates/search_banner.pt:23
 #: ps/plone/mls/browser/listings/templates/search_banner_p5.pt:16
 msgid "Advanced Search"
 msgstr ""
@@ -183,7 +183,7 @@ msgstr ""
 msgid "Cancel"
 msgstr ""
 
-#: ps/plone/mls/browser/developments/details.py:198
+#: ps/plone/mls/browser/developments/details.py:238
 msgid "Captcha"
 msgstr ""
 
@@ -225,8 +225,8 @@ msgstr ""
 msgid "Configure the Listing Search Banner."
 msgstr ""
 
-#: ps/plone/mls/browser/developments/templates/development_details_p5.pt:377
-#: ps/plone/mls/browser/developments/templates/development_details_view.pt:372
+#: ps/plone/mls/browser/developments/templates/development_details_p5.pt:425
+#: ps/plone/mls/browser/developments/templates/development_details_view.pt:397
 msgid "Contact"
 msgstr ""
 
@@ -483,8 +483,8 @@ msgstr ""
 msgid "MLS UI Settings"
 msgstr ""
 
-#: ps/plone/mls/browser/developments/templates/development_details_p5.pt:233
-#: ps/plone/mls/browser/developments/templates/development_details_view.pt:246
+#: ps/plone/mls/browser/developments/templates/development_details_p5.pt:234
+#: ps/plone/mls/browser/developments/templates/development_details_view.pt:247
 msgid "Map &amp; Distances"
 msgstr ""
 
@@ -492,8 +492,8 @@ msgstr ""
 msgid "Maximum age of entries in the cache"
 msgstr ""
 
-#: ps/plone/mls/browser/developments/templates/development_details_p5.pt:341
-#: ps/plone/mls/browser/developments/templates/development_details_view.pt:338
+#: ps/plone/mls/browser/developments/templates/development_details_p5.pt:389
+#: ps/plone/mls/browser/developments/templates/development_details_view.pt:363
 msgid "Meet the Developers"
 msgstr ""
 
@@ -514,13 +514,13 @@ msgstr ""
 msgid "Overview"
 msgstr ""
 
-#: ps/plone/mls/browser/developments/templates/development_details_p5.pt:311
-#: ps/plone/mls/browser/developments/templates/development_details_view.pt:311
+#: ps/plone/mls/browser/developments/templates/development_details_p5.pt:359
+#: ps/plone/mls/browser/developments/templates/development_details_view.pt:336
 msgid "Phases"
 msgstr ""
 
-#: ps/plone/mls/browser/developments/templates/development_details_p5.pt:235
-#: ps/plone/mls/browser/developments/templates/development_details_view.pt:247
+#: ps/plone/mls/browser/developments/templates/development_details_p5.pt:240
+#: ps/plone/mls/browser/developments/templates/development_details_view.pt:252
 msgid "Please enable JavaScript to show the Map."
 msgstr ""
 
@@ -767,7 +767,7 @@ msgstr ""
 msgid "We are sorry, but we couldn't find any listings."
 msgstr ""
 
-#: ps/plone/mls/browser/developments/details.py:283
+#: ps/plone/mls/browser/developments/details.py:323
 msgid "Your contact request was sent successfully."
 msgstr ""
 
@@ -776,13 +776,50 @@ msgid "Zoom level for maps"
 msgstr ""
 
 #. Default: "Enquiry from: {name} <{sender_from_address}>\nDevelopment URL: {url}\n\nPhone Number: {phone}\n\nMessage:\n{message}\n"
-#: ps/plone/mls/browser/developments/details.py:63
+#: ps/plone/mls/browser/developments/details.py:64
 msgid "development_contact_email"
 msgstr ""
 
 #. Default: "The responsible agent for this development is {agent_name}.\n\nPlease contact {agent_name} at {agent_email}"
-#: ps/plone/mls/browser/developments/details.py:74
+#: ps/plone/mls/browser/developments/details.py:75
 msgid "development_contact_email_agent"
+msgstr ""
+
+#: ps/plone/mls/browser/developments/details.py:226
+msgid "help_message"
+msgstr ""
+
+#: ps/plone/mls/browser/developments/details.py:202
+msgid "help_sender_from_address"
+msgstr ""
+
+#: ps/plone/mls/browser/developments/details.py:211
+msgid "help_sender_fullname"
+msgstr ""
+
+#. Default: "Message"
+#: ps/plone/mls/browser/developments/details.py:232
+msgid "label_message"
+msgstr ""
+
+#. Default: "Name"
+#: ps/plone/mls/browser/developments/details.py:216
+msgid "label_name"
+msgstr ""
+
+#. Default: "Phone"
+#: ps/plone/mls/browser/developments/details.py:221
+msgid "label_phone"
+msgstr ""
+
+#. Default: "Email"
+#: ps/plone/mls/browser/developments/details.py:207
+msgid "label_sender_from_address"
+msgstr ""
+
+#. Default: "Subject"
+#: ps/plone/mls/browser/developments/details.py:243
+msgid "label_subject"
 msgstr ""
 
 #: ps/plone/mls/profiles.zcml:19
