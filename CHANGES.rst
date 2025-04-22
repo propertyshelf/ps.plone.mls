@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-0.19 (unreleased)
+0.19 (2025-04-22)
 -----------------
 
 - Use the new settings for diffrent mapping providers for the Development Details view.
