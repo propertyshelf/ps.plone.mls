@@ -217,6 +217,10 @@ class IContactForm(form.Schema):
     )
 
     phone = schema.TextLine(
+        description=_(
+            u'help_phone',
+            default=u'',
+        ),
         required=False,
         title=_(u'label_phone', default=u'Phone'),
     )
