@@ -1,11 +1,11 @@
-#
+# 
 # Translators:
 # Thomas Massmann <thomas.massmann@it-spir.it>, 2020
 # Claudia Oberbeck <c.oberbeck@gmx.de>, 2020
 # 8b976f076cecbff717a993efc390f52e_48990f1 <47d06e3253cc1348a8dc9fc522d742ae_136862>, 2020
 # Anna-Lya Masson <masson@monde-immo.fr>, 2020
 # Zach Cashero <zach@propertyshelf.com>, 2025
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
@@ -16,12 +16,12 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
-"Language-Code: en\n"
-"Language-Name: English\n"
-"Preferred-Encodings: utf-8 latin1\n"
 "Domain: DOMAIN\n"
 "Language: fr\n"
+"Language-Code: en\n"
+"Language-Name: English\n"
+"Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
+"Preferred-Encodings: utf-8 latin1\n"
 
 #: ps/plone/mls/browser/developments/collection.py:390
 msgid "'Development Collection' Configuration"
@@ -142,7 +142,9 @@ msgid "Alternative Email recipient"
 msgstr ""
 
 #: ps/plone/mls/api.py:133
-msgid "An error occured trying to connect to the configured MLS. Please check your settings or try again later."
+msgid ""
+"An error occured trying to connect to the configured MLS. Please check your "
+"settings or try again later."
 msgstr ""
 
 #: ps/plone/mls/browser/developments/collection.py:248
@@ -311,7 +313,9 @@ msgstr "Télécharger le PDF"
 
 #: ps/plone/mls/browser/developments/collection.py:243
 msgid "E-mail addresses which receive a blind carbon copy (comma separated)."
-msgstr "Les adresses e-mail qui reçoivent une copie conforme invisible (séparées par une virgule)."
+msgstr ""
+"Les adresses e-mail qui reçoivent une copie conforme invisible (séparées par"
+" une virgule)."
 
 #: ps/plone/mls/browser/controlpanel/controlpanel_usage.pt:60
 msgid "Edit"
@@ -330,11 +334,16 @@ msgid "Enter a search term to filter the results."
 msgstr ""
 
 #: ps/plone/mls/browser/listings/search_banner.py:501
-msgid "Enter the image height in pixels. The default is 450 and the recommended amount is between 350 and 600 pixels."
+msgid ""
+"Enter the image height in pixels. The default is 450 and the recommended "
+"amount is between 350 and 600 pixels."
 msgstr ""
 
 #: ps/plone/mls/interfaces.py:59
-msgid "Enter the maximum time, in full seconds, that items may remain in the cache before being requested again from the MLS. A minimum of 60 seconds is required, a good value is 3,600 seconds (1 hour)."
+msgid ""
+"Enter the maximum time, in full seconds, that items may remain in the cache "
+"before being requested again from the MLS. A minimum of 60 seconds is "
+"required, a good value is 3,600 seconds (1 hour)."
 msgstr ""
 
 #: ps/plone/mls/browser/controlpanel/controlpanel_usage.pt:117
@@ -401,7 +410,9 @@ msgid "How many listings should be shown per devlopment listings page?"
 msgstr ""
 
 #: ps/plone/mls/browser/developments/collection.py:328
-msgid "How should the results be sorted? If nothing is selected, the results are sorted by relevance."
+msgid ""
+"How should the results be sorted? If nothing is selected, the results are "
+"sorted by relevance."
 msgstr ""
 
 #: ps/plone/mls/browser/listings/featured.py:134
@@ -410,11 +421,15 @@ msgid "ID"
 msgstr "ID"
 
 #: ps/plone/mls/browser/listings/featured.py:139
-msgid "If allowed by the theme/design, the listings will be displayed in a grid layout when enabled."
+msgid ""
+"If allowed by the theme/design, the listings will be displayed in a grid "
+"layout when enabled."
 msgstr ""
 
 #: ps/plone/mls/browser/developments/collection.py:226
-msgid "If enabled, a form to contact the responsible agent will be shown on the detail page for a development."
+msgid ""
+"If enabled, a form to contact the responsible agent will be shown on the "
+"detail page for a development."
 msgstr ""
 
 #: ps/plone/mls/browser/developments/collection.py:311
@@ -426,15 +441,21 @@ msgid "If enabled, show the development banner in the collection results."
 msgstr ""
 
 #: ps/plone/mls/browser/developments/collection.py:216
-msgid "If enabled, the contact information for a development will be shown on the detail page for a development."
+msgid ""
+"If enabled, the contact information for a development will be shown on the "
+"detail page for a development."
 msgstr ""
 
 #: ps/plone/mls/browser/developments/collection.py:253
-msgid "If the contact form is enabled, an anchor link will show as quick navigation to the form."
+msgid ""
+"If the contact form is enabled, an anchor link will show as quick navigation"
+" to the form."
 msgstr ""
 
 #: ps/plone/mls/browser/listings/search_banner.py:489
-msgid "Instead of uploading an image, you may enter the URL of an image hosted on another server."
+msgid ""
+"Instead of uploading an image, you may enter the URL of an image hosted on "
+"another server."
 msgstr ""
 
 #: ps/plone/mls/utils.py:22
@@ -454,8 +475,7 @@ msgid "Listing Searches"
 msgstr ""
 
 #: ps/plone/mls/browser/developments/templates/development_listings.pt:20
-#: ps/plone/mls/browser/navigation.py:11
-#: ps/plone/mls/browser/viewlets.py:130
+#: ps/plone/mls/browser/navigation.py:11 ps/plone/mls/browser/viewlets.py:130
 msgid "Listings"
 msgstr "Listage"
 
@@ -511,7 +531,9 @@ msgid "Modify URLs"
 msgstr ""
 
 #: ps/plone/mls/browser/developments/collection.py:282
-msgid "Modify the individual development URLs to show extra information, such as the Title and Location"
+msgid ""
+"Modify the individual development URLs to show extra information, such as "
+"the Title and Location"
 msgstr ""
 
 #: ps/plone/mls/utils.py:30
@@ -636,7 +658,9 @@ msgid "Select a Category"
 msgstr ""
 
 #: ps/plone/mls/browser/listings/search_banner.py:110
-msgid "Select the activated listing search page which will be used to show the results."
+msgid ""
+"Select the activated listing search page which will be used to show the "
+"results."
 msgstr ""
 
 #: ps/plone/mls/browser/developments/collection.py:235
@@ -644,7 +668,11 @@ msgid "Send the contact form to this email instead direct to the agent"
 msgstr ""
 
 #: ps/plone/mls/browser/developments/collection.py:191
-msgid "Set the resolution for the map. 0 is the lowest zoom level, in which the entire world can be seen. The higher the zoom level, the more details can be seen. The available maximum zoom level value differs from area to area and can change over time, also depending on the used map provider."
+msgid ""
+"Set the resolution for the map. 0 is the lowest zoom level, in which the "
+"entire world can be seen. The higher the zoom level, the more details can be"
+" seen. The available maximum zoom level value differs from area to area and "
+"can change over time, also depending on the used map provider."
 msgstr ""
 
 #: ps/plone/mls/browser/controlpanel/controlpanel_layout_base.pt:26
@@ -682,19 +710,31 @@ msgid "Sort results by"
 msgstr "trier des résultats par"
 
 #: ps/plone/mls/browser/developments/collection.py:454
-msgid "The 'Development Collection' viewlet does't work with this content type. Add 'IPossibleDevelopmentCollection' to the provided interfaces to enable this feature."
+msgid ""
+"The 'Development Collection' viewlet does't work with this content type. Add"
+" 'IPossibleDevelopmentCollection' to the provided interfaces to enable this "
+"feature."
 msgstr ""
 
 #: ps/plone/mls/browser/listings/featured.py:217
-msgid "The 'Featured Listings' viewlet does't work with this content type. Add 'IPossibleFeaturedListings' to the provided interfaces to enable this feature."
+msgid ""
+"The 'Featured Listings' viewlet does't work with this content type. Add "
+"'IPossibleFeaturedListings' to the provided interfaces to enable this "
+"feature."
 msgstr ""
 
 #: ps/plone/mls/browser/listings/search_banner.py:822
-msgid "The 'Listing Search Banner' does't work with this content type. Add 'IPossibleListingSearchBanner' to the provided interfaces to enable this feature."
+msgid ""
+"The 'Listing Search Banner' does't work with this content type. Add "
+"'IPossibleListingSearchBanner' to the provided interfaces to enable this "
+"feature."
 msgstr ""
 
 #: ps/plone/mls/browser/controlpanel/settings.py:81
-msgid "The contact information provided will be used as the default for this Plone site. You can add more specific MLS contact information by activating the local MLS contact settings on any content item within the site."
+msgid ""
+"The contact information provided will be used as the default for this Plone "
+"site. You can add more specific MLS contact information by activating the "
+"local MLS contact settings on any content item within the site."
 msgstr ""
 
 #: ps/plone/mls/api.py:144
@@ -726,7 +766,8 @@ msgid "There are currently no local MLS settings activated in this site."
 msgstr ""
 
 #: ps/plone/mls/browser/controlpanel/controlpanel_usage.pt:71
-msgid "There are currently no local contact informations activated in this site."
+msgid ""
+"There are currently no local contact informations activated in this site."
 msgstr ""
 
 #: ps/plone/mls/browser/controlpanel/controlpanel_usage.pt:103
@@ -734,8 +775,14 @@ msgid "There are currently no recent listings activated in this site."
 msgstr ""
 
 #: ps/plone/mls/browser/controlpanel/settings.py:38
-msgid "This MLS configuration will be used as the default for this Plone site. You can add more MLS configurations by activating the local MLS settings on any content item within the site."
-msgstr "Cette configuration MLS sera utilisé comme valeur par défaut pour ce site Plone. Vous pouvez ajouter plus de configurations MLS en activant les paramètres du MLS local sur n'importe quel item à même le site."
+msgid ""
+"This MLS configuration will be used as the default for this Plone site. You "
+"can add more MLS configurations by activating the local MLS settings on any "
+"content item within the site."
+msgstr ""
+"Cette configuration MLS sera utilisé comme valeur par défaut pour ce site "
+"Plone. Vous pouvez ajouter plus de configurations MLS en activant les "
+"paramètres du MLS local sur n'importe quel item à même le site."
 
 #: ps/plone/mls/profiles.zcml:50
 msgid "This fixture creates generic content to be used in tests."
@@ -757,7 +804,9 @@ msgid "Upgrade ps.plone.mls to 1010 profile"
 msgstr ""
 
 #: ps/plone/mls/browser/listings/search_banner.py:479
-msgid "Upload an image file which will be used as a background for your listing banner search."
+msgid ""
+"Upload an image file which will be used as a background for your listing "
+"banner search."
 msgstr ""
 
 #: ps/plone/mls/browser/controlpanel/controlpanel_layout_base.pt:38
@@ -784,25 +833,29 @@ msgstr "Votre demande de contact était envoyé avec succès "
 msgid "Zoom level for maps"
 msgstr "Niveau de zoom pour les cartes"
 
+#. Default: "Enquiry from: {name} <{sender_from_address}>\nDevelopment URL:
 #. {url}\n\nPhone Number: {phone}\n\nMessage:\n{message}\n"
-#. Default: "Enquiry from: {name} <{sender_from_address}>\nDevelopment URL: {url}\n\nPhone Number: {phone}\n\nMessage:\n{message}\n"
 #: ps/plone/mls/browser/developments/details.py:64
 msgid "development_contact_email"
 msgstr ""
 
+#. Default: "The responsible agent for this development is
 #. {agent_name}.\n\nPlease contact {agent_name} at {agent_email}"
-#. Default: "The responsible agent for this development is {agent_name}.\n\nPlease contact {agent_name} at {agent_email}"
 #: ps/plone/mls/browser/developments/details.py:75
 msgid "development_contact_email_agent"
 msgstr ""
 
 #: ps/plone/mls/browser/developments/details.py:230
 msgid "help_message"
-msgstr "Vous avez des questions concernant cette propriété ou souhaitez planifier une visite ? Faites-nous savoir comment nous pouvons vous assister."
+msgstr ""
+"Vous avez des questions concernant cette propriété ou souhaitez planifier "
+"une visite ? Faites-nous savoir comment nous pouvons vous assister."
 
 #: ps/plone/mls/browser/developments/details.py:220
 msgid "help_phone"
 msgstr ""
+"Si vous souhaitez être contacté par téléphone, veuillez inclure votre numéro"
+" et l'indicatif de votre pays."
 
 #: ps/plone/mls/browser/developments/details.py:202
 msgid "help_sender_from_address"
