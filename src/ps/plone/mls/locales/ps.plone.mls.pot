@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2025-04-22 15:38+0000\n"
+"POT-Creation-Date: 2025-04-22 16:25+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -183,7 +183,7 @@ msgstr ""
 msgid "Cancel"
 msgstr ""
 
-#: ps/plone/mls/browser/developments/details.py:238
+#: ps/plone/mls/browser/developments/details.py:242
 msgid "Captcha"
 msgstr ""
 
@@ -767,7 +767,7 @@ msgstr ""
 msgid "We are sorry, but we couldn't find any listings."
 msgstr ""
 
-#: ps/plone/mls/browser/developments/details.py:323
+#: ps/plone/mls/browser/developments/details.py:327
 msgid "Your contact request was sent successfully."
 msgstr ""
 
@@ -785,8 +785,12 @@ msgstr ""
 msgid "development_contact_email_agent"
 msgstr ""
 
-#: ps/plone/mls/browser/developments/details.py:226
+#: ps/plone/mls/browser/developments/details.py:230
 msgid "help_message"
+msgstr ""
+
+#: ps/plone/mls/browser/developments/details.py:220
+msgid "help_phone"
 msgstr ""
 
 #: ps/plone/mls/browser/developments/details.py:202
@@ -798,7 +802,7 @@ msgid "help_sender_fullname"
 msgstr ""
 
 #. Default: "Message"
-#: ps/plone/mls/browser/developments/details.py:232
+#: ps/plone/mls/browser/developments/details.py:236
 msgid "label_message"
 msgstr ""
 
@@ -808,7 +812,7 @@ msgid "label_name"
 msgstr ""
 
 #. Default: "Phone"
-#: ps/plone/mls/browser/developments/details.py:221
+#: ps/plone/mls/browser/developments/details.py:225
 msgid "label_phone"
 msgstr ""
 
@@ -818,7 +822,7 @@ msgid "label_sender_from_address"
 msgstr ""
 
 #. Default: "Subject"
-#: ps/plone/mls/browser/developments/details.py:243
+#: ps/plone/mls/browser/developments/details.py:247
 msgid "label_subject"
 msgstr ""
 
