@@ -8,6 +8,7 @@
 .coverage
 .installed.cfg
 .mr.developer.cfg
+.python-version
 .vscode/
 bin/
 checkouts/
