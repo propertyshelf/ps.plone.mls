@@ -5,7 +5,8 @@ Changelog
 0.19 (unreleased)
 -----------------
 
-- Nothing changed yet.
+- Use the new settings for diffrent mapping providers for the Development Details view.
+- Fix problematic translations.
 
 
 0.18 (2023-08-11)
