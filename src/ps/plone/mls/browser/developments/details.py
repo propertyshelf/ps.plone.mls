@@ -199,37 +199,37 @@ class IContactForm(form.Schema):
 
     sender_from_address = schema.TextLine(
         constraint=utils.validate_email,
-        description=PMF(
+        description=_(
             u'help_sender_from_address',
             default=u'',
         ),
         required=True,
-        title=PMF(u'label_sender_from_address', default=u'E-Mail'),
+        title=_(u'label_sender_from_address', default=u'Email'),
     )
 
     name = schema.TextLine(
-        description=PMF(
+        description=_(
             u'help_sender_fullname',
             default=u'',
         ),
         required=True,
-        title=PMF(u'label_name', default=u'Name'),
+        title=_(u'label_name', default=u'Name'),
     )
 
     phone = schema.TextLine(
         required=False,
-        title=PMF(u'label_phone', default=u'Phone'),
+        title=_(u'label_phone', default=u'Phone'),
     )
 
     message = schema.Text(
         constraint=utils.contains_nuts,
-        description=PMF(
+        description=_(
             u'help_message',
             default=u'',
         ),
         max_length=1000,
         required=True,
-        title=PMF(u'label_message', default=u'Message'),
+        title=_(u'label_message', default=u'Message'),
     )
 
     form.widget(captcha=CaptchaFieldWidget)
@@ -240,7 +240,7 @@ class IContactForm(form.Schema):
 
     subject = schema.TextLine(
         required=False,
-        title=PMF(u'label_subject', default=u'Subject'),
+        title=_(u'label_subject', default=u'Subject'),
     )
 
 
