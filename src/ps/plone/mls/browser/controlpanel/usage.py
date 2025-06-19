@@ -3,9 +3,9 @@
 
 from plone import api
 from plone.mls.core.interfaces import ILocalMLSSettings
-from plone.mls.listing.browser.listing_collection import IListingCollection
-from plone.mls.listing.browser.listing_search import IListingSearch
-from plone.mls.listing.browser.recent_listings import IRecentListings
+from plone.mls.listing.browser.interfaces import IListingCollection
+from plone.mls.listing.browser.interfaces import IListingSearch
+from plone.mls.listing.browser.interfaces import IRecentListings
 from plone.mls.listing.interfaces import ILocalAgencyInfo
 from Products.Five.browser import BrowserView
 from ps.plone.mls.browser.listings.featured import IFeaturedListings
