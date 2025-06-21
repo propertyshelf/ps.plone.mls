@@ -5,7 +5,7 @@ Changelog
 0.20 (unreleased)
 -----------------
 
-- Nothing changed yet.
+- Update the location of the interface classes referenced in plone.mls.listing.
 
 
 0.19 (2025-04-22)
