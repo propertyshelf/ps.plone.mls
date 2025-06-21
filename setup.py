@@ -3,7 +3,7 @@
 
 from setuptools import setup, find_packages
 
-version = '0.20'
+version = '0.21.dev0'
 description = "Propertyshelf MLS Plone Embedding."
 long_description = ('\n'.join([
     open('README.rst').read(),
