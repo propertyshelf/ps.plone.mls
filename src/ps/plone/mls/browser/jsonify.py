@@ -6,10 +6,10 @@ from collective.jsonify.methods import get_catalog_results  # noqa: F401
 from collective.jsonify.methods import get_children  # noqa: F401
 from collective.jsonify.wrapper import Wrapper
 from plone.mls.core.interfaces import ILocalMLSSettings
-from plone.mls.listing.browser.listing_collection import IListingCollection
-from plone.mls.listing.browser.listing_search import IListingSearch
+from plone.mls.listing.browser.interfaces import IListingCollection
+from plone.mls.listing.browser.interfaces import IListingSearch
+from plone.mls.listing.browser.interfaces import IRecentListings
 from plone.mls.listing.browser.localconfig import ILocalAgencyInfo
-from plone.mls.listing.browser.recent_listings import IRecentListings
 from ps.plone.mls import config
 from ps.plone.mls.browser.listings.featured import IFeaturedListings
 from ps.plone.mls.interfaces import IDevelopmentCollection
