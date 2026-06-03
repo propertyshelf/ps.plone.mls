@@ -1,5 +1,6 @@
 .cache
 .venv
+CLAUDE.md
 *.egg-info
 *.mo
 *.pyc
