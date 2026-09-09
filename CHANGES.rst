@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-0.21 (unreleased)
+0.21 (2026-09-09)
 -----------------
 
 - Fix malformed listing links on the Plone 5 development details view. The template built
