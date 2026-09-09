@@ -5,7 +5,12 @@ Changelog
 0.21 (unreleased)
 -----------------
 
-- Nothing changed yet.
+- Fix malformed listing links on the Plone 5 development details view. The template built
+  its base URL from ``plone_context_state/current_page_url``, which includes the request
+  query string, so any query parameter was emitted *inside* the listing URLs
+  (``...?set_language=es/rs2600013``) and accumulated a further path segment on every
+  click. Now uses ``view/base_url`` plus the development id, matching the Plone 4
+  template. Also fixes the ``<base href>`` on the same page.
 
 
 0.20 (2025-06-20)
