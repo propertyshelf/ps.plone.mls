@@ -1,6 +1,5 @@
 .cache
 .venv
-CLAUDE.md
 *.egg-info
 *.mo
 *.pyc
@@ -11,6 +10,7 @@ CLAUDE.md
 .mr.developer.cfg
 .python-version
 .vscode/
+CLAUDE.md
 bin/
 checkouts/
 coverage/
