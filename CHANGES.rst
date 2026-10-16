@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-0.22 (unreleased)
+0.22 (2026-10-16)
 -----------------
 
 - Export the plone.app.multilingual translation group as ``_translation_group`` in the
