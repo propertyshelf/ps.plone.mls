@@ -5,7 +5,9 @@ Changelog
 0.22 (unreleased)
 -----------------
 
-- Nothing changed yet.
+- Export the plone.app.multilingual translation group as ``_translation_group`` in the
+  collective.jsonify ``MLSWrapper``, so content migrations can re-link translations.
+  The upstream wrapper only exports LinguaPlone translations.
 
 
 0.21 (2026-09-09)

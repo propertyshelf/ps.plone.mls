@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 """Custom wrapper for collective.jsonify."""
 
+from Acquisition import aq_base
 from collective.jsonify.methods import _clean_dict
 from collective.jsonify.methods import get_catalog_results  # noqa: F401
 from collective.jsonify.methods import get_children  # noqa: F401
@@ -36,6 +37,11 @@ MLS_IFACE_MAPPING = {
     ILocalAgencyInfo: config.SETTINGS_LOCAL_AGENCY,
     ILocalMLSSettings: config.SETTINGS_LOCAL_MLS,
 }
+
+#: Attribute holding the plone.app.multilingual translation group. Both
+#: plone.multilingual (Plone 4) and plone.app.multilingual (Plone 5) store it
+#: under this name, so reading it needs no multilingual imports.
+TG_ATTRIBUTE_NAME = '_plone.tg'
 
 
 def get_item(self):
@@ -78,6 +84,18 @@ class MLSWrapper(Wrapper):
     def __init__(self, context):
         super(MLSWrapper, self).__init__(context)
         self.get_mls_configuration()
+        self.get_translation_group()
+
+    def get_translation_group(self):
+        """Export the plone.app.multilingual translation group.
+
+        Translations share one translation group id, so items with the same
+        ``_translation_group`` are translations of each other. The upstream
+        ``get_translation`` only handles LinguaPlone.
+        """
+        tg = getattr(aq_base(self.context), TG_ATTRIBUTE_NAME, None)
+        if tg:
+            self['_translation_group'] = tg
 
     def get_mls_configuration(self):
         try:
