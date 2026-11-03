@@ -22,3 +22,4 @@ eggs/
 htmlcov/
 parts/
 var/
+claude-tools/
