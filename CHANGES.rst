@@ -5,7 +5,9 @@ Changelog
 0.23 (unreleased)
 -----------------
 
-- Nothing changed yet.
+- Fix 404 on development detail links in a development collection on a folderish
+  content type. Traversing a folder raises ``KeyError`` instead of ``AttributeError``,
+  which ``MLSItemTraverser`` didn't catch.
 
 
 0.22 (2026-10-16)

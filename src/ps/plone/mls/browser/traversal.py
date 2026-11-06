@@ -66,7 +66,7 @@ class MLSItemTraverser(DefaultPublishTraverse):
             return super(MLSItemTraverser, self).publishTraverse(
                 request, name,
             )
-        except (NotFound, AttributeError):
+        except (NotFound, AttributeError, KeyError):
             pass
 
         traverser_class = self._lookup_add_on_traverser()
@@ -74,7 +74,7 @@ class MLSItemTraverser(DefaultPublishTraverse):
             try:
                 traverser = traverser_class(self.context, self.request)
                 return traverser.publishTraverse(request, name)
-            except (NotFound, AttributeError):
+            except (NotFound, AttributeError, KeyError):
                 pass
         name = self.pre_lookup(name)
 
