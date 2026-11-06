@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-0.23 (unreleased)
+0.23 (2026-11-06)
 -----------------
 
 - Fix 404 on development detail links in a development collection on a folderish
